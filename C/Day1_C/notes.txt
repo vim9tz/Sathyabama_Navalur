@@ -1,112 +1,93 @@
-1. Preprocessing
-2. Compilation
-3. Execution (Run Time)
+================================================================================
+                      C PROGRAMMING FOUNDATION REFERENCE
+================================================================================
 
-Source code
-    ↓
-Preprocessor
-    ↓
-Compiler
-    ↓
-Assembler
-    ↓
-Object file
-    ↓
-Linker
-    ↓
-Executable program
-    ↓
-Operating system loads it
-    ↓
-CPU executes instructions
+1. THE C BUILD PIPELINE & COMPILATION STAGES
+--------------------------------------------------------------------------------
+Source Code 
+     ↓ 
+Preprocessor (Processes directives like #include, #define)
+     ↓ [Generates: .i Intermediate Preprocessed File]
+Compiler     (Translates C code into Assembly instructions)
+     ↓ [Generates: .s Assembly Code File]
+Assembler    (Converts Assembly instructions into Machine Code / Binary)
+     ↓ [Generates: .o / .obj Object File]
+Linker       (Combines object files and system library code into an executable)
+     ↓ [Generates: Executable binary file]
+Operating System Loads It 
+     ↓ 
+CPU Executes Instructions
 
- // Stage 1: Preprocessing (-E)
-gcc -E hello.c -o hello.i
- // Stage 2: Compilation (-S)
-gcc -S hello.c -o hello.s
- // Stage 3: Assembly (-C)
-gcc -c hello.c -o hello.o
-// Stage 4: Execution (Final Executable)
-gcc hello.o -o hello
+[COMPILATION COMMANDS]
+Stage 1: Preprocessing Only (-E)  ->  gcc -E hello.c -o hello.i
+Stage 2: Compilation Only (-S)    ->  gcc -S hello.c -o hello.s
+Stage 3: Assembly Only (-c)       ->  gcc -c hello.c -o hello.o
+Stage 4: Execution Linker (Final) ->  gcc hello.o -o hello
 
+================================================================================
+2. DATA TYPE TAXONOMY & MODIFIERS
+--------------------------------------------------------------------------------
+A. Primitive Data Types
+   - char   : Character representation
+   - int    : Integer data
+   - float  : Single-precision floating point
+   - double : Double-precision floating point
+   - bool   : Boolean values (Requires <stdbool.h>)
+   - void   : Empty or dynamic type specifier
 
+B. Type Modifiers
+   -- Sign Modifiers (Changes alignment behavior around zero)
+      - signed   : Splits range evenly between positive and negative realms.
+                   Example: -128 to +127.
+      - unsigned : Eliminates negative space entirely. Capacity begins at 0.
+                   Example: 0 to 255.
+   -- Size Modifiers (Changes raw memory allocation)
+      - short    : Restricts capacity allocation (Typical: 2 Bytes / 16 bits).
+      - long     : Expands capacity allocation (Typical: 4 or 8 Bytes).
 
-// Primitve Data Types
-/*
-char 
-int
-float
-double
-bool
-void
-*/ 
+C. Non-Primitive Data Types
+   -- Derived Data Types
+      - Arrays
+      - Pointers
+      - Functions
+   -- User-Defined Data Types
+      - struct
+      - union
+      - enum
 
-// Type Modifiers
-/*
--- Sign Modifers (Changing Zero Alignments) --
-signed (Range split: Half negative, half positive (e.g., -128 to +127).)
-unsigned (Strips out negative capacity entirely, forcing the variable to start at exactly 0.)
+================================================================================
+3. COMPREHENSIVE FORMAT SPECIFIER & MEMORY MATRIX
+--------------------------------------------------------------------------------
+Data Type           | Specifier | Byte Size | Minimum Value          | Maximum Value
+--------------------+-----------+-----------+------------------------+---------------------
+char                | %c        | 1 Byte    | -128                   | 127
+short               | %hd       | 2 Bytes   | -32,768                | 32,767
+unsigned short      | %hu       | 2 Bytes   | 0                      | 65,535
+int                 | %d        | 4 Bytes   | -2,147,483,648         | 2,147,483,647
+unsigned int        | %u        | 4 Bytes   | 0                      | 4,294,967,295
+long long int       | %lld      | 8 Bytes   | -9.22 × 10¹⁸           | 9.22 × 10¹⁸
+float               | %f        | 4 Bytes   | ≈ -3.4 × 10³⁸          | ≈ 3.4 × 10³⁸
+double              | %lf       | 8 Bytes   | ≈ -1.7 × 10³⁰⁸         | ≈ 1.7 × 10³⁰⁸
 
--- Size Modifiers (Changing Memory Capacity)
-short (Typical Size: 2 Bytes (16 bits).)
-long (Typical Size: 4 to 8 Bytes (32 to 64 bits).)
-*/
+[OUTPUT PRECISION CONTROLS]
+%.0f  - Displays float with 0 decimal places (rounds to nearest integer).
+%.1f  - Displays float with exactly 1 decimal place.
+%.2f  - Displays float with exactly 2 decimal places.
+%.4lf - Displays double with exactly 4 decimal places.
 
-// Non-Primitve Data Types
-/*
--- Derived Data Types --
-Arrays
-Pointer
-Functions
+================================================================================
+4. OPERATORS MATRIX
+--------------------------------------------------------------------------------
+- Arithmetic Operators:          +, -, *, /, % (Modulo)
+- Relational Operators:          ==, !=, >, <, >=, <=
+- Logical Operators:             && (AND), || (OR), ! (NOT)
+- Assignment Operators:          =, +=, -=, *=, /=, %=
+- Increment & Decrement:         ++, --
+- Bitwise Operators:             & (AND), | (OR), ^ (XOR), ~, << (Left Shift), >> (Right Shift)
 
--- User-Defined Data Types
-struct
-union
-enum
-*/
-
-// Format Specifiers
-
-/*
-data Type       Specifiers  Min Max
-char            %c  -128    127
-short          %hd  -32,768 32,767
-unsigned short %hu 0   65,535
-int            %d   -2,147,483,648  2,147,483,647
-unsigned int    %u  0   4,294,967,295
-long long int   %lld    -9.22 × 10¹⁸    9.22 × 10¹⁸
-%.2f
-%.0f
-%.4lf
-*/
-
-// Operators
-/*
-Arithmetic Operators
-(+, -, *, /, %)
-Relational Operators
-(!=, ==, >, <, >=, <=)
-Logical Operators
-(&&, ||, !)
-Assignment Operators
-(=, +=, -=, *=, /=, %=)
-Increment & Decrement
-(++, --)
-Bitwise Operators
-(&, |, ^, ~, <<, >>)
-
-  0 0 0 0   0 1 0 1  (Decimal 5)
-& 0 0 0 0   0 1 1 0  (Decimal 6)
--------------------
-  0 0 0 0   0 1 0 0  (Decimal 4)
-
-Write a standard C program that reads four inputs from the console on two separate lines:
-
-Line 1 contains two integers.
-Line 2 contains two floating-point numbers (decimals).
-
-The program must print exactly two lines of output:
-
-The sum and difference of the two integers (separated by a space).
-
-The sum and difference of the two float numbers (separated by a space, formatted to exactly one decimal place).
+[BITWISE & DEMONSTRATION]
+  00000101 (Decimal 5)
+& 00000110 (Decimal 6)
+-----------------------
+  00000100 (Decimal 4)
+================================================================================

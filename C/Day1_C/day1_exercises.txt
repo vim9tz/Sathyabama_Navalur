@@ -1,0 +1,186 @@
+================================================================================
+                      C PROGRAMMING LAB PROJECTS REFERENCE
+================================================================================
+
+PROJECT 1: CONSOLE ARITHMETIC WITH MIXED TYPES
+--------------------------------------------------------------------------------
+[Problem Description]
+Reads two integers on Line 1 and two floats on Line 2. Outputs the integer sum 
+and difference, followed by the float sum and difference rounded to 1 decimal place.
+
+[Source Code]
+#include <stdio.h>
+
+int main() {
+    int int1, int2;
+    float float1, float2;
+
+    // Read inputs
+    if (scanf("%d %d", &int1, &int2) != 2) return 1;
+    if (scanf("%f %f", &float1, &float2) != 2) return 1;
+
+    // Output calculated values
+    printf("%d %d\n", int1 + int2, int1 - int2);
+    printf("%.1f %.1f\n", float1 + float2, float1 - float2);
+
+    return 0;
+}
+
+--------------------------------------------------------------------------------
+PROJECT 2: ITERATIVE DIGITAL ROOT (DIGIT REDUCTION)
+--------------------------------------------------------------------------------
+[Problem Description]
+Repeatedly adds all digits of an integer until a single digit remains. Supports
+large boundary inputs up to INT_MAX (2,147,483,647) and zero instantly.
+
+[Source Code]
+#include <stdio.h>
+
+int main() {
+    long long num; // Using long long to safely handle inputs and parsing
+    
+    if (scanf("%lld", &num) != 1) return 1;
+    
+    if (num == 0) {
+        printf("0\n");
+        return 0;
+    }
+    
+    // Core mathematical logic using the digital root congruence formula
+    // (num - 1) % 9 + 1 safely handles all positive multi-step reductions
+    long long result = (num % 9 == 0) ? 9 : (num % 9);
+    
+    printf("%lld\n", result);
+    return 0;
+}
+
+--------------------------------------------------------------------------------
+PROJECT 3: CONSTANT-DRIVEN CIRCLE SURFACE AREA
+--------------------------------------------------------------------------------
+[Problem Description]
+Calculates circle area (Area = Pi * r^2) using an immutable single-precision 
+floating-point constant for Pi (3.14159). Limits the final output to 2 decimals.
+
+[Source Code]
+#include <stdio.h>
+
+int main() {
+    // Immutable Constant Declaration
+    const float PI = 3.14159f;
+    float radius, area;
+
+    // Read user input
+    if (scanf("%f", &radius) != 1) return 1;
+
+    // Processing using geometric formula
+    area = PI * radius * radius;
+
+    // Formatted Output
+    printf("%.2f\n", area);
+
+    return 0;
+}
+
+--------------------------------------------------------------------------------
+PROJECT 4: DUAL-PROFILE COORDINATE SWAPPING MECHANISMS
+--------------------------------------------------------------------------------
+[Problem Description]
+Swaps two user-provided coordinates twice: first using a temporary holding 
+variable (Profile 1), and second using pure math without a third variable (Profile 2).
+
+[Source Code]
+#include <stdio.h>
+
+int main() {
+    int coordA, coordB;
+    int originalA, originalB;
+    int temp;
+
+    printf("Enter Coordinate A: ");
+    if (scanf("%d", &coordA) != 1) return 1;
+    printf("Enter Coordinate B: ");
+    if (scanf("%d", &coordB) != 1) return 1;
+
+    // Save initial state for Profile 2 restoration
+    originalA = coordA;
+    originalB = coordB;
+
+    printf("\n--- Initial State ---\n");
+    printf("Coordinate A = %d, Coordinate B = %d\n", coordA, coordB);
+
+    // Profile 1: The Temporal Hold Method
+    temp = coordA;
+    coordA = coordB;
+    coordB = temp;
+    printf("\n[Profile 1] Swapped via Temporal Variable:\n");
+    printf("Coordinate A = %d, Coordinate B = %d\n", coordA, coordB);
+
+    // Resetting state back to baseline configurations
+    coordA = originalA;
+    coordB = originalB;
+
+    // Profile 2: The Pure Math Profile (Arithmetic)
+    coordA = coordA + coordB;
+    coordB = coordA - coordB;
+    coordA = coordA - coordB;
+    printf("\n[Profile 2] Swapped via Pure Arithmetic:\n");
+    printf("Coordinate A = %d, Coordinate B = %d\n", coordA, coordB);
+
+    return 0;
+}
+
+--------------------------------------------------------------------------------
+PROJECT 5: DYNAMIC UNIT METRIC CONVERTER CONSOLE APPLICATION
+--------------------------------------------------------------------------------
+[Problem Description]
+A double-precision multi-scale measurement tracking utility. Converts between
+Distance (KM/Miles) and Mass (KG/Pounds) with full input sanitation filtering.
+
+[Source Code]
+#include <stdio.h>
+
+int main() {
+    int choice;
+    double rawValue, result;
+    const double SCALE_FACTOR = 0.621371;
+    const double WEIGHT_FACTOR = 2.20462;
+
+    printf("Select conversion profile (1-4): ");
+    if (scanf("%d", &choice) != 1) {
+        printf("[ERROR]: Invalid selection configuration. Terminating.\n");
+        return 1;
+    }
+
+    // Input Sanitation Check
+    if (choice < 1 || choice > 4) {
+        printf("[ERROR]: Invalid selection configuration. Terminating.\n");
+        return 1;
+    }
+
+    printf("Enter raw value quantity to transform: ");
+    if (scanf("%lf", &rawValue) != 1) return 1;
+
+    // Dynamic Scale Conversions
+    switch(choice) {
+        case 1: // Kilometers to Miles
+            result = rawValue * SCALE_FACTOR;
+            printf("Result: %.2lf km = %.2lf miles\n", rawValue, result);
+            break;
+        case 2: // Miles to Kilometers
+            result = rawValue / SCALE_FACTOR;
+            printf("Result: %.2lf miles = %.2lf km\n", rawValue, result);
+            break;
+        case 3: // Kilograms to Pounds
+            result = rawValue * WEIGHT_FACTOR;
+            printf("Result: %.2lf kg = %.2lf lbs\n", rawValue, result);
+            break;
+        case 4: // Pounds to Kilograms
+            result = rawValue / WEIGHT_FACTOR;
+            printf("Result: %.2lf lbs = %.2lf kg\n", rawValue, result);
+            break;
+    }
+
+    return 0;
+}
+================================================================================
+
