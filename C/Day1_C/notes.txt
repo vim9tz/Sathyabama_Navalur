@@ -1,0 +1,112 @@
+1. Preprocessing
+2. Compilation
+3. Execution (Run Time)
+
+Source code
+    ↓
+Preprocessor
+    ↓
+Compiler
+    ↓
+Assembler
+    ↓
+Object file
+    ↓
+Linker
+    ↓
+Executable program
+    ↓
+Operating system loads it
+    ↓
+CPU executes instructions
+
+ // Stage 1: Preprocessing (-E)
+gcc -E hello.c -o hello.i
+ // Stage 2: Compilation (-S)
+gcc -S hello.c -o hello.s
+ // Stage 3: Assembly (-C)
+gcc -c hello.c -o hello.o
+// Stage 4: Execution (Final Executable)
+gcc hello.o -o hello
+
+
+
+// Primitve Data Types
+/*
+char 
+int
+float
+double
+bool
+void
+*/ 
+
+// Type Modifiers
+/*
+-- Sign Modifers (Changing Zero Alignments) --
+signed (Range split: Half negative, half positive (e.g., -128 to +127).)
+unsigned (Strips out negative capacity entirely, forcing the variable to start at exactly 0.)
+
+-- Size Modifiers (Changing Memory Capacity)
+short (Typical Size: 2 Bytes (16 bits).)
+long (Typical Size: 4 to 8 Bytes (32 to 64 bits).)
+*/
+
+// Non-Primitve Data Types
+/*
+-- Derived Data Types --
+Arrays
+Pointer
+Functions
+
+-- User-Defined Data Types
+struct
+union
+enum
+*/
+
+// Format Specifiers
+
+/*
+data Type       Specifiers  Min Max
+char            %c  -128    127
+short          %hd  -32,768 32,767
+unsigned short %hu 0   65,535
+int            %d   -2,147,483,648  2,147,483,647
+unsigned int    %u  0   4,294,967,295
+long long int   %lld    -9.22 × 10¹⁸    9.22 × 10¹⁸
+%.2f
+%.0f
+%.4lf
+*/
+
+// Operators
+/*
+Arithmetic Operators
+(+, -, *, /, %)
+Relational Operators
+(!=, ==, >, <, >=, <=)
+Logical Operators
+(&&, ||, !)
+Assignment Operators
+(=, +=, -=, *=, /=, %=)
+Increment & Decrement
+(++, --)
+Bitwise Operators
+(&, |, ^, ~, <<, >>)
+
+  0 0 0 0   0 1 0 1  (Decimal 5)
+& 0 0 0 0   0 1 1 0  (Decimal 6)
+-------------------
+  0 0 0 0   0 1 0 0  (Decimal 4)
+
+Write a standard C program that reads four inputs from the console on two separate lines:
+
+Line 1 contains two integers.
+Line 2 contains two floating-point numbers (decimals).
+
+The program must print exactly two lines of output:
+
+The sum and difference of the two integers (separated by a space).
+
+The sum and difference of the two float numbers (separated by a space, formatted to exactly one decimal place).
