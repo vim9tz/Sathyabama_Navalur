@@ -1,37 +1,40 @@
 ================================================================================
-                      C PROGRAMMING FOUNDATION REFERENCE
+                      C PROGRAMMING MASTER REFERENCE
 ================================================================================
 
 1. THE C BUILD PIPELINE & COMPILATION STAGES
 --------------------------------------------------------------------------------
 Source Code 
-     ↓ 
+     │ 
 Preprocessor (Processes directives like #include, #define)
-     ↓ [Generates: .i Intermediate Preprocessed File]
+     │ [Generates: .i Intermediate Preprocessed File]
 Compiler     (Translates C code into Assembly instructions)
-     ↓ [Generates: .s Assembly Code File]
+     │ [Generates: .s Assembly Code File]
 Assembler    (Converts Assembly instructions into Machine Code / Binary)
-     ↓ [Generates: .o / .obj Object File]
+     │ [Generates: .o / .obj Object File]
 Linker       (Combines object files and system library code into an executable)
-     ↓ [Generates: Executable binary file]
-Operating System Loads It 
-     ↓ 
+     │ [Generates: Executable binary file]
 CPU Executes Instructions
 
-[COMPILATION COMMANDS]
+[GCC COMPILATION COMMANDS]
 Stage 1: Preprocessing Only (-E)  ->  gcc -E hello.c -o hello.i
 Stage 2: Compilation Only (-S)    ->  gcc -S hello.c -o hello.s
 Stage 3: Assembly Only (-c)       ->  gcc -c hello.c -o hello.o
 Stage 4: Execution Linker (Final) ->  gcc hello.o -o hello
 
+Direct One-Step Build & Run:
+gcc hello.c -o hello
+./hello
+
+
 ================================================================================
 2. DATA TYPE TAXONOMY & MODIFIERS
 --------------------------------------------------------------------------------
 A. Primitive Data Types
-   - char   : Character representation
-   - int    : Integer data
-   - float  : Single-precision floating point
-   - double : Double-precision floating point
+   - char   : Character representation (1 Byte)
+   - int    : Integer data (4 Bytes typical)
+   - float  : Single-precision floating point (4 Bytes)
+   - double : Double-precision floating point (8 Bytes)
    - bool   : Boolean values (Requires <stdbool.h>)
    - void   : Empty or dynamic type specifier
 
@@ -46,14 +49,9 @@ B. Type Modifiers
       - long     : Expands capacity allocation (Typical: 4 or 8 Bytes).
 
 C. Non-Primitive Data Types
-   -- Derived Data Types
-      - Arrays
-      - Pointers
-      - Functions
-   -- User-Defined Data Types
-      - struct
-      - union
-      - enum
+   -- Derived Data Types: Arrays, Pointers, Functions
+   -- User-Defined Types: struct, union, enum
+
 
 ================================================================================
 3. COMPREHENSIVE FORMAT SPECIFIER & MEMORY MATRIX
@@ -65,9 +63,9 @@ short               | %hd       | 2 Bytes   | -32,768                | 32,767
 unsigned short      | %hu       | 2 Bytes   | 0                      | 65,535
 int                 | %d        | 4 Bytes   | -2,147,483,648         | 2,147,483,647
 unsigned int        | %u        | 4 Bytes   | 0                      | 4,294,967,295
-long long int       | %lld      | 8 Bytes   | -9.22 × 10¹⁸           | 9.22 × 10¹⁸
-float               | %f        | 4 Bytes   | ≈ -3.4 × 10³⁸          | ≈ 3.4 × 10³⁸
-double              | %lf       | 8 Bytes   | ≈ -1.7 × 10³⁰⁸         | ≈ 1.7 × 10³⁰⁸
+long long int       | %lld      | 8 Bytes   | -9.22 x 10^18          | 9.22 x 10^18
+float               | %f        | 4 Bytes   | approx. -3.4 x 10^38   | approx. 3.4 x 10^38
+double              | %lf       | 8 Bytes   | approx. -1.7 x 10^308  | approx. 1.7 x 10^308
 
 [OUTPUT PRECISION CONTROLS]
 %.0f  - Displays float with 0 decimal places (rounds to nearest integer).
@@ -75,19 +73,160 @@ double              | %lf       | 8 Bytes   | ≈ -1.7 × 10³⁰⁸         | �
 %.2f  - Displays float with exactly 2 decimal places.
 %.4lf - Displays double with exactly 4 decimal places.
 
-================================================================================
-4. OPERATORS MATRIX
---------------------------------------------------------------------------------
-- Arithmetic Operators:          +, -, *, /, % (Modulo)
-- Relational Operators:          ==, !=, >, <, >=, <=
-- Logical Operators:             && (AND), || (OR), ! (NOT)
-- Assignment Operators:          =, +=, -=, *=, /=, %=
-- Increment & Decrement:         ++, --
-- Bitwise Operators:             & (AND), | (OR), ^ (XOR), ~, << (Left Shift), >> (Right Shift)
 
-[BITWISE & DEMONSTRATION]
-  00000101 (Decimal 5)
-& 00000110 (Decimal 6)
------------------------
-  00000100 (Decimal 4)
 ================================================================================
+4. C LITERAL SUFFIX REFERENCE TABLE
+--------------------------------------------------------------------------------
+--- INTEGER SUFFIXES ---
+Suffix    Meaning               Example    Type Assigned
+------------------------------------------------------------------------
+U         Unsigned              100U       unsigned int
+L         Long                  100L       long int
+UL        Unsigned Long         100UL      unsigned long int
+LL        Long Long             100LL      long long int
+ULL       Unsigned Long Long    100ULL     unsigned long long int
+
+--- FLOATING-POINT SUFFIXES ---
+Suffix    Meaning               Example    Type Assigned
+------------------------------------------------------------------------
+F         Float                 3.14F      float
+(None)    Double (Default)      3.14       double
+L         Long Double           3.14L      long double
+
+--- FIXED-WIDTH INTEGER SUFFIXES (C23 Standard & Later) ---
+Suffix    Meaning               Example    Type Assigned
+------------------------------------------------------------------------
+U8        Unsigned 8-bit        100U8      uint8_t
+U16       Unsigned 16-bit       100U16     uint16_t
+U32       Unsigned 32-bit       100U32     uint32_t
+U64       Unsigned 64-bit       100U64     uint64_t
+I8        Signed 8-bit          100I8      int8_t
+I16       Signed 16-bit         100I16     int16_t
+I32       Signed 32-bit         100I32     int32_t
+I64       Signed 64-bit         100I64     int64_t
+
+NOTES:
+* Suffixes are case-insensitive ('u' or 'U', 'l' or 'L', 'f' or 'F').
+* For combination suffixes, order does not matter ('UL' or 'LU' are identical).
+* Standard decimal fractions (like 0.5) default to 'double' if no suffix is used.
+
+
+================================================================================
+5. STANDARD C MACROS REFERENCE
+--------------------------------------------------------------------------------
+Required Header for Integers       : #include <limits.h>
+Required Header for Floating-Point : #include <float.h>
+
+--- SIGNED INTEGER MACROS (<limits.h>) ---
+Macro Name      Exact Value                 Description
+--------------------------------------------------------------------------------
+SCHAR_MIN       -128                        Minimum signed char
+SCHAR_MAX       127                         Maximum signed char
+SHRT_MIN        -32,768                     Minimum short int
+SHRT_MAX        32,767                      Maximum short int
+INT_MIN         -2,147,483,648              Minimum standard int
+INT_MAX         2,147,483,647               Maximum standard int
+LONG_MIN        -2,147,483,648 (or lower)*  Minimum long int
+LONG_MAX        2,147,483,647  (or higher)* Maximum long int
+LLONG_MIN       -9,223,372,036,854,775,808  Minimum long long int
+LLONG_MAX       9,223,372,036,854,775,807   Maximum long long int
+
+--- UNSIGNED INTEGER MACROS (<limits.h>) ---
+Macro Name      Exact Value                 Description
+--------------------------------------------------------------------------------
+UCHAR_MAX       255                         Maximum unsigned char
+USHRT_MAX       65,535                      Maximum unsigned short int
+UINT_MAX        4,294,967,295               Maximum unsigned int
+ULONG_MAX       4,294,967,295  (or higher)* Maximum unsigned long int
+ULLONG_MAX      18,446,744,073,709,551,615  Maximum unsigned long long int
+
+*Note: On 64-bit Linux/macOS, LONG_MAX/ULONG_MAX match the 64-bit LLONG limits.
+       On 32-bit systems and all Windows systems, they match the 32-bit INT limits.
+       Unsigned minimum macros do not exist because they are always 0.
+
+--- FLOATING-POINT MACROS (<float.h>) ---
+Macro Name      Approximate Value           Description
+--------------------------------------------------------------------------------
+FLT_MIN         1.17549435e-38              Minimum positive float
+FLT_MAX         3.40282347e+38              Maximum finite float
+DBL_MIN         4.94065645e-324             Minimum positive double
+DBL_MAX         1.79769313e+308             Maximum finite double
+LDBL_MIN        3.36210314e-4932            Minimum positive long double
+LDBL_MAX        1.18973149e+4932            Maximum finite long double
+
+
+================================================================================
+6. OPERATORS MATRIX & BITWISE OPERATIONS
+--------------------------------------------------------------------------------
+- Arithmetic Operators  : +, -, *, /, % (Modulo)
+- Relational Operators  : ==, !=, >, <, >=, <=
+- Logical Operators     : && (AND), || (OR), ! (NOT)
+- Assignment Operators  : =, +=, -=, *=, /=, %=
+- Increment / Decrement : ++, --
+- Bitwise Operators     : & (AND), | (OR), ^ (XOR), ~ (NOT), << (Left Shift), >> (Right Shift)
+
+TRUTH TABLE:
++---------+---------+---------+---------+---------+---------+
+| Input A | Input B | AND (&) | OR (|)  | XOR (^) | NOT (~A)|
++---------+---------+---------+---------+---------+---------+
+|    0    |    0    |    0    |    0    |    0    |    1    |
+|    0    |    1    |    0    |    1    |    1    |    1    |
+|    1    |    0    |    0    |    1    |    1    |    0    |
+|    1    |    1    |    1    |    1    |    0    |    0    |
++---------+---------+---------+---------+---------+---------+
+
+BITWISE EXAMPLES:
+  00000101 (Decimal 5)          00000101 (Decimal 5)          00000101 (Decimal 5)
+& 00000110 (Decimal 6)        | 00000110 (Decimal 6)        ^ 00000110 (Decimal 6)
+-----------------------       -----------------------       -----------------------
+  00000100 (Decimal 4)          00000111 (Decimal 7)          00000011 (Decimal 3)
+
+~ 00000101 (Decimal 5) -> 11111010 (Decimal -6)
+~ 00000110 (Decimal 6) -> 11111001 (Decimal -7)
+
+BINARY LAYOUT (8-bit Decimal 5):
+  Points:  128   64   32   16    8    4    2    1
+  Binary:    0    0    0    0    0    1    0    1  (4 + 1 = 5)
+
+BINARY TO DECIMAL REFERENCE:
++-----------+-----------+------------+------------+----------------+
+| Binary    | Far-Left  | Far-Right  | Odd/Even?  | Decimal Result |
++-----------+-----------+------------+------------+----------------+
+| 0000 0101 | 0 (Pos)   | 1 (Odd)    | Positive   |  5             |
+| 0000 0110 | 0 (Pos)   | 0 (Even)   | Positive   |  6             |
+| 1111 1011 | 1 (Neg)   | 1 (Odd)    | Negative   | -5             |
+| 1111 1010 | 1 (Neg)   | 0 (Even)   | Negative   | -6             |
++-----------+-----------+------------+------------+----------------+
+
+LEFT AND RIGHT SHIFT:
++---------+-----------+-----------+------------------+-----------------+
+| Decimal | Old Bits  | Operation | New Bits         | Decimal Result  |
++---------+-----------+-----------+------------------+-----------------+
+| 5       | 0000 0101 | 5 << 1    | 0000 1010        | 10 (Double it)  |
+| 5       | 0000 0101 | 5 << 2    | 0001 0100        | 20 (Double twice)|
+| 5       | 0000 0101 | 5 >> 1    | 0000 0010        | 2  (Halve it)   |
+| 5       | 0000 0101 | 5 >> 2    | 0000 0001        | 1  (Halve twice)|
++---------+-----------+-----------+------------------+-----------------+
+
+EXAMPLE 1: Shift Left (3 << 2)
+  Step 1: Start bits for 3  -> 0000 0011
+  Step 2: Push left by 2    -> 0000 1100
+  Step 3: Calculate value   -> 8 + 4 = 12
+
+EXAMPLE 2: Shift Right (3 >> 2)
+  Step 1: Start bits for 3  -> 0000 0011
+  Step 2: Push right by 2   -> 0000 0000
+  Step 3: Calculate value   -> 0
+
+
+================================================================================
+7. ABSOLUTE VALUE FUNCTIONS
+--------------------------------------------------------------------------------
++-----------+-----------+-------------------+----------------------------+
+| Data Type | Function  | Required Header   | Syntax Example             |
++-----------+-----------+-------------------+----------------------------+
+| int       | abs(x)    | #include <stdlib.h> | int pos = abs(-5);         |
+| long      | labs(x)   | #include <stdlib.h> | long pos = labs(-123456L); |
+| double    | fabs(x)   | #include <math.h>   | double pos = fabs(-5.43);  |
+| float     | fabsf(x)  | #include <math.h>   | float pos = fabsf(-3.14f); |
++-----------+-----------+-------------------+----------------------------+
