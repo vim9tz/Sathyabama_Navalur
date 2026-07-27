@@ -10,7 +10,7 @@
 
 1. [Variables, Data Types and Operators](#variables-data-types-and-operators) — 8 problems
 2. [Conditional Statements and Looping Statements](#conditional-statements-and-looping-statements) — 10 problems
-3. [Arrays](#arrays) — 10 problems
+3. [Arrays](#arrays) — 10 **problems**
 4. [Strings](#strings) — 10 problems
 5. [Structures & Union](#structures--union) — 9 problems
 6. [Pointers](#pointers) — 10 problems
