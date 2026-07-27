@@ -156,29 +156,29 @@
 
 ## Problem 1.1: Reverse Three-Digit Number
 
-### Problem Statement
+**Problem Statement**
 
 Given a three-digit integer, reverse its digits using arithmetic operators only (no loops, arrays, or strings).
 
-### Sample Input
+**Sample Input**
 
 ```text
 654
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 Enter a 3-digit integer: Output: 456
 ```
 
-### Explanation
+**Explanation**
 
 We use the modulo operator ( % 10 ) to extract individual units from the three-digit number and integer division ( / 10 ) to shift right. Recombining them as d1*100 + d2*10 + d3 effectively reverses the digits without any looping constructs.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Reversed Number} = (N \pmod{10}) \times 100 + \left(\lfloor \frac{N}{10} \rfloor \pmod{10}\right) \times 10 + \lfloor \frac{N}{100} \rfloor$$
 
@@ -186,7 +186,7 @@ $$\text{Reversed Number} = (N \pmod{10}) \times 100 + \left(\lfloor \frac{N}{10}
 > **Key Insight**: Modulo operator `% 10` extracts the lowest-order digit, while integer division `/ 10` truncates the rightmost digit.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -203,14 +203,14 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `num` = `456`
 - `rev`, `d1`, `d2`, `d3` are uninitialized.
 
-#### 2. Execution Trace
+**2. Execution Trace**
 
 | Step        | Code Line                         | Operation / Calculation                             | Intermediate Value      | Variable State       |
 | :---------- | :-------------------------------- | :-------------------------------------------------- | :---------------------- | :------------------- |
@@ -221,7 +221,7 @@ int main() {
 | **5** | `rev = d1 * 100 + d2 * 10 + d3` | `(6 * 100) + (5 * 10) + 4 = 600 + 50 + 4`         | `654`                 | `rev` = 654        |
 | **6** | `printf("Output: %d\n", rev)`   | Print result to`stdout`                           | Displays`Output: 654` | Final Output:`654` |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -230,29 +230,29 @@ int main() {
 
 ## Problem 1.2: Electricity Bill Calculator
 
-### Problem Statement
+**Problem Statement**
 
 Calculate total electricity bill based on slabs: First 100 units @ ₹3/unit, next 100 units @ ₹5/unit, remaining @ ₹8/unit.
 
-### Sample Input
+**Sample Input**
 
 ```text
 1200
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 Enter units: Output: 8800
 ```
 
-### Explanation
+**Explanation**
 
 The bill is computed using conditional branching based on consumption slabs. Units exceeding 200 pay full rate for the first two slabs (100*3 + 100*5) plus ₹8 per remaining unit.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Bill Amount} = \begin{cases} U \times 3 & \text{if } U \le 100 \\ 100 \times 3 + (U - 100) \times 5 & \text{if } 100 < U \le 200 \\ 100 \times 3 + 100 \times 5 + (U - 200) \times 8 & \text{if } U > 200 \end{cases}$$
 
@@ -260,7 +260,7 @@ $$\text{Bill Amount} = \begin{cases} U \times 3 & \text{if } U \le 100 \\ 100 \t
 > **Slab Logic**: Units are accumulated sequentially across pricing tiers to compute non-linear utility tariffs.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -281,14 +281,14 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `units` = `250`
 - `bill` = `0.0`
 
-#### 2. Execution Trace
+**2. Execution Trace**
 
 | Step        | Code Line                          | Condition Evaluated        | Branch Taken        | Calculation                                                                        | Variable State                              |
 | :---------- | :--------------------------------- | :------------------------- | :------------------ | :--------------------------------------------------------------------------------- | :------------------------------------------ |
@@ -297,7 +297,7 @@ int main() {
 | **3** | `else`                           | N/A                        | Enter`else` block | Slab 1:`100 * 3 = 300`Slab 2: `100 * 5 = 500`Slab 3: `(250 - 200) * 8 = 400` | `bill` = `300 + 500 + 400` = `1200.0` |
 | **4** | `printf("Output: %.0f\n", bill)` | N/A                        | Print output        | Format as integer:`1200`                                                         | Final Output:`1200`                       |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -306,29 +306,29 @@ int main() {
 
 ## Problem 1.3: Time Conversion
 
-### Problem Statement
+**Problem Statement**
 
 Convert total input seconds into Hours, Minutes, and Seconds.
 
-### Sample Input
+**Sample Input**
 
 ```text
 7384
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 Enter total seconds: 2 Hours 3 Minutes 4 Seconds
 ```
 
-### Explanation
+**Explanation**
 
 1 Hour = 3600 seconds. Dividing total seconds by 3600 gives total hours. The remainder modulo 3600 gives total remaining seconds, which when divided by 60 gives minutes, and modulo 60 gives remaining seconds.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Hours} = \lfloor \frac{S}{3600} \rfloor, \quad \text{Minutes} = \lfloor \frac{S \pmod{3600}}{60} \rfloor, \quad \text{Seconds} = S \pmod{60}$$
 
@@ -336,7 +336,7 @@ $$\text{Hours} = \lfloor \frac{S}{3600} \rfloor, \quad \text{Minutes} = \lfloor 
 > **Time Conversion**: $1 \text{ Hour} = 3600 \text{ Seconds}$, $1 \text{ Minute} = 60 \text{ Seconds}$.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -352,13 +352,13 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `total_sec` = `7384`
 
-#### 2. Execution Trace
+**2. Execution Trace**
 
 | Step        | Code Line                  | Operation / Calculation         | Intermediate Result             | Variable State   |
 | :---------- | :------------------------- | :------------------------------ | :------------------------------ | :--------------- |
@@ -368,7 +368,7 @@ int main() {
 | **4** | `sec = total_sec % 60`   | Remaining seconds:`7384 % 60` | `7384 % 60 = 4`               | `sec` = 4      |
 | **5** | `printf(...)`            | Format string output            | `2 Hours 3 Minutes 4 Seconds` | Output displayed |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -377,29 +377,29 @@ int main() {
 
 ## Problem 1.4: Salary Calculation
 
-### Problem Statement
+**Problem Statement**
 
 Calculate Gross Salary where HRA = 20% of Basic, DA = 40% of Basic.
 
-### Sample Input
+**Sample Input**
 
 ```text
 25000
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 Output: 40000.00
 ```
 
-### Explanation
+**Explanation**
 
 Gross salary is calculated as the sum of Basic salary, House Rent Allowance (HRA), and Dearness Allowance (DA). HRA is 0.2 * Basic, and DA is 0.4 * Basic, totaling 1.6 * Basic.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Gross Salary} = \text{Basic} + \text{HRA} + \text{DA} = \text{Basic} + (0.20 \times \text{Basic}) + (0.40 \times \text{Basic}) = 1.60 \times \text{Basic}$$
 
@@ -407,7 +407,7 @@ $$\text{Gross Salary} = \text{Basic} + \text{HRA} + \text{DA} = \text{Basic} + (
 > **Percentage Scaling**: Fixed percentage allowances are directly proportional to the baseline salary.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -423,13 +423,13 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `basic` = `25000.00`
 
-#### 2. Execution Trace
+**2. Execution Trace**
 
 | Step        | Code Line                           | Calculation                         | Intermediate Value   | Variable State            |
 | :---------- | :---------------------------------- | :---------------------------------- | :------------------- | :------------------------ |
@@ -438,7 +438,7 @@ int main() {
 | **3** | `gross = basic + hra + da`        | Gross sum:`25000 + 5000 + 10000`  | `40000.00`         | `gross` = 40000.00      |
 | **4** | `printf("Output: %.2f\n", gross)` | Format output to 2 decimal places   | `Output: 40000.00` | Final Output:`40000.00` |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -447,29 +447,29 @@ int main() {
 
 ## Problem 1.5: Swap Without Temporary Variable
 
-### Problem Statement
+**Problem Statement**
 
 Swap two integers using arithmetic operators only without creating a auxiliary variable.
 
-### Sample Input
+**Sample Input**
 
 ```text
 15 25
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 Output: 25 15
 ```
 
-### Explanation
+**Explanation**
 
 Summing both variables ( a = a + b ) holds their combined value. Subtracting b from this sum yields original a (stored in b ), and subtracting new b from sum yields original b (stored in a ).
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\begin{aligned} a_1 &= a_0 + b_0 \\ b_1 &= a_1 - b_0 = (a_0 + b_0) - b_0 = a_0 \\ a_2 &= a_1 - b_1 = (a_0 + b_0) - a_0 = b_0 \end{aligned}$$
 
@@ -477,7 +477,7 @@ $$\begin{aligned} a_1 &= a_0 + b_0 \\ b_1 &= a_1 - b_0 = (a_0 + b_0) - b_0 = a_0
 > **Arithmetic Swap**: The sum $a + b$ acts as a temporary accumulator holding both variable states simultaneously.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -493,14 +493,14 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `a` = `15`
 - `b` = `25`
 
-#### 2. Execution Trace
+**2. Execution Trace**
 
 | Step        | Statement       | Operation            | Resulting Variable States      | Notes                                            |
 | :---------- | :-------------- | :------------------- | :----------------------------- | :----------------------------------------------- |
@@ -509,7 +509,7 @@ int main() {
 | **3** | `a = a - b`   | `40 - 15`          | `a` = `25`, `b` = `15` | `a` now holds original value of `b`          |
 | **4** | `printf(...)` | Print`a` and `b` | `Output: 25 15`              | Values successfully swapped without temp storage |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -518,29 +518,29 @@ int main() {
 
 ## Problem 1.6: Find Largest Without Relational Operators
 
-### Problem Statement
+**Problem Statement**
 
 Find the maximum of two integers without using `if`, `switch`, loops, relational operators (`>`, `<`), or ternary operators.
 
-### Sample Input
+**Sample Input**
 
 ```text
 45 78
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 Output: 78
 ```
 
-### Explanation
+**Explanation**
 
 The mathematical formula max(a,b) = (a + b + |a - b|) / 2 utilizes the absolute difference between a and b . If a >= b , a - b is positive, giving 2a/2 = a . If a < b , |a - b| equals b - a , giving 2b/2 = b .
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Max}(a, b) = \frac{a + b + |a - b|}{2}$$
 
@@ -548,7 +548,7 @@ $$\text{Max}(a, b) = \frac{a + b + |a - b|}{2}$$
 > **Branchless Comparison**: Uses absolute difference $|a - b|$ to evaluate the maximum without branching instructions.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -563,14 +563,14 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `a` = `45`
 - `b` = `78`
 
-#### 2. Execution Trace
+**2. Execution Trace**
 
 | Step        | Code Line                       | Operation / Calculation     | Intermediate Value | Variable State                |
 | :---------- | :------------------------------ | :-------------------------- | :----------------- | :---------------------------- |
@@ -579,7 +579,7 @@ int main() {
 | **3** | `(156) / 2`                   | Integer division`156 / 2` | `78`             | `max` = 78                  |
 | **4** | `printf("Output: %d\n", max)` | Output maximum value        | `Output: 78`     | Final Output:`78`           |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -588,29 +588,29 @@ int main() {
 
 ## Problem 1.7: Digital Lock Code
 
-### Problem Statement
+**Problem Statement**
 
 Given a 4-digit number, add 5 to each digit, take modulo 10 of each, and reverse the final digit sequence.
 
-### Sample Input
+**Sample Input**
 
 ```text
 1234
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 Enter a 4-digit number: Output: 9876
 ```
 
-### Explanation
+**Explanation**
 
 Each digit from thousands to units is isolated using integer division and modulo arithmetic. We add 5 and apply % 10 to wrap around, then construct the reversed number.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$d_k' = (d_k + 5) \pmod{10}, \quad \text{Result} = d_4' \times 1000 + d_3' \times 100 + d_2' \times 10 + d_1'$$
 
@@ -618,7 +618,7 @@ $$d_k' = (d_k + 5) \pmod{10}, \quad \text{Result} = d_4' \times 1000 + d_3' \tim
 > **Cipher Encryption**: Cipher shift $(x + 5) \pmod{10}$ maps each digit into a rotated 0–9 numeric space.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -637,13 +637,13 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `code` = `1234`
 
-#### 2. Execution Trace
+**2. Execution Trace**
 
 | Step        | Target Variable    | Digit Extraction                                           | Add 5 & Modulo 10 Operation | Value             |
 | :---------- | :----------------- | :--------------------------------------------------------- | :-------------------------- | :---------------- |
@@ -653,7 +653,7 @@ int main() {
 | **4** | `d4` (units)     | `1234 % 10 = 4`                                          | `(4 + 5) % 10 = 9 % 10`   | `d4` = 9        |
 | **5** | `result`         | Recombination (Reversed):`d4*1000 + d3*100 + d2*10 + d1` | `9000 + 800 + 70 + 6`     | `result` = 9876 |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -662,29 +662,29 @@ int main() {
 
 ## Problem 1.8: Currency Note Calculator
 
-### Problem Statement
+**Problem Statement**
 
 Find the minimum number of currency notes required for ₹500, 200, 100, 50, 20, 10, 5, 2, 1.
 
-### Sample Input
+**Sample Input**
 
 ```text
 2888
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 Enter amount: 500:5 200:1 100:1 50:1 20:1 10:1 5:1 2:1 1:1
 ```
 
-### Explanation
+**Explanation**
 
 A greedy approach processes notes from highest to lowest denomination. Integer division determines how many notes of that denomination fit, and the modulo operator updates the remaining amount.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Count}(D_i) = \lfloor \frac{\text{Amount}}{\text{Denomination}_i} \rfloor, \quad \text{Remaining Amount} = \text{Amount} \pmod{\text{Denomination}_i}$$
 
@@ -692,7 +692,7 @@ $$\text{Count}(D_i) = \lfloor \frac{\text{Amount}}{\text{Denomination}_i} \rfloo
 > **Greedy Algorithm**: Always selects the largest available currency denomination first to minimize total notes.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -711,14 +711,14 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `amount` = `2893`
 - `notes[]` = `{500, 200, 100, 50, 20, 10, 5, 2, 1}`
 
-#### 2. Loop Execution Trace Table
+**2. Loop Execution Trace Table**
 
 | Pass (`i`) | Note Denomination (`notes[i]`) | Note Count (`count = amount / notes[i]`) | Remaining Amount (`amount %= notes[i]`) | Formatted Output Unit |
 | :----------- | :------------------------------- | :----------------------------------------- | :---------------------------------------- | :-------------------- |
@@ -732,7 +732,7 @@ int main() {
 | **7**  | ₹2                              | `3 / 2 = 1`                              | `3 % 2 = 1`                             | `2:1`               |
 | **8**  | ₹1                              | `1 / 1 = 1`                              | `1 % 1 = 0`                             | `1:1`               |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity                                |
 | ------- | ----------------------------------------- |
@@ -747,29 +747,29 @@ int main() {
 
 ## Problem 2.1: Equality Check
 
-### Problem Statement
+**Problem Statement**
 
 Accept two integers and check whether they are equal.
 
-### Sample Input
+**Sample Input**
 
 ```text
 15 15
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 Number1 and Number2 are equal
 ```
 
-### Explanation
+**Explanation**
 
 Uses the equality operator ( == ) inside an if-else statement to compare two integer inputs.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Result} = \begin{cases} \text{Equal} & \text{if } N_1 - N_2 = 0 \\ \text{Not Equal} & \text{if } N_1 - N_2 \neq 0 \end{cases}$$
 
@@ -777,7 +777,7 @@ $$\text{Result} = \begin{cases} \text{Equal} & \text{if } N_1 - N_2 = 0 \\ \text
 > **Equality Check**: Evaluates equality using relational `==` or arithmetic difference zero-testing.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -792,14 +792,14 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `num1` = `15`
 - `num2` = `15`
 
-#### 2. Execution Trace
+**2. Execution Trace**
 
 | Step        | Statement                                     | Condition Evaluated       | Result               | Action Taken                             |
 | :---------- | :-------------------------------------------- | :------------------------ | :------------------- | :--------------------------------------- |
@@ -807,7 +807,7 @@ int main() {
 | **2** | `if (num1 == num2)`                         | `15 == 15`              | `True`             | Enter`if` block                        |
 | **3** | `printf("Number1 and Number2 are equal\n")` | N/A                       | Output generated     | Print`"Number1 and Number2 are equal"` |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -816,29 +816,29 @@ int main() {
 
 ## Problem 2.2: Even or Odd Check
 
-### Problem Statement
+**Problem Statement**
 
 Check whether a given integer is even or odd.
 
-### Sample Input
+**Sample Input**
 
 ```text
 15
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 15 is an odd integer
 ```
 
-### Explanation
+**Explanation**
 
 An integer is even if its remainder when divided by 2 ( num % 2 ) is 0. Otherwise, it is odd.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Parity}(N) = \begin{cases} \text{Even} & \text{if } N \pmod 2 = 0 \\ \text{Odd} & \text{if } N \pmod 2 \neq 0 \end{cases}$$
 
@@ -846,7 +846,7 @@ $$\text{Parity}(N) = \begin{cases} \text{Even} & \text{if } N \pmod 2 = 0 \\ \te
 > **Parity Bit**: An integer is even if its lowest binary bit is 0 ($N \pmod 2 == 0$).
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -861,13 +861,13 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `num` = `15`
 
-#### 2. Execution Trace
+**2. Execution Trace**
 
 | Step        | Statement       | Operation / Calculation         | Condition              | Action / Branch                 |
 | :---------- | :-------------- | :------------------------------ | :--------------------- | :------------------------------ |
@@ -875,7 +875,7 @@ int main() {
 | **2** | `else`        | N/A                             | N/A                    | Enter`else` branch            |
 | **3** | `printf(...)` | Format:`%d is an odd integer` | N/A                    | Print`"15 is an odd integer"` |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -884,29 +884,29 @@ int main() {
 
 ## Problem 2.3: Positive or Negative Check
 
-### Problem Statement
+**Problem Statement**
 
 Check whether a given integer is positive or negative.
 
-### Sample Input
+**Sample Input**
 
 ```text
 15
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 15 is a positive number
 ```
 
-### Explanation
+**Explanation**
 
 Compares input number with 0 using >= . Non-negative numbers are printed as positive.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Sign}(N) = \begin{cases} \text{Positive} & \text{if } N > 0 \\ \text{Negative} & \text{if } N < 0 \\ \text{Zero} & \text{if } N = 0 \end{cases}$$
 
@@ -914,7 +914,7 @@ $$\text{Sign}(N) = \begin{cases} \text{Positive} & \text{if } N > 0 \\ \text{Neg
 > **Sign Categorization**: Zero serves as the origin boundary separating positive and negative numbers.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -929,20 +929,20 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `num` = `15`
 
-#### 2. Execution Trace
+**2. Execution Trace**
 
 | Step        | Statement         | Condition Evaluated      | Result                      | Action / Output                    |
 | :---------- | :---------------- | :----------------------- | :-------------------------- | :--------------------------------- |
 | **1** | `if (num >= 0)` | `15 >= 0`              | `True`                    | Branch to`if` body               |
 | **2** | `printf(...)`   | Output string formatting | `15 is a positive number` | Print`"15 is a positive number"` |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -951,29 +951,29 @@ int main() {
 
 ## Problem 2.4: Leap Year Determination
 
-### Problem Statement
+**Problem Statement**
 
 Determine if a given year is a leap year.
 
-### Sample Input
+**Sample Input**
 
 ```text
 2016
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 2016 is a leap year.
 ```
 
-### Explanation
+**Explanation**
 
 A year is a leap year if it is divisible by 400 OR divisible by 4 but not by 100.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{LeapYear}(Y) = (Y \pmod{400} = 0) \lor ((Y \pmod 4 = 0) \land (Y \pmod{100} \neq 0))$$
 
@@ -981,7 +981,7 @@ $$\text{LeapYear}(Y) = (Y \pmod{400} = 0) \lor ((Y \pmod 4 = 0) \land (Y \pmod{1
 > **Calendar Rule**: Century years must be divisible by 400 to qualify as leap years.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -996,13 +996,13 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `year` = `2016`
 
-#### 2. Execution Trace
+**2. Execution Trace**
 
 | Step        | Condition Part      | Calculation                | Result    | Overall Boolean                         |
 | :---------- | :------------------ | :------------------------- | :-------- | :-------------------------------------- |
@@ -1012,7 +1012,7 @@ int main() {
 | **4** | `(True && True)`  | Combined`&&` condition   | `True`  | `False \|\| True` -> **`True`** |
 | **5** | `printf(...)`     | Execute`if` block output | N/A       | Print`"2016 is a leap year."`         |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -1021,29 +1021,29 @@ int main() {
 
 ## Problem 2.5: Voting Eligibility
 
-### Problem Statement
+**Problem Statement**
 
 Read age of a candidate and determine whether they are eligible to cast a vote.
 
-### Sample Input
+**Sample Input**
 
 ```text
 21
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 Congratulation! You are eligible for casting your vote.
 ```
 
-### Explanation
+**Explanation**
 
 Checks if the candidate's age is greater than or equal to 18.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Eligible}(\text{Age}) = \begin{cases} \text{True} & \text{if } \text{Age} \ge 18 \\ \text{False} & \text{if } \text{Age} < 18 \end{cases}$$
 
@@ -1051,7 +1051,7 @@ $$\text{Eligible}(\text{Age}) = \begin{cases} \text{True} & \text{if } \text{Age
 > **Threshold Test**: A boolean predicate checking if age satisfies the legal voting threshold of 18.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -1066,20 +1066,20 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `age` = `21`
 
-#### 2. Execution Trace
+**2. Execution Trace**
 
 | Step        | Statement          | Condition Evaluated | Result   | Output                                                        |
 | :---------- | :----------------- | :------------------ | :------- | :------------------------------------------------------------ |
 | **1** | `if (age >= 18)` | `21 >= 18`        | `True` | Enter`if` block                                             |
 | **2** | `printf(...)`    | Output message      | N/A      | `"Congratulation! You are eligible for casting your vote."` |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -1088,29 +1088,29 @@ int main() {
 
 ## Problem 2.6: Signum Function Implementation
 
-### Problem Statement
+**Problem Statement**
 
 Display n = 1 when m > 0, n = 0 when m = 0, and n = -1 when m < 0.
 
-### Sample Input
+**Sample Input**
 
 ```text
 -5
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 The value of n = -1
 ```
 
-### Explanation
+**Explanation**
 
 Executes nested if-else branches to map an integer m to sign value n (-1, 0, or 1).
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Signum}(m) = \begin{cases} 1 & \text{if } m > 0 \\ 0 & \text{if } m = 0 \\ -1 & \text{if } m < 0 \end{cases}$$
 
@@ -1118,7 +1118,7 @@ $$\text{Signum}(m) = \begin{cases} 1 & \text{if } m > 0 \\ 0 & \text{if } m = 0 
 > **Signum Function**: Maps any real integer input to $\{-1, 0, 1\}$.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -1136,14 +1136,14 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `m` = `-5`
 - `n` = uninitialized
 
-#### 2. Execution Trace
+**2. Execution Trace**
 
 | Step        | Statement                              | Condition Evaluated | Result           | Variable State / Action          |
 | :---------- | :------------------------------------- | :------------------ | :--------------- | :------------------------------- |
@@ -1152,7 +1152,7 @@ int main() {
 | **3** | `else`                               | N/A                 | N/A              | Enter`else` body -> `n = -1` |
 | **4** | `printf("The value of n = %d\n", n)` | Format string       | Output generated | Print`"The value of n = -1"`   |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -1161,29 +1161,29 @@ int main() {
 
 ## Problem 2.7: Height Categorization
 
-### Problem Statement
+**Problem Statement**
 
 Categorize a person's height in centimeters (<150cm = Dwarf).
 
-### Sample Input
+**Sample Input**
 
 ```text
 135
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 The person is Dwarf.
 ```
 
-### Explanation
+**Explanation**
 
 Categorizes floating point height values into designated height classes.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Category}(H) = \begin{cases} \text{Dwarf} & \text{if } H < 150 \\ \text{Average} & \text{if } 150 \le H < 165 \\ \text{Tall} & \text{if } H \ge 165 \end{cases}$$
 
@@ -1191,7 +1191,7 @@ $$\text{Category}(H) = \begin{cases} \text{Dwarf} & \text{if } H < 150 \\ \text{
 > **Multi-tier Range Classifier**: Evaluates height $H$ against discrete range intervals in centimeters.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -1208,20 +1208,20 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `height` = `135.0f`
 
-#### 2. Execution Trace
+**2. Execution Trace**
 
 | Step        | Statement                | Condition Evaluated | Result   | Action Taken                    |
 | :---------- | :----------------------- | :------------------ | :------- | :------------------------------ |
 | **1** | `if (height < 150.0f)` | `135.0 < 150.0`   | `True` | Execute`if` block             |
 | **2** | `printf(...)`          | Output string       | N/A      | Print`"The person is Dwarf."` |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -1230,29 +1230,29 @@ int main() {
 
 ## Problem 2.8: Largest of Three Numbers
 
-### Problem Statement
+**Problem Statement**
 
 Find the maximum among three numbers.
 
-### Sample Input
+**Sample Input**
 
 ```text
 12 25 52
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 The 3rd Number is the greatest among three
 ```
 
-### Explanation
+**Explanation**
 
 Uses logical AND ( && ) in conditional statements to compare each variable against the other two.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Max}(a, b, c) = \max(a, \max(b, c))$$
 
@@ -1260,7 +1260,7 @@ $$\text{Max}(a, b, c) = \max(a, \max(b, c))$$
 > **Nested Conditional**: Evaluates pairwise comparisons $a \ge b \land a \ge c$ to isolate the maximum.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -1278,13 +1278,13 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `n1` = `12`, `n2` = `25`, `n3` = `52`
 
-#### 2. Execution Trace
+**2. Execution Trace**
 
 | Step        | Branch / Line                      | Sub-Conditions Evaluated                            | Overall Result | Action                                                |
 | :---------- | :--------------------------------- | :-------------------------------------------------- | :------------- | :---------------------------------------------------- |
@@ -1293,7 +1293,7 @@ int main() {
 | **3** | `else`                           | None remaining                                      | N/A            | Execute`else` block                                 |
 | **4** | `printf(...)`                    | Output formatted text                               | N/A            | Print`"The 3rd Number is the greatest among three"` |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -1302,29 +1302,29 @@ int main() {
 
 ## Problem 2.9: Coordinate Quadrant Identification
 
-### Problem Statement
+**Problem Statement**
 
 Determine in which quadrant an (X, Y) coordinate point lies.
 
-### Sample Input
+**Sample Input**
 
 ```text
 7 9
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 First quadrant
 ```
 
-### Explanation
+**Explanation**
 
 Checks sign combinations of coordinates x and y to assign quadrant 1 (+,+), 2 (-,+), 3 (-,-), or 4 (+,-).
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Quadrant}(x, y) = \begin{cases} Q_1 & \text{if } x > 0 \land y > 0 \\ Q_2 & \text{if } x < 0 \land y > 0 \\ Q_3 & \text{if } x < 0 \land y < 0 \\ Q_4 & \text{if } x > 0 \land y < 0 \end{cases}$$
 
@@ -1332,7 +1332,7 @@ $$\text{Quadrant}(x, y) = \begin{cases} Q_1 & \text{if } x > 0 \land y > 0 \\ Q_
 > **Cartesian Plane**: Evaluates signs of coordinates $(x, y)$ to determine quadrant location.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -1353,21 +1353,21 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `x` = `7`
 - `y` = `9`
 
-#### 2. Execution Trace
+**2. Execution Trace**
 
 | Step        | Quadrant Check                  | Condition Evaluated                          | Result   | Output Action                                                     |
 | :---------- | :------------------------------ | :------------------------------------------- | :------- | :---------------------------------------------------------------- |
 | **1** | Quadrant 1 (`x > 0 && y > 0`) | `7 > 0` (`True`) `&& 9 > 0` (`True`) | `True` | Branch to 1st Quadrant                                            |
 | **2** | `printf(...)`                 | Format coordinate output                     | N/A      | Print`"The coordinate point (7,9) lies in the First quadrant."` |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -1376,29 +1376,29 @@ int main() {
 
 ## Problem 2.10: Vowel or Consonant Check
 
-### Problem Statement
+**Problem Statement**
 
 Check whether an input character is a vowel or a consonant.
 
-### Sample Input
+**Sample Input**
 
 ```text
 k
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 The alphabet is a consonant
 ```
 
-### Explanation
+**Explanation**
 
 Normalizes char to lowercase and compares against vowel list ('a','e','i','o','u').
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{IsVowel}(c) = (c \in \{'a','e','i','o','u','A','E','I','O','U'\})$$
 
@@ -1406,7 +1406,7 @@ $$\text{IsVowel}(c) = (c \in \{'a','e','i','o','u','A','E','I','O','U'\})$$
 > **Character Normalization**: Convert character to lowercase via `tolower()` before vowel set testing.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <ctype.h>
@@ -1423,13 +1423,13 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `ch` = `'k'`
 
-#### 2. Execution Trace
+**2. Execution Trace**
 
 | Step        | Statement                             | Operation                                                              | Resulting Value | Decision                               |
 | :---------- | :------------------------------------ | :--------------------------------------------------------------------- | :-------------- | :------------------------------------- |
@@ -1438,7 +1438,7 @@ int main() {
 | **3** | `else`                              | Default branch                                                         | N/A             | Enter`else` block                    |
 | **4** | `printf(...)`                       | Print output                                                           | N/A             | Print`"The alphabet is a consonant"` |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -1453,29 +1453,29 @@ int main() {
 
 ## Problem 3.1: Array Store & Print
 
-### Problem Statement
+**Problem Statement**
 
 Store 10 elements in an array and print them.
 
-### Sample Input
+**Sample Input**
 
 ```text
 1 1 2 3 4 5 6 7 8 9
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 Elements in array are: 1 1 2 3 4 5 6 7 8 9
 ```
 
-### Explanation
+**Explanation**
 
 Reads 10 integer inputs sequentially into a contiguous fixed-size integer array using a for loop, then prints them in order.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Array}[i] = \text{Input}_i \quad \forall \, i \in \{0, 1, \dots, N-1\}$$
 
@@ -1483,7 +1483,7 @@ $$\text{Array}[i] = \text{Input}_i \quad \forall \, i \in \{0, 1, \dots, N-1\}$$
 > **Contiguous Allocation**: Arrays store $N$ elements in sequential contiguous memory addresses.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -1501,13 +1501,13 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `arr[10]` allocated in stack memory.
 
-#### 2. Execution Trace
+**2. Execution Trace**
 
 | Pass / Index (`i`) | Input Read (`scanf`) | Memory State (`arr`)  | Action / Output                                        |
 | :------------------- | :--------------------- | :---------------------- | :----------------------------------------------------- |
@@ -1518,7 +1518,7 @@ int main() {
 | **9**          | `9`                  | `arr[9] = 9`          | Stored element at index 9                              |
 | **Print Loop** | N/A                    | Traverses`i = 0..9`   | Output:`Elements in array are: 1 1 2 3 4 5 6 7 8 9 ` |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity            |
 | ------- | --------------------- |
@@ -1527,30 +1527,30 @@ int main() {
 
 ## Problem 3.2: Array Reverse Display
 
-### Problem Statement
+**Problem Statement**
 
 Read N values in an array and display them in reverse order.
 
-### Sample Input
+**Sample Input**
 
 ```text
 3
 2 5 7
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 7 5 2
 ```
 
-### Explanation
+**Explanation**
 
 Loads N elements into a Variable Length Array (VLA) and iterates backward from index n - 1 down to 0.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{OutputSequence} = \langle A[N-1], A[N-2], \dots, A[0] \rangle$$
 
@@ -1558,7 +1558,7 @@ $$\text{OutputSequence} = \langle A[N-1], A[N-2], \dots, A[0] \rangle$$
 > **Reverse Traversal**: Set loop index starting at $i = N - 1$ and decrement down to $i = 0$.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -1577,14 +1577,14 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `n` = `3`
 - `arr` = `[2, 5, 7]`
 
-#### 2. Iteration-by-Iteration Reverse Trace
+**2. Iteration-by-Iteration Reverse Trace**
 
 | Step                   | Index (`i = n - 1` down to `0`) | Element Evaluated (`arr[i]`) | Output Action     | Remaining Iterations              |
 | :--------------------- | :---------------------------------- | :----------------------------- | :---------------- | :-------------------------------- |
@@ -1593,7 +1593,7 @@ int main() {
 | **3**            | `i = 0`                           | `arr[0] = 2`                 | Print`2 `       | Next:`i = -1` (Loop terminates) |
 | **Final Output** | N/A                                 | Reversed Sequence              | Print`"7 5 2 "` | Done                              |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -1602,30 +1602,30 @@ int main() {
 
 ## Problem 3.3: Array Sum Calculation
 
-### Problem Statement
+**Problem Statement**
 
 Find the sum of all elements in an array.
 
-### Sample Input
+**Sample Input**
 
 ```text
 3
 2 5 8
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 Sum of all elements stored in the array is : 15
 ```
 
-### Explanation
+**Explanation**
 
 Maintains a running sum accumulator variable initialized to 0 and adds each array element during input traversal.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Total Sum} = \sum_{i=0}^{N-1} A[i]$$
 
@@ -1633,7 +1633,7 @@ $$\text{Total Sum} = \sum_{i=0}^{N-1} A[i]$$
 > **Accumulator Pattern**: Accumulates array element values into a running sum variable initialized to zero.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -1650,15 +1650,15 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `n` = `3`
 - `sum` = `0`
 - `arr` = `[2, 5, 8]`
 
-#### 2. Execution Trace Table
+**2. Execution Trace**
 
 | Step (`i`)    | Array Element (`arr[i]`) | Addition Operation | `sum` Value After Addition | Notes                                                        |
 | :-------------- | :------------------------- | :----------------- | :--------------------------- | :----------------------------------------------------------- |
@@ -1667,7 +1667,7 @@ int main() {
 | **2**     | `arr[2] = 8`             | `7 + 8`          | `15`                       | Total sum completed                                          |
 | **Final** | N/A                        | N/A                | `15`                       | Output:`"Sum of all elements stored in the array is : 15"` |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -1676,29 +1676,29 @@ int main() {
 
 ## Problem 3.4: Array Copy
 
-### Problem Statement
+**Problem Statement**
 
 Copy the elements of one array into another array.
 
-### Sample Input
+**Sample Input**
 
 ```text
 15 10 12
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 15 10 12
 ```
 
-### Explanation
+**Explanation**
 
 Iterates through the source array and assigns dest[i] = source[i] element-by-element.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Destination}[i] = \text{Source}[i] \quad \forall \, i \in \{0, 1, \dots, N-1\}$$
 
@@ -1706,7 +1706,7 @@ $$\text{Destination}[i] = \text{Source}[i] \quad \forall \, i \in \{0, 1, \dots,
 > **Deep Copy**: Copies elements individually to create an independent array duplicate in memory.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -1723,14 +1723,14 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `source` = `[15, 10, 12]`
 - `dest` = `[0, 0, 0]` (uninitialized)
 
-#### 2. Copy Trace Table
+**2. Copy Trace Table**
 
 | Step (`i`)    | Source Element (`source[i]`) | Assignment Operation         | Destination Array State (`dest`) |
 | :-------------- | :----------------------------- | :--------------------------- | :--------------------------------- |
@@ -1739,7 +1739,7 @@ int main() {
 | **2**     | `source[2] = 12`             | `dest[2] = source[2]`      | `dest` = `[15, 10, 12]`        |
 | **Print** | `dest` = `[15, 10, 12]`    | Output traversal`i = 0..2` | Print`"15 10 12 "`               |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -1748,30 +1748,30 @@ int main() {
 
 ## Problem 3.5: Count Duplicate Elements
 
-### Problem Statement
+**Problem Statement**
 
 Count the total number of duplicate elements in an array.
 
-### Sample Input
+**Sample Input**
 
 ```text
 3
 5 1 1
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 Total number of duplicate elements found in the array is : 1
 ```
 
-### Explanation
+**Explanation**
 
 Uses a boolean visited array to keep track of elements already processed. A nested loop counts occurrences of unvisited elements.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Duplicates} = \sum_{i=0}^{N-1} \mathbb{I}\left(\text{Count}(A[i]) > 1 \land \neg \text{Visited}[i]\right)$$
 
@@ -1779,7 +1779,7 @@ $$\text{Duplicates} = \sum_{i=0}^{N-1} \mathbb{I}\left(\text{Count}(A[i]) > 1 \l
 > **Visited Boolean Array**: Uses a tracking array to avoid duplicate counting of previously processed elements.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -1808,15 +1808,15 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `arr` = `[5, 1, 1]`
 - `visited` = `[0, 0, 0]`
 - `dupes` = `0`
 
-#### 2. Nested Iteration Trace Table
+**2. Nested Iteration Trace Table**
 
 | Outer (`i`)   | Element (`arr[i]`) | Inner Loop (`j`) | Comparison (`arr[i] == arr[j]`) | `visited` Array State          | `count` | `dupes`             |
 | :-------------- | :------------------- | :----------------- | :-------------------------------- | :------------------------------- | :-------- | :-------------------- |
@@ -1825,7 +1825,7 @@ int main() {
 | **2**     | `1`                | Skipped            | `visited[2] == 1` (`True`)    | `[0, 0, 1]`                    | N/A       | `1`                 |
 | **Final** | N/A                  | N/A                | N/A                               | Total duplicates found:`1`     | N/A       | Output:`1`          |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -1834,30 +1834,30 @@ int main() {
 
 ## Problem 3.6: Print Unique Elements
 
-### Problem Statement
+**Problem Statement**
 
 Print all unique elements (elements appearing exactly once) in an array.
 
-### Sample Input
+**Sample Input**
 
 ```text
 4
 3 2 2 5
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 The unique elements found in the array are: 3 5
 ```
 
-### Explanation
+**Explanation**
 
 For each element at index i , we check if it appears anywhere else ( j != i ). If no duplicate matches, isUnique stays 1 and the element is printed.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Unique}(A[i]) \iff \forall \, j \neq i, \, A[i] \neq A[j]$$
 
@@ -1865,7 +1865,7 @@ $$\text{Unique}(A[i]) \iff \forall \, j \neq i, \, A[i] \neq A[j]$$
 > **Nested Frequency Check**: Element $A[i]$ is unique if no other index $j \neq i$ contains matching value.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -1892,13 +1892,13 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `arr` = `[3, 2, 2, 5]`
 
-#### 2. Unique Element Search Trace
+**2. Unique Element Search Trace**
 
 | Index (`i`)   | Target Value (`arr[i]`) | Inner Search (`j = 0..3`) | Match Found (`i != j && arr[i] == arr[j]`) | `isUnique` Flag | Action / Output   |
 | :-------------- | :------------------------ | :-------------------------- | :------------------------------------------- | :---------------- | :---------------- |
@@ -1908,7 +1908,7 @@ int main() {
 | **3**     | `5`                     | `j = 0, 1, 2`             | No match                                     | `1` (`True`)  | Print`5 `       |
 | **Final** | N/A                       | N/A                         | N/A                                          | N/A               | Output:`"3 5 "` |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -1917,11 +1917,11 @@ int main() {
 
 ## Problem 3.7: Merge Two Sorted Arrays (Descending)
 
-### Problem Statement
+**Problem Statement**
 
 Merge two sorted arrays of the same size into a single array sorted in descending order.
 
-### Sample Input
+**Sample Input**
 
 ```text
 3
@@ -1929,19 +1929,19 @@ Merge two sorted arrays of the same size into a single array sorted in descendin
 3 2 1
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 3 3 2 2 1 1
 ```
 
-### Explanation
+**Explanation**
 
 Two-pointer technique compares current elements from both descending input arrays and copies the larger element to the merged array.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Merged}[k] = \max(A[i], B[j]), \quad \text{where } A, B \text{ are sorted in descending order}$$
 
@@ -1949,7 +1949,7 @@ $$\text{Merged}[k] = \max(A[i], B[j]), \quad \text{where } A, B \text{ are sorte
 > **Two-Pointer Technique**: Compares head elements from two sorted arrays in $O(N)$ linear time.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -1971,14 +1971,14 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `a` = `[3, 2, 1]` (`i = 0`), `b` = `[3, 2, 1]` (`j = 0`)
 - `merged` = `[0, 0, 0, 0, 0, 0]` (`k = 0`)
 
-#### 2. Two-Pointer Merge Execution Trace
+**2. Two-Pointer Merge Execution Trace**
 
 | Step        | Pointers (`i, j, k`) | Comparison (`a[i]` vs `b[j]`) | Selected Element | Merged Array (`merged[0..k-1]`) | Next Pointers     |
 | :---------- | :--------------------- | :-------------------------------- | :--------------- | :-------------------------------- | :---------------- |
@@ -1989,7 +1989,7 @@ int main() {
 | **5** | `i=2, j=2, k=4`      | `1 >= 1` (`True`)             | `a[2] = 1`     | `[3, 3, 2, 2, 1]`               | `i=3, j=2, k=5` |
 | **6** | `i=3, j=2, k=5`      | `j < n` (Cleanup loop)          | `b[2] = 1`     | `[3, 3, 2, 2, 1, 1]`            | `i=3, j=3, k=6` |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -1998,30 +1998,30 @@ int main() {
 
 ## Problem 3.8: Frequency of Array Elements
 
-### Problem Statement
+**Problem Statement**
 
 Count the frequency of each element of an array.
 
-### Sample Input
+**Sample Input**
 
 ```text
 3
 25 12 43
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 25 occurs 1 times 12 occurs 1 times 43 occurs 1 times
 ```
 
-### Explanation
+**Explanation**
 
 Iterates through the array and marks duplicate instances as visited so each distinct value's total frequency is reported only once.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Freq}(V) = \sum_{i=0}^{N-1} \mathbb{I}(A[i] = V)$$
 
@@ -2029,7 +2029,7 @@ $$\text{Freq}(V) = \sum_{i=0}^{N-1} \mathbb{I}(A[i] = V)$$
 > **Frequency Count**: Computes occurrences of distinct array values using nested iteration or hash mapping.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -2057,14 +2057,14 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `arr` = `[25, 12, 43]`
 - `visited` = `[0, 0, 0]`
 
-#### 2. Frequency Calculation Trace
+**2. Frequency Calculation Trace**
 
 | Index (`i`) | Value (`arr[i]`) | `visited[i]` Status | Inner Scan (`j > i`) | Count | Output Text              |
 | :------------ | :----------------- | :-------------------- | :--------------------- | :---- | :----------------------- |
@@ -2072,7 +2072,7 @@ int main() {
 | **1**   | `12`             | `0` (Unvisited)     | `43` (No match)      | `1` | `"12 occurs 1 times "` |
 | **2**   | `43`             | `0` (Unvisited)     | None                   | `1` | `"43 occurs 1 times "` |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -2081,30 +2081,30 @@ int main() {
 
 ## Problem 3.9: Find Maximum & Minimum
 
-### Problem Statement
+**Problem Statement**
 
 Find maximum and minimum elements in an array.
 
-### Sample Input
+**Sample Input**
 
 ```text
 3
 45 25 21
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 Maximum element is : 45 Minimum element is : 21
 ```
 
-### Explanation
+**Explanation**
 
 Initializes max and min with arr[0] and performs a single linear pass through the rest of the array to update boundary values.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Max} = \max_{0 \le i < N} A[i], \quad \text{Min} = \min_{0 \le i < N} A[i]$$
 
@@ -2112,7 +2112,7 @@ $$\text{Max} = \max_{0 \le i < N} A[i], \quad \text{Min} = \min_{0 \le i < N} A[
 > **Linear Scan**: Maintains running minimum and maximum variables during a single pass through the array.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -2133,15 +2133,15 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `arr` = `[45, 25, 21]`
 - `max` = `arr[0]` = `45`
 - `min` = `arr[0]` = `45`
 
-#### 2. Linear Scan Execution Trace
+**2. Linear Scan Execution Trace**
 
 | Index (`i`)   | Element (`arr[i]`) | `arr[i] > max` Check  | `arr[i] < min` Check | `max` Value    | `min` Value    |
 | :-------------- | :------------------- | :---------------------- | :--------------------- | :--------------- | :--------------- |
@@ -2150,7 +2150,7 @@ int main() {
 | **2**     | `21`               | `21 > 45` (`False`) | `21 < 25` (`True`) | `45`           | `21`           |
 | **Final** | N/A                  | N/A                     | N/A                    | **`45`** | **`21`** |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -2159,30 +2159,30 @@ int main() {
 
 ## Problem 3.10: Separate Odd & Even Arrays
 
-### Problem Statement
+**Problem Statement**
 
 Separate odd and even integers into two different arrays.
 
-### Sample Input
+**Sample Input**
 
 ```text
 5
 25 47 42 56 32
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 The Even elements are : 42 56 32 The Odd elements are : 25 47
 ```
 
-### Explanation
+**Explanation**
 
 Evaluates arr[i] % 2 == 0 during read. Evens are placed into even[] array and odds into odd[] array.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$A[i] \in \begin{cases} \text{Even Array} & \text{if } A[i] \pmod 2 = 0 \\ \text{Odd Array} & \text{if } A[i] \pmod 2 \neq 0 \end{cases}$$
 
@@ -2190,7 +2190,7 @@ $$A[i] \in \begin{cases} \text{Even Array} & \text{if } A[i] \pmod 2 = 0 \\ \tex
 > **Array Partitioning**: Filters elements into distinct dynamic or auxiliary arrays based on parity.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -2215,15 +2215,15 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `arr` = `[25, 47, 42, 56, 32]`
 - `even` = `[]`, `odd` = `[]`
 - `eCount` = `0`, `oCount` = `0`
 
-#### 2. Classification Execution Trace Table
+**2. Classification Execution Trace Table**
 
 | Step (`i`)     | Element (`arr[i]`) | Condition (`arr[i] % 2 == 0`)     | Target Array | Updated Array State                   | `eCount / oCount`    |
 | :--------------- | :------------------- | :---------------------------------- | :----------- | :------------------------------------ | :--------------------- |
@@ -2234,7 +2234,7 @@ int main() {
 | **4**      | `32`               | `32 % 2 = 0` (`True`)           | `even`     | `even[2] = 32`                      | `eCount=3, oCount=2` |
 | **Output** | N/A                  | Evens:`42 56 32 `Odds: `25 47 ` | Both Arrays  | `even = [42, 56, 32]odd = [25, 47]` | Done                   |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -2249,29 +2249,29 @@ int main() {
 
 ## Problem 4.1: String Input Print
 
-### Problem Statement
+**Problem Statement**
 
 Input a string and print it.
 
-### Sample Input
+**Sample Input**
 
 ```text
 Welcome, w3resource
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 The string you entered is : Welcome, w3resource\n
 ```
 
-### Explanation
+**Explanation**
 
 fgets() safely reads an entire line including spaces from standard input into character array str up to buffer capacity.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{String Buffer Length} = |S| + 1 \quad (\text{including } '\backslash 0')$$
 
@@ -2279,7 +2279,7 @@ $$\text{String Buffer Length} = |S| + 1 \quad (\text{including } '\backslash 0')
 > **Safe Input Reading**: Uses `fgets()` to prevent buffer overflow vulnerabilities common with `gets()`.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -2292,20 +2292,20 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `str[100]` allocated in buffer memory.
 
-#### 2. Execution Trace
+**2. Execution Trace**
 
 | Step        | Statement                          | Action / Input Reading      | Buffer Content (`str`)      | Output                                                       |
 | :---------- | :--------------------------------- | :-------------------------- | :---------------------------- | :----------------------------------------------------------- |
 | **1** | `fgets(str, sizeof(str), stdin)` | Read line from input stream | `"Welcome, w3resource\n\0"` | N/A                                                          |
 | **2** | `printf(...)`                    | Format string output        | N/A                           | Print`"The string you entered is : Welcome, w3resource\n"` |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity                |
 | ------- | ------------------------- |
@@ -2314,29 +2314,29 @@ int main() {
 
 ## Problem 4.2: String Length Without Library
 
-### Problem Statement
+**Problem Statement**
 
 Find length of a string without using `strlen()`.
 
-### Sample Input
+**Sample Input**
 
 ```text
 w3resource.com
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 Length of the string is : 14
 ```
 
-### Explanation
+**Explanation**
 
 Traverses the character array index by index until encountering the null terminator character ( '\0' ). The index count equals string length.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Length}(S) = \min \{ i \mid S[i] = '\backslash 0' \}$$
 
@@ -2344,7 +2344,7 @@ $$\text{Length}(S) = \min \{ i \mid S[i] = '\backslash 0' \}$$
 > **Null Terminator**: Strings in C are null-terminated character arrays ended by `'\0'` (ASCII 0).
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -2360,14 +2360,14 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `str` = `"w3resource.com"`
 - `len` = `0`
 
-#### 2. Character-by-Character Traversal Trace
+**2. Character-by-Character Traversal Trace**
 
 | Step / Index (`len`) | Evaluated Character (`str[len]`)                  | Condition (`str[len] != '\0'`) | Action                  | `len` Value                             |
 | :--------------------- | :-------------------------------------------------- | :------------------------------- | :---------------------- | :---------------------------------------- |
@@ -2377,7 +2377,7 @@ int main() {
 | **14**           | `'\0'` (Null terminator)                          | `False`                        | Terminate`while` loop | **`14`**                          |
 | **Final**        | N/A                                                 | N/A                              | Print length            | Output:`"Length of the string is : 14"` |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -2386,29 +2386,29 @@ int main() {
 
 ## Problem 4.3: Separate String Characters
 
-### Problem Statement
+**Problem Statement**
 
 Separate individual characters from a string with space separation.
 
-### Sample Input
+**Sample Input**
 
 ```text
 stellar academy
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 The characters of the string are : s t e l l a r   a c a d e m y
 ```
 
-### Explanation
+**Explanation**
 
 Loops through string indices printing str[i] followed by a space until reaching the end-of-line or null character.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Output} = S[0] \parallel \text{" "} \parallel S[1] \parallel \text{" "} \parallel \dots \parallel S[N-1]$$
 
@@ -2416,7 +2416,7 @@ $$\text{Output} = S[0] \parallel \text{" "} \parallel S[1] \parallel \text{" "} 
 > **Character Extraction**: Iterates character by character until `'\0'` or newline `'\n'` is encountered.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -2433,13 +2433,13 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `str` = `"stellar academy"`
 
-#### 2. Character Separation Trace
+**2. Character Separation Trace**
 
 | Step / Index (`i`) | Character (`str[i]`)          | Loop Condition (`!= '\0' && != '\n'`) | Print Action | Accumulated Output Stream            |
 | :------------------- | :------------------------------ | :-------------------------------------- | :----------- | :----------------------------------- |
@@ -2449,7 +2449,7 @@ int main() {
 | **7**          | `' '` (Space)                 | `True`                                | Print space  | `"s t e l l a r   "`               |
 | **8..14**      | `'a','c','a','d','e','m','y'` | `True`                                | Print chars  | `"s t e l l a r   a c a d e m y "` |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -2458,29 +2458,29 @@ int main() {
 
 ## Problem 4.4: Reverse String Characters
 
-### Problem Statement
+**Problem Statement**
 
 Print individual characters of a string in reverse order.
 
-### Sample Input
+**Sample Input**
 
 ```text
 stellar
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 The characters of the string in reverse are : r a l l e t s
 ```
 
-### Explanation
+**Explanation**
 
 Calculates string length len , then iterates backwards from index len - 1 down to 0, outputting each character with a trailing space.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Reversed String} = \langle S[L-1], S[L-2], \dots, S[0] \rangle \quad \text{where } L = \text{strlen}(S)$$
 
@@ -2488,7 +2488,7 @@ $$\text{Reversed String} = \langle S[L-1], S[L-2], \dots, S[0] \rangle \quad \te
 > **Index Offset**: Reversing starts from index $L - 1$ down to index $0$.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -2506,14 +2506,14 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `str` = `"stellar"`
 - `len` = `strlen(str)` = `7`
 
-#### 2. Reverse Iteration Execution Trace
+**2. Reverse Iteration Execution Trace**
 
 | Step        | Index (`i = len - 1` down to `0`) | Character (`str[i]`) | Action        | Printed Sequence     |
 | :---------- | :------------------------------------ | :--------------------- | :------------ | :------------------- |
@@ -2525,7 +2525,7 @@ int main() {
 | **6** | `i = 1`                             | `'t'`                | Print`'t '` | `"r a l l e t "`   |
 | **7** | `i = 0`                             | `'s'`                | Print`'s '` | `"r a l l e t s "` |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -2534,29 +2534,29 @@ int main() {
 
 ## Problem 4.5: Count Words in String
 
-### Problem Statement
+**Problem Statement**
 
 Count the total number of words in a sentence string.
 
-### Sample Input
+**Sample Input**
 
 ```text
 welcome to stellar
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 Total number of words in the string : 3
 ```
 
-### Explanation
+**Explanation**
 
 Uses a state flag in_word to detect transitions from whitespace to non-whitespace characters, incrementing the word count on each transition.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Word Count} = \sum_{i=0}^{L-1} \mathbb{I}(S[i] \neq \text{space} \land S[i-1] = \text{space})$$
 
@@ -2564,7 +2564,7 @@ $$\text{Word Count} = \sum_{i=0}^{L-1} \mathbb{I}(S[i] \neq \text{space} \land S
 > **State Machine**: Tracks transition flag `in_word` between whitespace and word characters.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -2588,14 +2588,14 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `str` = `"welcome to stellar\n"`
 - `words` = `0`, `in_word` = `0`
 
-#### 2. State-Machine Execution Trace Table
+**2. State-Machine Execution Trace Table**
 
 | Step (`i`)     | Character (`str[i]`)      | Is Non-Space? | Current`in_word` | Action / State Change             | `words` Count |
 | :--------------- | :-------------------------- | :------------ | :----------------- | :-------------------------------- | :-------------- |
@@ -2609,7 +2609,7 @@ int main() {
 | **12..17** | `'t','e','l','l','a','r'` | `True`      | `1`              | Inside Word 3                     | `3`           |
 | **18**     | `'\n'` (Newline)          | `False`     | `1`              | End of string ->`in_word = 0`   | **`3`** |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -2618,30 +2618,30 @@ int main() {
 
 ## Problem 4.6: Compare Strings Without Library
 
-### Problem Statement
+**Problem Statement**
 
 Compare two strings character by character without using `strcmp()`.
 
-### Sample Input
+**Sample Input**
 
 ```text
 aabbcc
 abcdef
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 Strings are not equal.
 ```
 
-### Explanation
+**Explanation**
 
 Traverses both strings simultaneously. If any mismatch is found, returns 0. If both reach null terminator together, returns 1.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Equal}(S_1, S_2) = \bigwedge_{i=0}^{L} (S_1[i] = S_2[i])$$
 
@@ -2649,7 +2649,7 @@ $$\text{Equal}(S_1, S_2) = \bigwedge_{i=0}^{L} (S_1[i] = S_2[i])$$
 > **Lexicographical Comparison**: Compares characters at identical offsets until a mismatch or `'\0'` is hit.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -2671,14 +2671,14 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `str1` = `"aabbcc"`
 - `str2` = `"abcdef"`
 
-#### 2. Character Comparison Trace
+**2. Character Comparison Trace**
 
 | Step / Index (`i`) | `str1[i]` | `str2[i]` | Condition (`str1[i] != str2[i]`) | Function Return        | Output Action                     |
 | :------------------- | :---------- | :---------- | :--------------------------------- | :--------------------- | :-------------------------------- |
@@ -2686,7 +2686,7 @@ int main() {
 | **1**          | `'a'`     | `'b'`     | `'a' != 'b'` (`True`)          | **Return `0`** | Mismatch triggered                |
 | **Main**       | N/A         | N/A         | `compare_strings == 0`           | N/A                    | Print`"Strings are not equal."` |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity                     |
 | ------- | ------------------------------ |
@@ -2695,17 +2695,17 @@ int main() {
 
 ## Problem 4.7: Count Alphabets, Digits, Specials
 
-### Problem Statement
+**Problem Statement**
 
 Count total number of alphabets, digits and special characters in a string.
 
-### Sample Input
+**Sample Input**
 
 ```text
 Welcome to stellar123&
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 Number of Alphabets : 16
@@ -2713,13 +2713,13 @@ Number of Digits : 3
 Number of Special characters : 1
 ```
 
-### Explanation
+**Explanation**
 
 Uses standard isalpha() and isdigit() character inspection functions. Characters that are neither letters, digits, nor spaces are counted as special characters.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Total} = \text{Alphabets} + \text{Digits} + \text{Special Characters} + \text{Spaces}$$
 
@@ -2727,7 +2727,7 @@ $$\text{Total} = \text{Alphabets} + \text{Digits} + \text{Special Characters} + 
 > **Character Classification**: Uses `isalpha()`, `isdigit()`, and character set testing.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <ctype.h>
@@ -2752,14 +2752,14 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `str` = `"Welcome to stellar123&"`
 - `alphabets` = `0`, `digits` = `0`, `specials` = `0`
 
-#### 2. Character Classification Trace
+**2. Character Classification Trace**
 
 | Substring / Segment | Evaluated Characters            | Classification Check     | Count Increment    | Updated Counts                         |
 | :------------------ | :------------------------------ | :----------------------- | :----------------- | :------------------------------------- |
@@ -2771,7 +2771,7 @@ int main() {
 | `"123"`           | `'1','2','3'`                 | `isdigit() == True`    | `digits += 3`    | `alphabets=16, digits=3, specials=0` |
 | `"&"`             | `'&'`                         | Neither letter nor digit | `specials += 1`  | `alphabets=16, digits=3, specials=1` |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -2780,17 +2780,17 @@ int main() {
 
 ## Problem 4.8: Copy String
 
-### Problem Statement
+**Problem Statement**
 
 Copy one string to another string manually without `strcpy()`.
 
-### Sample Input
+**Sample Input**
 
 ```text
 This is a string to be copied.
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 First string : This is a string to be copied.
@@ -2798,13 +2798,13 @@ Second string : This is a string to be copied.
 Number of characters copied : 30
 ```
 
-### Explanation
+**Explanation**
 
 Iterates character-by-character from source string to destination string until null/newline is hit, appending null terminator at destination.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$D[i] = S[i] \quad \forall \, i < L, \quad D[L] = '\backslash 0'$$
 
@@ -2812,7 +2812,7 @@ $$D[i] = S[i] \quad \forall \, i < L, \quad D[L] = '\backslash 0'$$
 > **Manual Copy**: Must explicitly attach null terminator `dest[L] = '\0'` after the copying loop.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -2832,14 +2832,14 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `source` = `"This is a string to be copied."`
 - `dest` = buffer array
 
-#### 2. Manual Copy Execution Trace
+**2. Manual Copy Execution Trace**
 
 | Index (`i`)   | Source Char (`source[i]`) | Assignment Operation    | Destination Buffer State (`dest`)    | `i` Counter             |
 | :-------------- | :-------------------------- | :---------------------- | :------------------------------------- | :------------------------ |
@@ -2848,7 +2848,7 @@ int main() {
 | **29**    | `'.'`                     | `dest[29] = '.'`      | `"This is a string to be copied."`   | `30`                    |
 | **30**    | `'\0'`                    | `dest[30] = '\0'`     | Append null terminator                 | **`30`** (Copied) |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -2857,30 +2857,30 @@ int main() {
 
 ## Problem 4.9: Count Vowels and Consonants
 
-### Problem Statement
+**Problem Statement**
 
 Count total number of vowels and consonants in a string.
 
-### Sample Input
+**Sample Input**
 
 ```text
 Welcome
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 Vowels : 3
 Consonants : 4
 ```
 
-### Explanation
+**Explanation**
 
 Converts each character to lowercase and checks if it falls in range 'a'-'z'. If it equals 'a','e','i','o','u', vowel count increments, else consonant count increments.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Length} = \text{Vowels} + \text{Consonants} \quad (\text{for alphabetic characters})$$
 
@@ -2888,7 +2888,7 @@ $$\text{Length} = \text{Vowels} + \text{Consonants} \quad (\text{for alphabetic 
 > **Vowel Set**: Vowels belong to set $\{'a', 'e', 'i', 'o', 'u'\}$ (case-insensitive).
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <ctype.h>
@@ -2911,14 +2911,14 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `str` = `"Welcome"`
 - `vowels` = `0`, `consonants` = `0`
 
-#### 2. Character Classification Trace Table
+**2. Character Classification Trace Table**
 
 | Step (`i`) | Char (`str[i]`) | Lowercase (`ch`) | Vowel Check (`a,e,i,o,u`) | Increment        | Counter States             |
 | :----------- | :---------------- | :----------------- | :-------------------------- | :--------------- | :------------------------- |
@@ -2930,7 +2930,7 @@ int main() {
 | **5**  | `'m'`           | `'m'`            | `False`                   | `consonants++` | `vowels=2, consonants=4` |
 | **6**  | `'e'`           | `'e'`            | `True`                    | `vowels++`     | `vowels=3, consonants=4` |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -2939,29 +2939,29 @@ int main() {
 
 ## Problem 4.10: Maximum Frequency Character
 
-### Problem Statement
+**Problem Statement**
 
 Find the character that appears most frequently in a string.
 
-### Sample Input
+**Sample Input**
 
 ```text
 Welcome
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 The Highest frequency of character 'e' appears number of times : 2
 ```
 
-### Explanation
+**Explanation**
 
 Uses an integer ASCII frequency array of size 256. Increments ASCII index counters during string traversal and tracks the max frequency value.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{MaxChar} = \arg\max_{c \in [0, 255]} \text{Freq}[c]$$
 
@@ -2969,7 +2969,7 @@ $$\text{MaxChar} = \arg\max_{c \in [0, 255]} \text{Freq}[c]$$
 > **Frequency Hash Map**: Uses a 256-element integer array indexed by character ASCII codes.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -2994,14 +2994,14 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `str` = `"Welcome"`
 - `freq[256]` initialized to all zeroes.
 
-#### 2. Frequency Hash Map Execution Trace
+**2. Frequency Hash Map Execution Trace**
 
 | Index (`i`)   | Char (`str[i]`) | ASCII Value | Frequency Map Update (`freq[ASCII]++`) | Current Highest Frequency (`max_freq`) | Highest Char (`max_char`) |
 | :-------------- | :---------------- | :---------- | :--------------------------------------- | :--------------------------------------- | :-------------------------- |
@@ -3014,7 +3014,7 @@ int main() {
 | **6**     | `'e'`           | `101`     | `freq[101] = 2`                        | **`2`**                          | **`'e'`**           |
 | **Final** | N/A               | N/A         | Scan`freq[0..255]`                     | **`2`**                          | **`'e'`**           |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity                            |
 | ------- | ------------------------------------- |
@@ -3029,18 +3029,18 @@ int main() {
 
 ## Problem 5.1: Student Structure Operations
 
-### Problem Statement
+**Problem Statement**
 
 Create a structure called 'Student' with members name, age, and total marks. Input data for two students, display their info, and find average total marks.
 
-### Sample Input
+**Sample Input**
 
 ```text
 John 20 85.5
 Alice 21 92.0
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 Student 1 -> Name: John, Age: 20, Marks: 85.50
@@ -3048,13 +3048,13 @@ Student 2 -> Name: Alice, Age: 21, Marks: 92.00
 Average Total Marks = 88.75
 ```
 
-### Explanation
+**Explanation**
 
 Declares a struct Student containing heterogenous member fields ( name , age , marks ). Instantiates an array of 2 structures, populates inputs, and calculates the average marks.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Average Marks} = \frac{\sum_{i=0}^{N-1} \text{Student}[i].\text{marks}}{N}$$
 
@@ -3062,7 +3062,7 @@ $$\text{Average Marks} = \frac{\sum_{i=0}^{N-1} \text{Student}[i].\text{marks}}{
 > **Heterogeneous Structure**: Groups different data types (`char[]`, `int`, `float`) under a single record.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -3088,14 +3088,14 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `s[2]` structure array allocated.
 - `sum` = `0.0f`
 
-#### 2. Structure Array Execution Trace
+**2. Structure Array Execution Trace**
 
 | Step (`i`)         | Input Read          | Struct Member Assignment (`s[i]`)   | Cumulative`sum`   | Output Action                          |
 | :------------------- | :------------------ | :------------------------------------ | :------------------ | :------------------------------------- |
@@ -3104,7 +3104,7 @@ int main() {
 | **Print Loop** | N/A                 | Display`s[0]` and `s[1]` details  | `177.50`          | Print records to`stdout`             |
 | **Average**    | N/A                 | `sum / 2.0f = 177.50 / 2.0`         | **`88.75`** | Print`"Average Total Marks = 88.75"` |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -3113,30 +3113,30 @@ int main() {
 
 ## Problem 5.2: Time Structure Calculations
 
-### Problem Statement
+**Problem Statement**
 
 Define a structure named Time with members hours, minutes, and seconds. Input two times, add them, and display in proper time format.
 
-### Sample Input
+**Sample Input**
 
 ```text
 2 45 50
 1 20 30
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 4 Hours 6 Minutes 20 Seconds
 ```
 
-### Explanation
+**Explanation**
 
 Adds seconds, carrying overflow ( / 60 ) into minutes. Then adds minutes, carrying overflow into hours, resulting in normalized time formatting.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Seconds} = (S_1 + S_2) \pmod{60}, \quad \text{Carry}_{sec} = \lfloor \frac{S_1 + S_2}{60} \rfloor$$
 $$\text{Minutes} = (M_1 + M_2 + \text{Carry}_{sec}) \pmod{60}, \quad \text{Carry}_{min} = \lfloor \frac{M_1 + M_2 + \text{Carry}_{sec}}{60} \rfloor$$
@@ -3146,7 +3146,7 @@ $$\text{Hours} = H_1 + H_2 + \text{Carry}_{min}$$
 > **Sexagesimal Arithmetic**: Base-60 carry logic handles overflow in seconds and minutes.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -3171,15 +3171,15 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `t1` = `{hours: 2, minutes: 45, seconds: 50}`
 - `t2` = `{hours: 1, minutes: 20, seconds: 30}`
 - `res` = uninitialized
 
-#### 2. Time Field Arithmetic & Carry Trace
+**2. Time Field Arithmetic & Carry Trace**
 
 | Calculation Step  | Operation                   | Intermediate Raw Sum | Carry to Next Unit (`/ 60`) | Remainder Value (`% 60`) | Resulting`res` Member            |
 | :---------------- | :-------------------------- | :------------------- | :---------------------------- | :------------------------- | :--------------------------------- |
@@ -3188,7 +3188,7 @@ int main() {
 | **Hours**   | `t1.hr + t2.hr + carry`   | `2 + 1 + 1 = 4`    | N/A                           | N/A                        | `res.hours = 4`                  |
 | **Output**  | Format string               | N/A                  | N/A                           | N/A                        | `"4 Hours 6 Minutes 20 Seconds"` |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -3197,11 +3197,11 @@ int main() {
 
 ## Problem 5.3: Book Structure Management
 
-### Problem Statement
+**Problem Statement**
 
 Create a structure named Book to store details (title, author, price) for 3 books. Find and display the highest and lowest priced books.
 
-### Sample Input
+**Sample Input**
 
 ```text
 BookA AuthA 350.0
@@ -3209,20 +3209,20 @@ BookB AuthB 500.0
 BookC AuthC 200.0
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 Most Expensive Book : BookB by AuthB (Price: 500.00)
 Lowest Priced Book : BookC by AuthC (Price: 200.00)
 ```
 
-### Explanation
+**Explanation**
 
 Stores 3 book records in an array of structures. Iterates through the array comparing member float field price to locate min and max indices.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{HighestPrice} = \max_{0 \le i < N} \text{Book}[i].\text{price}, \quad \text{LowestPrice} = \min_{0 \le i < N} \text{Book}[i].\text{price}$$
 
@@ -3230,7 +3230,7 @@ $$\text{HighestPrice} = \max_{0 \le i < N} \text{Book}[i].\text{price}, \quad \t
 > **Struct Array Scan**: Compares float member fields to locate maximum and minimum records.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -3257,16 +3257,16 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `b[0]` = `{title: "BookA", author: "AuthA", price: 350.00}`
 - `b[1]` = `{title: "BookB", author: "AuthB", price: 500.00}`
 - `b[2]` = `{title: "BookC", author: "AuthC", price: 200.00}`
 - `highest = 0`, `lowest = 0`
 
-#### 2. Min/Max Price Comparison Trace
+**2. Min/Max Price Comparison Trace**
 
 | Index (`i`)    | Book Price (`b[i].price`) | Compare`> b[highest].price`         | Compare`< b[lowest].price`         | Updated`highest` Index | Updated`lowest` Index |
 | :--------------- | :-------------------------- | :------------------------------------ | :----------------------------------- | :----------------------- | :---------------------- |
@@ -3275,7 +3275,7 @@ int main() {
 | **2**      | `200.00`                  | `200.00 > 500.00` (`False`)       | `200.00 < 350.00` (`True`)       | `1`                    | **`2`**         |
 | **Result** | N/A                         | Most Expensive:`BookB` (`500.00`) | Lowest Priced:`BookC` (`200.00`) | `highest = 1`          | `lowest = 2`          |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -3284,30 +3284,30 @@ int main() {
 
 ## Problem 5.4: Circle Structure Calculations
 
-### Problem Statement
+**Problem Statement**
 
 Define a structure named Circle with a radius member. Calculate area and perimeter for two circles.
 
-### Sample Input
+**Sample Input**
 
 ```text
 5.0 10.0
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 Circle 1 -> Area: 78.54, Perimeter: 31.42
 Circle 2 -> Area: 314.16, Perimeter: 62.83
 ```
 
-### Explanation
+**Explanation**
 
 Computes circle geometry using formulas $\text{Area} = \pi r^2$ and $\text{Perimeter} = 2\pi r$ using member field radius .
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Area} = \pi \times r^2, \quad \text{Perimeter} = 2 \times \pi \times r \quad (\text{where } \pi \approx 3.14159)$$
 
@@ -3315,7 +3315,7 @@ $$\text{Area} = \pi \times r^2, \quad \text{Perimeter} = 2 \times \pi \times r \
 > **Geometric Struct**: Encapsulates circle attributes and computes area and perimeter formulas.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -3334,14 +3334,14 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `c1.radius` = `5.0f`
 - `c2.radius` = `10.0f`
 
-#### 2. Execution Trace
+**2. Execution Trace**
 
 | Target Circle                | Member Radius | Formula Applied           | Calculated Value | Formatted Output       |
 | :--------------------------- | :------------ | :------------------------ | :--------------- | :--------------------- |
@@ -3350,7 +3350,7 @@ int main() {
 | **Circle 2 Area**      | `r = 10.0`  | `3.14159 * 10.0 * 10.0` | `314.159`      | `"Area: 314.16"`     |
 | **Circle 2 Perimeter** | `r = 10.0`  | `2 * 3.14159 * 10.0`    | `62.8318`      | `"Perimeter: 62.83"` |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -3359,11 +3359,11 @@ int main() {
 
 ## Problem 5.5: Employee Structure Processing
 
-### Problem Statement
+**Problem Statement**
 
 Create a structure named 'Employee' (id, name, salary) for 3 employees, find the highest salary employee.
 
-### Sample Input
+**Sample Input**
 
 ```text
 101 Alice 50000
@@ -3371,19 +3371,19 @@ Create a structure named 'Employee' (id, name, salary) for 3 employees, find the
 103 Charlie 60000
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 Highest Salary Employee: Bob (ID: 102, Salary: 75000.00)
 ```
 
-### Explanation
+**Explanation**
 
 Reads 3 employee records and finds the index with maximum float value in member field salary .
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{MaxEmployee} = \text{Emp}\left[ \arg\max_{0 \le i < N} \text{Emp}[i].\text{salary} \right]$$
 
@@ -3391,7 +3391,7 @@ $$\text{MaxEmployee} = \text{Emp}\left[ \arg\max_{0 \le i < N} \text{Emp}[i].\te
 > **Record Selection**: Identifies employee struct containing the maximum salary value.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -3417,16 +3417,16 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `emp[0]` = `{id: 101, name: "Alice", salary: 50000.00}`
 - `emp[1]` = `{id: 102, name: "Bob", salary: 75000.00}`
 - `emp[2]` = `{id: 103, name: "Charlie", salary: 60000.00}`
 - `maxIdx = 0`
 
-#### 2. Maximum Salary Search Trace
+**2. Maximum Salary Search Trace**
 
 | Index (`i`)    | Salary (`emp[i].salary`) | Comparison (`emp[i].salary > emp[maxIdx].salary`) | Decision            | `maxIdx` State                                               |
 | :--------------- | :------------------------- | :-------------------------------------------------- | :------------------ | :------------------------------------------------------------- |
@@ -3435,7 +3435,7 @@ int main() {
 | **2**      | `60000.00`               | `60000.00 > 75000.00` (`False`)                 | Keep current max    | `1`                                                          |
 | **Output** | N/A                        | Max record:`emp[1]`                               | Print Bob's details | `"Highest Salary Employee: Bob (ID: 102, Salary: 75000.00)"` |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -3444,30 +3444,30 @@ int main() {
 
 ## Problem 5.6: Date Structure Operations
 
-### Problem Statement
+**Problem Statement**
 
 Define a structure named 'Date' with members day, month, and year. Input two dates and find difference in days.
 
-### Sample Input
+**Sample Input**
 
 ```text
 15 8 2023
 20 8 2023
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 Difference in days : 5
 ```
 
-### Explanation
+**Explanation**
 
 Converts both dates to total days elapsed since absolute reference point year 0 (including leap year additions) and subtracts them.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Total Days} = |\text{JulianDay}(D_2) - \text{JulianDay}(D_1)|$$
 
@@ -3475,7 +3475,7 @@ $$\text{Total Days} = |\text{JulianDay}(D_2) - \text{JulianDay}(D_1)|$$
 > **Date Arithmetic**: Computes absolute day difference between two date structures.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -3508,14 +3508,14 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `d1` = `15/08/2023`
 - `d2` = `20/08/2023`
 
-#### 2. Absolute Date Calculation Trace
+**2. Absolute Date Calculation Trace**
 
 | Step                                           | Calculation for`d1`               | Calculation for`d2`             | Resulting Value                |
 | :--------------------------------------------- | :---------------------------------- | :-------------------------------- | :----------------------------- |
@@ -3524,7 +3524,7 @@ int main() {
 | **Leap Year Additions**                  | `+ countLeapYears(2023)`          | `+ countLeapYears(2023)`        | Identical leap offset          |
 | **Difference (`labs(days2 - days1)`)** | `738627 - 738622`                 | N/A                               | **`5 days`**           |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -3533,30 +3533,30 @@ int main() {
 
 ## Problem 5.7: Queue Implementation with Structures
 
-### Problem Statement
+**Problem Statement**
 
 Implement a queue structure containing an array, front, and rear indices, with enqueue/dequeue operations.
 
-### Sample Input
+**Sample Input**
 
 ```text
 10
 20
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 Dequeued: 10
 ```
 
-### Explanation
+**Explanation**
 
 Implements FIFO (First In First Out) Queue data structure encapsulated inside struct Queue . enqueue appends to rear , dequeue retrieves from front .
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Size} = \text{rear} - \text{front} + 1 \quad (\text{FIFO Queue})$$
 
@@ -3564,7 +3564,7 @@ $$\text{Size} = \text{rear} - \text{front} + 1 \quad (\text{FIFO Queue})$$
 > **First-In First-Out**: Enqueue adds elements to `rear`, while Dequeue removes elements from `front`.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -3595,14 +3595,14 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `q.front` = `-1`, `q.rear` = `-1`
 - `q.items` = `[0, 0, 0, 0, 0]`
 
-#### 2. Queue Operations Execution Trace
+**2. Queue Operations Execution Trace**
 
 | Operation Call                | Check / Logic            | `q.front` State      | `q.rear` State      | `q.items` Array State          | Return / Output           |
 | :---------------------------- | :----------------------- | :--------------------- | :-------------------- | :------------------------------- | :------------------------ |
@@ -3611,7 +3611,7 @@ int main() {
 | **`dequeue(&q)`**     | Retrieve`items[front]` | Increment`front = 1` | `rear = 1`          | `items[0]` extracted           | **Return `10`**   |
 | **Final State**         | N/A                      | `front = 1`          | `rear = 1`          | Remaining item:`20` at index 1 | Output:`"Dequeued: 10"` |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity             |
 | ------- | ---------------------- |
@@ -3620,30 +3620,30 @@ int main() {
 
 ## Problem 5.8: Complex Number Operations
 
-### Problem Statement
+**Problem Statement**
 
 Create a structure named Complex (real, imaginary) to add and multiply two complex numbers.
 
-### Sample Input
+**Sample Input**
 
 ```text
 3 2 1 7
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 Sum = 4.0 + 9.0i
 Product = -11.0 + 23.0i
 ```
 
-### Explanation
+**Explanation**
 
 Uses complex arithmetic formulas: - Addition: $(a+ib) + (c+id) = (a+c) + i(b+d)$ - Multiplication: $(a+ib)(c+id) = (ac-bd) + i(ad+bc)$.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Sum} = (a_1 + a_2) + i(b_1 + b_2)$$
 $$\text{Product} = (a_1 a_2 - b_1 b_2) + i(a_1 b_2 + a_2 b_1)$$
@@ -3652,7 +3652,7 @@ $$\text{Product} = (a_1 a_2 - b_1 b_2) + i(a_1 b_2 + a_2 b_1)$$
 > **Complex Algebra**: Uses Euler's complex number multiplication identity $i^2 = -1$.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -3673,14 +3673,14 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `c1` = `3.0 + 2.0i`
 - `c2` = `1.0 + 7.0i`
 
-#### 2. Complex Operations Execution Trace
+**2. Complex Operations Execution Trace**
 
 | Step                | Operation Formula     | Calculation                                 | Resulting Value | Target Variable       |
 | :------------------ | :-------------------- | :------------------------------------------ | :-------------- | :-------------------- |
@@ -3690,7 +3690,7 @@ int main() {
 | **Prod Imag** | `(ad + bc)`         | `(3.0 * 7.0) + (2.0 * 1.0) = 21.0 + 2.0`  | `23.0`        | `prod.imag = 23.0`  |
 | **Output**    | Format string         | `Sum = 4.0 + 9.0iProduct = -11.0 + 23.0i` | N/A             | Printed to stdout     |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -3699,29 +3699,29 @@ int main() {
 
 ## Problem 5.9: Car Structure Management
 
-### Problem Statement
+**Problem Statement**
 
 Design a structure 'Car' (id, model, rate per day) and calculate total rental cost for specified days.
 
-### Sample Input
+**Sample Input**
 
 ```text
 1 Sedan 1500.0 5
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 Car ID: 1, Model: Sedan, Total Rental for 5 days = 7500.00
 ```
 
-### Explanation
+**Explanation**
 
 Multiplies rate_per_day member field of Car structure by the specified duration days to get total rental expense.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Total Cost} = \text{Car}.\text{rate\_per\_day} \times \text{Days}$$
 
@@ -3729,7 +3729,7 @@ $$\text{Total Cost} = \text{Car}.\text{rate\_per\_day} \times \text{Days}$$
 > **Rental Expenses**: Multiplies daily rate field by duration multiplier.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -3749,16 +3749,16 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `car.id` = `1`
 - `car.model` = `"Sedan"`
 - `car.rate_per_day` = `1500.00f`
 - `days` = `5`
 
-#### 2. Execution Trace
+**2. Execution Trace**
 
 | Step        | Statement               | Operation / Multiplication | Intermediate Result                   | Final Output String                                              |
 | :---------- | :---------------------- | :------------------------- | :------------------------------------ | :--------------------------------------------------------------- |
@@ -3766,7 +3766,7 @@ int main() {
 | **2** | `total = rate * days` | `1500.00 * 5`            | `7500.00`                           | `total = 7500.00`                                              |
 | **3** | `printf(...)`         | Format string output       | N/A                                   | `"Car ID: 1, Model: Sedan, Total Rental for 5 days = 7500.00"` |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -3781,17 +3781,17 @@ int main() {
 
 ## Problem 6.1: Basic Pointer Declaration
 
-### Problem Statement
+**Problem Statement**
 
 Demonstrate basic pointer variable declaration, address-of (`&`), and dereference (`*`) operations.
 
-### Sample Input
+**Sample Input**
 
 ```text
 10
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 z stores the address of m = 0x7ffd61ad5a4c
@@ -3802,13 +3802,13 @@ z stores the address of m = 0x7ffd61ad5a4c
 &z stores the address of z = 0x7ffd61ad5a38
 ```
 
-### Explanation
+**Explanation**
 
 Uses address-of operator `&` and dereference operator `*` on basic primitive data types (`int`, `float`, `char`). *(Note: Hexadecimal memory addresses displayed in sample outputs are illustrative architecture-dependent stack memory addresses).*
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$*(\&m) = m \implies \text{Dereferencing address of } m \text{ yields value of } m$$
 
@@ -3816,7 +3816,7 @@ $$*(\&m) = m \implies \text{Dereferencing address of } m \text{ yields value of 
 > **Pointer Dereferencing**: `&` returns address, while `*` accesses stored data value at that address.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -3833,14 +3833,14 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `m` = `10`
 - Pointer `z` initialized to point to address of `m` (`&m`). Assume `&m` = `0x7ffd61ad5a4c`.
 
-#### 2. Pointer Memory & Dereference Trace Table
+**2. Pointer Memory & Dereference Trace Table**
 
 | Step / Expression        | Evaluated Operation              | Memory Address / Target     | Dereferenced Value (`*`) | Output Printed                              |
 | :----------------------- | :------------------------------- | :-------------------------- | :------------------------- | :------------------------------------------ |
@@ -3850,7 +3850,7 @@ int main() {
 | **`&n`, `&o`** | Stack addresses of`n`, `o`   | Next memory offsets         | N/A                        | Prints stack addresses                      |
 | **`&z`**         | Address of pointer variable`z` | Pointer's own address       | N/A                        | `&z stores address of z = 0x7ffd61ad5a38` |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -3859,21 +3859,21 @@ int main() {
 
 ## Problem 6.2: Pointer Handling Demonstration
 
-### Problem Statement
+**Problem Statement**
 
 Demonstrate handling pointer reassignments and indirect variable mutations via pointer access.
 
-### Explanation
+**Explanation**
 
 Demonstrates pointer reassignment, dereferencing `*ab`, and indirect value mutation of underlying variable `m`. *(Note: Hexadecimal memory addresses displayed in sample outputs are illustrative architecture-dependent stack memory addresses).*
 
-### Sample Input
+**Sample Input**
 
 ```text
 29
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 Address of m : 0x7fff9b915d44 Value of m : 29
@@ -3881,13 +3881,13 @@ Content of pointer ab : 34
 Value of m : 7
 ```
 
-### Explanation
+**Explanation**
 
 Since ab stores address of m , assigning m = 34 changes value via direct assignment, and assigning *ab = 7 mutates value via indirect pointer reference.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$ab = \&m \implies *ab = 34 \implies m = 34$$
 
@@ -3895,7 +3895,7 @@ $$ab = \&m \implies *ab = 34 \implies m = 34$$
 > **Indirect Mutation**: Mutating `*ab` directly alters the memory value of variable `m`.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -3911,14 +3911,14 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `m` = `29`
 - `ab` = `&m` (pointer `ab` referencing address of `m`)
 
-#### 2. Pointer Mutation Trace Table
+**2. Pointer Mutation Trace Table**
 
 | Step             | Statement                | Variable`m` Value | Memory Address (`ab`) | Dereferenced Value (`*ab`) | Explanation                                    |
 | :--------------- | :----------------------- | :------------------ | :---------------------- | :--------------------------- | :--------------------------------------------- |
@@ -3927,7 +3927,7 @@ int main() {
 | **3**      | `*ab = 7;`             | `7`               | `&m`                  | `7`                        | Indirect modification via pointer updates`m` |
 | **Output** | Print statements         | `7`               | `&m`                  | `7`                        | Final`m` value printed is `7`              |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -3936,17 +3936,17 @@ int main() {
 
 ## Problem 6.3: Use of & and * Operators
 
-### Problem Statement
+**Problem Statement**
 
 Demonstrate referencing addresses (`&`) and values (`*`) for int, float, and char variable types.
 
-### Sample Input
+**Sample Input**
 
 ```text
 300 300.600006 z
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 m = 300 fx = 300.600006 cht = z
@@ -3960,13 +3960,13 @@ value at address of fx = 300.600006
 value at address of cht = z
 ```
 
-### Explanation
+**Explanation**
 
 &var obtains the memory location of var , while *(&var) cancels out to yield the underlying value stored at that location.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Value}(p) = *p = *(\&x) = x$$
 
@@ -3974,7 +3974,7 @@ $$\text{Value}(p) = *p = *(\&x) = x$$
 > **Type Safety**: Pointers must match the data type of the variable whose address they hold.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -3992,15 +3992,15 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `m` = `300` (int)
 - `fx` = `300.600006f` (float)
 - `cht` = `'z'` (char)
 
-#### 2. Address & Dereference Cancellation Trace
+**2. Address & Dereference Cancellation Trace**
 
 | Variable | Address Expression (`&var`)       | Dereferenced Address (`*(&var)`) | Resulting Value | Concept Demonstrated                  |
 | :------- | :---------------------------------- | :--------------------------------- | :-------------- | :------------------------------------ |
@@ -4008,7 +4008,7 @@ int main() {
 | `fx`   | `&fx` (e.g., `0x7ffc4f9026d8`)  | `*(&fx)`                         | `300.600006`  | Works across float types              |
 | `cht`  | `&cht` (e.g., `0x7ffc4f9026d7`) | `*(&cht)`                        | `'z'`         | Works across char types               |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -4017,29 +4017,29 @@ int main() {
 
 ## Problem 6.4: Add Two Numbers with Pointers
 
-### Problem Statement
+**Problem Statement**
 
 Write a program in C to add two numbers using pointers.
 
-### Sample Input
+**Sample Input**
 
 ```text
 5 6
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 The sum of the entered numbers is : 11
 ```
 
-### Explanation
+**Explanation**
 
 Dereferences integer pointers p and q ( *p and *q ) to fetch values 5 and 6, adding them together into variable sum .
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Sum} = *p_1 + *p_2 \quad \text{where } p_1 = \&a, \, p_2 = \&b$$
 
@@ -4047,7 +4047,7 @@ $$\text{Sum} = *p_1 + *p_2 \quad \text{where } p_1 = \&a, \, p_2 = \&b$$
 > **Pointer Addition**: Fetches integer values from addresses $p_1$ and $p_2$ and adds them.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -4060,14 +4060,14 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `f` = `5`, `s` = `6`
 - `p` = `&f`, `q` = `&s`
 
-#### 2. Pointer Addition Trace
+**2. Pointer Addition Trace**
 
 | Step        | Expression        | Dereference Operation | Calculated Value | Variable Assignment                               |
 | :---------- | :---------------- | :-------------------- | :--------------- | :------------------------------------------------ |
@@ -4076,7 +4076,7 @@ int main() {
 | **3** | `sum = *p + *q` | `5 + 6`             | `11`           | `sum = 11`                                      |
 | **4** | `printf(...)`   | Format string         | N/A              | Print`"The sum of the entered numbers is : 11"` |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -4085,29 +4085,29 @@ int main() {
 
 ## Problem 6.5: Add Numbers Using Call by Reference
 
-### Problem Statement
+**Problem Statement**
 
 Write a program in C to add numbers using call by reference.
 
-### Sample Input
+**Sample Input**
 
 ```text
 5 6
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 The sum of 5 and 6 is 11
 ```
 
-### Explanation
+**Explanation**
 
 Passes addresses &n1 , &n2 , and &sum to function addNumbers . The function modifies sum directly in calling stack frame via pointer dereference.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{AddByRef}(p_1, p_2) \implies \text{Sum} = *p_1 + *p_2$$
 
@@ -4115,7 +4115,7 @@ $$\text{AddByRef}(p_1, p_2) \implies \text{Sum} = *p_1 + *p_2$$
 > **Call-by-Reference**: Passes variable addresses to functions to allow direct memory access.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -4128,13 +4128,13 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - Stack Frame `main`: `n1 = 5`, `n2 = 6`, `sum = uninitialized`
 
-#### 2. Call-by-Reference Execution Trace
+**2. Call-by-Reference Execution Trace**
 
 | Function / Frame    | Argument Passed    | Parameter Pointer (`*`)  | Action Inside Function               | Caller Stack Effect (`main`)             |
 | :------------------ | :----------------- | :------------------------- | :----------------------------------- | :----------------------------------------- |
@@ -4143,7 +4143,7 @@ int main() {
 | `main()`          | Function returns   | N/A                        | Resume`main()` execution           | `sum` value is now `11`                |
 | **Output**    | Print format       | N/A                        | N/A                                  | `"The sum of 5 and 6 is 11"`             |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -4152,29 +4152,29 @@ int main() {
 
 ## Problem 6.6: Maximum of Two Using Pointer
 
-### Problem Statement
+**Problem Statement**
 
 Find the maximum number between two numbers using pointers.
 
-### Sample Input
+**Sample Input**
 
 ```text
 5 6
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 6 is the maximum number.
 ```
 
-### Explanation
+**Explanation**
 
 Compares dereferenced values *pa and *pb in condition *pa > *pb to determine maximum integer.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Max} = \begin{cases} *p_1 & \text{if } *p_1 > *p_2 \\ *p_2 & \text{otherwise} \end{cases}$$
 
@@ -4182,7 +4182,7 @@ $$\text{Max} = \begin{cases} *p_1 & \text{if } *p_1 > *p_2 \\ *p_2 & \text{other
 > **Pointer Comparison**: Dereferences pointer operands inside conditional branch checks.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -4198,14 +4198,14 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `a` = `5`, `b` = `6`
 - `pa` = `&a`, `pb` = `&b`
 
-#### 2. Pointer Comparison Trace
+**2. Pointer Comparison Trace**
 
 | Step        | Statement          | Pointer Dereference                | Evaluated Condition   | Action Taken                         |
 | :---------- | :----------------- | :--------------------------------- | :-------------------- | :----------------------------------- |
@@ -4213,7 +4213,7 @@ int main() {
 | **2** | `else`           | N/A                                | N/A                   | Enter`else` body                   |
 | **3** | `printf(...)`    | Dereference`*pb` -> `6`        | N/A                   | Output`"6 is the maximum number."` |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -4222,18 +4222,18 @@ int main() {
 
 ## Problem 6.7: Print Array Using Pointer
 
-### Problem Statement
+**Problem Statement**
 
 Store N elements in an array and print the elements using pointer arithmetic.
 
-### Sample Input
+**Sample Input**
 
 ```text
 5
 5 7 2 9 8
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 The elements you entered are :
@@ -4244,13 +4244,13 @@ element - 3 : 9
 element - 4 : 8
 ```
 
-### Explanation
+**Explanation**
 
 Pointer arithmetic *(ptr + i) calculates the address offset ptr + i (stepping by sizeof(int) bytes) and dereferences it to fetch element arr[i] .
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Address}(A + i) = \text{BaseAddress}(A) + i \times \text{sizeof}(\text{type})$$
 
@@ -4258,7 +4258,7 @@ $$\text{Address}(A + i) = \text{BaseAddress}(A) + i \times \text{sizeof}(\text{t
 > **Pointer Arithmetic**: Incrementing pointer $p + i$ shifts memory address by $i \times \text{element\_size}$ bytes.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -4274,14 +4274,14 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `arr` = `[5, 7, 2, 9, 8]`
 - Base pointer `ptr` = `arr` (`&arr[0]`)
 
-#### 2. Pointer Arithmetic Traversal Trace Table
+**2. Pointer Arithmetic Traversal Trace Table**
 
 | Step (`i`) | Pointer Offset (`ptr + i`) | Byte Offset (`i * sizeof(int)`) | Dereferenced Value (`*(ptr + i)`) | Output Line Printed   |
 | :----------- | :--------------------------- | :-------------------------------- | :---------------------------------- | :-------------------- |
@@ -4291,7 +4291,7 @@ int main() {
 | **3**  | `ptr + 3`                  | `+12 bytes`                     | `arr[3] = 9`                      | `"element - 3 : 9"` |
 | **4**  | `ptr + 4`                  | `+16 bytes`                     | `arr[4] = 8`                      | `"element - 4 : 8"` |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -4300,30 +4300,30 @@ int main() {
 
 ## Problem 6.8: Permutations of a String Using Pointers
 
-### Problem Statement
+**Problem Statement**
 
 Print all permutations of a given string using pointers and backtracking recursion.
 
-### Sample Input
+**Sample Input**
 
 ```text
 abcd
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 The permutations of the string are :
 abcd abdc acbd acdb adcb adbc bacd badc bcad bcda bdca bdac cbad cbda cabd cadb cdab cdba dbca dbac dcba dcab dacb dabc
 ```
 
-### Explanation
+**Explanation**
 
 Recursively swaps character pointers (str + l) and (str + i) to generate $N!$ unique orderings of the $N$- character string.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Total Permutations} = N! \quad \text{where } N = \text{strlen}(S)$$
 
@@ -4331,7 +4331,7 @@ $$\text{Total Permutations} = N! \quad \text{where } N = \text{strlen}(S)$$
 > **Backtracking**: Swaps characters using pointers to generate all $N!$ string permutations.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -4361,14 +4361,14 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - String `str` = `"abcd"` (`N = 4`)
 - Initial recursive call: `permute(str, 0, 3)`
 
-#### 2. Backtracking Recursive Tree Partial Trace
+**2. Backtracking Recursive Tree Partial Trace**
 
 | Call Level (`l`) | Loop Index (`i`) | Swapped Characters       | Current`str` State | Recursive Action / Output                                 |
 | :----------------- | :----------------- | :----------------------- | :------------------- | :-------------------------------------------------------- |
@@ -4379,7 +4379,7 @@ int main() {
 | `l = 2`          | `i = 3`          | `swap(2, 3)`           | `"abdc"`           | Call`permute(str, 3, 3)` -> **Print `"abdc "`** |
 | ...                | ...                | ...                      | ...                  | Backtracks through all**`24`** permutations       |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity                     |
 | ------- | ------------------------------ |
@@ -4388,30 +4388,30 @@ int main() {
 
 ## Problem 6.9: Largest Element Using Dynamic Memory Allocation
 
-### Problem Statement
+**Problem Statement**
 
 Find the largest element among N float numbers allocated dynamically.
 
-### Sample Input
+**Sample Input**
 
 ```text
 5
 5.0 7.0 2.0 9.0 8.0
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 The Largest element is : 9.00
 ```
 
-### Explanation
+**Explanation**
 
 Allocates float array on heap memory using malloc() , traverses it using pointer offset *(arr + i) to locate maximum float value, and releases heap memory via free() .
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Max} = \max_{0 \le i < N} *(p + i)$$
 
@@ -4419,7 +4419,7 @@ $$\text{Max} = \max_{0 \le i < N} *(p + i)$$
 > **Dynamic Pointer Scan**: Dereferences pointer offset `*(p + i)` to scan dynamic array elements.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -4445,15 +4445,15 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - Dynamic array `arr` allocated on heap via `malloc(5 * sizeof(float))`
 - Populated array: `[5.0, 7.0, 2.0, 9.0, 8.0]`
 - Initial `max` = `*arr` = `5.0f`
 
-#### 2. Heap Pointer Traversal Trace
+**2. Heap Pointer Traversal Trace**
 
 | Index (`i`)     | Pointer Expression (`arr + i`) | Value (`*(arr + i)`) | Condition (`> max`)     | Updated`max` Value | Heap State             |
 | :---------------- | :------------------------------- | :--------------------- | :------------------------ | :------------------- | :--------------------- |
@@ -4464,7 +4464,7 @@ int main() {
 | **4**       | `arr + 4`                      | `8.0`                | `8.0 > 9.0` (`False`) | `9.0`              | Allocated              |
 | **Cleanup** | N/A                              | N/A                    | `free(arr)` called      | Output:`"9.00"`    | **Memory Freed** |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity               |
 | ------- | ------------------------ |
@@ -4473,29 +4473,29 @@ int main() {
 
 ## Problem 6.10: String Length Using Pointer
 
-### Problem Statement
+**Problem Statement**
 
 Calculate the length of a string using pointer increment.
 
-### Sample Input
+**Sample Input**
 
 ```text
 w3resource
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 The length of the given string w3resource is : 10
 ```
 
-### Explanation
+**Explanation**
 
 Increments pointer ptr and length counter len until dereferenced pointer *ptr hits null character '\0' .
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Length} = p_{\text{end}} - p_{\text{start}} \quad \text{where } *p_{\text{end}} = '\backslash 0'$$
 
@@ -4503,7 +4503,7 @@ $$\text{Length} = p_{\text{end}} - p_{\text{start}} \quad \text{where } *p_{\tex
 > **Pointer Subtraction**: Subtracting base pointer from end pointer gives element count.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -4520,15 +4520,15 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `str` = `"w3resource"`
 - Pointer `ptr` = `str` (`&str[0]`)
 - `len` = `0`
 
-#### 2. Pointer Increment Execution Trace
+**2. Pointer Increment Execution Trace**
 
 | Iteration      | Evaluated Dereference (`*ptr`) | Condition (`*ptr != '\0'`) | `len` Increment | Pointer Advancement (`ptr++`) |
 | :------------- | :------------------------------- | :--------------------------- | :---------------- | :------------------------------ |
@@ -4538,7 +4538,7 @@ int main() {
 | **10**   | `'e'`                          | `True`                     | `len = 10`      | `ptr` -> `'\0'`             |
 | **11**   | `'\0'` (Null terminator)       | `False`                    | Loop terminates   | **`len = 10`**          |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -4553,29 +4553,29 @@ int main() {
 
 ## Problem 7.1: Store N Integers
 
-### Problem Statement
+**Problem Statement**
 
 Allocate memory using `malloc()` for N integers, input and display them.
 
-### Sample Input
+**Sample Input**
 
 ```text
 5
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 Stored Integers: 10 20 30 40 50
 ```
 
-### Explanation
+**Explanation**
 
 malloc(n * sizeof(int)) requests n * 4 bytes from heap memory. Returning pointer is checked against NULL to verify successful allocation.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Heap Buffer Size} = N \times \text{sizeof}(\text{int}) \text{ bytes}$$
 
@@ -4583,7 +4583,7 @@ $$\text{Heap Buffer Size} = N \times \text{sizeof}(\text{int}) \text{ bytes}$$
 > **Heap Allocation**: `malloc()` allocates dynamic memory block on heap and returns base pointer.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -4605,15 +4605,15 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - Requested count `n` = `5`
 - Heap memory allocation: `malloc(5 * sizeof(int))` = `20 bytes`
 - Base pointer `arr` returned from heap allocator.
 
-#### 2. Heap Population & Traversal Trace Table
+**2. Heap Population & Traversal Trace Table**
 
 | Step (`i`)               | Computation`(i + 1) * 10` | Heap Assignment (`arr[i]`) | Memory State (`heap[0..4]`) | Action                                         |
 | :------------------------- | :-------------------------- | :--------------------------- | :---------------------------- | :--------------------------------------------- |
@@ -4624,7 +4624,7 @@ int main() {
 | **4**                | `(4 + 1) * 10 = 50`       | `arr[4] = 50`              | `[10, 20, 30, 40, 50]`      | Final element written                          |
 | **Output / Cleanup** | N/A                         | Traversing`arr[0..4]`      | Print`"10 20 30 40 50 "`    | **`free(arr)` called to release heap** |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -4633,30 +4633,30 @@ int main() {
 
 ## Problem 7.2: Find Sum of Array
 
-### Problem Statement
+**Problem Statement**
 
 Dynamically allocate an array, compute and print the sum of all elements.
 
-### Sample Input
+**Sample Input**
 
 ```text
 5
 1 2 3 4 5
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 Sum = 15
 ```
 
-### Explanation
+**Explanation**
 
 Allocates dynamic integer array, populates values, and sums them in a single pass before freeing heap memory.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Sum} = \sum_{i=0}^{N-1} *(p + i)$$
 
@@ -4664,7 +4664,7 @@ $$\text{Sum} = \sum_{i=0}^{N-1} *(p + i)$$
 > **Dynamic Accumulator**: Sums values stored in dynamically allocated heap array.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -4683,14 +4683,14 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `n` = `5`, `sum` = `0`
 - Heap allocation: `malloc(5 * sizeof(int))`
 
-#### 2. Heap Accumulation Trace
+**2. Heap Accumulation Trace**
 
 | Step (`i`)      | Assigned Value (`i + 1`) | Heap Storage (`arr[i]`) | `sum += arr[i]`    | Accumulator State (`sum`) |
 | :---------------- | :------------------------- | :------------------------ | :------------------- | :-------------------------- |
@@ -4701,7 +4701,7 @@ int main() {
 | **4**       | `5`                      | `arr[4] = 5`            | `10 + 5`           | **`15`**            |
 | **Cleanup** | N/A                        | N/A                       | `free(arr)` called | Output:`"Sum = 15"`       |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -4710,30 +4710,30 @@ int main() {
 
 ## Problem 7.3: Find Maximum Element
 
-### Problem Statement
+**Problem Statement**
 
 Allocate memory for N integers and find the largest number.
 
-### Sample Input
+**Sample Input**
 
 ```text
 4
 12 45 23 9
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 Max = 45
 ```
 
-### Explanation
+**Explanation**
 
 Dynamically creates integer buffer, initializes max with arr[0] , updates max on finding larger element during iteration.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Max} = \max_{0 \le i < N} *(p + i)$$
 
@@ -4741,7 +4741,7 @@ $$\text{Max} = \max_{0 \le i < N} *(p + i)$$
 > **Dynamic Bounds Scan**: Searches maximum element across dynamic heap buffer.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -4764,14 +4764,14 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - Dynamic array `arr` = `[12, 45, 23, 9]` on heap.
 - Initial `max` = `arr[0]` = `12`
 
-#### 2. Dynamic Array Linear Scan Trace
+**2. Dynamic Array Linear Scan Trace**
 
 | Step (`i`)      | Value (`arr[i]`) | Comparison (`arr[i] > max`) | Decision               | `max` Value    | Heap Status     |
 | :---------------- | :----------------- | :---------------------------- | :--------------------- | :--------------- | :-------------- |
@@ -4781,7 +4781,7 @@ int main() {
 | **3**       | `9`              | `9 > 45` (`False`)        | Keep current`max`    | `45`           | Active Heap     |
 | **Cleanup** | N/A                | Print`45`                   | `free(arr)` executed | `45`           | **Freed** |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -4790,30 +4790,30 @@ int main() {
 
 ## Problem 7.4: Reverse an Array
 
-### Problem Statement
+**Problem Statement**
 
 Dynamically allocate an array and print elements in reverse order.
 
-### Sample Input
+**Sample Input**
 
 ```text
 5
 1 2 3 4 5
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 Reversed Array: 5 4 3 2 1
 ```
 
-### Explanation
+**Explanation**
 
 Allocates array dynamically, fills with 1..N, and loops backward from n - 1 down to 0 for reverse rendering.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Reversed}[i] = *(p + (N - 1 - i)) \quad \forall \, i \in \{0, \dots, N-1\}$$
 
@@ -4821,7 +4821,7 @@ $$\text{Reversed}[i] = *(p + (N - 1 - i)) \quad \forall \, i \in \{0, \dots, N-1
 > **Dynamic Reverse Pass**: Reads dynamic memory backwards from index $N - 1$ down to 0.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -4841,14 +4841,14 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `n` = `5`
 - Dynamic array `arr` = `[1, 2, 3, 4, 5]` on heap.
 
-#### 2. Reverse Output Loop Trace
+**2. Reverse Output Loop Trace**
 
 | Step              | Index (`i = n - 1` down to `0`) | Heap Value (`arr[i]`) | Print Action         | Output Stream    |
 | :---------------- | :---------------------------------- | :---------------------- | :------------------- | :--------------- |
@@ -4859,7 +4859,7 @@ int main() {
 | **5**       | `i = 0`                           | `arr[0] = 1`          | Print`1 `          | `"5 4 3 2 1 "` |
 | **Cleanup** | N/A                                 | Heap buffer             | `free(arr)` called | Memory released  |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -4868,30 +4868,30 @@ int main() {
 
 ## Problem 7.5: Average of Numbers
 
-### Problem Statement
+**Problem Statement**
 
 Store N floating-point numbers using `malloc()` and find their average.
 
-### Sample Input
+**Sample Input**
 
 ```text
 4
 10.5 20.5 30.0 40.0
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 Average = 25.25
 ```
 
-### Explanation
+**Explanation**
 
 Allocates heap memory for floats, sums array elements, and divides total sum by count n .
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Average} = \frac{\sum_{i=0}^{N-1} p[i]}{N}$$
 
@@ -4899,7 +4899,7 @@ $$\text{Average} = \frac{\sum_{i=0}^{N-1} p[i]}{N}$$
 > **Float Precision**: Uses floating-point accumulation for computing dynamic array averages.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -4920,15 +4920,15 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `n` = `4`
 - Dynamic float array `arr` = `[10.5, 20.5, 30.0, 40.0]`
 - `sum` = `0.0f`
 
-#### 2. Execution Trace
+**2. Execution Trace**
 
 | Index (`i`)     | Float Value (`arr[i]`) | Accumulation (`sum += arr[i]`) | Current`sum` State         |
 | :---------------- | :----------------------- | :------------------------------- | :--------------------------- |
@@ -4939,7 +4939,7 @@ int main() {
 | **Average** | Division`sum / n`      | `101.00 / 4`                   | **`25.25`**          |
 | **Cleanup** | `free(arr)` called     | Memory deallocated               | Output:`"Average = 25.25"` |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -4948,29 +4948,29 @@ int main() {
 
 ## Problem 7.6: Resize an Array
 
-### Problem Statement
+**Problem Statement**
 
 Allocate memory for N integers, increase size to M using `realloc()`, and print final array.
 
-### Sample Input
+**Sample Input**
 
 ```text
 3 5
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 1 2 3 4 5
 ```
 
-### Explanation
+**Explanation**
 
 realloc() re-allocates contiguous dynamic memory block preserving existing data. Expands buffer from size 3 to 5.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{New Buffer Size} = M \times \text{sizeof}(\text{type}) \quad (M > N)$$
 
@@ -4978,7 +4978,7 @@ $$\text{New Buffer Size} = M \times \text{sizeof}(\text{type}) \quad (M > N)$$
 > **Reallocation**: `realloc()` resizes existing heap block while preserving previously copied data.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -4999,13 +4999,13 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - Initial size `n` = `3`, target size `m` = `5`
 
-#### 2. Dynamic Memory Reallocation Trace
+**2. Dynamic Memory Reallocation Trace**
 
 | Phase                     | Function Call                     | Heap Buffer Allocation State | Contents (`arr`)  | Action                              |
 | :------------------------ | :-------------------------------- | :--------------------------- | :------------------ | :---------------------------------- |
@@ -5015,7 +5015,7 @@ int main() {
 | **4. Output**       | Loop`i = 0..4`                  | Traverse resized array       | `1 2 3 4 5 `      | Print output                        |
 | **5. Cleanup**      | `free(arr)`                     | Memory deallocated           | N/A                 | Released 20 bytes to heap pool      |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -5024,29 +5024,29 @@ int main() {
 
 ## Problem 7.7: Insert an Element
 
-### Problem Statement
+**Problem Statement**
 
 Dynamically allocate an array and insert an element at a given index position.
 
-### Sample Input
+**Sample Input**
 
 ```text
 4 2 99
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 10 20 99 30 40
 ```
 
-### Explanation
+**Explanation**
 
 Shifts elements starting from end index rightward by one step to open a slot at target position pos , then inserts val .
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$A[i] = A[i-1] \quad \forall \, i \text{ from } N \text{ down to } \text{pos}+1, \quad A[\text{pos}] = \text{Val}$$
 
@@ -5054,7 +5054,7 @@ $$A[i] = A[i-1] \quad \forall \, i \text{ from } N \text{ down to } \text{pos}+1
 > **Right Shift**: Shifts elements right to insert new element at specified target position.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -5078,14 +5078,14 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - Initial `n` = `4`, `pos` = `2`, `val` = `99`
 - Heap buffer allocated for `n + 1` (`5` elements): `[10, 20, 30, 40, _]`
 
-#### 2. Element Insertion Shift Trace Table
+**2. Element Insertion Shift Trace Table**
 
 | Step / Phase        | Index (`i`) | Operation             | Array State (`arr[0..4]`) | Explanation                   |
 | :------------------ | :------------ | :-------------------- | :-------------------------- | :---------------------------- |
@@ -5095,7 +5095,7 @@ int main() {
 | **Insertion** | N/A           | `arr[2] = val (99)` | `[10, 20, 99, 30, 40]`    | New element written           |
 | **Output**    | N/A           | Traverses`i = 0..4` | Print`"10 20 99 30 40 "`  | Memory freed via`free(arr)` |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -5104,29 +5104,29 @@ int main() {
 
 ## Problem 7.8: Delete an Element
 
-### Problem Statement
+**Problem Statement**
 
 Remove an element from a given position in a dynamically allocated array.
 
-### Sample Input
+**Sample Input**
 
 ```text
 4 1
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 10 30 40
 ```
 
-### Explanation
+**Explanation**
 
 Overwrites element at target index pos by shifting all remaining rightward elements left by one position.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$A[i] = A[i+1] \quad \forall \, i \text{ from } \text{pos} \text{ up to } N-2$$
 
@@ -5134,7 +5134,7 @@ $$A[i] = A[i+1] \quad \forall \, i \text{ from } \text{pos} \text{ up to } N-2$$
 > **Left Shift**: Shifts elements left to fill slot of deleted array element.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -5157,14 +5157,14 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `n` = `4`, `pos` = `1` (Targeting element `20` for deletion)
 - Heap array: `[10, 20, 30, 40]`
 
-#### 2. Deletion Left-Shift Trace Table
+**2. Deletion Left-Shift Trace Table**
 
 | Step (`i`)          | Operation           | Overwritten Value            | Resulting Array State  | Active Length                 |
 | :-------------------- | :------------------ | :--------------------------- | :--------------------- | :---------------------------- |
@@ -5173,7 +5173,7 @@ int main() {
 | **Loop End**    | Reached`n - 1`    | Shift complete               | `[10, 30, 40, 40]`   | `3`                         |
 | **Display**     | Loop`i = 0..n-2`  | Ignore stale tail element    | Output:`"10 30 40 "` | Deallocation via`free(arr)` |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -5182,30 +5182,30 @@ int main() {
 
 ## Problem 7.9: Matrix Addition
 
-### Problem Statement
+**Problem Statement**
 
 Dynamically allocate two 2D matrices, perform addition, and display the result matrix.
 
-### Sample Input
+**Sample Input**
 
 ```text
 2 2
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 6 8 
 10 12
 ```
 
-### Explanation
+**Explanation**
 
 Allocates array of pointers ( int** ) representing rows, then allocates column memory per row pointer. Adds corresponding cell entries res[i][j] = a[i][j] + b[i][j] .
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Res}[i][j] = A[i][j] + B[i][j] \quad \forall \, 0 \le i < R, \, 0 \le j < C$$
 
@@ -5213,7 +5213,7 @@ $$\text{Res}[i][j] = A[i][j] + B[i][j] \quad \forall \, 0 \le i < R, \, 0 \le j 
 > **2D Pointer Pointer**: Allocates array of row pointers `int**` followed by column allocations per row.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -5255,16 +5255,16 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - Matrix dimensions `r` = `2`, `c` = `2`
 - Dynamically allocated row pointers `a`, `b`, `res` (`int**`) on heap.
 - Matrix `A` = `[[1, 2], [3, 4]]`
 - Matrix `B` = `[[5, 6], [7, 8]]`
 
-#### 2. 2D Dynamic Addition Execution Trace
+**2. 2D Dynamic Addition Execution Trace**
 
 | Row (`i`)       | Col (`j`) | Element`A[i][j]`   | Element`B[i][j]` | Addition Formula          | Result Cell`res[i][j]` |
 | :---------------- | :---------- | :------------------- | :----------------- | :------------------------ | :----------------------- |
@@ -5274,7 +5274,7 @@ int main() {
 | **1**       | **1** | `4`                | `8`              | `4 + 8`                 | `12`                   |
 | **Cleanup** | N/A         | Row-by-row`free()` | Free row pointers  | Entire 2D structure freed | Output printed           |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity   |
 | ------- | ------------ |
@@ -5283,29 +5283,29 @@ int main() {
 
 ## Problem 7.10: String Copy
 
-### Problem Statement
+**Problem Statement**
 
 Allocate memory for a string using `malloc()` and copy string without using `strcpy()`.
 
-### Sample Input
+**Sample Input**
 
 ```text
 Dynamic Memory Allocation
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 Copied String: Dynamic Memory Allocation
 ```
 
-### Explanation
+**Explanation**
 
 Calculates string length, allocates len + 1 bytes on heap for string plus null character, and copies characters in loop.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{Heap Bytes} = (L + 1) \times \text{sizeof}(\text{char}), \quad \text{Dest}[i] = \text{Src}[i] \, \forall \, i \le L$$
 
@@ -5313,7 +5313,7 @@ $$\text{Heap Bytes} = (L + 1) \times \text{sizeof}(\text{char}), \quad \text{Des
 > **Dynamic String Copy**: Allocates $L + 1$ bytes on heap to hold copied string plus null terminator.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -5333,14 +5333,14 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - Source string `src` = `"Dynamic Memory Allocation"`
 - Length `len` = `25`
 
-#### 2. Dynamic Memory Copy Trace
+**2. Dynamic Memory Copy Trace**
 
 | Step / Phase            | Action / Statement                  | Heap Allocation State | Array Copy Operation              | Variable / State                                    |
 | :---------------------- | :---------------------------------- | :-------------------- | :-------------------------------- | :-------------------------------------------------- |
@@ -5350,7 +5350,7 @@ int main() {
 | **4. Display**    | `printf(...)`                     | Valid string          | N/A                               | Print`"Copied String: Dynamic Memory Allocation"` |
 | **5. Cleanup**    | `free(dest)`                      | Memory deallocated    | Heap memory freed                 | Done                                                |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -5365,30 +5365,30 @@ int main() {
 
 ## Problem 8.1: Maximum Sum Subarray with Equal First and Last Element
 
-### Problem Statement
+**Problem Statement**
 
 Given an array of N integers, find the maximum sum of a contiguous subarray whose first and last elements are equal. If no such subarray exists (except single element), return maximum element in the array.
 
-### Sample Input
+**Sample Input**
 
 ```text
 8
 3 2 4 5 2 6 3 1
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 Output: 25
 ```
 
-### Explanation
+**Explanation**
 
 Traverses all contiguous subarrays arr[i...j] . If start element arr[i] equals end element arr[j] with i != j , checks if subarray sum is maximum. Fallback returns max element if no matching pairs exist.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{MaxSum} = \max_{0 \le i \le j < N, A[i] = A[j]} \sum_{k=i}^{j} A[k]$$
 
@@ -5396,7 +5396,7 @@ $$\text{MaxSum} = \max_{0 \le i \le j < N, A[i] = A[j]} \sum_{k=i}^{j} A[k]$$
 > **Equal Boundary Subarray**: Searches contiguous subarrays where starting and ending elements match.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -5426,14 +5426,14 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `arr` = `[3, 2, 4, 5, 2, 6, 3, 1]` (`N = 8`)
 - `maxSum` = `-1e18`, `found = 0`
 
-#### 2. Subarray Search Execution Trace
+**2. Subarray Search Execution Trace**
 
 | Start (`i`)           | End (`j`)             | Subarray`arr[i..j]`            | First == Last (`arr[i] == arr[j]`) | Subarray Sum           | `maxSum` Updated        |
 | :---------------------- | :---------------------- | :------------------------------- | :----------------------------------- | :--------------------- | :------------------------ |
@@ -5441,7 +5441,7 @@ int main() {
 | **1 (`val 2`)** | **4 (`val 2`)** | `[2, 4, 5, 2]`                 | `2 == 2` (`True`)                | `2+4+5+2 = 13`       | `25` (`13 < 25`)      |
 | **Final**         | N/A                     | Subarray`[3..3]` at `i=0..6` | `3 == 3`                           | **`25`**       | Output:`"Output: 25"`   |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity |
 | ------- | ---------- |
@@ -5450,29 +5450,29 @@ int main() {
 
 ## Problem 8.2: Longest Substring Without Repeating Characters
 
-### Problem Statement
+**Problem Statement**
 
 Given a string consisting of lowercase English letters, find the length of the longest substring containing no repeated characters.
 
-### Sample Input
+**Sample Input**
 
 ```text
 abcabcbb
 ```
 
-### Expected Output
+**Expected Output**
 
 ```text
 Output: 3
 ```
 
-### Explanation
+**Explanation**
 
 Sliding window technique maintaining left index start . lastPos array records last seen index of each character. When a repeat is encountered within current window ( lastPos[char] >= start ), start jumps past duplicate.
 
 
 
-### Mathematical Formula
+**Mathematical Formula**
 
 $$\text{MaxLen} = \max_{0 \le i < N} (i - \text{start} + 1), \quad \text{start} = \max(\text{start}, \text{lastPos}[S[i]] + 1)$$
 
@@ -5480,7 +5480,7 @@ $$\text{MaxLen} = \max_{0 \le i < N} (i - \text{start} + 1), \quad \text{start} 
 > **Sliding Window Algorithm**: Maintains left window boundary `start` and records last seen character positions in $O(N)$ time.
 
 
-### Solution in C
+**Solution in C**
 
 ```c
 #include <stdio.h>
@@ -5504,14 +5504,14 @@ int main() {
 }
 ```
 
-### Step-by-Step Walkthrough
+**Step-by-Step Walkthrough**
 
-#### 1. Initial State
+**1. Initial State**
 
 - `s` = `"abcabcbb"` (`N = 8`)
 - `lastPos[256]` = all `-1`, `start` = `0`, `maxLen` = `0`
 
-#### 2. Sliding Window Execution Trace Table
+**2. Sliding Window Execution Trace Table**
 
 | Step (`i`) | Char (`s[i]`) | Previous Index (`lastPos[char]`) | Window Shift (`start`) | Substring Window | Window Length (`i - start + 1`) | `maxLen`      |
 | :----------- | :-------------- | :--------------------------------- | :----------------------- | :--------------- | :-------------------------------- | :-------------- |
@@ -5524,7 +5524,7 @@ int main() {
 | **6**  | `'b'`         | `4` (`>= 3`)                   | `start = 5`            | `"cb"`         | `6 - 5 + 1 = 2`                 | `3`           |
 | **7**  | `'b'`         | `6` (`>= 5`)                   | `start = 7`            | `"b"`          | `7 - 7 + 1 = 1`                 | **`3`** |
 
-### Complexity
+**Complexity**
 
 | Measure | Complexity                              |
 | ------- | --------------------------------------- |
