@@ -1,0 +1,388 @@
+================================================================================
+           DAY 2: CONTROL FLOW, LOOPS, AND STRUCTURAL LAYOUTS
+================================================================================
+
+LEARNING GOALS
+--------------------------------------------------------------------------------
+By the end of Day 2, you should be able to:
+1. Make a program choose between different paths.
+2. Repeat a task safely using for, while, and do-while loops.
+3. Trace conditions, counters, and loop exits by hand.
+4. Build rows, columns, and simple patterns using nested loops.
+
+
+================================================================================
+1. HOW CONTROL FLOWS THROUGH A C PROGRAM
+--------------------------------------------------------------------------------
+C normally executes statements from top to bottom. Control-flow statements can
+change that order.
+
+Sequence  : execute statements one after another.
+Selection : choose a path using if, if-else, else-if, or switch.
+Iteration : repeat statements using for, while, or do-while.
+
+Every C condition evaluates to either:
+  0     -> false
+  non-0 -> true
+
+Example:
+    int age = 20;
+    if (age >= 18) {
+        printf("Eligible\n");
+    }
+
+IMPORTANT: Do not confuse assignment and comparison.
+    if (x = 5)   // assigns 5 to x; condition becomes true
+    if (x == 5)  // checks whether x is equal to 5
+
+
+================================================================================
+2. RELATIONAL AND LOGICAL OPERATORS
+--------------------------------------------------------------------------------
+Relational operators:
+    ==  equal to                 !=  not equal to
+    >   greater than             <   less than
+    >=  greater than or equal    <=  less than or equal
+
+Logical operators:
+    &&  AND  -> both conditions must be true
+    ||  OR   -> at least one condition must be true
+    !   NOT  -> reverses true and false
+
+Examples:
+    age >= 18 && citizen == 1
+    mark < 0 || mark > 100
+    !(number == 0)
+
+Short-circuit evaluation:
+    A && B -> B is checked only when A is true.
+    A || B -> B is checked only when A is false.
+
+
+================================================================================
+3. CONDITIONAL ROUTING
+--------------------------------------------------------------------------------
+A. SINGLE if
+
+Use it when an action is required only when a condition is true.
+
+    if (temperature > 40) {
+        printf("Heat warning\n");
+    }
+
+B. if-else
+
+Use it for exactly two alternative paths.
+
+    if (number % 2 == 0) {
+        printf("Even\n");
+    } else {
+        printf("Odd\n");
+    }
+
+C. else-if LADDER
+
+Use it when several ranges or conditions must be checked in order. The first
+true branch runs; the remaining branches are skipped.
+
+    if (mark >= 90) {
+        printf("Grade A\n");
+    } else if (mark >= 75) {
+        printf("Grade B\n");
+    } else if (mark >= 60) {
+        printf("Grade C\n");
+    } else {
+        printf("Needs improvement\n");
+    }
+
+Order matters. Check the highest range first in this example.
+
+D. NESTED if
+
+An if statement inside another if statement is called nested if.
+
+    if (usernameIsCorrect) {
+        if (passwordIsCorrect) {
+            printf("Login successful\n");
+        } else {
+            printf("Wrong password\n");
+        }
+    } else {
+        printf("Unknown user\n");
+    }
+
+Use nesting when the second decision depends on the first decision. Avoid very
+deep nesting because it becomes difficult to read.
+
+E. CONDITIONAL OPERATOR (TERNARY OPERATOR)
+
+Syntax:
+    condition ? value_if_true : value_if_false
+
+Example:
+    int maximum = (a > b) ? a : b;
+
+Use it for a short two-way value selection, not for complex logic.
+
+
+================================================================================
+4. switch: INDEXED MULTI-CASE SELECTION
+--------------------------------------------------------------------------------
+switch is useful when one integral expression is compared with several exact
+constant values. It works well for menus, weekdays, and command codes.
+
+    switch (choice) {
+        case 1:
+            printf("Add\n");
+            break;
+        case 2:
+            printf("Subtract\n");
+            break;
+        default:
+            printf("Invalid choice\n");
+    }
+
+Rules:
+1. case labels must be constant integral values.
+2. Duplicate case values are not allowed.
+3. break exits the switch.
+4. Without break, execution falls through to the next case.
+5. default handles values that do not match any case.
+6. switch is not suitable for ranges such as mark >= 90; use else-if instead.
+
+Intentional fall-through example:
+    switch (day) {
+        case 6:
+        case 7:
+            printf("Weekend\n");
+            break;
+        default:
+            printf("Weekday\n");
+    }
+
+
+================================================================================
+5. ITERATIVE LOOPS
+--------------------------------------------------------------------------------
+A loop normally needs these parts:
+1. Initialization -> where the tracker starts.
+2. Condition      -> when repetition is allowed.
+3. Body           -> work performed in each iteration.
+4. Update         -> moves the tracker toward termination.
+
+A missing or incorrect update can create an infinite loop.
+
+
+A. for LOOP: PRE-TESTED COUNTER LOOP
+
+Best when the number of repetitions is known.
+
+    for (int i = 1; i <= 5; i++) {
+        printf("%d\n", i);
+    }
+
+Trace:
+    i = 1 -> condition true  -> print 1 -> i becomes 2
+    ...
+    i = 5 -> condition true  -> print 5 -> i becomes 6
+    i = 6 -> condition false -> exit
+
+Common directions:
+    for (int i = 0; i < n; i++)      // 0 to n-1
+    for (int i = 1; i <= n; i++)     // 1 to n
+    for (int i = n; i >= 1; i--)     // n down to 1
+    for (int i = 2; i <= n; i += 2)  // even numbers
+
+
+B. while LOOP: PRE-TESTED CONDITION LOOP
+
+Best when the repetition count is not known in advance. The condition is tested
+before the body, so the body may run zero times.
+
+    int number;
+    scanf("%d", &number);
+
+    while (number != 0) {
+        printf("You entered %d\n", number);
+        scanf("%d", &number);
+    }
+
+
+C. do-while LOOP: POST-TESTED LOOP
+
+The body runs first and the condition is checked afterward. Therefore, it runs
+at least once. Notice the required semicolon after while(condition).
+
+    int choice;
+    do {
+        printf("1. Continue  0. Exit\n");
+        scanf("%d", &choice);
+    } while (choice != 0);
+
+
+LOOP SELECTION GUIDE
+--------------------------------------------------------------------------------
+for      -> known counter or known number of repetitions
+while    -> repeat while a condition remains true; possibly zero times
+do-while -> body must run at least once, such as a menu or input prompt
+
+
+================================================================================
+6. EXIT COUNTERS, SENTINELS, FLAGS, AND ACCUMULATORS
+--------------------------------------------------------------------------------
+Counter: counts events.
+    count++;
+
+Accumulator: stores a running total.
+    sum += value;
+
+Sentinel: a special input value that ends repetition.
+    while (value != -1) { ... }
+
+Flag: records whether something has happened.
+    int found = 0;
+    if (value == target) found = 1;
+
+Example: read positive numbers until -1, then print their count and sum.
+
+    int value, count = 0, sum = 0;
+    scanf("%d", &value);
+
+    while (value != -1) {
+        if (value > 0) {
+            count++;
+            sum += value;
+        }
+        scanf("%d", &value);
+    }
+
+    printf("Count: %d\nSum: %d\n", count, sum);
+
+
+================================================================================
+7. break AND continue
+--------------------------------------------------------------------------------
+break    -> immediately exits the nearest loop or switch.
+continue -> skips the remaining statements in the current loop iteration and
+            proceeds to the next iteration.
+
+Example:
+    for (int i = 1; i <= 10; i++) {
+        if (i == 8) break;
+        if (i % 2 != 0) continue;
+        printf("%d ", i);             // 2 4 6
+    }
+
+Use these carefully. The loop's normal condition should usually explain when it
+ends. In a nested loop, break exits only the nearest loop.
+
+
+================================================================================
+8. NESTED LOOPS AND STRUCTURAL LAYOUTS
+--------------------------------------------------------------------------------
+A loop inside another loop is called a nested loop.
+
+    for (int row = 1; row <= 3; row++) {
+        for (int column = 1; column <= 4; column++) {
+            printf("* ");
+        }
+        printf("\n");
+    }
+
+Output:
+    * * * *
+    * * * *
+    * * * *
+
+Outer loop -> controls rows.
+Inner loop -> controls items or columns within each row.
+
+Right triangle:
+    for (int row = 1; row <= 4; row++) {
+        for (int column = 1; column <= row; column++) {
+            printf("* ");
+        }
+        printf("\n");
+    }
+
+Output:
+    *
+    * *
+    * * *
+    * * * *
+
+Number layout:
+    for (int row = 1; row <= 4; row++) {
+        for (int column = 1; column <= row; column++) {
+            printf("%d ", column);
+        }
+        printf("\n");
+    }
+
+Total inner executions for a rows x columns rectangle = rows * columns.
+
+
+================================================================================
+9. DRY RUN EXAMPLES
+--------------------------------------------------------------------------------
+Example A: sum from 1 to 4
+
+    int sum = 0;
+    for (int i = 1; i <= 4; i++) sum += i;
+
+Iteration | i | sum before | sum after
+----------+---+------------+----------
+    1     | 1 |     0      |    1
+    2     | 2 |     1      |    3
+    3     | 3 |     3      |    6
+    4     | 4 |     6      |   10
+
+Example B: count digits in 5082
+
+    int count = 0;
+    while (number != 0) {
+        number /= 10;
+        count++;
+    }
+
+5082 -> 508 -> 50 -> 5 -> 0, so count = 4.
+Special case: the number 0 contains one digit.
+
+
+================================================================================
+10. COMMON ERRORS CHECKLIST
+--------------------------------------------------------------------------------
+1. Writing = instead of == in a condition.
+2. Placing a semicolon after if or while accidentally:
+       if (x > 0);  // empty if body
+3. Forgetting braces or using misleading indentation.
+4. Forgetting break in a switch case.
+5. Forgetting to update a while-loop tracker.
+6. Using < when <= is required, causing an off-by-one error.
+7. Changing the wrong variable in a nested loop.
+8. Dividing integers when a decimal result is required.
+9. Failing to validate a range before processing input.
+10. Using a sentinel value as normal data by mistake.
+
+Recommended compile command:
+    gcc -Wall -Wextra -pedantic program.c -o program
+
+Run on macOS/Linux:
+    ./program
+
+Run in Windows PowerShell:
+    .\program.exe
+
+
+================================================================================
+11. QUICK SELF-CHECK
+--------------------------------------------------------------------------------
+1. Which loop always runs at least once?                    do-while
+2. Which statement handles exact menu values clearly?       switch
+3. Which statement exits the nearest loop immediately?      break
+4. Which statement skips only the current iteration?        continue
+5. In a pattern, which loop usually controls rows?           outer loop
+6. How many times does a 3 x 5 nested loop body run?         15 times
+7. What is false in C?                                       0
+8. Why must a counter change?                                to reach loop exit
+

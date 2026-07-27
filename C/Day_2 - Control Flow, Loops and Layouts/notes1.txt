@@ -1,0 +1,324 @@
+gcc --version
+gcc.exe (Rev2, Built by MSYS2 project) 13.2.0
+
+Preprocessing -> gcc -E hello.c -o hello.i
+Compilation -> gcc -S hello.c -o hello.s
+Assembler ->  gcc -C hello.c -o hello.o
+Execution -> gcc hello.o -o hello
+gcc hello.c -o hello
+./hello
+
+B. Type Modifiers
+   -- Sign Modifiers (Changes alignment behavior around zero)
+      - signed   : Splits range evenly between positive and negative realms.
+                   Example: -128 to +127.
+      - unsigned : Eliminates negative space entirely. Capacity begins at 0.
+                   Example: 0 to 255.
+   -- Size Modifiers (Changes raw memory allocation)
+      - short    : Restricts capacity allocation (Typical: 2 Bytes / 16 bits).
+      - long     : Expands capacity allocation (Typical: 4 or 8 Bytes).
+
+================================================================================
+3. COMPREHENSIVE FORMAT SPECIFIER & MEMORY MATRIX
+--------------------------------------------------------------------------------
+Data Type           | Specifier | Byte Size | Minimum Value          | Maximum Value
+--------------------+-----------+-----------+------------------------+---------------------
+char                | %c        | 1 Byte    | -128                   | 127
+short               | %hd       | 2 Bytes   | -32,768                | 32,767
+unsigned short      | %hu       | 2 Bytes   | 0                      | 65,535
+int                 | %d        | 4 Bytes   | -2,147,483,648         | 2,147,483,647
+unsigned int        | %u        | 4 Bytes   | 0                      | 4,294,967,295
+long long int       | %lld      | 8 Bytes   | -9.22 × 10¹⁸           | 9.22 × 10¹⁸
+float               | %f        | 4 Bytes   | ≈ -3.4 × 10³⁸          | ≈ 3.4 × 10³⁸
+double              | %lf       | 8 Bytes   | ≈ -1.7 × 10³⁰⁸         | ≈ 1.7 × 10³⁰⁸
+
+[OUTPUT PRECISION CONTROLS]
+%.0f  - Displays float with 0 decimal places (rounds to nearest integer).
+%.1f  - Displays float with exactly 1 decimal place.
+%.2f  - Displays float with exactly 2 decimal places.
+%.4lf - Displays double with exactly 4 decimal places.
+
+========================================================================
+                      C LITERAL SUFFIX REFERENCE TABLE
+========================================================================
+
+--- INTEGER SUFFIXES ---
+
+Suffix    Meaning               Example    Type Assigned
+------------------------------------------------------------------------
+U         Unsigned              100U       unsigned int
+L         Long                  100L       long int
+UL        Unsigned Long         100UL      unsigned long int
+LL        Long Long             100LL      long long int
+ULL       Unsigned Long Long    100ULL     unsigned long long int
+
+
+--- FLOATING-POINT SUFFIXES ---
+
+Suffix    Meaning               Example    Type Assigned
+------------------------------------------------------------------------
+F         Float                 3.14F      float
+(None)    Double (Default)      3.14       double
+L         Long Double           3.14L      long double
+
+
+--- FIXED-WIDTH INTEGER SUFFIXES (C23 Standard & Later) ---
+
+Suffix    Meaning               Example    Type Assigned
+------------------------------------------------------------------------
+U8        Unsigned 8-bit        100U8      uint8_t
+U16       Unsigned 16-bit       100U16     uint16_t
+U32       Unsigned 32-bit       100U32     uint32_t
+U64       Unsigned 64-bit       100U64     uint64_t
+I8        Signed 8-bit          100I8      int8_t
+I16       Signed 16-bit         100I16     int16_t
+I32       Signed 32-bit         100I32     int32_t
+I64       Signed 64-bit         100I64     int64_t
+
+
+--- NOTES ---
+* Suffixes are case-insensitive ('u' or 'U', 'l' or 'L', 'f' or 'F').
+* For combination suffixes, order does not matter ('UL' or 'LU' are identical).
+* Standard decimal fractions (like 0.5) default to 'double' if no suffix is used.
+========================================================================
+
+
+========================================================================
+                       STANDARD C INT LIMITS
+========================================================================
+
+Macro Constant   Value                    Description
+------------------------------------------------------------------------
+INT_MIN          -2,147,483,648           Minimum value for a signed int
+INT_MAX           2,147,483,647           Maximum value for a signed int
+
+Library Header:  #include <limits.h>
+Format Specifier: %d
+========================================================================
+
+================================================================================
+                    C STANDARD MACROS REFERENCE TABLE
+================================================================================
+Required Header for Integers:       #include <limits.h>
+Required Header for Floating-Point: #include <float.h>
+
+--- SIGNED INTEGER MACROS (<limits.h>) ---
+
+Macro Name      Exact Value                 Description
+--------------------------------------------------------------------------------
+SCHAR_MIN       -128                        Minimum signed char
+SCHAR_MAX       127                         Maximum signed char
+SHRT_MIN        -32,768                     Minimum short int
+SHRT_MAX        32,767                      Maximum short int
+INT_MIN         -2,147,483,648              Minimum standard int
+INT_MAX         2,147,483,647               Maximum standard int
+LONG_MIN        -2,147,483,648 (or lower)*  Minimum long int
+LONG_MAX        2,147,483,647  (or higher)* Maximum long int
+LLONG_MIN       -9,223,372,036,854,775,808  Minimum long long int
+LLONG_MAX       9,223,372,036,854,775,807   Maximum long long int
+
+
+--- UNSIGNED INTEGER MACROS (<limits.h>) ---
+
+Macro Name      Exact Value                 Description
+--------------------------------------------------------------------------------
+UCHAR_MAX       255                         Maximum unsigned char
+USHRT_MAX       65,535                      Maximum unsigned short int
+UINT_MAX        4,294,967,295               Maximum unsigned int
+ULONG_MAX       4,294,967,295  (or higher)* Maximum unsigned long int
+ULLONG_MAX      18,446,744,073,709,551,615  Maximum unsigned long long int
+
+*Note: On 64-bit Linux/macOS, LONG_MAX/ULONG_MAX match the 64-bit LLONG limits.
+       On 32-bit systems and all Windows systems, they match the 32-bit INT limits.
+       Unsigned minimum macros do not exist because they are always 0.
+
+
+--- FLOATING-POINT MACROS (<float.h>) ---
+
+Macro Name      Approximate Value           Description
+--------------------------------------------------------------------------------
+FLT_MIN         1.17549435e-38              Minimum positive float
+FLT_MAX         3.40282347e+38              Maximum finite float
+DBL_MIN         4.94065645e-324             Minimum positive double
+DBL_MAX         1.79769313e+308             Maximum finite double
+LDBL_MIN        3.36210314e-4932            Minimum positive long double
+LDBL_MAX        1.18973149e+4932            Maximum finite long double
+================================================================================
+
+[Problem Description]
+Swaps two user-provided coordinates using a temporary holding 
+variable (Profile 1), and (Profile 2).
+
+Sample Input
+10
+20
+
+Sample Output
+Profiles before swap is 10 and 20.
+Profiles after swap is 20 and 10.
+
+[Problem Description]
+Swaps two user-provided coordinates using pure math without a third variable (Profile 1) and (Profile 2)
+
+Sample Input
+10
+20
+
+Sample Output
+Profiles before swap is 10 and 20.
+Profiles after swap is 20 and 10.
+
+
+[Problem Description]
+Reads two integers on Line 1 and two floats on Line 2. Outputs the integer sum and difference, followed by the float sum and difference rounded to 1 decimal place.
+
+Sample Input
+10 4
+4.5 2.1
+
+Sample Output
+14 6
+6.6 2.4
+
+Absolute Value Functions
+
++-----------+-----------+------------------+-----------------------------+
+| Data Type | Function  | Required Header  | Syntax Example              |
++-----------+-----------+------------------+-----------------------------+
+| int       | abs(x)    | #include <stdlib.h>| int pos = abs(-5);          |
+| long      | labs(x)   | #include <stdlib.h>| long pos = labs(-123456L);  |
+| double    | fabs(x)   | #include <math.h>  | double pos = fabs(-5.43);   |
+| float     | fabsf(x)  | #include <math.h>  | float pos = fabsf(-3.14f);  |
++-----------+-----------+------------------+-----------------------------+
+
+[Problem Description]
+
+You are writing a program for a weather station to analyze temperature 
+readings collected during a winter research expedition. The scientist 
+will type in a series of temperature readings (in degrees Celsius) 
+one by one. Since the number of readings varies each day, the scientist 
+will type the number 999 to signal that they are finished entering data.
+
+
+================================================================================
+4. OPERATORS MATRIX
+--------------------------------------------------------------------------------
+- Arithmetic Operators:          +, -, *, /, % (Modulo)
+- Relational Operators:          ==, !=, >, <, >=, <=
+- Logical Operators:             && (AND), || (OR), ! (NOT)
+- Assignment Operators:          =, +=, -=, *=, /=, %=
+- Increment & Decrement:         ++, --
+- Bitwise Operators:             & (AND), | (OR), ^ (XOR), ~, << (Left Shift), >> (Right Shift)
+
+| Input A | Input B | AND (&) | OR (|)  | XOR (^) | NOT (~A)|
++---------+---------+---------+---------+---------+---------+
+|    0    |    0    |    0    |    0    |    0    |    1    |
+|    0    |    1    |    0    |    1    |    1    |    1    |
+|    1    |    0    |    0    |    1    |    1    |    0    |
+|    1    |    1    |    1    |    1    |    0    |    0    |
++---------+---------+---------+---------+---------+---------+
+
+[BITWISE & DEMONSTRATION]
+  00000101 (Decimal 5)
+& 00000110 (Decimal 6)
+-----------------------
+  00000100 (Decimal 4)
+
+  00000101 (Decimal 5)
+| 00000110 (Decimal 6)
+-----------------------
+  00000111 (Decimal 7)
+
+  00000101 (Decimal 5)
+^ 00000110 (Decimal 6)
+-----------------------
+  00000011 (Decimal 3)
+
+~ 00000101 (Decimal 5)
+-----------------------
+  11111010 (Decimal -6)
+
+~ 00000110 (Decimal 6)
+-----------------------
+  11111001 (Decimal -7)
+
+================================================================================
+
+00000101
+
+  Points:  128   64   32   16    8    4    2    1
+
+            |    |    |    |     |    |    |    |
+  Binary:   0    0    0    0     0    1    0    1
+
+
+    4 + 1 = 5
+
+    00000110
+
+Binary to Decimal
++-----------+-----------+------------+------------+----------------+
+
+| Binary    | Far-Left  | Far-Right  | Odd/Even?  | Decimal Result |
++-----------+-----------+------------+------------+----------------+
+
+| 0000 0101 | 0 (Pos)   | 1 (Odd)    | Positive   |  5             |
+| 0000 0110 | 0 (Pos)   | 0 (Even)   | Positive   |  6             |
+| 1111 1011 | 1 (Neg)   | 1 (Odd)    | Negative   | -5             |
+| 1111 1010 | 1 (Neg)   | 0 (Even)   | Negative   | -6             |
++-----------+-----------+------------+------------+----------------+
+
+Left and Right Shift
++---------+-----------+-----------+------------------+-----------------+
+
+| Decimal | Old Bits  | Operation | New Bits         | Decimal Result  |
++---------+-----------+-----------+------------------+-----------------+
+
+| 5       | 0000 0101 | 5 << 1    | 0000 1010        | 10 (Double it)  |
+| 5       | 0000 0101 | 5 << 2    | 0001 0100        | 20 (Double twice)|
+| 5       | 0000 0101 | 5 >> 1    | 0000 0010        | 2  (Halve it)   |
+| 5       | 0000 0101 | 5 >> 2    | 0000 0001        | 1  (Halve twice)|
++---------+-----------+-----------+------------------+-----------------+
+
+EXAMPLE 1: Shift Left with Decimal 3 (3 << 2)
+------------------------------------------------------------------------
+Step 1: Start with original bits for 3 (2 + 1):
+  Points:  128  64  32  16   8   4   2   1
+  Bits:     0   0   0   0    0   0   1   1
+Step 2: Push all bits to the LEFT by 2 spaces. 
+        Add two 0s to the empty gaps on the right side:
+  Points:  128  64  32  16   8   4   2   1
+  Bits:     0   0   0   0    1   1   0   0
+Step 3: Calculate the new math value:
+  Math: 8 + 4 = 12
+Result: 3 << 2 equals 12!
+EXAMPLE 2: Shift Right with Decimal 3 (3 >> 2)
+------------------------------------------------------------------------
+Step 1: Start with original bits for 3 (2 + 1):
+  Points:  128  64  32  16   8   4   2   1
+  Bits:     0   0   0   0    0   0   1   1
+Step 2: Push all bits to the Right by 2 spaces. 
+        Add two 0s to the empty gaps on the right side:
+  Points:  128  64  32  16   8   4   2   1
+  Bits:     0   0   0   0    0   0   0   0
+Step 3: Calculate the new math value:
+  Math: 0
+Result: 3 >> 2 equals 0!
+[Problem Description]
+Tracks the warmest and coldest temperatures from exactly 5 user-provided Celsius readings using basic variables without loops. The program asks the user to enter 5 sequential temperature readings followed by a 999 completion signal on a single line. It initializes comparison trackers with INT_MIN and INT_MAX constants to safely isolate correct answers when dealing with freezing or negative integer limits.
+
+[Sample Input 1]
+-15 -28 -5 -32 -10
+
+[Sample Output 1]
+Weather Station Report
+Warmest Temperature: -5
+Coldest Temperature: -32
+
+[Sample Input 2]
+3 -8 12 0 -2 999
+
+[Sample Output 2]
+Enter 5 temperatures followed by 999: --- Weather Station Report ---
+Warmest Temperature: 12
+Coldest Temperature: -8

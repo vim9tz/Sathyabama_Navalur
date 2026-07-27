@@ -1,0 +1,490 @@
+================================================================================
+                       DAY 1 PRACTICE EXERCISES & SOLUTIONS
+================================================================================
+
+--------------------------------------------------------------------------------
+PROBLEM 1: Coordinate Swap Using Temporary Variable
+--------------------------------------------------------------------------------
+[Problem Description]
+Swaps two user-provided coordinates using a temporary holding variable 
+(Profile 1) and displays the values before and after swapping.
+
+Sample Input:
+10
+20
+
+Sample Output:
+Profiles before swap is 10 and 20.
+Profiles after swap is 20 and 10.
+
+[Solution Code]
+#include <stdio.h>
+
+int main() {
+    int p1, p2, temp;
+    if (scanf("%d %d", &p1, &p2) != 2) return 1;
+
+    printf("Profiles before swap is %d and %d.\n", p1, p2);
+
+    temp = p1;
+    p1 = p2;
+    p2 = temp;
+
+    printf("Profiles after swap is %d and %d.\n", p1, p2);
+    return 0;
+}
+
+
+--------------------------------------------------------------------------------
+PROBLEM 2: Coordinate Swap Without Temporary Variable
+--------------------------------------------------------------------------------
+[Problem Description]
+Swaps two user-provided coordinates using pure math without a third variable 
+(Profile 2) and displays the values before and after swapping.
+
+Sample Input:
+10
+20
+
+Sample Output:
+Profiles before swap is 10 and 20.
+Profiles after swap is 20 and 10.
+
+[Solution Code]
+#include <stdio.h>
+
+int main() {
+    int p1, p2;
+    if (scanf("%d %d", &p1, &p2) != 2) return 1;
+
+    printf("Profiles before swap is %d and %d.\n", p1, p2);
+
+    p1 = p1 + p2;
+    p2 = p1 - p2;
+    p1 = p1 - p2;
+
+    printf("Profiles after swap is %d and %d.\n", p1, p2);
+    return 0;
+}
+
+
+--------------------------------------------------------------------------------
+PROBLEM 3: Mixed-Type Integer and Float Operations
+--------------------------------------------------------------------------------
+[Problem Description]
+Reads two integers on Line 1 and two floats on Line 2. Outputs the integer sum 
+and difference, followed by the float sum and difference rounded to 1 decimal place.
+
+Sample Input:
+10 4
+4.5 2.1
+
+Sample Output:
+14 6
+6.6 2.4
+
+[Solution Code]
+#include <stdio.h>
+
+int main() {
+    int int1, int2;
+    float float1, float2;
+
+    if (scanf("%d %d", &int1, &int2) != 2) return 1;
+    if (scanf("%f %f", &float1, &float2) != 2) return 1;
+
+    printf("%d %d\n", int1 + int2, int1 - int2);
+    printf("%.1f %.1f\n", float1 + float2, float1 - float2);
+
+    return 0;
+}
+
+
+--------------------------------------------------------------------------------
+PROBLEM 4: Circle Area Calculation
+--------------------------------------------------------------------------------
+[Problem Description]
+Calculates the area of a circle (Area = Pi * r^2) using an immutable single-precision 
+floating-point constant for Pi (3.14159). Limits output to 2 decimal places.
+
+Sample Input:
+5.0
+
+Sample Output:
+78.54
+
+[Solution Code]
+#include <stdio.h>
+
+int main() {
+    const float PI = 3.14159f;
+    float radius, area;
+
+    if (scanf("%f", &radius) != 1) return 1;
+
+    area = PI * radius * radius;
+    printf("%.2f\n", area);
+
+    return 0;
+}
+
+
+--------------------------------------------------------------------------------
+PROBLEM 5: Basic Arithmetic Calculator
+--------------------------------------------------------------------------------
+[Problem Description]
+Read two integers and display their sum, difference, product, quotient, and
+remainder. Assume that the second integer is not zero.
+
+Sample Input:
+20 6
+
+Sample Output:
+Sum: 26
+Difference: 14
+Product: 120
+Quotient: 3
+Remainder: 2
+
+[Solution Code]
+#include <stdio.h>
+
+int main(void) {
+    int first, second;
+    if (scanf("%d %d", &first, &second) != 2) return 1;
+
+    printf("Sum: %d\n", first + second);
+    printf("Difference: %d\n", first - second);
+    printf("Product: %d\n", first * second);
+    printf("Quotient: %d\n", first / second);
+    printf("Remainder: %d\n", first % second);
+    return 0;
+}
+
+
+--------------------------------------------------------------------------------
+PROBLEM 6: Rectangle Area and Perimeter
+--------------------------------------------------------------------------------
+[Problem Description]
+Read the length and width of a rectangle. Calculate its area and perimeter.
+
+Sample Input:
+12.5 4
+
+Sample Output:
+Area: 50.00
+Perimeter: 33.00
+
+[Solution Code]
+#include <stdio.h>
+
+int main(void) {
+    double length, width;
+    if (scanf("%lf %lf", &length, &width) != 2) return 1;
+
+    printf("Area: %.2f\n", length * width);
+    printf("Perimeter: %.2f\n", 2 * (length + width));
+    return 0;
+}
+
+
+--------------------------------------------------------------------------------
+PROBLEM 7: Celsius to Fahrenheit Conversion
+--------------------------------------------------------------------------------
+[Problem Description]
+Read a Celsius temperature and convert it to Fahrenheit using:
+Fahrenheit = (Celsius * 9 / 5) + 32.
+
+Sample Input:
+37
+
+Sample Output:
+Fahrenheit: 98.60
+
+[Solution Code]
+#include <stdio.h>
+
+int main(void) {
+    double celsius;
+    if (scanf("%lf", &celsius) != 1) return 1;
+
+    double fahrenheit = celsius * 9.0 / 5.0 + 32.0;
+    printf("Fahrenheit: %.2f\n", fahrenheit);
+    return 0;
+}
+
+
+--------------------------------------------------------------------------------
+PROBLEM 8: Simple Interest Calculator
+--------------------------------------------------------------------------------
+[Problem Description]
+Read principal, annual interest rate, and time in years. Calculate simple
+interest using (principal * rate * time) / 100 and print the final amount.
+
+Sample Input:
+10000 7.5 2
+
+Sample Output:
+Simple Interest: 1500.00
+Final Amount: 11500.00
+
+[Solution Code]
+#include <stdio.h>
+
+int main(void) {
+    double principal, rate, time;
+    if (scanf("%lf %lf %lf", &principal, &rate, &time) != 3) return 1;
+
+    double interest = principal * rate * time / 100.0;
+    printf("Simple Interest: %.2f\n", interest);
+    printf("Final Amount: %.2f\n", principal + interest);
+    return 0;
+}
+
+
+--------------------------------------------------------------------------------
+PROBLEM 9: Average of Five Subject Marks
+--------------------------------------------------------------------------------
+[Problem Description]
+Read marks for five subjects. Display their total and average.
+
+Sample Input:
+80 75 90 85 70
+
+Sample Output:
+Total: 400
+Average: 80.00
+
+[Solution Code]
+#include <stdio.h>
+
+int main(void) {
+    int m1, m2, m3, m4, m5;
+    if (scanf("%d %d %d %d %d", &m1, &m2, &m3, &m4, &m5) != 5) return 1;
+
+    int total = m1 + m2 + m3 + m4 + m5;
+    printf("Total: %d\n", total);
+    printf("Average: %.2f\n", total / 5.0);
+    return 0;
+}
+
+
+--------------------------------------------------------------------------------
+PROBLEM 10: Seconds to Hours, Minutes, and Seconds
+--------------------------------------------------------------------------------
+[Problem Description]
+Read a total number of seconds and convert it into hours, remaining minutes,
+and remaining seconds using integer division and modulo.
+
+Sample Input:
+7384
+
+Sample Output:
+2 hour(s), 3 minute(s), 4 second(s)
+
+[Solution Code]
+#include <stdio.h>
+
+int main(void) {
+    int totalSeconds;
+    if (scanf("%d", &totalSeconds) != 1) return 1;
+
+    int hours = totalSeconds / 3600;
+    int minutes = (totalSeconds % 3600) / 60;
+    int seconds = totalSeconds % 60;
+
+    printf("%d hour(s), %d minute(s), %d second(s)\n",
+           hours, minutes, seconds);
+    return 0;
+}
+
+
+--------------------------------------------------------------------------------
+PROBLEM 11: Character to ASCII Value
+--------------------------------------------------------------------------------
+[Problem Description]
+Read one character and display its numeric character-code value.
+
+Sample Input:
+A
+
+Sample Output:
+Character: A
+ASCII Value: 65
+
+[Solution Code]
+#include <stdio.h>
+
+int main(void) {
+    char character;
+    if (scanf(" %c", &character) != 1) return 1;
+
+    printf("Character: %c\n", character);
+    printf("ASCII Value: %d\n", (unsigned char)character);
+    return 0;
+}
+
+
+--------------------------------------------------------------------------------
+PROBLEM 12: ASCII Value to Character
+--------------------------------------------------------------------------------
+[Problem Description]
+Read an integer character code and display its corresponding character. Use an
+input from 0 to 127 for this exercise.
+
+Sample Input:
+66
+
+Sample Output:
+Character: B
+
+[Solution Code]
+#include <stdio.h>
+
+int main(void) {
+    int code;
+    if (scanf("%d", &code) != 1) return 1;
+
+    printf("Character: %c\n", (char)code);
+    return 0;
+}
+
+
+--------------------------------------------------------------------------------
+PROBLEM 13: Quotient and Remainder
+--------------------------------------------------------------------------------
+[Problem Description]
+Read a dividend and a non-zero divisor. Display the integer quotient and
+remainder separately.
+
+Sample Input:
+47 5
+
+Sample Output:
+Quotient: 9
+Remainder: 2
+
+[Solution Code]
+#include <stdio.h>
+
+int main(void) {
+    int dividend, divisor;
+    if (scanf("%d %d", &dividend, &divisor) != 2) return 1;
+
+    printf("Quotient: %d\n", dividend / divisor);
+    printf("Remainder: %d\n", dividend % divisor);
+    return 0;
+}
+
+
+--------------------------------------------------------------------------------
+PROBLEM 14: Percentage of Marks
+--------------------------------------------------------------------------------
+[Problem Description]
+Read obtained marks and maximum marks. Calculate the percentage. Assume maximum
+marks is greater than zero.
+
+Sample Input:
+425 500
+
+Sample Output:
+Percentage: 85.00%
+
+[Solution Code]
+#include <stdio.h>
+
+int main(void) {
+    double obtained, maximum;
+    if (scanf("%lf %lf", &obtained, &maximum) != 2) return 1;
+
+    printf("Percentage: %.2f%%\n", obtained / maximum * 100.0);
+    return 0;
+}
+
+
+--------------------------------------------------------------------------------
+PROBLEM 15: Employee Salary Breakdown
+--------------------------------------------------------------------------------
+[Problem Description]
+Read an employee's basic salary. Calculate HRA as 20% and DA as 40% of the basic
+salary, then display the gross salary.
+
+Sample Input:
+25000
+
+Sample Output:
+HRA: 5000.00
+DA: 10000.00
+Gross Salary: 40000.00
+
+[Solution Code]
+#include <stdio.h>
+
+int main(void) {
+    double basicSalary;
+    if (scanf("%lf", &basicSalary) != 1) return 1;
+
+    double hra = basicSalary * 0.20;
+    double da = basicSalary * 0.40;
+    printf("HRA: %.2f\n", hra);
+    printf("DA: %.2f\n", da);
+    printf("Gross Salary: %.2f\n", basicSalary + hra + da);
+    return 0;
+}
+
+
+--------------------------------------------------------------------------------
+PROBLEM 16: Bitwise Operator Demonstration
+--------------------------------------------------------------------------------
+[Problem Description]
+Read two non-negative integers and display the results of bitwise AND, OR, and
+XOR operations.
+
+Sample Input:
+5 6
+
+Sample Output:
+AND: 4
+OR: 7
+XOR: 3
+
+[Solution Code]
+#include <stdio.h>
+
+int main(void) {
+    unsigned int first, second;
+    if (scanf("%u %u", &first, &second) != 2) return 1;
+
+    printf("AND: %u\n", first & second);
+    printf("OR: %u\n", first | second);
+    printf("XOR: %u\n", first ^ second);
+    return 0;
+}
+
+
+--------------------------------------------------------------------------------
+PROBLEM 17: Left and Right Bit Shifts
+--------------------------------------------------------------------------------
+[Problem Description]
+Read a non-negative integer and a shift count. Display the result after shifting
+the number left and right by that count.
+
+Sample Input:
+20 2
+
+Sample Output:
+Left Shift: 80
+Right Shift: 5
+
+[Solution Code]
+#include <stdio.h>
+
+int main(void) {
+    unsigned int number, positions;
+    if (scanf("%u %u", &number, &positions) != 2) return 1;
+
+    printf("Left Shift: %u\n", number << positions);
+    printf("Right Shift: %u\n", number >> positions);
+    return 0;
+}
+================================================================================

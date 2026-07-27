@@ -1,0 +1,24 @@
+# Trace Recursive Calling and Returning Phases
+
+## Problem Description
+
+Create a recursive function that begins with `1`, calls itself with the next
+number, and stops after reaching the base condition. Print messages before and
+after each recursive call to demonstrate winding and unwinding.
+
+## Sample Input
+
+No input required.
+
+## Sample Output
+
+```text
+Calling Phase : n = 1
+Calling Phase : n = 2
+Calling Phase : n = 3
+Base case detected 4 is > 3: Stopping...
+Returning Phase : n = 3
+Returning Phase : n = 2
+Returning Phase : n = 1
+Back in main(). Program finished.
+```

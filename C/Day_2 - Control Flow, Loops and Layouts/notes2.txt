@@ -1,0 +1,18 @@
+========================================================================================================================
+DAY 2: CONTROL FLOW, LOOPS, AND STRUCTURAL LAYOUTS
+========================================================================================================================
+CATEGORY            CONCEPT             C SYNTAX / IMPLEMENTATION EXAMPLE       PRIMARY PURPOSE / APPLICATION
+========================================================================================================================
+CONTROL FLOW        if / else if / else if (score >= 90) { grade = 'A'; }       Executes specific blocks based on conditional truth.
+CONTROL FLOW        switch / case       switch(choice) { case 1: ... break; }   Efficient multi-way branching for discrete constants.
+CONTROL FLOW        Conditional (?)     max = (a > b) ? a : b;                  Inline shorthand for simple binary assignments.
+------------------------------------------------------------------------------------------------------------------------
+LOOPS               for loop            for (int i = 0; i < 10; i++) { }        Deterministic iteration with a fixed counter mechanism.
+LOOPS               while loop          while (num > 0) { ... num /= 10; }      Indeterminate iteration driven by a dynamic condition.
+LOOPS               do-while loop       do { ... } while (retry == 1);          Guarantees execution of the body at least once.
+LOOPS               Loop Jumps          break; / continue;                      Alters sequential loop execution dynamically.
+------------------------------------------------------------------------------------------------------------------------
+STRUCTURAL LAYOUTS  Code Blocks         { int local_var = 5; ... }              Enforces variable scope boundaries and execution grouping.
+STRUCTURAL LAYOUTS  Function Prototypes void calculate_area(int r);             Declares program layout ahead of main() execution.
+STRUCTURAL LAYOUTS  Multi-File Setup    #include "my_structures.h"              Splits definitions and declarations across multiple files.
+========================================================================================================================

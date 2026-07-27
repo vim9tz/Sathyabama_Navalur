@@ -1,0 +1,27 @@
+== == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+                                                                                                                                                                                        COMPREHENSIVE C LOOPS COMPARISON TABLE == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+                                                                                                                                                                                                                                                                                                                                                                                                                       LOOP TYPE   │ SYNTAX / STRUCTURE                      │ ENTRY / EXIT TYPE │ WHEN TO USE IT ? (BEST SCENARIO)
+─────────────┼─────────────────────────────────────────┼─────────────────┼─────────────────────────────────────── FOR         │ for (init; condition; update) {         │ Entry - Controlled│ Used when you know the EXACT number of
+             │ // code                             │ (Checks first)  │ repetitions before the loop starts.
+             │ }
+│                 │ (e.g., Print a message 10 times).
+─────────────┼─────────────────────────────────────────┼─────────────────┼─────────────────────────────────────── WHILE       │ init;
+│ Entry - Controlled│ Used when the number of repetitions 
+             │ while (condition) {                     │ (Checks first)  │ depends on a condition, not a count.
+             │ // code; update;                    │                 │ (e.g., Loop until a file ends).
+             │ }
+│                 │ 
+─────────────┼─────────────────────────────────────────┼─────────────────┼─────────────────────────────────────── DO - WHILE    │ init;
+│ Exit - Controlled │ Used when the code MUST execute at 
+             │ do {                                    │ (Checks after)  │ least ONCE before checking condition.
+             │ // code; update;                    │                 │ (e.g., Displaying a menu selection).
+             │ }
+while (condition)
+    ;
+│                 │ *Note : Requires a semicolon at end !
+─────────────┼─────────────────────────────────────────┼─────────────────┼───────────────────────────────────────
+
+Read temperatures until `999` is entered.Use a `while` loop to report the number of readings,
+    warmest value, coldest value, and average. Do not include the sentinel in the calculations.
+
+

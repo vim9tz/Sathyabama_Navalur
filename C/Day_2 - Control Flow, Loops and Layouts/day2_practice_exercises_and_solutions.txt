@@ -1,0 +1,933 @@
+================================================================================
+                 DAY 2 EXERCISES & TRAINER SOLUTIONS
+================================================================================
+
+INSTRUCTIONS
+--------------------------------------------------------------------------------
+1. Write one C program for each problem.
+2. Use meaningful variable names and correct indentation.
+3. Compile with: gcc -Wall -Wextra -pedantic file.c -o file
+4. Test the sample input and at least two additional edge cases.
+5. Do not use arrays or functions unless your trainer permits them.
+
+Trainer note: Each problem is followed immediately by its reference solution.
+
+
+================================================================================
+LEVEL 1: CONDITIONAL ROUTING
+================================================================================
+
+PROBLEM 1: Positive, Negative, or Zero
+--------------------------------------------------------------------------------
+Read one integer and print Positive, Negative, or Zero.
+
+Sample Input:  -14
+Sample Output: Negative
+
+[Solution Code]
+#include <stdio.h>
+int main(void) {
+    int n;
+    if (scanf("%d", &n) != 1) return 1;
+    if (n > 0) printf("Positive\n");
+    else if (n < 0) printf("Negative\n");
+    else printf("Zero\n");
+    return 0;
+}
+
+
+PROBLEM 2: Odd or Even
+--------------------------------------------------------------------------------
+Read an integer and determine whether it is odd or even.
+
+Sample Input:  26
+Sample Output: Even
+
+[Solution Code]
+#include <stdio.h>
+int main(void) {
+    int n;
+    if (scanf("%d", &n) != 1) return 1;
+    printf(n % 2 == 0 ? "Even\n" : "Odd\n");
+    return 0;
+}
+
+
+PROBLEM 3: Voting Eligibility
+--------------------------------------------------------------------------------
+Read a person's age. Print Eligible to vote when the age is 18 or above;
+otherwise print Not eligible to vote. Reject negative ages as Invalid age.
+
+Sample Input:  17
+Sample Output: Not eligible to vote
+
+[Solution Code]
+#include <stdio.h>
+int main(void) {
+    int age;
+    if (scanf("%d", &age) != 1) return 1;
+    if (age < 0) printf("Invalid age\n");
+    else if (age >= 18) printf("Eligible to vote\n");
+    else printf("Not eligible to vote\n");
+    return 0;
+}
+
+
+PROBLEM 4: Largest of Three Numbers
+--------------------------------------------------------------------------------
+Read three integers and print the largest. Your program must also work when two
+or all three values are equal.
+
+Sample Input:  42 17 42
+Sample Output: Largest: 42
+
+[Solution Code]
+#include <stdio.h>
+int main(void) {
+    int a, b, c, largest;
+    if (scanf("%d %d %d", &a, &b, &c) != 3) return 1;
+    largest = a;
+    if (b > largest) largest = b;
+    if (c > largest) largest = c;
+    printf("Largest: %d\n", largest);
+    return 0;
+}
+
+
+PROBLEM 5: Leap Year Validator
+--------------------------------------------------------------------------------
+A year is a leap year when it is divisible by 400, or when it is divisible by 4
+but not divisible by 100.
+
+Sample Input:  2000
+Sample Output: Leap year
+
+Edge cases to test: 1900, 2024, 2025
+
+[Solution Code]
+#include <stdio.h>
+int main(void) {
+    int year;
+    if (scanf("%d", &year) != 1) return 1;
+    if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0))
+        printf("Leap year\n");
+    else
+        printf("Not a leap year\n");
+    return 0;
+}
+
+
+PROBLEM 6: Student Grade
+--------------------------------------------------------------------------------
+Read a mark from 0 to 100 and print:
+    90-100 -> A
+    75-89  -> B
+    60-74  -> C
+    50-59  -> D
+    0-49   -> F
+Print Invalid mark for anything outside 0 to 100.
+
+Sample Input:  78
+Sample Output: Grade B
+
+[Solution Code]
+#include <stdio.h>
+int main(void) {
+    int mark;
+    if (scanf("%d", &mark) != 1) return 1;
+    if (mark < 0 || mark > 100) printf("Invalid mark\n");
+    else if (mark >= 90) printf("Grade A\n");
+    else if (mark >= 75) printf("Grade B\n");
+    else if (mark >= 60) printf("Grade C\n");
+    else if (mark >= 50) printf("Grade D\n");
+    else printf("Grade F\n");
+    return 0;
+}
+
+
+PROBLEM 7: Triangle Validator and Type
+--------------------------------------------------------------------------------
+Read three side lengths. First verify that every side is positive and that the
+sum of every pair is greater than the third side. If valid, print Equilateral,
+Isosceles, or Scalene. Otherwise print Invalid triangle.
+
+Sample Input:  5 5 8
+Sample Output: Isosceles triangle
+
+[Solution Code]
+#include <stdio.h>
+int main(void) {
+    int a, b, c;
+    if (scanf("%d %d %d", &a, &b, &c) != 3) return 1;
+    if (a <= 0 || b <= 0 || c <= 0 ||
+        a + b <= c || a + c <= b || b + c <= a) {
+        printf("Invalid triangle\n");
+    } else if (a == b && b == c) {
+        printf("Equilateral triangle\n");
+    } else if (a == b || a == c || b == c) {
+        printf("Isosceles triangle\n");
+    } else {
+        printf("Scalene triangle\n");
+    }
+    return 0;
+}
+
+
+================================================================================
+LEVEL 2: switch AND MENU PROGRAMS
+================================================================================
+
+PROBLEM 8: Day of the Week
+--------------------------------------------------------------------------------
+Read an integer from 1 to 7 and use switch to print Monday through Sunday.
+Print Invalid day for any other number.
+
+Sample Input:  6
+Sample Output: Saturday
+
+[Solution Code]
+#include <stdio.h>
+int main(void) {
+    int day;
+    if (scanf("%d", &day) != 1) return 1;
+    switch (day) {
+        case 1: printf("Monday\n"); break;
+        case 2: printf("Tuesday\n"); break;
+        case 3: printf("Wednesday\n"); break;
+        case 4: printf("Thursday\n"); break;
+        case 5: printf("Friday\n"); break;
+        case 6: printf("Saturday\n"); break;
+        case 7: printf("Sunday\n"); break;
+        default: printf("Invalid day\n");
+    }
+    return 0;
+}
+
+
+PROBLEM 9: Menu-Driven Calculator
+--------------------------------------------------------------------------------
+Read an operator choice and two numbers:
+    1 -> Addition
+    2 -> Subtraction
+    3 -> Multiplication
+    4 -> Division
+Use switch. Reject an invalid choice and division by zero.
+
+Sample Input:
+4
+20 5
+
+Sample Output:
+Result: 4.00
+
+[Solution Code]
+#include <stdio.h>
+int main(void) {
+    int choice;
+    double a, b;
+    if (scanf("%d %lf %lf", &choice, &a, &b) != 3) return 1;
+    switch (choice) {
+        case 1: printf("Result: %.2f\n", a + b); break;
+        case 2: printf("Result: %.2f\n", a - b); break;
+        case 3: printf("Result: %.2f\n", a * b); break;
+        case 4:
+            if (b == 0) printf("Cannot divide by zero\n");
+            else printf("Result: %.2f\n", a / b);
+            break;
+        default: printf("Invalid choice\n");
+    }
+    return 0;
+}
+
+
+PROBLEM 10: Electricity Bill
+--------------------------------------------------------------------------------
+Read the units consumed and calculate the bill using this progressive tariff:
+    first 100 units       -> Rs. 1.50 per unit
+    next 100 units        -> Rs. 2.50 per unit
+    every unit above 200  -> Rs. 4.00 per unit
+Reject negative units.
+
+Sample Input:  250
+Sample Output: Bill: Rs. 600.00
+
+Explanation: (100 * 1.50) + (100 * 2.50) + (50 * 4.00) = 600.00
+
+[Solution Code]
+#include <stdio.h>
+int main(void) {
+    int units;
+    double bill;
+    if (scanf("%d", &units) != 1) return 1;
+    if (units < 0) {
+        printf("Invalid units\n");
+        return 0;
+    }
+    if (units <= 100) bill = units * 1.50;
+    else if (units <= 200) bill = 100 * 1.50 + (units - 100) * 2.50;
+    else bill = 100 * 1.50 + 100 * 2.50 + (units - 200) * 4.00;
+    printf("Bill: Rs. %.2f\n", bill);
+    return 0;
+}
+
+
+================================================================================
+LEVEL 3: for LOOP AUTOMATION
+================================================================================
+
+PROBLEM 11: Natural Numbers and Their Sum
+--------------------------------------------------------------------------------
+Read n. Print the numbers from 1 to n and their sum. Reject n below 1.
+
+Sample Input:  5
+Sample Output:
+1 2 3 4 5
+Sum: 15
+
+[Solution Code]
+#include <stdio.h>
+int main(void) {
+    int n, sum = 0;
+    if (scanf("%d", &n) != 1 || n < 1) {
+        printf("Invalid input\n");
+        return 0;
+    }
+    for (int i = 1; i <= n; i++) {
+        printf("%d%c", i, i == n ? '\n' : ' ');
+        sum += i;
+    }
+    printf("Sum: %d\n", sum);
+    return 0;
+}
+
+
+PROBLEM 12: Multiplication Table
+--------------------------------------------------------------------------------
+Read a number and print its multiplication table from 1 to 10.
+
+Sample Input:  7
+Sample Output begins:
+7 x 1 = 7
+7 x 2 = 14
+...
+7 x 10 = 70
+
+[Solution Code]
+#include <stdio.h>
+int main(void) {
+    int n;
+    if (scanf("%d", &n) != 1) return 1;
+    for (int i = 1; i <= 10; i++)
+        printf("%d x %d = %d\n", n, i, n * i);
+    return 0;
+}
+
+
+PROBLEM 13: Factorial
+--------------------------------------------------------------------------------
+Read n from 0 to 20 and compute n! using unsigned long long.
+Remember: 0! = 1.
+
+Sample Input:  5
+Sample Output: 5! = 120
+
+[Solution Code]
+#include <stdio.h>
+int main(void) {
+    int n;
+    unsigned long long factorial = 1;
+    if (scanf("%d", &n) != 1 || n < 0 || n > 20) {
+        printf("Invalid input\n");
+        return 0;
+    }
+    for (int i = 2; i <= n; i++) factorial *= (unsigned long long)i;
+    printf("%d! = %llu\n", n, factorial);
+    return 0;
+}
+
+
+PROBLEM 14: Count Divisible Values
+--------------------------------------------------------------------------------
+Read n and count how many numbers from 1 through n are divisible by both 3 and 5.
+
+Sample Input:  50
+Sample Output: Count: 3
+
+[Solution Code]
+#include <stdio.h>
+int main(void) {
+    int n, count = 0;
+    if (scanf("%d", &n) != 1) return 1;
+    for (int i = 1; i <= n; i++)
+        if (i % 3 == 0 && i % 5 == 0) count++;
+    printf("Count: %d\n", count);
+    return 0;
+}
+
+
+PROBLEM 15: Sum of Even and Odd Numbers Separately
+--------------------------------------------------------------------------------
+Read n integers. Print the sum of even inputs and the sum of odd inputs.
+
+Sample Input:
+6
+2 5 8 3 10 7
+
+Sample Output:
+Even sum: 20
+Odd sum: 15
+
+[Solution Code]
+#include <stdio.h>
+int main(void) {
+    int n, value;
+    long long evenSum = 0, oddSum = 0;
+    if (scanf("%d", &n) != 1 || n < 0) return 1;
+    for (int i = 0; i < n; i++) {
+        if (scanf("%d", &value) != 1) return 1;
+        if (value % 2 == 0) evenSum += value;
+        else oddSum += value;
+    }
+    printf("Even sum: %lld\nOdd sum: %lld\n", evenSum, oddSum);
+    return 0;
+}
+
+
+================================================================================
+LEVEL 4: while AND do-while LOOPS
+================================================================================
+
+PROBLEM 16: Reverse an Integer
+--------------------------------------------------------------------------------
+Read a non-negative integer and reverse its digits using a while loop.
+
+Sample Input:  5082
+Sample Output: 2805
+
+Edge cases: 0 and 1200
+
+[Solution Code]
+#include <stdio.h>
+int main(void) {
+    unsigned long long n, reversed = 0;
+    if (scanf("%llu", &n) != 1) return 1;
+    while (n != 0) {
+        reversed = reversed * 10 + n % 10;
+        n /= 10;
+    }
+    printf("%llu\n", reversed);
+    return 0;
+}
+
+
+PROBLEM 17: Digit Analysis
+--------------------------------------------------------------------------------
+Read a non-negative integer. Print its number of digits and sum of digits.
+
+Sample Input:  5082
+Sample Output:
+Digits: 4
+Digit sum: 15
+
+[Solution Code]
+#include <stdio.h>
+int main(void) {
+    unsigned long long n;
+    unsigned int digits = 0, sum = 0;
+    if (scanf("%llu", &n) != 1) return 1;
+    do {
+        sum += (unsigned int)(n % 10);
+        digits++;
+        n /= 10;
+    } while (n != 0);
+    printf("Digits: %u\nDigit sum: %u\n", digits, sum);
+    return 0;
+}
+
+
+PROBLEM 18: Palindrome Number
+--------------------------------------------------------------------------------
+Read a non-negative integer. Print Palindrome if it reads the same forward and
+backward; otherwise print Not palindrome.
+
+Sample Input:  12321
+Sample Output: Palindrome
+
+[Solution Code]
+#include <stdio.h>
+int main(void) {
+    unsigned long long n, original, reversed = 0;
+    if (scanf("%llu", &n) != 1) return 1;
+    original = n;
+    while (n != 0) {
+        reversed = reversed * 10 + n % 10;
+        n /= 10;
+    }
+    printf(original == reversed ? "Palindrome\n" : "Not palindrome\n");
+    return 0;
+}
+
+
+PROBLEM 19: Sentinel-Controlled Temperature Tracker
+--------------------------------------------------------------------------------
+Repeatedly read temperatures until the user enters 999. Print the number of real
+readings, warmest temperature, coldest temperature, and average. Do not include
+999 in the calculations. If 999 is entered first, print No readings.
+
+Sample Input:  -15 -28 -5 -32 -10 999
+Sample Output:
+Readings: 5
+Warmest: -5
+Coldest: -32
+Average: -18.00
+
+[Solution Code]
+#include <limits.h>
+#include <stdio.h>
+int main(void) {
+    int value, count = 0, warmest = INT_MIN, coldest = INT_MAX;
+    long long sum = 0;
+    while (scanf("%d", &value) == 1 && value != 999) {
+        if (value > warmest) warmest = value;
+        if (value < coldest) coldest = value;
+        sum += value;
+        count++;
+    }
+    if (count == 0) printf("No readings\n");
+    else {
+        printf("Readings: %d\n", count);
+        printf("Warmest: %d\nColdest: %d\n", warmest, coldest);
+        printf("Average: %.2f\n", (double)sum / count);
+    }
+    return 0;
+}
+
+
+PROBLEM 20: Input Validation with do-while
+--------------------------------------------------------------------------------
+Use a do-while loop to repeatedly request a mark until the user enters a value
+from 0 to 100. Then print Accepted.
+
+Sample Input:  -5 125 82
+Sample Output:
+Invalid mark
+Invalid mark
+Accepted: 82
+
+[Solution Code]
+#include <stdio.h>
+int main(void) {
+    int mark;
+    do {
+        if (scanf("%d", &mark) != 1) return 1;
+        if (mark < 0 || mark > 100) printf("Invalid mark\n");
+    } while (mark < 0 || mark > 100);
+    printf("Accepted: %d\n", mark);
+    return 0;
+}
+
+
+================================================================================
+LEVEL 5: NESTED LOOPS AND STRUCTURAL LAYOUTS
+================================================================================
+
+PROBLEM 21: Solid Rectangle
+--------------------------------------------------------------------------------
+Read rows and columns and print a rectangle of stars.
+
+Sample Input:  3 5
+Sample Output:
+* * * * *
+* * * * *
+* * * * *
+
+[Solution Code]
+#include <stdio.h>
+int main(void) {
+    int rows, columns;
+    if (scanf("%d %d", &rows, &columns) != 2 || rows < 1 || columns < 1)
+        return 1;
+    for (int row = 1; row <= rows; row++) {
+        for (int column = 1; column <= columns; column++) printf("* ");
+        printf("\n");
+    }
+    return 0;
+}
+
+
+PROBLEM 22: Increasing Right Triangle
+--------------------------------------------------------------------------------
+Read n and print n rows.
+
+Sample Input:  4
+Sample Output:
+*
+* *
+* * *
+* * * *
+
+[Solution Code]
+#include <stdio.h>
+int main(void) {
+    int n;
+    if (scanf("%d", &n) != 1 || n < 1) return 1;
+    for (int row = 1; row <= n; row++) {
+        for (int column = 1; column <= row; column++) printf("* ");
+        printf("\n");
+    }
+    return 0;
+}
+
+
+PROBLEM 23: Decreasing Right Triangle
+--------------------------------------------------------------------------------
+Read n and print n rows.
+
+Sample Input:  4
+Sample Output:
+* * * *
+* * *
+* *
+*
+
+[Solution Code]
+#include <stdio.h>
+int main(void) {
+    int n;
+    if (scanf("%d", &n) != 1 || n < 1) return 1;
+    for (int row = n; row >= 1; row--) {
+        for (int column = 1; column <= row; column++) printf("* ");
+        printf("\n");
+    }
+    return 0;
+}
+
+
+PROBLEM 24: Row Number Triangle
+--------------------------------------------------------------------------------
+Sample Input:  4
+Sample Output:
+1
+2 2
+3 3 3
+4 4 4 4
+
+[Solution Code]
+#include <stdio.h>
+int main(void) {
+    int n;
+    if (scanf("%d", &n) != 1 || n < 1) return 1;
+    for (int row = 1; row <= n; row++) {
+        for (int column = 1; column <= row; column++) printf("%d ", row);
+        printf("\n");
+    }
+    return 0;
+}
+
+
+PROBLEM 25: Column Number Triangle
+--------------------------------------------------------------------------------
+Sample Input:  4
+Sample Output:
+1
+1 2
+1 2 3
+1 2 3 4
+
+[Solution Code]
+#include <stdio.h>
+int main(void) {
+    int n;
+    if (scanf("%d", &n) != 1 || n < 1) return 1;
+    for (int row = 1; row <= n; row++) {
+        for (int column = 1; column <= row; column++) printf("%d ", column);
+        printf("\n");
+    }
+    return 0;
+}
+
+
+PROBLEM 26: Complete Multiplication Grid
+--------------------------------------------------------------------------------
+Read n and print multiplication tables from 1 through n, each from 1 to 10.
+Use one loop for the table number and another loop for the multiplier.
+
+Sample Input:  2
+Sample Output begins:
+Table of 1
+1 x 1 = 1
+...
+Table of 2
+2 x 1 = 2
+...
+
+[Solution Code]
+#include <stdio.h>
+int main(void) {
+    int n;
+    if (scanf("%d", &n) != 1 || n < 1) return 1;
+    for (int table = 1; table <= n; table++) {
+        printf("Table of %d\n", table);
+        for (int multiplier = 1; multiplier <= 10; multiplier++)
+            printf("%d x %d = %d\n", table, multiplier,
+                   table * multiplier);
+    }
+    return 0;
+}
+
+
+================================================================================
+LEVEL 6: CHALLENGE PROBLEMS
+================================================================================
+
+PROBLEM 27: Prime Number Check
+--------------------------------------------------------------------------------
+Read an integer n. A prime number is greater than 1 and divisible only by 1 and
+itself. Test possible divisors only while divisor * divisor <= n.
+
+Sample Input:  29
+Sample Output: Prime
+
+[Solution Code]
+#include <stdio.h>
+int main(void) {
+    int n, isPrime = 1;
+    if (scanf("%d", &n) != 1) return 1;
+    if (n <= 1) isPrime = 0;
+    for (int divisor = 2; divisor <= n / divisor && isPrime; divisor++)
+        if (n % divisor == 0) isPrime = 0;
+    printf(isPrime ? "Prime\n" : "Not prime\n");
+    return 0;
+}
+
+
+PROBLEM 28: All Prime Numbers in a Range
+--------------------------------------------------------------------------------
+Read lower and upper limits and print every prime number in that inclusive range.
+This requires nested loops.
+
+Sample Input:  10 25
+Sample Output: 11 13 17 19 23
+
+[Solution Code]
+#include <stdio.h>
+int main(void) {
+    int lower, upper;
+    if (scanf("%d %d", &lower, &upper) != 2 || lower > upper) return 1;
+    for (int n = lower; n <= upper; n++) {
+        int isPrime = n > 1;
+        for (int divisor = 2; divisor <= n / divisor && isPrime; divisor++)
+            if (n % divisor == 0) isPrime = 0;
+        if (isPrime) printf("%d ", n);
+    }
+    printf("\n");
+    return 0;
+}
+
+
+PROBLEM 29: Fibonacci Sequence
+--------------------------------------------------------------------------------
+Read the number of terms and print the Fibonacci sequence beginning with 0 and 1.
+
+Sample Input:  8
+Sample Output: 0 1 1 2 3 5 8 13
+
+[Solution Code]
+#include <stdio.h>
+int main(void) {
+    int terms;
+    unsigned long long first = 0, second = 1;
+    if (scanf("%d", &terms) != 1 || terms < 1 || terms > 94) {
+        printf("Invalid number of terms\n");
+        return 0;
+    }
+    for (int i = 1; i <= terms; i++) {
+        printf("%llu%c", first, i == terms ? '\n' : ' ');
+        unsigned long long next = first + second;
+        first = second;
+        second = next;
+    }
+    return 0;
+}
+
+
+PROBLEM 30: Number Guessing Loop
+--------------------------------------------------------------------------------
+Store a secret number in the program. Repeatedly accept guesses until it is
+found. Print Too high or Too low after each incorrect guess, and print the total
+number of attempts after success.
+
+Secret Number: 37
+Sample Input:  50 20 37
+Sample Output:
+Too high
+Too low
+Correct in 3 attempts
+
+[Solution Code]
+#include <stdio.h>
+int main(void) {
+    const int SECRET = 37;
+    int guess, attempts = 0;
+    do {
+        if (scanf("%d", &guess) != 1) return 1;
+        attempts++;
+        if (guess > SECRET) printf("Too high\n");
+        else if (guess < SECRET) printf("Too low\n");
+    } while (guess != SECRET);
+    printf("Correct in %d attempts\n", attempts);
+    return 0;
+}
+
+
+PROBLEM 31: Repeated Digit Reduction
+--------------------------------------------------------------------------------
+Read a non-negative integer. Repeatedly add all its digits until only one digit
+remains. Use nested `while` loops.
+
+Sample Input:
+9875
+
+Sample Output:
+Final digit: 2
+
+[Solution Code]
+#include <stdio.h>
+
+int main(void) {
+    int number;
+    if (scanf("%d", &number) != 1 || number < 0) {
+        printf("Invalid input\n");
+        return 0;
+    }
+
+    while (number >= 10) {
+        int digitSum = 0;
+        while (number > 0) {
+            digitSum += number % 10;
+            number /= 10;
+        }
+        number = digitSum;
+    }
+
+    printf("Final digit: %d\n", number);
+    return 0;
+}
+
+
+PROBLEM 32: Temperature Extremes Using Sequential if
+--------------------------------------------------------------------------------
+Read exactly five temperatures. Use separate `if` statements and `INT_MIN` /
+`INT_MAX` trackers to find the warmest and coldest readings without an array.
+
+Sample Input:
+-15 -28 -5 -32 -10
+
+Sample Output:
+Warmest: -5
+Coldest: -32
+
+[Solution Code]
+#include <limits.h>
+#include <stdio.h>
+
+int main(void) {
+    int t1, t2, t3, t4, t5;
+    int warmest = INT_MIN;
+    int coldest = INT_MAX;
+
+    if (scanf("%d %d %d %d %d", &t1, &t2, &t3, &t4, &t5) != 5)
+        return 1;
+
+    if (t1 > warmest) warmest = t1;
+    if (t1 < coldest) coldest = t1;
+    if (t2 > warmest) warmest = t2;
+    if (t2 < coldest) coldest = t2;
+    if (t3 > warmest) warmest = t3;
+    if (t3 < coldest) coldest = t3;
+    if (t4 > warmest) warmest = t4;
+    if (t4 < coldest) coldest = t4;
+    if (t5 > warmest) warmest = t5;
+    if (t5 < coldest) coldest = t5;
+
+    printf("Warmest: %d\n", warmest);
+    printf("Coldest: %d\n", coldest);
+    return 0;
+}
+
+
+PROBLEM 33: Menu-Driven Unit Converter
+--------------------------------------------------------------------------------
+Read a menu choice and a value. Use `switch` to perform one conversion:
+
+1. Kilometres to miles
+2. Miles to kilometres
+3. Kilograms to pounds
+4. Pounds to kilograms
+
+Sample Input:
+1
+100
+
+Sample Output:
+Result: 100.00 km = 62.14 miles
+
+[Solution Code]
+#include <stdio.h>
+
+int main(void) {
+    const double DISTANCE_FACTOR = 0.621371;
+    const double WEIGHT_FACTOR = 2.20462;
+    int choice;
+    double value;
+
+    if (scanf("%d %lf", &choice, &value) != 2) return 1;
+
+    switch (choice) {
+        case 1:
+            printf("Result: %.2f km = %.2f miles\n",
+                   value, value * DISTANCE_FACTOR);
+            break;
+        case 2:
+            printf("Result: %.2f miles = %.2f km\n",
+                   value, value / DISTANCE_FACTOR);
+            break;
+        case 3:
+            printf("Result: %.2f kg = %.2f pounds\n",
+                   value, value * WEIGHT_FACTOR);
+            break;
+        case 4:
+            printf("Result: %.2f pounds = %.2f kg\n",
+                   value, value / WEIGHT_FACTOR);
+            break;
+        default:
+            printf("Invalid choice\n");
+    }
+    return 0;
+}
+
+
+================================================================================
+DRY-RUN QUESTIONS (DO THESE WITHOUT A COMPUTER)
+================================================================================
+1. How many times does this loop run?
+       for (int i = 2; i <= 10; i += 2)
+
+2. What is printed?
+       int x = 3;
+       while (x > 0) printf("%d ", x--);
+
+3. Find the error:
+       int i = 1;
+       while (i <= 5) printf("%d ", i);
+
+4. What is printed when choice is 1 if both breaks are removed?
+       switch (choice) {
+           case 1: printf("A");
+           case 2: printf("B");
+           default: printf("C");
+       }
+
+5. How many stars are printed by a 4-row increasing triangle?
+
+6. Rewrite a for loop from 1 through 10 as an equivalent while loop.

@@ -1,0 +1,466 @@
+================================================================================
+                 DAY 3 PRACTICE EXERCISES & SOLUTIONS
+================================================================================
+
+Each problem is followed immediately by its reference solution.
+
+--------------------------------------------------------------------------------
+PROBLEM 1: Addition Using a User-Defined Function
+--------------------------------------------------------------------------------
+[Problem Description]
+
+Create a function named add_numbers that accepts two integers and returns
+their sum. Call the function from main using 5 and 3.
+
+[Requirements]
+
+- Write a function prototype before main.
+- Pass two arguments to the function.
+- Return the calculated sum to main.
+
+Sample Input:
+
+No input required.
+
+Sample Output:
+
+Result: 8
+
+[Solution Code]
+#include <stdio.h>
+
+int add_numbers(int a, int b); // Function Declaration
+
+// driver function or main function
+int main(void) {
+    int result = add_numbers(5, 3); // Function call // Arguments
+    printf("Result: %d\n", result);
+    return 0;
+}
+
+// Function Definition
+// (int) Return type
+int add_numbers(int a, int b) { // Parameters
+    return a + b;
+}
+
+--------------------------------------------------------------------------------
+PROBLEM 2: Maximum Value Using a Function
+--------------------------------------------------------------------------------
+[Problem Description]
+
+Read two integers and pass them to a function named findMax. The function must
+return the larger value.
+
+Sample Input:
+
+35 72
+
+Sample Output:
+
+Enter two values to find max: Maximum value is 72.
+
+[Solution Code]
+#include <stdio.h>
+int findMax(int v1, int v2)
+{
+    int max = (v1 > v2) ? v1 : v2;
+    return max;
+}
+int main(void)
+{
+    int a, b;
+    printf("Enter two values to find max: ");
+    scanf("%d %d", &a, &b);
+    printf("Maximum value is %d.\n", findMax(a, b));
+    return 0;
+}
+
+--------------------------------------------------------------------------------
+PROBLEM 3: Trace Recursive Calling and Returning Phases
+--------------------------------------------------------------------------------
+[Problem Description]
+
+Create a recursive function that begins with 1, calls itself with the next
+number, and stops after reaching the base condition. Print messages before and
+after each recursive call to demonstrate winding and unwinding.
+
+Sample Input:
+
+No input required.
+
+Sample Output:
+
+Calling Phase : n = 1
+Calling Phase : n = 2
+Calling Phase : n = 3
+Base case detected 4 is > 3: Stopping...
+Returning Phase : n = 3
+Returning Phase : n = 2
+Returning Phase : n = 1
+Back in main(). Program finished.
+
+[Solution Code]
+#include <stdio.h>
+void tracePhases(int n) // Recursive Function
+{
+    if (n > 3) // Base Case
+    {
+        printf("Base case detected %d is > 3: Stopping...\n", n);
+        return;
+    }
+    printf("Calling Phase : n = %d\n", n);   // Calling Phase
+    tracePhases(n + 1);                      // Recursive Call
+    printf("Returning Phase : n = %d\n", n); // Returning Phase
+}
+int main(void)
+{
+    tracePhases(1); // function call
+    printf("Back in main(). Program finished.\n");
+    return 0;
+}
+
+--------------------------------------------------------------------------------
+PROBLEM 4: Sum of Digits Using Recursion
+--------------------------------------------------------------------------------
+[Problem Description]
+
+Create a recursive function that returns the sum of the digits in 1432. Use
+0 as the base case.
+
+Sample Input:
+
+No input required.
+
+Sample Output:
+
+Sum of digits of 1432 is: 10
+
+[Solution Code]
+#include <stdio.h>
+
+int sumOfDigits(int n)
+{
+    if (n == 0) // Base case
+    {
+        return 0;
+    }
+    return (n % 10) + sumOfDigits(n / 10); // Recursive Call
+}
+
+int main(void)
+{
+    int number = 1432;
+    printf("Sum of digits of %d is: %d\n", number, sumOfDigits(number)); // Function Call
+    return 0;
+}
+
+--------------------------------------------------------------------------------
+PROBLEM 5: Fibonacci Value Using Recursion
+--------------------------------------------------------------------------------
+[Problem Description]
+
+Create a recursive Fibonacci function with base cases for indices 0 and 1.
+Find the Fibonacci value at index 3.
+
+Sample Input:
+
+No input required.
+
+Sample Output:
+
+Fibonacci value at index 3 is: 2
+
+[Solution Code]
+#include <stdio.h>
+int fibonacci(int n)
+{
+    // Base Cases
+    if (n == 0)
+        return 0;
+    if (n == 1)
+        return 1;
+    // Recursive Case: Sum of the two previous terms
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+int main(void)
+{
+    int index = 3;
+    printf("Fibonacci value at index %d is: %d\n", index, fibonacci(index));
+    return 0;
+}
+
+--------------------------------------------------------------------------------
+PROBLEM 6: Read and Display a Linear Array
+--------------------------------------------------------------------------------
+[Problem Description]
+
+Read an array size from 1 to 100, accept that many integer elements, and
+display the elements in their original order.
+
+Sample Input:
+
+5
+10 20 30 40 50
+
+Sample Output:
+
+Enter the size of the array: Enter element 1: Enter element 2: Enter element 3: Enter element 4: Enter element 5: The elements of the array are:
+10 20 30 40 50
+
+[Solution Code]
+#include <stdio.h>
+
+int main(void)
+{
+    int size;
+    printf("Enter the size of the array: ");
+    if (scanf("%d", &size) != 1 || size < 1 || size > 100)
+    {
+        printf("Invalid array size.\n");
+        return 1;
+    }
+
+    int numArray[size];
+    // loop 1: to collect elements from the user
+    for (int i = 0; i < size; i++)
+    {
+        printf("Enter element %d: ", i + 1);
+        if (scanf("%d", &numArray[i]) != 1)
+            return 1;
+    }
+    // loop 2: to display the elements of the array
+    printf("The elements of the array are:\n");
+    for (int i = 0; i < size; i++)
+    {
+        printf("%d ", numArray[i]);
+    }
+    printf("\n");
+    return 0;
+}
+
+--------------------------------------------------------------------------------
+PROBLEM 7: Array Sum and Average
+--------------------------------------------------------------------------------
+[Problem Description]
+
+Read the number of subjects from 1 to 10, store each score in an array, and
+display every indexed value, the total, and the average.
+
+Sample Input:
+
+4
+80 75 90 85
+
+Sample Output:
+
+Enter the number of subjects: Enter score for subject 1: Enter score for subject 2: Enter score for subject 3: Enter score for subject 4: Element at the index 0 : 80
+Element at the index 1 : 75
+Element at the index 2 : 90
+Element at the index 3 : 85
+Sum of total elements is : 330
+Calculated Average: 82.50
+
+[Solution Code]
+#include <stdio.h>
+
+int main(void)
+{
+    int length;
+    printf("Enter the number of subjects: ");
+    if (scanf("%d", &length) != 1)
+        return 1;
+
+    if (length > 10 || length <= 0)
+    {
+        printf("Invalid Size. Program Terminated.\n");
+        return 1;
+    }
+
+    int scores[length];
+    int sum = 0;
+    float avg;
+
+    for (int i = 0; i < length; i++)
+    {
+        printf("Enter score for subject %d: ", i + 1);
+        if (scanf("%d", &scores[i]) != 1)
+            return 1;
+    }
+    for (int i = 0; i < length; i++)
+    {
+        printf("Element at the index %d : %d\n", i, scores[i]);
+        sum += scores[i];
+    }
+    printf("Sum of total elements is : %d\n", sum);
+    avg = (float)sum / length;
+    printf("Calculated Average: %.2f\n", avg);
+    return 0;
+}
+
+--------------------------------------------------------------------------------
+PROBLEM 8: Reverse a Character Array
+--------------------------------------------------------------------------------
+[Problem Description]
+
+Create a function that reverses the character array "matrix" in place by
+swapping characters from both ends.
+
+Sample Input:
+
+No input required.
+
+Sample Output:
+
+Altered in RAM: xirtam
+
+[Solution Code]
+#include <stdio.h>
+#include <string.h>
+void reverse(char str[])
+{
+    int start = 0;
+    int end = (int)strlen(str) - 1;
+    char tmp;
+    while (start < end)
+    {
+        tmp = str[start];
+        str[start] = str[end];
+        str[end] = tmp;
+        start++;
+        end--;
+    }
+}
+int main(void)
+{
+    char message[] = "matrix";
+    reverse(message);
+    printf("Altered in RAM: %s\n", message);
+    return 0;
+}
+
+--------------------------------------------------------------------------------
+PROBLEM 9: Find Duplicate Array Elements
+--------------------------------------------------------------------------------
+[Problem Description]
+
+Read product IDs into a linear array. Use nested loops to find matching values
+and print the two indices for every duplicate pair.
+
+Sample Input:
+
+7
+12 10 12 10 8 7 2
+
+Sample Output:
+
+Enter the size of the array: Enter the product IDs:
+Duplicate found: Element 12 at indices 0 and 2
+Duplicate found: Element 10 at indices 1 and 3
+Total Scanned size: 7
+Total duplicates found: 2
+
+[Solution Code]
+// Find and print the indices of duplicate product IDs inside a single-row numeric array using nested loops.
+
+// 0   1   2   3   4   5   6
+// 12  10  12  10  8   7   2
+
+// index 0 and 2 have same Element 12.
+// index 1 and 3 have same Element 10.
+
+#include <stdio.h>
+int main(void)
+{
+    int size;
+    printf("Enter the size of the array: ");
+    if (scanf("%d", &size) != 1 || size < 1 || size > 100)
+    {
+        printf("Invalid array size.\n");
+        return 1;
+    }
+
+    int productIDs[size];
+    int duplicateCount = 0;
+    printf("Enter the product IDs:\n");
+    for (int i = 0; i < size; i++)
+    {
+        if (scanf("%d", &productIDs[i]) != 1)
+            return 1;
+    }
+    for (int i = 0; i < size; i++)
+    {
+        for (int j = i + 1; j < size; j++)
+        {
+            if (productIDs[i] == productIDs[j])
+            {
+                printf("Duplicate found: Element %d at indices %d and %d\n", productIDs[i], i, j);
+                duplicateCount++;
+            }
+        }
+    }
+    printf("Total Scanned size: %d\n", size);
+    printf("Total duplicates found: %d\n", duplicateCount);
+    return 0;
+}
+
+--------------------------------------------------------------------------------
+PROBLEM 10: Two-Dimensional Array Display and Sum
+--------------------------------------------------------------------------------
+[Problem Description]
+
+Read matrix dimensions and elements into a two-dimensional array. Display the
+matrix and calculate the sum of all its elements.
+
+Sample Input:
+
+2 3
+1 2 3
+4 5 6
+
+Sample Output:
+
+Enter row and col length: Enter value for matrix [0][0]: Enter value for matrix [0][1]: Enter value for matrix [0][2]: Enter value for matrix [1][0]: Enter value for matrix [1][1]: Enter value for matrix [1][2]: 1	2	3
+4	5	6
+Sum of matrix elements is 21.
+
+[Solution Code]
+#include <stdio.h>
+
+int main(void)
+{
+    int r, c;
+    printf("Enter row and col length: ");
+    if (scanf("%d %d", &r, &c) != 2 ||
+        r < 1 || r > 20 || c < 1 || c > 20)
+    {
+        printf("Invalid matrix dimensions.\n");
+        return 1;
+    }
+
+    int matrix[r][c];
+    int sum = 0;
+
+    for (int i = 0; i < r; i++)
+    {
+        for (int j = 0; j < c; j++)
+        {
+            printf("Enter value for matrix [%d][%d]: ", i, j);
+            if (scanf("%d", &matrix[i][j]) != 1)
+                return 1;
+        }
+    }
+    for (int i = 0; i < r; i++)
+    {
+        for (int j = 0; j < c; j++)
+        {
+            printf("%d\t", matrix[i][j]);
+            sum += matrix[i][j];
+        }
+        printf("\n");
+    }
+    printf("Sum of matrix elements is %d.\n", sum);
+    return 0;
+}
+
+================================================================================

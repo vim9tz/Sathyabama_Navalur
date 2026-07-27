@@ -1,0 +1,383 @@
+Day 3: Functional Design, Recursion, Linear and Multi-Dimensional Arrays
+
+FUNCTIONS
+1. Function Definition
+2. Function Prototype / Declaration
+3. Function Call
+4. Return Type
+5. Parameters
+6. Arguments
+
+SYNTAX EXAMPLE
+float calculateTax(float price) {      <-- [float is the Return Type]
+                                       <-- [price is the Parameter]
+
+    float totalTax = price * 0.05;     <-- [Local variable allocation]
+    
+    return totalTax;                   <-- [Return Value / Exit Trigger]
+}
+
+#include <stdio.h>
+
+// 2. FUNCTION PROTOTYPE (The Warning)
+int add_numbers(int num1, int num2); 
+
+int main() {
+    // 3. FUNCTION CALL (The Execution)
+    // 6. ARGUMENTS (The Real Values passed in: 5 and 3)
+    int result = add_numbers(5, 3); 
+    
+    printf("The total is: %d\n", result);
+    return 0;
+}
+
+// 1. FUNCTION DEFINITION (The Actual Work)
+// 4. RETURN TYPE (int)
+// 5. PARAMETERS (int num1, int num2)
+int add_numbers(int num1, int num2) {
+    int sum = num1 + num2;
+    return sum; // Sending the answer back
+}
+
+
+RECURSION
+1. Base Case
+2. Recursive Call
+3. Calling Phase / Winding Phase
+4. Returning Phase / Unwinding Phase
+5. Call Stack / Frame (LIFO)
+6. Stack overflow
+
+SYNTAX EXAMPLE
+int computeSum(int n) {
+    
+    if (n == 0) {         <-- [Base Case Condition]
+        return 0;         <-- [Base Case Return / Unwinding Trigger]
+    }
+    
+    else {
+        return n + computeSum(n - 1);  <-- [Recursive Case Call]
+    }                                  <-- [n - 1 is the Decrement]
+}
+
+COMPACT MEMORY FLOW VISUALIZATION
+----------------------------------------------------------------------
+
+    [ CALLING PHASE / WINDING ]          [ RETURNING PHASE / UNWINDING ]
+      (Pushing down to base case)           (Popping back up to main)
+
+    main()                               main()
+      │                                    ▲
+      ▼                                    │ (Returns control)
+    func(2)                              func(2) -> [Clears Frame]
+      │                                    ▲
+      ▼                                    │ (Returns status)
+    func(1)                              func(1) -> [Clears Frame]
+      │                                    ▲
+      ▼                                    │ (Returns status)
+    func(0) [Base Case Reached] ───────────┘
+======================================================================
+
+THE CALL STACK VISUALIZATION (LIFO: LAST IN, FIRST OUT)
+----------------------------------------------------------------------
+
+During the calling phase, a stack of plates was built. During the 
+returning phase, plates are taken off the top one by one:
+
+   |                          |     
+   |                          |     
+   |--------------------------|     
+   | Frame n = 3 (PAUSED)     | --> Pops off top next: Prints n = 3
+   |--------------------------|     
+   | Frame n = 2 (PAUSED)     | --> Then pops off next: Prints n = 2
+   |--------------------------|     
+   | Frame n = 1 (PAUSED)     | --> Finally pops off last: Prints n = 1
+   |--------------------------|     
+   | main()     (PAUSED)      | 
+   \__________________________/
+
+
+
+   sumOfDigits(1432) 
+   = 2 + sumOfDigits(143)
+   = 2 + (3 + sumOfDigits(14))
+   = 2 + (3 + (4 + sumOfDigits(1)))
+   = 2 + (3 + (4 + (1 + sumOfDigits(0))))   <-- Peak of Calling Phase
+   = 2 + (3 + (4 + (1 + 0)))                <-- Base Case returns 0
+   = 2 + (3 + (4 + 1))                      <-- Returning Phase begins
+   = 2 + (3 + 5)
+   = 2 + 8
+   = 10                                     <-- Final Return to main()
+
+  ======================================================================
+               SIMPLE LINE-BY-LINE DRY RUN OF FIB(6)
+======================================================================
+fib(6) // Main call from main()
+  │
+  ├── fib(5) // Left side of fib(6)
+  │     │
+  │     ├── fib(4) // Left side of fib(5)
+  │     │     │
+  │     │     ├── fib(3) // Left side of fib(4)
+  │     │     │     │
+  │     │     │     ├── fib(2) // Left side of fib(3)
+  │     │     │     │     ├── fib(1) // Left ──> returns 1
+  │     │     │     │     └── fib(0) // Right ──> returns 0
+  │     │     │     └── fib(2) finishes ──> returns (1 + 0) = 1
+  │     │     │     │
+  │     │     │     └── fib(1) // Right ──> returns 1
+  │     │     └── fib(3) finishes ──> returns (1 + 1) = 2
+  │     │           │
+  │     │           └── fib(2) // Right side of fib(4)
+  │     │                 ├── fib(1) // Left ──> returns 1
+  │     │                 └── fib(0) // Right ──> returns 0
+  │     │           └── fib(2) finishes ──> returns (1 + 0) = 1
+  │     └── fib(4) finishes ──> returns (2 + 1) = 3
+  │           │
+  │           └── fib(3) // Right side of fib(5)
+  │                 │
+  │                 ├── fib(2) // Left side of fib(3)
+  │                 │     ├── fib(1) // Left ──> returns 1
+  │                 │     └── fib(0) // Right ──> returns 0
+  │                 ├── fib(2) finishes ──> returns (1 + 0) = 1
+  │                 │
+  │                 └── fib(1) // Right ──> returns 1
+  │                 └── fib(3) finishes ──> returns (1 + 1) = 2
+  └── fib(5) finishes ──> returns (3 + 2) = 5
+        │
+        └── fib(4) // Right side of fib(6)
+              │
+              ├── fib(3) // Left side of fib(4)
+              │     │
+              │     ├── fib(2) // Left side of fib(3)
+              │     │     ├── fib(1) // Left ──> returns 1
+              │     │     └── fib(0) // Right ──> returns 0
+              │     └── fib(2) finishes ──> returns (1 + 0) = 1
+              │     │
+              │     └── fib(1) // Right ──> returns 1
+              └── fib(3) finishes ──> returns (1 + 1) = 2
+                    │
+                    └── fib(2) // Right side of fib(4)
+                          ├── fib(1) // Left ──> returns 1
+                          └── fib(0) // Right ──> returns 0
+                    └── fib(2) finishes ──> returns (1 + 0) = 1
+              └── fib(4) finishes ──> returns (2 + 1) = 3
+
+fib(6) final evaluation ──> returns Left (5) + Right (3) = 8
+======================================================================
+
+
+
+                              fib(6)
+                             /      \
+                            /        \
+                    fib(5)              fib(4)
+                   /      \            /      \
+                  /        \          /        \
+              fib(4)      fib(3)  fib(3)      fib(2)
+              /    \      /    \  /    \      /    \
+            fib(3) fib(2)fib(2)fib(1)fib(2)fib(1)fib(1)fib(0)
+            /   \  /   \ /   \       /   \
+        fib(2)fib(1)fib(1)fib(0)fib(1)fib(0)fib(1)fib(0)
+        /   \
+    fib(1) fib(0)
+
+
+
+                                8
+                             /     \
+                            /       \
+                        5               3
+                     /     \         /     \
+                    /       \       /       \
+                  3           2    2         1
+                 /   \       / \  / \       / \
+                2     1     1   1 1  1     1   0
+               / \   / \   / \
+              1   1 1   0 1   0
+             / \
+            1   0
+
+     [ CALL BRANCHING TREE ]               [ RETURN VALUE MATRIX ]
+     (Downwards Calling Phase)             (Upwards Returning Phase)
+
+              fib(3)                                   2
+             /      \                               /     \
+            /        \                             /       \
+        fib(2)      fib(1)                     1               1
+       /      \                               /     \
+      /        \                             /       \
+  fib(1)      fib(0)                        1         0
+
+Calculate the value of x raised to the power of n efficiently ($x^n$).
+Example: Input = base: 2, exponent: 5 -> Output = 32
+
+Arrays
+
+numerical Arrays
+char Arrays
+
+THE BASIC ARRAY SYNTAX PATTERNS
+----------------------------------------------------------------------
+// Pattern A: Single-Row Linear (Numeric) Array
+data_type array_name[array_size] = {val1, val2, val3};
+
+// Pattern B: Character Array (String Literal Setup)
+char string_name[] = "Text_Data"; // Hidden '\0' appended at end
+
+KEYS & SYMBOLS
+[], {}, \0, &
+
+int arr[2]
+
+Numeric Array:
+
+   Index:       0       1       2       3       4       5
+            +-------+-------+-------+-------+-------+-------+
+   Element: |  10   |  20   |  30   |  40   |  50   |  60   |
+            +-------+-------+-------+-------+-------+-------+
+
+Character Array:
+
+   Index:      [0]     [1]     [2]     [3]     [4]     [5]     [6]
+            +-------+-------+-------+-------+-------+-------+-------+
+   Element: |  'd'  |  'e'  |  'v'  |  'i'  |  'c'  |  'e'  | '\0'  |
+            +-------+-------+-------+-------+-------+-------+-------+
+
+TERMS
+
+Base Address
+Index
+Contiguous
+Element
+Trash Values
+Out of Bounds
+
+int runCounts[4] = {12, 45, 78, 32};
+    │         │      │
+    │         │      └────────── [Initialization List values]
+    │         └───────────────── [Size Key: Holds exactly 4 elements]
+    └─────────────────────────── [Primitive numeric Integer Data Type]
+
+char tag[5] = "Data";
+     │   │     └──────────────── [String Literal: 'D' 'a' 't' 'a' '\0']
+     │   └────────────────────── [Size Key: 4 chars + 1 hidden slot for \0]
+     └────────────────────────── [Character Primitive Data Type]
+==================================================================
+
+
+PRINTING ELEMENTS + SUM AND AVERAGE
+
+MUST-KNOW STRING & STANDARD FUNCTIONS IN C
+
+printf()
+scanf()
+
+puts(str)
+  - Purpose: Writes a string of text character-by-character from a memory buffer onto the output screen.
+  - Caution: It automatically appends an explicit newline character ('\n') to the end of the printed output, and it will crash with a Segmentation Fault if you pass a NULL pointer instead of a valid string address.
+  - Example: `puts(my_string);`
+
+fgets(buffer, size, stream)
+  - Purpose: Reads an entire line of text from an input source, including spaces.
+  - Caution: It preserves the trailing newline character ('\n') inside your buffer if there is space.
+  - Example: `fgets(buffer, sizeof(buffer), stdin);`
+
+sizeof(expression_or_type)
+  - Purpose: Calculates the exact memory footprint size (in bytes) of a variable, array, or data type during compilation.
+  - Caution: It returns the total allocated buffer memory size, not the active number of data items populated inside it.
+  - Example: `int totalBytes = sizeof(my_array);`
+
+strlen(str)
+  - Purpose: Calculates the total number of visible characters.
+  - Caution: It does NOT count the hidden `\0` character.
+  - Example: `strlen("code")` returns `4`.
+
+strcspn(string1, string2)
+  - Purpose: Scans string1 from the beginning to calculate the length of the initial segment that contains absolutely zero characters from string2.
+  - Caution: If none of the characters from string2 are found inside string1, it returns the total length of string1 (pointing directly to the hidden '\0' terminator position).
+  - Example: `int index = strcspn(buffer, "\n");`
+
+strcpy(destination, source)
+  - Purpose: Copies the string from the source array into the destination.
+  - Caution: Ensure the destination array is large enough to prevent a crash.
+  - Example: `strcpy(buffer, "hello");
+
+strcat(destination, source)
+  - Purpose: Concatenates (joins) the source string onto the end of the destination string.
+  - Example: If `str1` is "New ", `strcat(str1, "York")` mutates `str1` into "New York".
+
+strcmp(str1, str2)
+  - Purpose: Compares two strings character-by-character based on ASCII values.
+  - Returns: `0` if identical, a negative number if `str1 < str2`, positive if `str1 > str2`.
+  - Caution: It is case-sensitive ("Apple" does not equal "apple").
+
+strcasecmp(string1, string2)
+  - Purpose: Compares two strings character-by-character while completely ignoring upper and lower case differences.
+  - Caution: It is a POSIX standard function (found inside <strings.h>). On Windows systems (MSVC), you must write it as `_stricmp` instead.
+  - Example: `int status = strcasecmp(str1, str2);`
+
+
+isalpha(c)  -> Returns true (non-zero) if the character is a letter (A-Z or a-z).
+isdigit(c)  -> Returns true if the character is a numeric digit (0-9).
+isalnum(c)  -> Returns true if the character is alphanumeric (either a letter or digit).
+islower(c)  -> Returns true if the character is lowercase.
+isupper(c)  -> Returns true if the character is uppercase.
+tolower(c)  -> Converts a capital letter to lowercase. Returns unchanged if not a letter.
+toupper(c)  -> Converts a lowercase letter to uppercase.
+
+atoi(str)
+  - Purpose: "ASCII to Integer". Converts a string of text digits into a real integer.
+  - Example: `int val = atoi("1432");` transforms string numbers into numeric `1432`.
+
+atof(str)
+  - Purpose: "ASCII to Float". Converts a string into a decimal floating-point number.
+  - Example: `float val = atof("3.14");`
+abs(num)
+  - Purpose: Returns the absolute value of an integer (removes negative signs).
+  - Example: `abs(-5)` returns `5`
+fabs()
+labs()
+
+
+   Index:      0       1       2       3       4       5       6
+   Value:   | 'm' | 'a' | 't' | 'r' | 'i' | 'x' | '\0' |
+              ^                               ^
+            [start = 0]                     [end = 4]
+
+            | 'x' | 'a' | 't' | 'r' | 'i' | 'm' | '\0' |
+                       ^                       ^
+                     [start = 1]             [end = 4]
+            | 'x' | 'i' | 't' | 'r' | 'a' | 'm' | '\0' |
+                               ^       ^
+                             [start=2][end=3]
+            | 'x' | 'i' | 'r' | 't' | 'a' | 'm' | '\0' |
+                               ^       ^
+                             [end=2] [start=3]
+
+
+Row 0: {5, 10, 15}
+Row 1: {20, 25, 30}
+               Column 0      Column 1      Column 2
+            +-------------+-------------+-------------+
+    Row 0   | matrix[0][0]| matrix[0][1]| matrix[0][2]|
+
+            |     = 5     |     = 10    |     = 15    |
+            +-------------+-------------+-------------+
+    Row 1   | matrix[1][0]| matrix[1][1]| matrix[1][2]|
+
+            |     = 20    |     = 25    |     = 30    |
+            +-------------+-------------+-------------+
+
+
+  Coordinate:  [0][0]    [0][1]    [0][2]    [1][0]    [1][1]    [1][2]
+              +--------+--------+--------+--------+--------+--------+
+  Value:      |   5    |   10   |   15   |   20   |   25   |   30   |
+              +--------+--------+--------+--------+--------+--------+
+  RAM Addr:     2000     2004     2008     2012     2016     2020
+              └───────── ROW 0 ─────────┘└───────── ROW 1 ─────────┘
+              ^
+         Base Address
+
+
+https://meet.google.com/oak-eghu-ocu
