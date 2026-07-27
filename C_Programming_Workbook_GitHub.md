@@ -8,14 +8,116 @@
 
 ## Table of Contents
 
-1. [Variables, Data Types and Operators](#variables-data-types-and-operators) — 8 problems
-2. [Conditional Statements and Looping Statements](#conditional-statements-and-looping-statements) — 10 problems
-3. [Arrays](#arrays) — 10 **problems**
-4. [Strings](#strings) — 10 problems
-5. [Structures & Union](#structures--union) — 9 problems
-6. [Pointers](#pointers) — 10 problems
-7. [Dynamic Memory Allocation](#dynamic-memory-allocation) — 10 problems
-8. [Company Specific Questions](#company-specific-questions) — 2 problems
+> Click on any section or problem below to jump directly to its complete solution, explanations, and dry-runs.
+
+1. [Variables, Data Types and Operators](#section-1-variables-data-types-and-operators) — 8 problems
+<details><summary>Expand Problem List</summary>
+
+   - [Problem 1.1: Reverse Three-Digit Number](#problem-11-reverse-three-digit-number)
+   - [Problem 1.2: Electricity Bill Calculator](#problem-12-electricity-bill-calculator)
+   - [Problem 1.3: Time Conversion](#problem-13-time-conversion)
+   - [Problem 1.4: Salary Calculation](#problem-14-salary-calculation)
+   - [Problem 1.5: Swap Without Temporary Variable](#problem-15-swap-without-temporary-variable)
+   - [Problem 1.6: Find Largest Without Relational Operators](#problem-16-find-largest-without-relational-operators)
+   - [Problem 1.7: Digital Lock Code](#problem-17-digital-lock-code)
+   - [Problem 1.8: Currency Note Calculator](#problem-18-currency-note-calculator)
+</details>
+
+2. [Conditional Statements and Looping Statements](#section-2-conditional-statements-and-looping-statements) — 10 problems
+<details><summary>Expand Problem List</summary>
+
+   - [Problem 2.1: Equality Check](#problem-21-equality-check)
+   - [Problem 2.2: Even or Odd Check](#problem-22-even-or-odd-check)
+   - [Problem 2.3: Positive or Negative Check](#problem-23-positive-or-negative-check)
+   - [Problem 2.4: Leap Year Determination](#problem-24-leap-year-determination)
+   - [Problem 2.5: Voting Eligibility](#problem-25-voting-eligibility)
+   - [Problem 2.6: Signum Function Implementation](#problem-26-signum-function-implementation)
+   - [Problem 2.7: Height Categorization](#problem-27-height-categorization)
+   - [Problem 2.8: Largest of Three Numbers](#problem-28-largest-of-three-numbers)
+   - [Problem 2.9: Coordinate Quadrant Identification](#problem-29-coordinate-quadrant-identification)
+   - [Problem 2.10: Vowel or Consonant Check](#problem-210-vowel-or-consonant-check)
+</details>
+
+3. [Arrays](#section-3-arrays) — 10 problems
+<details><summary>Expand Problem List</summary>
+
+   - [Problem 3.1: Array Store & Print](#problem-31-array-store-print)
+   - [Problem 3.2: Array Reverse Display](#problem-32-array-reverse-display)
+   - [Problem 3.3: Array Sum Calculation](#problem-33-array-sum-calculation)
+   - [Problem 3.4: Array Copy](#problem-34-array-copy)
+   - [Problem 3.5: Count Duplicate Elements](#problem-35-count-duplicate-elements)
+   - [Problem 3.6: Print Unique Elements](#problem-36-print-unique-elements)
+   - [Problem 3.7: Merge Two Sorted Arrays (Descending)](#problem-37-merge-two-sorted-arrays-descending)
+   - [Problem 3.8: Frequency of Array Elements](#problem-38-frequency-of-array-elements)
+   - [Problem 3.9: Find Maximum & Minimum](#problem-39-find-maximum-minimum)
+   - [Problem 3.10: Separate Odd & Even Arrays](#problem-310-separate-odd-even-arrays)
+</details>
+
+4. [Strings](#section-4-strings) — 10 problems
+<details><summary>Expand Problem List</summary>
+
+   - [Problem 4.1: String Input Print](#problem-41-string-input-print)
+   - [Problem 4.2: String Length Without Library](#problem-42-string-length-without-library)
+   - [Problem 4.3: Separate String Characters](#problem-43-separate-string-characters)
+   - [Problem 4.4: Reverse String Characters](#problem-44-reverse-string-characters)
+   - [Problem 4.5: Count Words in String](#problem-45-count-words-in-string)
+   - [Problem 4.6: Compare Strings Without Library](#problem-46-compare-strings-without-library)
+   - [Problem 4.7: Count Alphabets, Digits, Specials](#problem-47-count-alphabets-digits-specials)
+   - [Problem 4.8: Copy String](#problem-48-copy-string)
+   - [Problem 4.9: Count Vowels and Consonants](#problem-49-count-vowels-and-consonants)
+   - [Problem 4.10: Maximum Frequency Character](#problem-410-maximum-frequency-character)
+</details>
+
+5. [Structures & Union](#section-5-structures-union) — 9 problems
+<details><summary>Expand Problem List</summary>
+
+   - [Problem 5.1: Student Structure Operations](#problem-51-student-structure-operations)
+   - [Problem 5.2: Time Structure Calculations](#problem-52-time-structure-calculations)
+   - [Problem 5.3: Book Structure Management](#problem-53-book-structure-management)
+   - [Problem 5.4: Circle Structure Calculations](#problem-54-circle-structure-calculations)
+   - [Problem 5.5: Employee Structure Processing](#problem-55-employee-structure-processing)
+   - [Problem 5.6: Date Structure Operations](#problem-56-date-structure-operations)
+   - [Problem 5.7: Queue Implementation with Structures](#problem-57-queue-implementation-with-structures)
+   - [Problem 5.8: Complex Number Operations](#problem-58-complex-number-operations)
+   - [Problem 5.9: Car Structure Management](#problem-59-car-structure-management)
+</details>
+
+6. [Pointers](#section-6-pointers) — 10 problems
+<details><summary>Expand Problem List</summary>
+
+   - [Problem 6.1: Basic Pointer Declaration](#problem-61-basic-pointer-declaration)
+   - [Problem 6.2: Pointer Handling Demonstration](#problem-62-pointer-handling-demonstration)
+   - [Problem 6.3: Use of & and * Operators](#problem-63-use-of-and-operators)
+   - [Problem 6.4: Add Two Numbers with Pointers](#problem-64-add-two-numbers-with-pointers)
+   - [Problem 6.5: Add Numbers Using Call by Reference](#problem-65-add-numbers-using-call-by-reference)
+   - [Problem 6.6: Maximum of Two Using Pointer](#problem-66-maximum-of-two-using-pointer)
+   - [Problem 6.7: Print Array Using Pointer](#problem-67-print-array-using-pointer)
+   - [Problem 6.8: Permutations of a String Using Pointers](#problem-68-permutations-of-a-string-using-pointers)
+   - [Problem 6.9: Largest Element Using Dynamic Memory Allocation](#problem-69-largest-element-using-dynamic-memory-allocation)
+   - [Problem 6.10: String Length Using Pointer](#problem-610-string-length-using-pointer)
+</details>
+
+7. [Dynamic Memory Allocation](#section-7-dynamic-memory-allocation) — 10 problems
+<details><summary>Expand Problem List</summary>
+
+   - [Problem 7.1: Store N Integers](#problem-71-store-n-integers)
+   - [Problem 7.2: Find Sum of Array](#problem-72-find-sum-of-array)
+   - [Problem 7.3: Find Maximum Element](#problem-73-find-maximum-element)
+   - [Problem 7.4: Reverse an Array](#problem-74-reverse-an-array)
+   - [Problem 7.5: Average of Numbers](#problem-75-average-of-numbers)
+   - [Problem 7.6: Resize an Array](#problem-76-resize-an-array)
+   - [Problem 7.7: Insert an Element](#problem-77-insert-an-element)
+   - [Problem 7.8: Delete an Element](#problem-78-delete-an-element)
+   - [Problem 7.9: Matrix Addition](#problem-79-matrix-addition)
+   - [Problem 7.10: String Copy](#problem-710-string-copy)
+</details>
+
+8. [Company Specific Questions](#section-8-company-specific-questions) — 2 problems
+<details><summary>Expand Problem List</summary>
+
+   - [Problem 8.1: Maximum Sum Subarray with Equal First and Last Element](#problem-81-maximum-sum-subarray-with-equal-first-and-last-element)
+   - [Problem 8.2: Longest Substring Without Repeating Characters](#problem-82-longest-substring-without-repeating-characters)
+</details>
 
 ---
 
@@ -29,6 +131,22 @@
 - **Arrays and strings:** Contiguous collections of values and null-terminated character sequences.
 - **Pointers and dynamic memory:** Direct address manipulation using pointers, `malloc`, `realloc`, and `free`.
 - **Structures and unions:** User-defined composite data types.
+
+---
+
+# Section 1: Variables, Data Types and Operators
+
+**Problems in this section:** 8
+
+# Section 1: Variables, Data Types and Operators
+
+**Problems in this section:** 8
+
+---
+
+# Section 1: Variables, Data Types and Operators
+
+**Problems in this section:** 8
 
 ---
 
@@ -63,29 +181,26 @@ We use the modulo operator ( % 10 ) to extract individual units from the three-d
 ```c
 #include <stdio.h>
 int main() {
-int num, rev;
+    int num, rev;
     printf("Enter a 3-digit integer: ");
-if (scanf("%d", &num) != 1) return 1;
-int d1 = num % 10;          // Extract last digit
-int d2 = (num / 10) % 10;   // Extract middle digit
-int d3 = num / 100;         // Extract first digit
+    if (scanf("%d", &num) != 1) return 1;
+    int d1 = num % 10;         // Extract last digit
+    int d2 = (num / 10) % 10;  // Extract middle digit
+    int d3 = num / 100;        // Extract first digit
     rev = d1 * 100 + d2 * 10 + d3;
     printf("Output: %d\n", rev);
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
-1. Input =
-2. 456.
-3. 1. d1 = 456 % 10 =
-4. 6.
-5. 2. d2 = (456 / 10) % 10 = 45 % 10 =
-6. 5.
-7. 3. d3 = 456 / 100 =
-8. 4.
-9. 4. rev = 6 * 100 + 5 * 10 + 4 = 600 + 50 + 4 = 654.
+1. **Input / Init:** Input = 456.
+2. d1 = 456 % 10 = 6.
+3. d2 = (456 / 10) % 10 = 45 % 10 = 5.
+4. d3 = 456 / 100 = 4.
+5. rev = 6 * 100 + 5 * 10 + 4 = 600 + 50 + 4 = 654.
+
 
 ### Complexity
 
@@ -121,11 +236,11 @@ The bill is computed using conditional branching based on consumption slabs. Uni
 ```c
 #include <stdio.h>
 int main() {
-int units;
-float bill = 0;
+    int units;
+    float bill = 0;
     printf("Enter units: ");
-if (scanf("%d", &units) != 1) return 1;
-if (units <= 100) {
+    if (scanf("%d", &units) != 1) return 1;
+    if (units <= 100) {
         bill = units * 3;
     } else if (units <= 200) {
         bill = 100 * 3 + (units - 100) * 5;
@@ -133,18 +248,17 @@ if (units <= 100) {
         bill = 100 * 3 + 100 * 5 + (units - 200) * 8;
     }
     printf("Output: %.0f\n", bill);
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
-1. Input =
-2. 250.
-3. 1. units (250) > 200 -> Branch to else.
-4. 2. bill = (100 * 3) + (100 * 5) + ((250
-5. 200) * 8)
-6. 3. bill = 300 + 500 + (50 * 8) = 800 + 400 = 1100.
+1. **Input / Init:** Input = 250.
+2. units (250) > 200 -> Branch to else.
+3. bill = (100 * 3) + (100 * 5) + ((250 - 200) * 8)
+4. bill = 300 + 500 + (50 * 8) = 800 + 400 = 1200.
+
 
 ### Complexity
 
@@ -180,29 +294,25 @@ Enter total seconds: 2 Hours 3 Minutes 4 Seconds
 ```c
 #include <stdio.h>
 int main() {
-int total_sec, hrs, min, sec;
+    int total_sec, hrs, min, sec;
     printf("Enter total seconds: ");
-if (scanf("%d", &total_sec) != 1) return 1;
+    if (scanf("%d", &total_sec) != 1) return 1;
     hrs = total_sec / 3600;
     min = (total_sec % 3600) / 60;
     sec = total_sec % 60;
     printf("%d Hours %d Minutes %d Seconds\n", hrs, min, sec);
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
-1. Input =
-2. 7384.
-3. 1. hrs = 7384 / 3600 =
-4. 2.
-5. 2. Remainder = 7384 % 3600 =
-6. 184.
-7. 3. min = 184 / 60 =
-8. 3.
-9. 4. sec = 184 % 60 =
-10. 4. Output = '2 Hours 3 Minutes 4 Seconds'.
+1. **Input / Init:** Input = 7384.
+2. hrs = 7384 / 3600 = 2.
+3. Remainder = 7384 % 3600 = 184.
+4. min = 184 / 60 = 3.
+5. sec = 184 % 60 = 4. Output = '2 Hours 3 Minutes 4 Seconds'.
+
 
 ### Complexity
 
@@ -238,26 +348,24 @@ Gross salary is calculated as the sum of Basic salary, House Rent Allowance (HRA
 ```c
 #include <stdio.h>
 int main() {
-float basic, hra, da, gross;
+    float basic, hra, da, gross;
     printf("Enter Basic Salary: ");
-if (scanf("%f", &basic) != 1) return 1;
+    if (scanf("%f", &basic) != 1) return 1;
     hra = 0.20f * basic;
     da = 0.40f * basic;
     gross = basic + hra + da;
     printf("Output: %.2f\n", gross);
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
-1. Input basic =
-2. 25000.
-3. 1. hra = 0.20 * 25000 =
-4. 5000.
-5. 2. da = 0.40 * 25000 =
-6. 10000.
-7. 3. gross = 25000 + 5000 + 10000 = 40000.00.
+1. **Input / Init:** Input basic = 25000.
+2. hra = 0.20 * 25000 = 5000.
+3. da = 0.40 * 25000 = 10000.
+4. gross = 25000 + 5000 + 10000 = 40000.00.
+
 
 ### Complexity
 
@@ -293,27 +401,24 @@ Summing both variables ( a = a + b ) holds their combined value. Subtracting b f
 ```c
 #include <stdio.h>
 int main() {
-int a, b;
+    int a, b;
     printf("Enter two numbers: ");
-if (scanf("%d %d", &a, &b) != 2) return 1;
+    if (scanf("%d %d", &a, &b) != 2) return 1;
     a = a + b;
     b = a - b;
     a = a - b;
     printf("Output: %d %d\n", a, b);
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
-1. Input a = 15, b =
-2. 25.
-3. 1. a = 15 + 25 =
-4. 40.
-5. 2. b = 40
-6. 25 = 15 (original a).
-7. 3. a = 40
-8. 15 = 25 (original b). Result: a = 25, b = 15.
+1. **Input / Init:** Input a = 15, b = 25.
+2. a = 15 + 25 = 40.
+3. b = 40 - 25 = 15 (original a).
+4. a = 40 - 15 = 25 (original b). Result: a = 25, b = 15.
+
 
 ### Complexity
 
@@ -350,24 +455,23 @@ The mathematical formula max(a,b) = (a + b + |a - b|) / 2 utilizes the absolute 
 #include <stdio.h>
 #include <stdlib.h>
 int main() {
-int a, b;
+    int a, b;
     printf("Enter two numbers: ");
-if (scanf("%d %d", &a, &b) != 2) return 1;
-int max = (a + b + abs(a - b)) / 2;
+    if (scanf("%d %d", &a, &b) != 2) return 1;
+    int max = (a + b + abs(a - b)) / 2;
     printf("Output: %d\n", max);
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
-1. a = 45, b =
-2. 78.
-3. 1. |a
-4. b| = |45
-5. 78| = |-33| =
-6. 33.
-7. 2. max = (45 + 78 + 33) / 2 = 156 / 2 = 78.
+1. a = 45, b = 78.
+2. |a
+3. b| = |45
+4. 78| = |-33| = 33.
+5. max = (45 + 78 + 33) / 2 = 156 / 2 = 78.
+
 
 ### Complexity
 
@@ -403,33 +507,29 @@ Each digit from thousands to units is isolated using integer division and modulo
 ```c
 #include <stdio.h>
 int main() {
-int code;
+    int code;
     printf("Enter a 4-digit number: ");
-if (scanf("%d", &code) != 1) return 1;
-int d1 = (code / 1000 + 5) % 10;
-int d2 = ((code / 100) % 10 + 5) % 10;
-int d3 = ((code / 10) % 10 + 5) % 10;
-int d4 = (code % 10 + 5) % 10;
+    if (scanf("%d", &code) != 1) return 1;
+    int d1 = (code / 1000 + 5) % 10;
+    int d2 = ((code / 100) % 10 + 5) % 10;
+    int d3 = ((code / 10) % 10 + 5) % 10;
+    int d4 = (code % 10 + 5) % 10;
     // Reverse digit order: d4 becomes thousands, d3 hundreds, d2 tens, d1 units
-int result = d4 * 1000 + d3 * 100 + d2 * 10 + d1;
+    int result = d4 * 1000 + d3 * 100 + d2 * 10 + d1;
     printf("Output: %d\n", result);
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
-1. Input =
-2. 1234.
-3. 1. d1 = (1 + 5)%10 =
-4. 6.
-5. 2. d2 = (2 + 5)%10 =
-6. 7.
-7. 3. d3 = (3 + 5)%10 =
-8. 8.
-9. 4. d4 = (4 + 5)%10 =
-10. 9.
-11. 5. Reversed = 9*1000 + 8*100 + 7*10 + 6 = 9876.
+1. **Input / Init:** Input = 1234.
+2. d1 = (1 + 5)%10 = 6.
+3. d2 = (2 + 5)%10 = 7.
+4. d3 = (3 + 5)%10 = 8.
+5. d4 = (4 + 5)%10 = 9.
+6. Reversed = 9*1000 + 8*100 + 7*10 + 6 = 9876.
+
 
 ### Complexity
 
@@ -465,41 +565,33 @@ A greedy approach processes notes from highest to lowest denomination. Integer d
 ```c
 #include <stdio.h>
 int main() {
-int amount;
-int notes[] = {500, 200, 100, 50, 20, 10, 5, 2, 1};
+    int amount;
+    int notes[] = {500, 200, 100, 50, 20, 10, 5, 2, 1};
     printf("Enter amount: ");
-if (scanf("%d", &amount) != 1) return 1;
-for (int i = 0; i < 9; i++) {
-int count = amount / notes[i];
+    if (scanf("%d", &amount) != 1) return 1;
+    for (int i = 0; i < 9; i++) {
+        int count = amount / notes[i];
         amount %= notes[i];
         printf("%d:%d%s", notes[i], count, (i == 8) ? "" : " ");
     }
     printf("\n");
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
-1. Amount =
-2. 2893.
-3. 500: 2893 / 500 = 5, rem =
-4. 393.
-5. 200: 393 / 200 = 1, rem =
-6. 193.
-7. 100: 193 / 100 = 1, rem =
-8. 93.
-9. 50: 93 / 50 = 1, rem =
-10. 43.
-11. 20: 43 / 20 = 2, rem =
-12. 3.
-13. 10: 3 / 10 = 0, rem =
-14. 3.
-15. 5: 3 / 5 = 0, rem =
-16. 3.
-17. 2: 3 / 2 = 1, rem =
-18. 1.
-19. 1: 1 / 1 = 1, rem = 0.
+1. **Input / Init:** Amount = 2893.
+2. 500: 2893 / 500 = 5, rem = 393.
+3. 200: 393 / 200 = 1, rem = 193.
+4. 100: 193 / 100 = 1, rem = 93.
+5. 50: 93 / 50 = 1, rem = 43.
+6. 20: 43 / 20 = 2, rem = 3.
+7. 10: 3 / 10 = 0, rem = 3.
+8. 5: 3 / 5 = 0, rem = 3.
+9. 2: 3 / 2 = 1, rem = 1.
+10. 1: 1 / 1 = 1, rem = 0.
+
 
 ### Complexity
 
@@ -509,6 +601,20 @@ return 0;
 | Space | `O(1)` |
 
 ---
+
+# Section 2: Conditional Statements and Looping Statements
+
+**Problems in this section:** 10
+
+
+
+# Section 2: Conditional Statements and Looping Statements
+
+**Problems in this section:** 10
+
+# Section 2: Conditional Statements and Looping Statements
+
+**Problems in this section:** 10
 
 # Section 2: Conditional Statements and Looping Statements
 
@@ -541,20 +647,20 @@ Uses the equality operator ( == ) inside an if-else statement to compare two int
 ```c
 #include <stdio.h>
 int main() {
-int num1, num2;
-if (scanf("%d %d", &num1, &num2) != 2) return 1;
-if (num1 == num2)
+    int num1, num2;
+    if (scanf("%d %d", &num1, &num2) != 2) return 1;
+    if (num1 == num2)
         printf("Number1 and Number2 are equal\n");
     else
         printf("Number1 and Number2 are not equal\n");
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
-1. Inputs: num1 = 15, num2 =
-2. 15. Condition (15 == 15) is True. Print 'Number1 and Number2 are equal'.
+1. **Input / Init:** Inputs: num1 = 15, num2 = 15. Condition (15 == 15) is True. Print 'Number1 and Number2 are equal'.
+
 
 ### Complexity
 
@@ -590,21 +696,20 @@ An integer is even if its remainder when divided by 2 ( num % 2 ) is 0. Otherwis
 ```c
 #include <stdio.h>
 int main() {
-int num;
-if (scanf("%d", &num) != 1) return 1;
-if (num % 2 == 0)
+    int num;
+    if (scanf("%d", &num) != 1) return 1;
+    if (num % 2 == 0)
         printf("%d is an even integer\n", num);
     else
         printf("%d is an odd integer\n", num);
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
-1. Input =
-2. 15. 15 % 2 = 1 !=
-3. 0. Evaluates to false -> branch to else. Output: '15 is an odd integer'.
+1. **Input / Init:** Input = 15. 15 % 2 = 1 != 0. Evaluates to false -> branch to else. Output: '15 is an odd integer'.
+
 
 ### Complexity
 
@@ -640,20 +745,20 @@ Compares input number with 0 using >= . Non-negative numbers are printed as posi
 ```c
 #include <stdio.h>
 int main() {
-int num;
-if (scanf("%d", &num) != 1) return 1;
-if (num >= 0)
+    int num;
+    if (scanf("%d", &num) != 1) return 1;
+    if (num >= 0)
         printf("%d is a positive number\n", num);
     else
         printf("%d is a negative number\n", num);
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
-1. Input =
-2. 15. 15 >= 0 is True. Output: '15 is a positive number'.
+1. **Input / Init:** Input = 15. 15 >= 0 is True. Output: '15 is a positive number'.
+
 
 ### Complexity
 
@@ -689,20 +794,20 @@ A year is a leap year if it is divisible by 400 OR divisible by 4 but not by 100
 ```c
 #include <stdio.h>
 int main() {
-int year;
-if (scanf("%d", &year) != 1) return 1;
-if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0))
+    int year;
+    if (scanf("%d", &year) != 1) return 1;
+    if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0))
         printf("%d is a leap year.\n", year);
     else
         printf("%d is not a leap year.\n", year);
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
-1. Input year =
-2. 2016. 2016 % 4 == 0 (True) and 2016 % 100 != 0 (True). Entire condition evaluates to True. Output: '2016 is a leap year.'
+1. **Input / Init:** Input year = 2016. 2016 % 4 == 0 (True) and 2016 % 100 != 0 (True). Entire condition evaluates to True. Output: '2016 is a leap year.'
+
 
 ### Complexity
 
@@ -738,20 +843,20 @@ Checks if the candidate's age is greater than or equal to 18.
 ```c
 #include <stdio.h>
 int main() {
-int age;
-if (scanf("%d", &age) != 1) return 1;
-if (age >= 18)
+    int age;
+    if (scanf("%d", &age) != 1) return 1;
+    if (age >= 18)
         printf("Congratulation! You are eligible for casting your vote.\n");
     else
         printf("You are not eligible to vote.\n");
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
-1. Input age =
-2. 21. 21 >= 18 is True. Output congratulatory message.
+1. **Input / Init:** Input age = 21. 21 >= 18 is True. Output congratulatory message.
+
 
 ### Complexity
 
@@ -787,21 +892,23 @@ Executes nested if-else branches to map an integer m to sign value n (-1, 0, or 
 ```c
 #include <stdio.h>
 int main() {
-int m, n;
-if (scanf("%d", &m) != 1) return 1;
-if (m > 0) n = 1;
-else if (m == 0) n = 0;
-else n = -1;
+    int m, n;
+    if (scanf("%d", &m) != 1) return 1;
+    if (m > 0)
+        n = 1;
+    else if (m == 0)
+        n = 0;
+    else
+        n = -1;
     printf("The value of n = %d\n", n);
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
-1. Input m =
-2. 5. m > 0 (False), m == 0 (False). Else branch executes -> n =
-3. 1. Output: 'The value of n = -1'.
+1. **Input / Init:** Input m = 5. m > 0 (False), m == 0 (False). Else branch executes -> n = 1. Output: 'The value of n = -1'.
+
 
 ### Complexity
 
@@ -837,22 +944,23 @@ Categorizes floating point height values into designated height classes.
 ```c
 #include <stdio.h>
 int main() {
-float height;
-if (scanf("%f", &height) != 1) return 1;
-if (height < 150.0f)
+    float height;
+    if (scanf("%f", &height) != 1) return 1;
+    if (height < 150.0f)
         printf("The person is Dwarf.\n");
-else if (height <= 165.0f)
+    else if (height <= 165.0f)
         printf("The person is Average Height.\n");
     else
         printf("The person is Tall.\n");
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
-1. Input = 135.
-2. 0. 135.0 < 150.0 is True. Output: 'The person is Dwarf.'
+1. **Input / Init:** Input = 135.
+2. 135.0 < 150.0 is True. Output: 'The person is Dwarf.'
+
 
 ### Complexity
 
@@ -888,26 +996,26 @@ Uses logical AND ( && ) in conditional statements to compare each variable again
 ```c
 #include <stdio.h>
 int main() {
-int n1, n2, n3;
-if (scanf("%d %d %d", &n1, &n2, &n3) != 3) return 1;
+    int n1, n2, n3;
+    if (scanf("%d %d %d", &n1, &n2, &n3) != 3) return 1;
     printf("1st Number = %d, 2nd Number = %d, 3rd Number = %d\n", n1, n2, n3);
-if (n1 >= n2 && n1 >= n3)
+    if (n1 >= n2 && n1 >= n3)
         printf("The 1st Number is the greatest among three\n");
-else if (n2 >= n1 && n2 >= n3)
+    else if (n2 >= n1 && n2 >= n3)
         printf("The 2nd Number is the greatest among three\n");
     else
         printf("The 3rd Number is the greatest among three\n");
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
-1. n1=12, n2=25, n3=
-2. 52.
-3. (12>=25 && 12>=52) -> False.
-4. (25>=12 && 25>=52) -> False.
-5. Else executes: 'The 3rd Number is the greatest among three'.
+1. n1=12, n2=25, n3= 52.
+2. (12>=25 && 12>=52) -> False.
+3. (25>=12 && 25>=52) -> False.
+4. Else executes: 'The 3rd Number is the greatest among three'.
+
 
 ### Complexity
 
@@ -943,26 +1051,26 @@ Checks sign combinations of coordinates x and y to assign quadrant 1 (+,+), 2 (-
 ```c
 #include <stdio.h>
 int main() {
-int x, y;
-if (scanf("%d %d", &x, &y) != 2) return 1;
-if (x > 0 && y > 0)
+    int x, y;
+    if (scanf("%d %d", &x, &y) != 2) return 1;
+    if (x > 0 && y > 0)
         printf("The coordinate point (%d,%d) lies in the First quadrant.\n", x, y);
-else if (x < 0 && y > 0)
+    else if (x < 0 && y > 0)
         printf("The coordinate point (%d,%d) lies in the Second quadrant.\n", x, y);
-else if (x < 0 && y < 0)
+    else if (x < 0 && y < 0)
         printf("The coordinate point (%d,%d) lies in the Third quadrant.\n", x, y);
-else if (x > 0 && y < 0)
+    else if (x > 0 && y < 0)
         printf("The coordinate point (%d,%d) lies in the Fourth quadrant.\n", x, y);
     else
         printf("The coordinate point (%d,%d) lies at the Origin or on an Axis.\n", x, y);
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
-1. x=7, y=
-2. 9. x > 0 and y > 0 are both True. Output: First quadrant.
+1. x=7, y= 9. x > 0 and y > 0 are both True. Output: First quadrant.
+
 
 ### Complexity
 
@@ -996,23 +1104,24 @@ Normalizes char to lowercase and compares against vowel list ('a','e','i','o','u
 ### Solution in C
 
 ```c
-#include <stdio.h>
 #include <ctype.h>
+#include <stdio.h>
 int main() {
-char ch;
-if (scanf(" %c", &ch) != 1) return 1;
-char lower = tolower(ch);
-if (lower == 'a' || lower == 'e' || lower == 'i' || lower == 'o' || lower == 'u')
+    char ch;
+    if (scanf(" %c", &ch) != 1) return 1;
+    char lower = tolower(ch);
+    if (lower == 'a' || lower == 'e' || lower == 'i' || lower == 'o' || lower == 'u')
         printf("The alphabet is a vowel\n");
     else
         printf("The alphabet is a consonant\n");
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
-1. Input = 'k'. Lowercase = 'k'. Matches none of 'a,e,i,o,u'. Outputs: 'The alphabet is a consonant'.
+1. **Input / Init:** Input = 'k'. Lowercase = 'k'. Matches none of 'a,e,i,o,u'. Outputs: 'The alphabet is a consonant'.
+
 
 ### Complexity
 
@@ -1022,6 +1131,20 @@ return 0;
 | Space | `O(1)` |
 
 ---
+
+# Section 3: Arrays
+
+**Problems in this section:** 10
+
+
+
+# Section 3: Arrays
+
+**Problems in this section:** 10
+
+# Section 3: Arrays
+
+**Problems in this section:** 10
 
 # Section 3: Arrays
 
@@ -1054,22 +1177,23 @@ Reads 10 integer inputs sequentially into a contiguous fixed-size integer array 
 ```c
 #include <stdio.h>
 int main() {
-int arr[10];
-for (int i = 0; i < 10; i++) {
-if (scanf("%d", &arr[i]) != 1) return 1;
+    int arr[10];
+    for (int i = 0; i < 10; i++) {
+        if (scanf("%d", &arr[i]) != 1) return 1;
     }
     printf("Elements in array are: ");
-for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 10; i++) {
         printf("%d ", arr[i]);
     }
     printf("\n");
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
 1. i=0..9 reads [1, 1, 2, 3, 4, 5, 6, 7, 8, 9]. Second loop traverses indices 0 to 9 printing each element separated by space.
+
 
 ### Complexity
 
@@ -1105,23 +1229,24 @@ Loads N elements into a Variable Length Array (VLA) and iterates backward from i
 ```c
 #include <stdio.h>
 int main() {
-int n;
-if (scanf("%d", &n) != 1) return 1;
-int arr[n];
-for (int i = 0; i < n; i++) {
-if (scanf("%d", &arr[i]) != 1) return 1;
+    int n;
+    if (scanf("%d", &n) != 1) return 1;
+    int arr[n];
+    for (int i = 0; i < n; i++) {
+        if (scanf("%d", &arr[i]) != 1) return 1;
     }
-for (int i = n - 1; i >= 0; i--) {
+    for (int i = n - 1; i >= 0; i--) {
         printf("%d ", arr[i]);
     }
     printf("\n");
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
 1. n=3, arr = [2, 5, 7]. Loop i from 2 down to 0: arr[2]=7, arr[1]=5, arr[0]=2.
+
 
 ### Complexity
 
@@ -1157,23 +1282,23 @@ Maintains a running sum accumulator variable initialized to 0 and adds each arra
 ```c
 #include <stdio.h>
 int main() {
-int n, sum = 0;
-if (scanf("%d", &n) != 1) return 1;
-int arr[n];
-for (int i = 0; i < n; i++) {
-if (scanf("%d", &arr[i]) != 1) return 1;
+    int n, sum = 0;
+    if (scanf("%d", &n) != 1) return 1;
+    int arr[n];
+    for (int i = 0; i < n; i++) {
+        if (scanf("%d", &arr[i]) != 1) return 1;
         sum += arr[i];
     }
     printf("Sum of all elements stored in the array is : %d\n", sum);
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
-1. n=3, elements: 2, 5,
-2. 8. sum starts at
-3. 0. sum = 0 + 2 = 2; sum = 2 + 5 = 7; sum = 7 + 8 = 15.
+1. n=3, elements: 2, 5, 8. sum starts at
+2. sum = 0 + 2 = 2; sum = 2 + 5 = 7; sum = 7 + 8 = 15.
+
 
 ### Complexity
 
@@ -1209,22 +1334,22 @@ Iterates through the source array and assigns dest[i] = source[i] element-by-ele
 ```c
 #include <stdio.h>
 int main() {
-int n = 3;
-int source[3], dest[3];
-for (int i = 0; i < n; i++) {
-if (scanf("%d", &source[i]) != 1) return 1;
+    int n = 3;
+    int source[3], dest[3];
+    for (int i = 0; i < n; i++) {
+        if (scanf("%d", &source[i]) != 1) return 1;
         dest[i] = source[i];
     }
-for (int i = 0; i < n; i++) printf("%d ", dest[i]);
+    for (int i = 0; i < n; i++) printf("%d ", dest[i]);
     printf("\n");
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
-1. source = [15, 10, 12]. dest[0] = 15, dest[1] = 10, dest[2] =
-2. 12. Prints contents of dest array.
+1. source = [15, 10, 12]. dest[0] = 15, dest[1] = 10, dest[2] = 12. Prints contents of dest array.
+
 
 ### Complexity
 
@@ -1260,33 +1385,34 @@ Uses a boolean visited array to keep track of elements already processed. A nest
 ```c
 #include <stdio.h>
 int main() {
-int n;
-if (scanf("%d", &n) != 1) return 1;
-int arr[n], visited[n];
-for (int i = 0; i < n; i++) {
-if (scanf("%d", &arr[i]) != 1) return 1;
+    int n;
+    if (scanf("%d", &n) != 1) return 1;
+    int arr[n], visited[n];
+    for (int i = 0; i < n; i++) {
+        if (scanf("%d", &arr[i]) != 1) return 1;
         visited[i] = 0;
     }
-int dupes = 0;
-for (int i = 0; i < n; i++) {
-if (visited[i]) continue;
-int count = 1;
-for (int j = i + 1; j < n; j++) {
-if (arr[i] == arr[j]) {
+    int dupes = 0;
+    for (int i = 0; i < n; i++) {
+        if (visited[i]) continue;
+        int count = 1;
+        for (int j = i + 1; j < n; j++) {
+            if (arr[i] == arr[j]) {
                 count++;
                 visited[j] = 1;
             }
         }
-if (count > 1) dupes++;
+        if (count > 1) dupes++;
     }
     printf("Total number of duplicate elements found in the array is : %d\n", dupes);
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
 1. arr = [5, 1, 1]. i=0 (val 5): no duplicate. i=1 (val 1): matches arr[2] (val 1), visited[2] set to 1, dupes count becomes 1.
+
 
 ### Complexity
 
@@ -1322,38 +1448,36 @@ For each element at index i , we check if it appears anywhere else ( j != i ). I
 ```c
 #include <stdio.h>
 int main() {
-int n;
-if (scanf("%d", &n) != 1) return 1;
-int arr[n];
-for (int i = 0; i < n; i++) {
-if (scanf("%d", &arr[i]) != 1) return 1;
+    int n;
+    if (scanf("%d", &n) != 1) return 1;
+    int arr[n];
+    for (int i = 0; i < n; i++) {
+        if (scanf("%d", &arr[i]) != 1) return 1;
     }
     printf("The unique elements found in the array are: ");
-for (int i = 0; i < n; i++) {
-int isUnique = 1;
-for (int j = 0; j < n; j++) {
-if (i != j && arr[i] == arr[j]) {
+    for (int i = 0; i < n; i++) {
+        int isUnique = 1;
+        for (int j = 0; j < n; j++) {
+            if (i != j && arr[i] == arr[j]) {
                 isUnique = 0;
                 break;
             }
         }
-if (isUnique) printf("%d ", arr[i]);
+        if (isUnique) printf("%d ", arr[i]);
     }
     printf("\n");
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
 1. arr = [3, 2, 2, 5].
-2. i=0 (3): no other matches -> print
-3. 3.
-4. i=1 (2): matches arr[2] -> isUnique=
-5. 0.
-6. i=2 (2): matches arr[1] -> isUnique=
-7. 0.
-8. i=3 (5): no other matches -> print 5.
+2. i=0 (3): no other matches -> print 3.
+3. i=1 (2): matches arr[2] -> isUnique= 0.
+4. i=2 (2): matches arr[1] -> isUnique= 0.
+5. i=3 (5): no other matches -> print 5.
+
 
 ### Complexity
 
@@ -1389,34 +1513,32 @@ Two-pointer technique compares current elements from both descending input array
 ```c
 #include <stdio.h>
 int main() {
-int a[] = {3, 2, 1}, b[] = {3, 2, 1};
-int n = 3, merged[6];
-int i = 0, j = 0, k = 0;
-while (i < n && j < n) {
-if (a[i] >= b[j]) merged[k++] = a[i++];
-else merged[k++] = b[j++];
+    int a[] = {3, 2, 1}, b[] = {3, 2, 1};
+    int n = 3, merged[6];
+    int i = 0, j = 0, k = 0;
+    while (i < n && j < n) {
+        if (a[i] >= b[j])
+            merged[k++] = a[i++];
+        else
+            merged[k++] = b[j++];
     }
-while (i < n) merged[k++] = a[i++];
-while (j < n) merged[k++] = b[j++];
-for (int idx = 0; idx < 6; idx++) printf("%d ", merged[idx]);
+    while (i < n) merged[k++] = a[i++];
+    while (j < n) merged[k++] = b[j++];
+    for (int idx = 0; idx < 6; idx++) printf("%d ", merged[idx]);
     printf("\n");
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
 1. a=[3,2,1], b=[3,2,1].
-2. Compare 3 vs 3 -> take a[0]=
-3. 3.
-4. Compare 2 vs 3 -> take b[0]=
-5. 3.
-6. Compare 2 vs 2 -> take a[1]=
-7. 2.
-8. Compare 1 vs 2 -> take b[1]=
-9. 2.
-10. Compare 1 vs 1 -> take a[2]=1, then b[2]=
-11. 1. Merged = [3, 3, 2, 2, 1, 1].
+2. Compare 3 vs 3 -> take a[0]= 3.
+3. Compare 2 vs 3 -> take b[0]= 3.
+4. Compare 2 vs 2 -> take a[1]= 2.
+5. Compare 1 vs 2 -> take b[1]= 2.
+6. Compare 1 vs 1 -> take a[2]=1, then b[2]= 1. Merged = [3, 3, 2, 2, 1, 1].
+
 
 ### Complexity
 
@@ -1452,18 +1574,18 @@ Iterates through the array and marks duplicate instances as visited so each dist
 ```c
 #include <stdio.h>
 int main() {
-int n;
-if (scanf("%d", &n) != 1) return 1;
-int arr[n], visited[n];
-for (int i = 0; i < n; i++) {
-if (scanf("%d", &arr[i]) != 1) return 1;
+    int n;
+    if (scanf("%d", &n) != 1) return 1;
+    int arr[n], visited[n];
+    for (int i = 0; i < n; i++) {
+        if (scanf("%d", &arr[i]) != 1) return 1;
         visited[i] = 0;
     }
-for (int i = 0; i < n; i++) {
-if (visited[i]) continue;
-int count = 1;
-for (int j = i + 1; j < n; j++) {
-if (arr[i] == arr[j]) {
+    for (int i = 0; i < n; i++) {
+        if (visited[i]) continue;
+        int count = 1;
+        for (int j = i + 1; j < n; j++) {
+            if (arr[i] == arr[j]) {
                 count++;
                 visited[j] = 1;
             }
@@ -1471,13 +1593,14 @@ if (arr[i] == arr[j]) {
         printf("%d occurs %d times ", arr[i], count);
     }
     printf("\n");
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
 1. arr=[25, 12, 43]. None repeat. Loop outputs 25: 1 time, 12: 1 time, 43: 1 time.
+
 
 ### Complexity
 
@@ -1513,30 +1636,29 @@ Initializes max and min with arr[0] and performs a single linear pass through th
 ```c
 #include <stdio.h>
 int main() {
-int n;
-if (scanf("%d", &n) != 1) return 1;
-int arr[n];
-for (int i = 0; i < n; i++) {
-if (scanf("%d", &arr[i]) != 1) return 1;
+    int n;
+    if (scanf("%d", &n) != 1) return 1;
+    int arr[n];
+    for (int i = 0; i < n; i++) {
+        if (scanf("%d", &arr[i]) != 1) return 1;
     }
-int max = arr[0], min = arr[0];
-for (int i = 1; i < n; i++) {
-if (arr[i] > max) max = arr[i];
-if (arr[i] < min) min = arr[i];
+    int max = arr[0], min = arr[0];
+    for (int i = 1; i < n; i++) {
+        if (arr[i] > max) max = arr[i];
+        if (arr[i] < min) min = arr[i];
     }
     printf("Maximum element is : %d Minimum element is : %d\n", max, min);
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
-1. arr = [45, 25, 21]. Initial max=45, min=
-2. 45.
-3. i=1 (25): max stays 45, min becomes
-4. 25.
-5. i=2 (21): max stays 45, min becomes
-6. 21. Result: max=45, min=21.
+1. arr = [45, 25, 21]. Initial max=45, min= 45.
+2. i=1 (25): max stays 45, min becomes 25.
+3. i=2 (21): max stays 45, min becomes
+4. Result: max=45, min=21.
+
 
 ### Complexity
 
@@ -1572,23 +1694,23 @@ Evaluates arr[i] % 2 == 0 during read. Evens are placed into even[] array and od
 ```c
 #include <stdio.h>
 int main() {
-int n;
-if (scanf("%d", &n) != 1) return 1;
-int arr[n], even[n], odd[n];
-int eCount = 0, oCount = 0;
-for (int i = 0; i < n; i++) {
-if (scanf("%d", &arr[i]) != 1) return 1;
-if (arr[i] % 2 == 0)
+    int n;
+    if (scanf("%d", &n) != 1) return 1;
+    int arr[n], even[n], odd[n];
+    int eCount = 0, oCount = 0;
+    for (int i = 0; i < n; i++) {
+        if (scanf("%d", &arr[i]) != 1) return 1;
+        if (arr[i] % 2 == 0)
             even[eCount++] = arr[i];
         else
             odd[oCount++] = arr[i];
     }
     printf("The Even elements are : ");
-for (int i = 0; i < eCount; i++) printf("%d ", even[i]);
+    for (int i = 0; i < eCount; i++) printf("%d ", even[i]);
     printf("The Odd elements are : ");
-for (int i = 0; i < oCount; i++) printf("%d ", odd[i]);
+    for (int i = 0; i < oCount; i++) printf("%d ", odd[i]);
     printf("\n");
-return 0;
+    return 0;
 }
 ```
 
@@ -1601,6 +1723,7 @@ return 0;
 5. 56 % 2 == 0 -> even[1]=56
 6. 32 % 2 == 0 -> even[2]=32.
 
+
 ### Complexity
 
 | Measure | Complexity |
@@ -1609,6 +1732,20 @@ return 0;
 | Space | `O(N)` |
 
 ---
+
+# Section 4: Strings
+
+**Problems in this section:** 10
+
+
+
+# Section 4: Strings
+
+**Problems in this section:** 10
+
+# Section 4: Strings
+
+**Problems in this section:** 10
 
 # Section 4: Strings
 
@@ -1641,17 +1778,18 @@ fgets() safely reads an entire line including spaces from standard input into ch
 ```c
 #include <stdio.h>
 int main() {
-char str[100];
-if (fgets(str, sizeof(str), stdin) != NULL) {
+    char str[100];
+    if (fgets(str, sizeof(str), stdin) != NULL) {
         printf("The string you entered is : %s", str);
     }
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
-1. Input = 'Welcome, w3resource\n'. fgets() stores 'Welcome, w3resource\n\0'. printf formats and outputs the string.
+1. **Input / Init:** Input = 'Welcome, w3resource\n'. fgets() stores 'Welcome, w3resource\n\0'. printf formats and outputs the string.
+
 
 ### Complexity
 
@@ -1687,21 +1825,21 @@ Traverses the character array index by index until encountering the null termina
 ```c
 #include <stdio.h>
 int main() {
-char str[100];
-if (scanf("%99s", str) != 1) return 1;
-int len = 0;
-while (str[len] != '\0') {
+    char str[100];
+    if (scanf("%99s", str) != 1) return 1;
+    int len = 0;
+    while (str[len] != '\0') {
         len++;
     }
     printf("Length of the string is : %d\n", len);
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
-1. str = "w3resource.com". Loop increments len from 0 to
-2. 14. At index 15, str[15] is '\0'. Loop ends. Length = 15.
+1. str = "w3resource.com". Loop increments len from 0 to 14. At index 15, str[15] is '\0'. Loop ends. Length = 15.
+
 
 ### Complexity
 
@@ -1737,21 +1875,22 @@ Loops through string indices printing str[i] followed by a space until reaching 
 ```c
 #include <stdio.h>
 int main() {
-char str[100];
-if (fgets(str, sizeof(str), stdin) != NULL) {
+    char str[100];
+    if (fgets(str, sizeof(str), stdin) != NULL) {
         printf("The characters of the string are : ");
-for (int i = 0; str[i] != '\0' && str[i] != '\n'; i++) {
+        for (int i = 0; str[i] != '\0' && str[i] != '\n'; i++) {
             printf("%c ", str[i]);
         }
         printf("\n");
     }
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
 1. str = "stellar academy". Loop prints 's ', 't ', 'e ', 'l ', 'l ', 'a ', 'r ', ' ', 'a ', 'c ', 'a ', 'd ', 'e ', 'm ', 'y '.
+
 
 ### Complexity
 
@@ -1788,22 +1927,22 @@ Calculates string length len , then iterates backwards from index len - 1 down t
 #include <stdio.h>
 #include <string.h>
 int main() {
-char str[100];
-if (scanf("%99s", str) != 1) return 1;
-int len = strlen(str);
+    char str[100];
+    if (scanf("%99s", str) != 1) return 1;
+    int len = strlen(str);
     printf("The characters of the string in reverse are : ");
-for (int i = len - 1; i >= 0; i--) {
+    for (int i = len - 1; i >= 0; i--) {
         printf("%c ", str[i]);
     }
     printf("\n");
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
-1. str = "stellar", len =
-2. 7. Indices: 6('r'), 5('a'), 4('l'), 3('l'), 2('e'), 1('t'), 0('s'). Output: 'r a l l e t s '.
+1. str = "stellar", len = 7. Indices: 6('r'), 5('a'), 4('l'), 3('l'), 2('e'), 1('t'), 0('s'). Output: 'r a l l e t s '.
+
 
 ### Complexity
 
@@ -1839,12 +1978,12 @@ Uses a state flag in_word to detect transitions from whitespace to non-whitespac
 ```c
 #include <stdio.h>
 int main() {
-char str[200];
-if (fgets(str, sizeof(str), stdin) != NULL) {
-int words = 0, in_word = 0;
-for (int i = 0; str[i] != '\0'; i++) {
-if (str[i] != ' ' && str[i] != '\t' && str[i] != '\n') {
-if (!in_word) {
+    char str[200];
+    if (fgets(str, sizeof(str), stdin) != NULL) {
+        int words = 0, in_word = 0;
+        for (int i = 0; str[i] != '\0'; i++) {
+            if (str[i] != ' ' && str[i] != '\t' && str[i] != '\n') {
+                if (!in_word) {
                     in_word = 1;
                     words++;
                 }
@@ -1854,23 +1993,19 @@ if (!in_word) {
         }
         printf("Total number of words in the string : %d\n", words);
     }
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
 1. str = "welcome to stellar\n".
-2. 'w': in_word=0 -> words=1, in_word=
-3. 1.
-4. ' ': space -> in_word=
-5. 0.
-6. 't': in_word=0 -> words=2, in_word=
-7. 1.
-8. ' ': space -> in_word=
-9. 0.
-10. 's': in_word=0 -> words=3, in_word=
-11. 1. Total words = 3.
+2. 'w': in_word=0 -> words=1, in_word= 1.
+3. ' ': space -> in_word= 0.
+4. 't': in_word=0 -> words=2, in_word= 1.
+5. ' ': space -> in_word= 0.
+6. 's': in_word=0 -> words=3, in_word= 1. Total words = 3.
+
 
 ### Complexity
 
@@ -1906,20 +2041,20 @@ Traverses both strings simultaneously. If any mismatch is found, returns 0. If b
 ```c
 #include <stdio.h>
 int compare_strings(char s1[], char s2[]) {
-int i = 0;
-while (s1[i] != '\0' && s2[i] != '\0') {
-if (s1[i] != s2[i]) return 0;
+    int i = 0;
+    while (s1[i] != '\0' && s2[i] != '\0') {
+        if (s1[i] != s2[i]) return 0;
         i++;
     }
-return (s1[i] == '\0' && s2[i] == '\0');
+    return (s1[i] == '\0' && s2[i] == '\0');
 }
 int main() {
-char str1[] = "aabbcc", str2[] = "abcdef";
-if (compare_strings(str1, str2))
+    char str1[] = "aabbcc", str2[] = "abcdef";
+    if (compare_strings(str1, str2))
         printf("Strings are equal.\n");
     else
         printf("Strings are not equal.\n");
-return 0;
+    return 0;
 }
 ```
 
@@ -1928,7 +2063,8 @@ return 0;
 1. str1="aabbcc", str2="abcdef".
 2. i=0: 'a'=='a'
 3. i=1: 'a'=='b' -> Mismatch detected! Return
-4. 0. Print 'Strings are not equal.'.
+4. Print 'Strings are not equal.'.
+
 
 ### Complexity
 
@@ -1964,23 +2100,25 @@ Uses standard isalpha() and isdigit() character inspection functions. Characters
 ### Solution in C
 
 ```c
-#include <stdio.h>
 #include <ctype.h>
+#include <stdio.h>
 int main() {
-char str[200];
-if (fgets(str, sizeof(str), stdin) != NULL) {
-int alphabets = 0, digits = 0, specials = 0;
-for (int i = 0; str[i] != '\0' && str[i] != '\n'; i++) {
-if (isalpha((unsigned char)str[i]))
+    char str[200];
+    if (fgets(str, sizeof(str), stdin) != NULL) {
+        int alphabets = 0, digits = 0, specials = 0;
+        for (int i = 0; str[i] != '\0' && str[i] != '\n'; i++) {
+            if (isalpha((unsigned char)str[i]))
                 alphabets++;
-else if (isdigit((unsigned char)str[i]))
+            else if (isdigit((unsigned char)str[i]))
                 digits++;
-else if (str[i] != ' ')
+            else if (str[i] != ' ')
                 specials++;
         }
-        printf("Number of Alphabets : %d\nNumber of Digits : %d\nNumber of Special characters : %d\n", alphabets, digits, specials);
+        printf(
+            "Number of Alphabets : %d\nNumber of Digits : %d\nNumber of Special characters : %d\n",
+            alphabets, digits, specials);
     }
-return 0;
+    return 0;
 }
 ```
 
@@ -1990,6 +2128,7 @@ return 0;
 2. Alphabets ('Welcome to stellar' minus space) = 16
 3. Digits ('123') = 3
 4. Specials ('&') = 1.
+
 
 ### Complexity
 
@@ -2027,23 +2166,25 @@ Iterates character-by-character from source string to destination string until n
 ```c
 #include <stdio.h>
 int main() {
-char source[200], dest[200];
-int i = 0;
-if (fgets(source, sizeof(source), stdin) != NULL) {
-while (source[i] != '\0' && source[i] != '\n') {
+    char source[200], dest[200];
+    int i = 0;
+    if (fgets(source, sizeof(source), stdin) != NULL) {
+        while (source[i] != '\0' && source[i] != '\n') {
             dest[i] = source[i];
             i++;
         }
         dest[i] = '\0';
-        printf("First string : %sSecond string : %s\nNumber of characters copied : %d\n", source, dest, i);
+        printf("First string : %sSecond string : %s\nNumber of characters copied : %d\n", source,
+               dest, i);
     }
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
 1. source = "This is a string to be copied." Loop copies 30 characters into dest and sets dest[30]='\0' . Total copied = 30.
+
 
 ### Complexity
 
@@ -2078,29 +2219,30 @@ Converts each character to lowercase and checks if it falls in range 'a'-'z'. If
 ### Solution in C
 
 ```c
-#include <stdio.h>
 #include <ctype.h>
+#include <stdio.h>
 int main() {
-char str[100];
-if (scanf("%99s", str) != 1) return 1;
-int vowels = 0, consonants = 0;
-for (int i = 0; str[i] != '\0'; i++) {
-char ch = tolower((unsigned char)str[i]);
-if (ch >= 'a' && ch <= 'z') {
-if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')
+    char str[100];
+    if (scanf("%99s", str) != 1) return 1;
+    int vowels = 0, consonants = 0;
+    for (int i = 0; str[i] != '\0'; i++) {
+        char ch = tolower((unsigned char)str[i]);
+        if (ch >= 'a' && ch <= 'z') {
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')
                 vowels++;
             else
                 consonants++;
         }
     }
     printf("Vowels : %d\nConsonants : %d\n", vowels, consonants);
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
 1. str = "Welcome". Lowercase letters: 'w'(C), 'e'(V), 'l'(C), 'c'(C), 'o'(V), 'm'(C), 'e'(V). Vowels=3, Consonants=4.
+
 
 ### Complexity
 
@@ -2136,29 +2278,30 @@ Uses an integer ASCII frequency array of size 256. Increments ASCII index counte
 ```c
 #include <stdio.h>
 int main() {
-char str[100];
-if (scanf("%99s", str) != 1) return 1;
-int freq[256] = {0};
-for (int i = 0; str[i] != '\0'; i++) {
+    char str[100];
+    if (scanf("%99s", str) != 1) return 1;
+    int freq[256] = {0};
+    for (int i = 0; str[i] != '\0'; i++) {
         freq[(unsigned char)str[i]]++;
     }
-char max_char = str[0];
-int max_freq = 0;
-for (int i = 0; i < 256; i++) {
-if (freq[i] > max_freq) {
+    char max_char = str[0];
+    int max_freq = 0;
+    for (int i = 0; i < 256; i++) {
+        if (freq[i] > max_freq) {
             max_freq = freq[i];
             max_char = (char)i;
         }
     }
-    printf("The Highest frequency of character '%c' appears number of times : %d\n", max_char, max_freq);
-return 0;
+    printf("The Highest frequency of character '%c' appears number of times : %d\n", max_char,
+           max_freq);
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
-1. str = "Welcome". Frequency map: 'W':1, 'e':2, 'l':1, 'c':1, 'o':1, 'm':
-2. 1. Maximum frequency found is 2 for character 'e'.
+1. str = "Welcome". Frequency map: 'W':1, 'e':2, 'l':1, 'c':1, 'o':1, 'm': 1. Maximum frequency found is 2 for character 'e'.
+
 
 ### Complexity
 
@@ -2168,6 +2311,20 @@ return 0;
 | Space | `O(1) - constant array of size 256` |
 
 ---
+
+# Section 5: Structures & Union
+
+**Problems in this section:** 9
+
+
+
+# Section 5: Structures & Union
+
+**Problems in this section:** 9
+
+# Section 5: Structures & Union
+
+**Problems in this section:** 9
 
 # Section 5: Structures & Union
 
@@ -2200,30 +2357,32 @@ Declares a struct Student containing heterogenous member fields ( name , age , m
 ```c
 #include <stdio.h>
 struct Student {
-char name[50];
-int age;
-float marks;
+    char name[50];
+    int age;
+    float marks;
 };
 int main() {
-struct Student s[2];
-float sum = 0;
-for (int i = 0; i < 2; i++) {
+    struct Student s[2];
+    float sum = 0;
+    for (int i = 0; i < 2; i++) {
         printf("Enter name, age, marks for student %d: ", i + 1);
-if (scanf("%s %d %f", s[i].name, &s[i].age, &s[i].marks) != 3) return 1;
+        if (scanf("%s %d %f", s[i].name, &s[i].age, &s[i].marks) != 3) return 1;
         sum += s[i].marks;
     }
-for (int i = 0; i < 2; i++) {
-        printf("Student %d -> Name: %s, Age: %d, Marks: %.2f\n", i + 1, s[i].name, s[i].age, s[i].marks);
+    for (int i = 0; i < 2; i++) {
+        printf("Student %d -> Name: %s, Age: %d, Marks: %.2f\n", i + 1, s[i].name, s[i].age,
+               s[i].marks);
     }
     printf("Average Total Marks = %.2f\n", sum / 2.0f);
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
 1. s[0] = {John, 20, 85.5}, s[1] = {Alice, 21, 92.0}. sum = 85.5 + 92.0 = 177.
-2. 5. Average = 177.5 / 2 = 88.75.
+2. Average = 177.5 / 2 = 88.75.
+
 
 ### Complexity
 
@@ -2259,36 +2418,33 @@ Adds seconds, carrying overflow ( / 60 ) into minutes. Then adds minutes, carryi
 ```c
 #include <stdio.h>
 struct Time {
-int hours;
-int minutes;
-int seconds;
+    int hours;
+    int minutes;
+    int seconds;
 };
 int main() {
-struct Time t1, t2, res;
+    struct Time t1, t2, res;
     printf("Enter Time 1 (h m s): ");
-if (scanf("%d %d %d", &t1.hours, &t1.minutes, &t1.seconds) != 3) return 1;
+    if (scanf("%d %d %d", &t1.hours, &t1.minutes, &t1.seconds) != 3) return 1;
     printf("Enter Time 2 (h m s): ");
-if (scanf("%d %d %d", &t2.hours, &t2.minutes, &t2.seconds) != 3) return 1;
+    if (scanf("%d %d %d", &t2.hours, &t2.minutes, &t2.seconds) != 3) return 1;
     res.seconds = t1.seconds + t2.seconds;
     res.minutes = t1.minutes + t2.minutes + (res.seconds / 60);
     res.seconds %= 60;
     res.hours = t1.hours + t2.hours + (res.minutes / 60);
     res.minutes %= 60;
     printf("%d Hours %d Minutes %d Seconds\n", res.hours, res.minutes, res.seconds);
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
-1. t1 = 2:45:50, t2 = 1:20:
-2. 30.
-3. sec = 50 + 30 = 80 -> carry 80/60=1 to min, sec = 80%60=
-4. 20.
-5. min = 45 + 20 + 1 = 66 -> carry 66/60=1 to hr, min = 66%60=
-6. 6.
-7. hr = 2 + 1 + 1 =
-8. 4. Output: 4 Hours 6 Minutes 20 Seconds.
+1. t1 = 2:45:50, t2 = 1:20: 30.
+2. sec = 50 + 30 = 80 -> carry 80/60=1 to min, sec = 80%60= 20.
+3. min = 45 + 20 + 1 = 66 -> carry 66/60=1 to hr, min = 66%60= 6.
+4. hr = 2 + 1 + 1 = 4. Output: 4 Hours 6 Minutes 20 Seconds.
+
 
 ### Complexity
 
@@ -2324,34 +2480,34 @@ Stores 3 book records in an array of structures. Iterates through the array comp
 ```c
 #include <stdio.h>
 struct Book {
-char title[50];
-char author[50];
-float price;
+    char title[50];
+    char author[50];
+    float price;
 };
 int main() {
-struct Book b[3];
-for (int i = 0; i < 3; i++) {
-if (scanf("%s %s %f", b[i].title, b[i].author, &b[i].price) != 3) return 1;
+    struct Book b[3];
+    for (int i = 0; i < 3; i++) {
+        if (scanf("%s %s %f", b[i].title, b[i].author, &b[i].price) != 3) return 1;
     }
-int highest = 0, lowest = 0;
-for (int i = 1; i < 3; i++) {
-if (b[i].price > b[highest].price) highest = i;
-if (b[i].price < b[lowest].price) lowest = i;
+    int highest = 0, lowest = 0;
+    for (int i = 1; i < 3; i++) {
+        if (b[i].price > b[highest].price) highest = i;
+        if (b[i].price < b[lowest].price) lowest = i;
     }
-    printf("Most Expensive Book : %s by %s (Price: %.2f)\n", b[highest].title, b[highest].author, b[highest].price);
-    printf("Lowest Priced Book : %s by %s (Price: %.2f)\n", b[lowest].title, b[lowest].author, b[lowest].price);
-return 0;
+    printf("Most Expensive Book : %s by %s (Price: %.2f)\n", b[highest].title, b[highest].author,
+           b[highest].price);
+    printf("Lowest Priced Book : %s by %s (Price: %.2f)\n", b[lowest].title, b[lowest].author,
+           b[lowest].price);
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
-1. Prices: 350.0, 500.0, 200.
-2. 0.
-3. i=1: 500.0 > 350.0 -> highest =
-4. 1.
-5. i=2: 200.0 < 350.0 -> lowest =
-6. 2. Most expensive: BookB (500.00), Lowest: BookC (200.00).
+1. Prices: 350.0, 500.0, 200. 0.
+2. i=1: 500.0 > 350.0 -> highest = 1.
+3. i=2: 200.0 < 350.0 -> lowest = 2. Most expensive: BookB (500.00), Lowest: BookC (200.00).
+
 
 ### Complexity
 
@@ -2388,23 +2544,25 @@ Computes circle geometry using formulas $\text{Area} = \pi r^2$ and $\text{Perim
 #include <stdio.h>
 #define PI 3.14159f
 struct Circle {
-float radius;
+    float radius;
 };
 int main() {
-struct Circle c1, c2;
-if (scanf("%f %f", &c1.radius, &c2.radius) != 2) return 1;
-    printf("Circle 1 -> Area: %.2f, Perimeter: %.2f\n", PI * c1.radius * c1.radius, 2 * PI * c1.radius);
-    printf("Circle 2 -> Area: %.2f, Perimeter: %.2f\n", PI * c2.radius * c2.radius, 2 * PI * c2.radius);
-return 0;
+    struct Circle c1, c2;
+    if (scanf("%f %f", &c1.radius, &c2.radius) != 2) return 1;
+    printf("Circle 1 -> Area: %.2f, Perimeter: %.2f\n", PI * c1.radius * c1.radius,
+           2 * PI * c1.radius);
+    printf("Circle 2 -> Area: %.2f, Perimeter: %.2f\n", PI * c2.radius * c2.radius,
+           2 * PI * c2.radius);
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
-1. c1.radius = 5.
-2. 0.
-3. Area1 = 3.14159 * 25 = 78.54
-4. Perimeter1 = 2 * 3.14159 * 5 = 31.42.
+1. c1.radius = 5. 0.
+2. Area1 = 3.14159 * 25 = 78.54
+3. Perimeter1 = 2 * 3.14159 * 5 = 31.42.
+
 
 ### Complexity
 
@@ -2440,30 +2598,31 @@ Reads 3 employee records and finds the index with maximum float value in member 
 ```c
 #include <stdio.h>
 struct Employee {
-int id;
-char name[50];
-float salary;
+    int id;
+    char name[50];
+    float salary;
 };
 int main() {
-struct Employee emp[3];
-for (int i = 0; i < 3; i++) {
-if (scanf("%d %s %f", &emp[i].id, emp[i].name, &emp[i].salary) != 3) return 1;
+    struct Employee emp[3];
+    for (int i = 0; i < 3; i++) {
+        if (scanf("%d %s %f", &emp[i].id, emp[i].name, &emp[i].salary) != 3) return 1;
     }
-int maxIdx = 0;
-for (int i = 1; i < 3; i++) {
-if (emp[i].salary > emp[maxIdx].salary) {
+    int maxIdx = 0;
+    for (int i = 1; i < 3; i++) {
+        if (emp[i].salary > emp[maxIdx].salary) {
             maxIdx = i;
         }
     }
-    printf("Highest Salary Employee: %s (ID: %d, Salary: %.2f)\n", emp[maxIdx].name, emp[maxIdx].id, emp[maxIdx].salary);
-return 0;
+    printf("Highest Salary Employee: %s (ID: %d, Salary: %.2f)\n", emp[maxIdx].name, emp[maxIdx].id,
+           emp[maxIdx].salary);
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
-1. Salaries: 50000, 75000,
-2. 60000. Index 1 (Bob) has max salary 75000.00.
+1. Salaries: 50000, 75000, 60000. Index 1 (Bob) has max salary 75000.00.
+
 
 ### Complexity
 
@@ -2500,39 +2659,38 @@ Converts both dates to total days elapsed since absolute reference point year 0 
 #include <stdio.h>
 #include <stdlib.h>
 struct Date {
-int day;
-int month;
-int year;
+    int day;
+    int month;
+    int year;
 };
 const int monthDays[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 int countLeapYears(struct Date d) {
-int years = d.year;
-if (d.month <= 2) years--;
-return years / 4 - years / 100 + years / 400;
+    int years = d.year;
+    if (d.month <= 2) years--;
+    return years / 4 - years / 100 + years / 400;
 }
 long int getDays(struct Date d) {
-long int n = d.year * 365 + d.day;
-for (int i = 0; i < d.month - 1; i++) n += monthDays[i];
+    long int n = d.year * 365 + d.day;
+    for (int i = 0; i < d.month - 1; i++) n += monthDays[i];
     n += countLeapYears(d);
-return n;
+    return n;
 }
 int main() {
-struct Date d1, d2;
-if (scanf("%d %d %d", &d1.day, &d1.month, &d1.year) != 3) return 1;
-if (scanf("%d %d %d", &d2.day, &d2.month, &d2.year) != 3) return 1;
-long int days1 = getDays(d1);
-long int days2 = getDays(d2);
+    struct Date d1, d2;
+    if (scanf("%d %d %d", &d1.day, &d1.month, &d1.year) != 3) return 1;
+    if (scanf("%d %d %d", &d2.day, &d2.month, &d2.year) != 3) return 1;
+    long int days1 = getDays(d1);
+    long int days2 = getDays(d2);
     printf("Difference in days : %ld\n", labs(days2 - days1));
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
-1. d1 = 15/8/2023, d2 = 20/8/
-2. 2023. days2
-3. days1 = 20
-4. 15 = 5 days.
+1. d1 = 15/8/2023, d2 = 20/8/ 2023. days2
+2. days1 = 20 - 15 = 5 days.
+
 
 ### Complexity
 
@@ -2569,39 +2727,38 @@ Implements FIFO (First In First Out) Queue data structure encapsulated inside st
 #include <stdio.h>
 #define MAX 5
 struct Queue {
-int items[MAX];
-int front;
-int rear;
+    int items[MAX];
+    int front;
+    int rear;
 };
-void enqueue(struct Queue *q, int value) {
-if (q->rear == MAX - 1) return;
-if (q->front == -1) q->front = 0;
+void enqueue(struct Queue* q, int value) {
+    if (q->rear == MAX - 1) return;
+    if (q->front == -1) q->front = 0;
     q->rear++;
     q->items[q->rear] = value;
 }
-int dequeue(struct Queue *q) {
-if (q->front == -1 || q->front > q->rear) return -1;
-int item = q->items[q->front];
+int dequeue(struct Queue* q) {
+    if (q->front == -1 || q->front > q->rear) return -1;
+    int item = q->items[q->front];
     q->front++;
-return item;
+    return item;
 }
 int main() {
-struct Queue q = {.front = -1, .rear = -1};
+    struct Queue q = {.front = -1, .rear = -1};
     enqueue(&q, 10);
     enqueue(&q, 20);
     printf("Dequeued: %d\n", dequeue(&q));
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
-1. Queue init (front=-1, rear=-1).
-2. enqueue(10): front=0, rear=0, items[0]=
-3. 10.
-4. enqueue(20): rear=1, items[1]=
-5. 20.
-6. dequeue(): returns items[front=0] -> 10, front becomes 1.
+1. **Input / Init:** Queue init (front=-1, rear=-1).
+2. enqueue(10): front=0, rear=0, items[0]= 10.
+3. enqueue(20): rear=1, items[1]= 20.
+4. dequeue(): returns items[front=0] -> 10, front becomes 1.
+
 
 ### Complexity
 
@@ -2637,19 +2794,19 @@ Uses complex arithmetic formulas: - Addition: $(a+ib) + (c+id) = (a+c) + i(b+d)$
 ```c
 #include <stdio.h>
 struct Complex {
-float real;
-float imag;
+    float real;
+    float imag;
 };
 int main() {
-struct Complex c1, c2, sum, prod;
-if (scanf("%f %f %f %f", &c1.real, &c1.imag, &c2.real, &c2.imag) != 4) return 1;
+    struct Complex c1, c2, sum, prod;
+    if (scanf("%f %f %f %f", &c1.real, &c1.imag, &c2.real, &c2.imag) != 4) return 1;
     sum.real = c1.real + c2.real;
     sum.imag = c1.imag + c2.imag;
     prod.real = (c1.real * c2.real) - (c1.imag * c2.imag);
     prod.imag = (c1.real * c2.imag) + (c1.imag * c2.real);
     printf("Sum = %.1f + %.1fi\n", sum.real, sum.imag);
     printf("Product = %.1f + %.1fi\n", prod.real, prod.imag);
-return 0;
+    return 0;
 }
 ```
 
@@ -2658,11 +2815,9 @@ return 0;
 1. c1 = 3 + 2i, c2 = 1 + 7i.
 2. Sum = (3+1) + (2+7)i = 4 + 9i.
 3. Product real = 3*1
-4. 2*7 = 3
-5. 14 =
-6. 11.
-7. Product imag = 3*7 + 2*1 = 21 + 2 =
-8. 23. Product = -11 + 23i.
+4. 2*7 = 3 - 14 = 11.
+5. Product imag = 3*7 + 2*1 = 21 + 2 = 23. Product = -11 + 23i.
+
 
 ### Complexity
 
@@ -2698,24 +2853,25 @@ Multiplies rate_per_day member field of Car structure by the specified duration 
 ```c
 #include <stdio.h>
 struct Car {
-int id;
-char model[30];
-float rate_per_day;
+    int id;
+    char model[30];
+    float rate_per_day;
 };
 int main() {
-struct Car car;
-int days = 5;
-if (scanf("%d %s %f", &car.id, car.model, &car.rate_per_day) != 3) return 1;
-float total = car.rate_per_day * days;
-    printf("Car ID: %d, Model: %s, Total Rental for %d days = %.2f\n", car.id, car.model, days, total);
-return 0;
+    struct Car car;
+    int days = 5;
+    if (scanf("%d %s %f", &car.id, car.model, &car.rate_per_day) != 3) return 1;
+    float total = car.rate_per_day * days;
+    printf("Car ID: %d, Model: %s, Total Rental for %d days = %.2f\n", car.id, car.model, days,
+           total);
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
-1. car = {1, Sedan, 1500.0}, days =
-2. 5. total = 1500.0 * 5 = 7500.00.
+1. car = {1, Sedan, 1500.0}, days = 5. total = 1500.0 * 5 = 7500.00.
+
 
 ### Complexity
 
@@ -2725,6 +2881,20 @@ return 0;
 | Space | `O(1)` |
 
 ---
+
+# Section 6: Pointers
+
+**Problems in this section:** 10
+
+
+
+# Section 6: Pointers
+
+**Problems in this section:** 10
+
+# Section 6: Pointers
+
+**Problems in this section:** 10
 
 # Section 6: Pointers
 
@@ -2762,23 +2932,22 @@ int *z = &m initializes pointer variable z with the memory address of variable m
 ```c
 #include <stdio.h>
 int main() {
-int m = 10, n, o;
-int *z = &m;
+    int m = 10, n, o;
+    int* z = &m;
     printf("z stores the address of m = %p\n", (void*)z);
     printf("*z stores the value of m = %d\n", *z);
     printf("&m is the address of m = %p\n", (void*)&m);
     printf("&n stores the address of n = %p\n", (void*)&n);
     printf("&o stores the address of o = %p\n", (void*)&o);
     printf("&z stores the address of z = %p\n", (void*)&z);
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
-1. m =
-2. 10. z points to m . *z resolves to
-3. 10. Printing %p displays hex address of m .
+1. m = 10. z points to m . *z resolves to 10. Printing %p displays hex address of m .
+
 
 ### Complexity
 
@@ -2816,23 +2985,23 @@ Since ab stores address of m , assigning m = 34 changes value via direct assignm
 ```c
 #include <stdio.h>
 int main() {
-int m = 29;
-int *ab = &m;
+    int m = 29;
+    int* ab = &m;
     printf("Address of m : %p Value of m : %d\n", (void*)&m, m);
     m = 34;
     printf("Content of pointer ab : %d\n", *ab);
     *ab = 7;
     printf("Value of m : %d\n", m);
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
-1. 1. m = 29, ab=&m.
-2. 2. m = 34 -> *ab reads
-3. 34.
-4. 3. *ab = 7 -> m becomes 7.
+1. m = 29, ab=&m.
+2. m = 34 -> *ab reads 34.
+3. *ab = 7 -> m becomes 7.
+
 
 ### Complexity
 
@@ -2876,23 +3045,24 @@ value at address of cht = z
 ```c
 #include <stdio.h>
 int main() {
-int m = 300;
-float fx = 300.600006f;
-char cht = 'z';
+    int m = 300;
+    float fx = 300.600006f;
+    char cht = 'z';
     printf("m = %d fx = %f cht = %c\n\n", m, fx, cht);
-    printf("address of m = %p\naddress of fx = %p\naddress of cht = %p\n\n",
-           (void*)&m, (void*)&fx, (void*)&cht);
-    printf("value at address of m = %d\nvalue at address of fx = %f\nvalue at address of cht = %c\n",
-           *(&m), *(&fx), *(&cht));
-return 0;
+    printf("address of m = %p\naddress of fx = %p\naddress of cht = %p\n\n", (void*)&m, (void*)&fx,
+           (void*)&cht);
+    printf(
+        "value at address of m = %d\nvalue at address of fx = %f\nvalue at address of cht = %c\n",
+        *(&m), *(&fx), *(&cht));
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
-1. *(&m) -> dereferences address of m ->
-2. 300. *(&fx) -> dereferences address of fx -> 300.
-3. 600006. *(&cht) -> dereferences address of cht -> 'z'.
+1. *(&m) -> dereferences address of m -> 300. *(&fx) -> dereferences address of fx -> 300.
+2. *(&cht) -> dereferences address of cht -> 'z'.
+
 
 ### Complexity
 
@@ -2928,17 +3098,18 @@ Dereferences integer pointers p and q ( *p and *q ) to fetch values 5 and 6, add
 ```c
 #include <stdio.h>
 int main() {
-int f = 5, s = 6, sum;
-int *p = &f, *q = &s;
+    int f = 5, s = 6, sum;
+    int *p = &f, *q = &s;
     sum = *p + *q;
     printf("The sum of the entered numbers is : %d\n", sum);
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
 1. p = &f (val 5), q = &s (val 6). sum = *p + *q = 5 + 6 = 11.
+
 
 ### Complexity
 
@@ -2973,20 +3144,19 @@ Passes addresses &n1 , &n2 , and &sum to function addNumbers . The function modi
 
 ```c
 #include <stdio.h>
-void addNumbers(int *a, int *b, int *sum) {
-    *sum = *a + *b;
-}
+void addNumbers(int* a, int* b, int* sum) { *sum = *a + *b; }
 int main() {
-int n1 = 5, n2 = 6, sum;
+    int n1 = 5, n2 = 6, sum;
     addNumbers(&n1, &n2, &sum);
     printf("The sum of %d and %d is %d\n", n1, n2, sum);
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
 1. addNumbers(&n1, &n2, &sum) calculates *sum = 5 + 6 = 11 . Back in main() , sum is 11.
+
 
 ### Complexity
 
@@ -3022,21 +3192,21 @@ Compares dereferenced values *pa and *pb in condition *pa > *pb to determine max
 ```c
 #include <stdio.h>
 int main() {
-int a = 5, b = 6;
-int *pa = &a, *pb = &b;
-if (*pa > *pb) {
+    int a = 5, b = 6;
+    int *pa = &a, *pb = &b;
+    if (*pa > *pb) {
         printf("%d is the maximum number.\n", *pa);
     } else {
         printf("%d is the maximum number.\n", *pb);
     }
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
-1. *pa = 5, *pb =
-2. 6. Condition 5 > 6 is False. Else branch prints '6 is the maximum number.'
+1. *pa = 5, *pb = 6. Condition 5 > 6 is False. Else branch prints '6 is the maximum number.'
+
 
 ### Complexity
 
@@ -3077,14 +3247,14 @@ Pointer arithmetic *(ptr + i) calculates the address offset ptr + i (stepping by
 ```c
 #include <stdio.h>
 int main() {
-int n = 5;
-int arr[] = {5, 7, 2, 9, 8};
-int *ptr = arr;
+    int n = 5;
+    int arr[] = {5, 7, 2, 9, 8};
+    int* ptr = arr;
     printf("The elements you entered are :\n");
-for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) {
         printf("element - %d : %d\n", i, *(ptr + i));
     }
-return 0;
+    return 0;
 }
 ```
 
@@ -3096,6 +3266,7 @@ return 0;
 4. i=2: *(ptr+2) = 2
 5. i=3: *(ptr+3) = 9
 6. i=4: *(ptr+4) = 8.
+
 
 ### Complexity
 
@@ -3132,34 +3303,35 @@ Recursively swaps character pointers (str + l) and (str + i) to generate $N!$ un
 ```c
 #include <stdio.h>
 #include <string.h>
-void swap(char *x, char *y) {
-char temp = *x;
+void swap(char* x, char* y) {
+    char temp = *x;
     *x = *y;
     *y = temp;
 }
-void permute(char *str, int l, int r) {
-if (l == r) {
+void permute(char* str, int l, int r) {
+    if (l == r) {
         printf("%s ", str);
     } else {
-for (int i = l; i <= r; i++) {
+        for (int i = l; i <= r; i++) {
             swap((str + l), (str + i));
             permute(str, l + 1, r);
-            swap((str + l), (str + i)); // backtrack
+            swap((str + l), (str + i));  // backtrack
         }
     }
 }
 int main() {
-char str[] = "abcd";
+    char str[] = "abcd";
     printf("The permutations of the string are :\n");
     permute(str, 0, strlen(str) - 1);
     printf("\n");
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
 1. For "abcd" ($N=4$), generates $4! = 24$ permutations starting with "abcd" and backtracking through swap operations.
+
 
 ### Complexity
 
@@ -3196,27 +3368,32 @@ Allocates float array on heap memory using malloc() , traverses it using pointer
 #include <stdio.h>
 #include <stdlib.h>
 int main() {
-int n = 5;
-float *arr = (float *)malloc(n * sizeof(float));
-if (arr == NULL) return 1;
-    arr[0] = 5.0f; arr[1] = 7.0f; arr[2] = 2.0f; arr[3] = 9.0f; arr[4] = 8.0f;
-float max = *arr;
-for (int i = 1; i < n; i++) {
-if (*(arr + i) > max) {
+    int n = 5;
+    float* arr = (float*)malloc(n * sizeof(float));
+    if (arr == NULL) return 1;
+    arr[0] = 5.0f;
+    arr[1] = 7.0f;
+    arr[2] = 2.0f;
+    arr[3] = 9.0f;
+    arr[4] = 8.0f;
+    float max = *arr;
+    for (int i = 1; i < n; i++) {
+        if (*(arr + i) > max) {
             max = *(arr + i);
         }
     }
     printf("The Largest element is : %.2f\n", max);
     free(arr);
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
 1. arr = [5.0, 7.0, 2.0, 9.0, 8.0]. Max initialized to 5.
-2. 0. Traverses array -> updates max to 7.0 -> 9.
-3. 0. Final max = 9.00.
+2. Traverses array -> updates max to 7.0 -> 9.
+3. Final max = 9.00.
+
 
 ### Complexity
 
@@ -3252,21 +3429,22 @@ Increments pointer ptr and length counter len until dereferenced pointer *ptr hi
 ```c
 #include <stdio.h>
 int main() {
-char str[] = "w3resource";
-char *ptr = str;
-int len = 0;
-while (*ptr != '\0') {
+    char str[] = "w3resource";
+    char* ptr = str;
+    int len = 0;
+    while (*ptr != '\0') {
         len++;
         ptr++;
     }
     printf("The length of the given string %s is : %d\n", str, len);
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
 1. str = "w3resource". Pointer advances 10 positions through characters 'w','3','r','e','s','o','u','r','c','e'. Stops at '\0'. Output len = 10.
+
 
 ### Complexity
 
@@ -3276,6 +3454,20 @@ return 0;
 | Space | `O(1)` |
 
 ---
+
+# Section 7: Dynamic Memory Allocation
+
+**Problems in this section:** 10
+
+
+
+# Section 7: Dynamic Memory Allocation
+
+**Problems in this section:** 10
+
+# Section 7: Dynamic Memory Allocation
+
+**Problems in this section:** 10
 
 # Section 7: Dynamic Memory Allocation
 
@@ -3309,27 +3501,26 @@ malloc(n * sizeof(int)) requests n * 4 bytes from heap memory. Returning pointer
 #include <stdio.h>
 #include <stdlib.h>
 int main() {
-int n = 5;
-int *arr = (int *)malloc(n * sizeof(int));
-if (arr == NULL) return 1;
-for (int i = 0; i < n; i++) {
+    int n = 5;
+    int* arr = (int*)malloc(n * sizeof(int));
+    if (arr == NULL) return 1;
+    for (int i = 0; i < n; i++) {
         arr[i] = (i + 1) * 10;
     }
     printf("Stored Integers: ");
-for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) {
         printf("%d ", arr[i]);
     }
     printf("\n");
     free(arr);
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
-1. n=
-2. 5. Heap allocated for 5 ints. Loop assigns arr[0]=10, arr[1]=20, arr[2]=30, arr[3]=40, arr[4]=
-3. 50. Prints array, then frees memory.
+1. n= 5. Heap allocated for 5 ints. Loop assigns arr[0]=10, arr[1]=20, arr[2]=30, arr[3]=40, arr[4]= 50. Prints array, then frees memory.
+
 
 ### Complexity
 
@@ -3366,22 +3557,23 @@ Allocates dynamic integer array, populates values, and sums them in a single pas
 #include <stdio.h>
 #include <stdlib.h>
 int main() {
-int n = 5, sum = 0;
-int *arr = (int *)malloc(n * sizeof(int));
-if (arr == NULL) return 1;
-for (int i = 0; i < n; i++) {
+    int n = 5, sum = 0;
+    int* arr = (int*)malloc(n * sizeof(int));
+    if (arr == NULL) return 1;
+    for (int i = 0; i < n; i++) {
         arr[i] = i + 1;
         sum += arr[i];
     }
     printf("Sum = %d\n", sum);
     free(arr);
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
 1. arr = [1, 2, 3, 4, 5]. sum = 1 + 2 + 3 + 4 + 5 = 15.
+
 
 ### Complexity
 
@@ -3418,27 +3610,28 @@ Dynamically creates integer buffer, initializes max with arr[0] , updates max on
 #include <stdio.h>
 #include <stdlib.h>
 int main() {
-int n = 4;
-int *arr = (int *)malloc(n * sizeof(int));
-if (arr == NULL) return 1;
-    arr[0] = 12; arr[1] = 45; arr[2] = 23; arr[3] = 9;
-int max = arr[0];
-for (int i = 1; i < n; i++) {
-if (arr[i] > max) max = arr[i];
+    int n = 4;
+    int* arr = (int*)malloc(n * sizeof(int));
+    if (arr == NULL) return 1;
+    arr[0] = 12;
+    arr[1] = 45;
+    arr[2] = 23;
+    arr[3] = 9;
+    int max = arr[0];
+    for (int i = 1; i < n; i++) {
+        if (arr[i] > max) max = arr[i];
     }
     printf("Max = %d\n", max);
     free(arr);
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
 1. arr = [12, 45, 23, 9]. Max starts at
-2. 12. i=1: 45 > 12 -> max =
-3. 45. i=2: 23 <
-4. 45. i=3: 9 <
-5. 45. Final max = 45.
+2. i=1: 45 > 12 -> max = 45. i=2: 23 < 45. i=3: 9 < 45. Final max = 45.
+
 
 ### Complexity
 
@@ -3475,23 +3668,24 @@ Allocates array dynamically, fills with 1..N, and loops backward from n - 1 down
 #include <stdio.h>
 #include <stdlib.h>
 int main() {
-int n = 5;
-int *arr = (int *)malloc(n * sizeof(int));
-if (arr == NULL) return 1;
-for (int i = 0; i < n; i++) arr[i] = i + 1;
+    int n = 5;
+    int* arr = (int*)malloc(n * sizeof(int));
+    if (arr == NULL) return 1;
+    for (int i = 0; i < n; i++) arr[i] = i + 1;
     printf("Reversed Array: ");
-for (int i = n - 1; i >= 0; i--) {
+    for (int i = n - 1; i >= 0; i--) {
         printf("%d ", arr[i]);
     }
     printf("\n");
     free(arr);
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
 1. arr = [1, 2, 3, 4, 5]. Print loop starting index 4 down to 0 -> Outputs '5 4 3 2 1 '.
+
 
 ### Complexity
 
@@ -3528,22 +3722,26 @@ Allocates heap memory for floats, sums array elements, and divides total sum by 
 #include <stdio.h>
 #include <stdlib.h>
 int main() {
-int n = 4;
-float *arr = (float *)malloc(n * sizeof(float));
-if (arr == NULL) return 1;
-    arr[0] = 10.5f; arr[1] = 20.5f; arr[2] = 30.0f; arr[3] = 40.0f;
-float sum = 0.0f;
-for (int i = 0; i < n; i++) sum += arr[i];
+    int n = 4;
+    float* arr = (float*)malloc(n * sizeof(float));
+    if (arr == NULL) return 1;
+    arr[0] = 10.5f;
+    arr[1] = 20.5f;
+    arr[2] = 30.0f;
+    arr[3] = 40.0f;
+    float sum = 0.0f;
+    for (int i = 0; i < n; i++) sum += arr[i];
     printf("Average = %.2f\n", sum / n);
     free(arr);
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
 1. arr = [10.5, 20.5, 30.0, 40.0]. sum = 101.
-2. 0. avg = 101.0 / 4 = 25.25.
+2. avg = 101.0 / 4 = 25.25.
+
 
 ### Complexity
 
@@ -3580,26 +3778,27 @@ realloc() re-allocates contiguous dynamic memory block preserving existing data.
 #include <stdio.h>
 #include <stdlib.h>
 int main() {
-int n = 3, m = 5;
-int *arr = (int *)malloc(n * sizeof(int));
-if (arr == NULL) return 1;
-for (int i = 0; i < n; i++) arr[i] = i + 1;
-    arr = (int *)realloc(arr, m * sizeof(int));
-if (arr == NULL) return 1;
+    int n = 3, m = 5;
+    int* arr = (int*)malloc(n * sizeof(int));
+    if (arr == NULL) return 1;
+    for (int i = 0; i < n; i++) arr[i] = i + 1;
+    arr = (int*)realloc(arr, m * sizeof(int));
+    if (arr == NULL) return 1;
     arr[3] = 4;
     arr[4] = 5;
-for (int i = 0; i < m; i++) printf("%d ", arr[i]);
+    for (int i = 0; i < m; i++) printf("%d ", arr[i]);
     printf("\n");
     free(arr);
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
-1. 1. malloc 3 ints -> [1, 2, 3].
-2. 2. realloc to 5 ints -> [1, 2, 3, _, _].
-3. 3. Assign arr[3]=4, arr[4]=5 -> [1, 2, 3, 4, 5].
+1. malloc 3 ints -> [1, 2, 3].
+2. realloc to 5 ints -> [1, 2, 3, _, _].
+3. Assign arr[3]=4, arr[4]=5 -> [1, 2, 3, 4, 5].
+
 
 ### Complexity
 
@@ -3636,30 +3835,31 @@ Shifts elements starting from end index rightward by one step to open a slot at 
 #include <stdio.h>
 #include <stdlib.h>
 int main() {
-int n = 4, pos = 2, val = 99;
-int *arr = (int *)malloc((n + 1) * sizeof(int));
-if (arr == NULL) return 1;
-    arr[0] = 10; arr[1] = 20; arr[2] = 30; arr[3] = 40;
-for (int i = n; i > pos; i--) {
+    int n = 4, pos = 2, val = 99;
+    int* arr = (int*)malloc((n + 1) * sizeof(int));
+    if (arr == NULL) return 1;
+    arr[0] = 10;
+    arr[1] = 20;
+    arr[2] = 30;
+    arr[3] = 40;
+    for (int i = n; i > pos; i--) {
         arr[i] = arr[i - 1];
     }
     arr[pos] = val;
-for (int i = 0; i <= n; i++) printf("%d ", arr[i]);
+    for (int i = 0; i <= n; i++) printf("%d ", arr[i]);
     printf("\n");
     free(arr);
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
 1. arr = [10, 20, 30, 40, _].
-2. Shift i=4: arr[4]=arr[3]=
-3. 40.
-4. Shift i=3: arr[3]=arr[2]=
-5. 30.
-6. Insert pos=2: arr[2] =
-7. 99. Result: [10, 20, 99, 30, 40].
+2. Shift i=4: arr[4]=arr[3]= 40.
+3. Shift i=3: arr[3]=arr[2]= 30.
+4. Insert pos=2: arr[2] = 99. Result: [10, 20, 99, 30, 40].
+
 
 ### Complexity
 
@@ -3696,27 +3896,29 @@ Overwrites element at target index pos by shifting all remaining rightward eleme
 #include <stdio.h>
 #include <stdlib.h>
 int main() {
-int n = 4, pos = 1;
-int *arr = (int *)malloc(n * sizeof(int));
-if (arr == NULL) return 1;
-    arr[0] = 10; arr[1] = 20; arr[2] = 30; arr[3] = 40;
-for (int i = pos; i < n - 1; i++) {
+    int n = 4, pos = 1;
+    int* arr = (int*)malloc(n * sizeof(int));
+    if (arr == NULL) return 1;
+    arr[0] = 10;
+    arr[1] = 20;
+    arr[2] = 30;
+    arr[3] = 40;
+    for (int i = pos; i < n - 1; i++) {
         arr[i] = arr[i + 1];
     }
-for (int i = 0; i < n - 1; i++) printf("%d ", arr[i]);
+    for (int i = 0; i < n - 1; i++) printf("%d ", arr[i]);
     printf("\n");
     free(arr);
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
 1. arr = [10, 20, 30, 40], pos=1 (value 20).
-2. i=1: arr[1] = arr[2] =
-3. 30.
-4. i=2: arr[2] = arr[3] =
-5. 40. Result length = 3 -> [10, 30, 40].
+2. i=1: arr[1] = arr[2] = 30.
+3. i=2: arr[2] = arr[3] = 40. Result length = 3 -> [10, 30, 40].
+
 
 ### Complexity
 
@@ -3754,42 +3956,50 @@ Allocates array of pointers ( int** ) representing rows, then allocates column m
 #include <stdio.h>
 #include <stdlib.h>
 int main() {
-int r = 2, c = 2;
-int **a = (int **)malloc(r * sizeof(int *));
-int **b = (int **)malloc(r * sizeof(int *));
-int **res = (int **)malloc(r * sizeof(int *));
-for (int i = 0; i < r; i++) {
-        a[i] = (int *)malloc(c * sizeof(int));
-        b[i] = (int *)malloc(c * sizeof(int));
-        res[i] = (int *)malloc(c * sizeof(int));
+    int r = 2, c = 2;
+    int** a = (int**)malloc(r * sizeof(int*));
+    int** b = (int**)malloc(r * sizeof(int*));
+    int** res = (int**)malloc(r * sizeof(int*));
+    for (int i = 0; i < r; i++) {
+        a[i] = (int*)malloc(c * sizeof(int));
+        b[i] = (int*)malloc(c * sizeof(int));
+        res[i] = (int*)malloc(c * sizeof(int));
     }
-    a[0][0] = 1; a[0][1] = 2; a[1][0] = 3; a[1][1] = 4;
-    b[0][0] = 5; b[0][1] = 6; b[1][0] = 7; b[1][1] = 8;
-for (int i = 0; i < r; i++) {
-for (int j = 0; j < c; j++) {
+    a[0][0] = 1;
+    a[0][1] = 2;
+    a[1][0] = 3;
+    a[1][1] = 4;
+    b[0][0] = 5;
+    b[0][1] = 6;
+    b[1][0] = 7;
+    b[1][1] = 8;
+    for (int i = 0; i < r; i++) {
+        for (int j = 0; j < c; j++) {
             res[i][j] = a[i][j] + b[i][j];
             printf("%d ", res[i][j]);
         }
         printf("\n");
     }
-for (int i = 0; i < r; i++) {
-        free(a[i]); free(b[i]); free(res[i]);
+    for (int i = 0; i < r; i++) {
+        free(a[i]);
+        free(b[i]);
+        free(res[i]);
     }
-    free(a); free(b); free(res);
-return 0;
+    free(a);
+    free(b);
+    free(res);
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
 1. A = [[1, 2], [3, 4]], B = [[5, 6], [7, 8]].
-2. res[0][0] = 1+5 =
-3. 6.
-4. res[0][1] = 2+6 =
-5. 8.
-6. res[1][0] = 3+7 =
-7. 10.
-8. res[1][1] = 4+8 = 12.
+2. res[0][0] = 1+5 = 6.
+3. res[0][1] = 2+6 = 8.
+4. res[1][0] = 3+7 = 10.
+5. res[1][1] = 4+8 = 12.
+
 
 ### Complexity
 
@@ -3826,24 +4036,24 @@ Calculates string length, allocates len + 1 bytes on heap for string plus null c
 #include <stdio.h>
 #include <stdlib.h>
 int main() {
-char src[] = "Dynamic Memory Allocation";
-int len = 0;
-while (src[len] != '\0') len++;
-char *dest = (char *)malloc((len + 1) * sizeof(char));
-if (dest == NULL) return 1;
-for (int i = 0; i <= len; i++) {
+    char src[] = "Dynamic Memory Allocation";
+    int len = 0;
+    while (src[len] != '\0') len++;
+    char* dest = (char*)malloc((len + 1) * sizeof(char));
+    if (dest == NULL) return 1;
+    for (int i = 0; i <= len; i++) {
         dest[i] = src[i];
     }
     printf("Copied String: %s\n", dest);
     free(dest);
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
-1. src len =
-2. 25. malloc allocates 26 bytes. Loop copies characters 0..25 including '\0' . Prints destination string.
+1. src len = 25. malloc allocates 26 bytes. Loop copies characters 0..25 including '\0' . Prints destination string.
+
 
 ### Complexity
 
@@ -3853,6 +4063,20 @@ return 0;
 | Space | `O(N)` |
 
 ---
+
+# Section 8: Company Specific Questions
+
+**Problems in this section:** 2
+
+
+
+# Section 8: Company Specific Questions
+
+**Problems in this section:** 2
+
+# Section 8: Company Specific Questions
+
+**Problems in this section:** 2
 
 # Section 8: Company Specific Questions
 
@@ -3885,28 +4109,28 @@ Traverses all contiguous subarrays arr[i...j] . If start element arr[i] equals e
 ```c
 #include <stdio.h>
 int main() {
-int N = 8;
-int arr[] = {3, 2, 4, 5, 2, 6, 3, 1};
-long long maxSum = -1e18;
-int found = 0;
-for (int i = 0; i < N; i++) {
-long long currentSum = 0;
-for (int j = i; j < N; j++) {
+    int N = 8;
+    int arr[] = {3, 2, 4, 5, 2, 6, 3, 1};
+    long long maxSum = -1e18;
+    int found = 0;
+    for (int i = 0; i < N; i++) {
+        long long currentSum = 0;
+        for (int j = i; j < N; j++) {
             currentSum += arr[j];
-if (i != j && arr[i] == arr[j]) {
-if (currentSum > maxSum) maxSum = currentSum;
+            if (i != j && arr[i] == arr[j]) {
+                if (currentSum > maxSum) maxSum = currentSum;
                 found = 1;
             }
         }
     }
-if (!found) {
+    if (!found) {
         maxSum = arr[0];
-for (int i = 1; i < N; i++) {
-if (arr[i] > maxSum) maxSum = arr[i];
+        for (int i = 1; i < N; i++) {
+            if (arr[i] > maxSum) maxSum = arr[i];
         }
     }
     printf("Output: %lld\n", maxSum);
-return 0;
+    return 0;
 }
 ```
 
@@ -3915,9 +4139,9 @@ return 0;
 1. arr = [3, 2, 4, 5, 2, 6, 3, 1].
 2. Subarray starting at index 0 (val 3) and ending at index 6 (val 3): [3, 2, 4, 5, 2, 6, 3].
 3. First and last elements match (3 == 3).
-4. Sum = 3 + 2 + 4 + 5 + 2 + 6 + 3 =
-5. 25.
-6. Maximum sum among equal-boundary subarrays = 25.
+4. Sum = 3 + 2 + 4 + 5 + 2 + 6 + 3 = 25.
+5. Maximum sum among equal-boundary subarrays = 25.
+
 
 ### Complexity
 
@@ -3954,41 +4178,35 @@ Sliding window technique maintaining left index start . lastPos array records la
 #include <stdio.h>
 #include <string.h>
 int main() {
-char s[] = "abcabcbb";
-int n = strlen(s);
-int lastPos[256];
-for (int i = 0; i < 256; i++) lastPos[i] = -1;
-int maxLen = 0, start = 0;
-for (int i = 0; i < n; i++) {
-if (lastPos[(unsigned char)s[i]] >= start) {
+    char s[] = "abcabcbb";
+    int n = strlen(s);
+    int lastPos[256];
+    for (int i = 0; i < 256; i++) lastPos[i] = -1;
+    int maxLen = 0, start = 0;
+    for (int i = 0; i < n; i++) {
+        if (lastPos[(unsigned char)s[i]] >= start) {
             start = lastPos[(unsigned char)s[i]] + 1;
         }
         lastPos[(unsigned char)s[i]] = i;
-int len = i - start + 1;
-if (len > maxLen) maxLen = len;
+        int len = i - start + 1;
+        if (len > maxLen) maxLen = len;
     }
     printf("Output: %d\n", maxLen);
-return 0;
+    return 0;
 }
 ```
 
 ### Step-by-Step Walkthrough
 
 1. s = "abcabcbb".
-2. i=0('a'): start=0, len=1, max=
-3. 1.
-4. i=1('b'): start=0, len=2, max=
-5. 2.
-6. i=2('c'): start=0, len=3, max=
-7. 3.
-8. i=3('a'): lastPos['a']=0 >= start(0) -> start=1 ('b'). len=3-1+1=
-9. 3.
-10. i=4('b'): start jumps to 2 ('c'). len=
-11. 3.
-12. i=5('c'): start jumps to
-13. 3. len=
-14. 3.
-15. Max length observed = 3 (substring "abc").
+2. i=0('a'): start=0, len=1, max= 1.
+3. i=1('b'): start=0, len=2, max= 2.
+4. i=2('c'): start=0, len=3, max= 3.
+5. i=3('a'): lastPos['a']=0 >= start(0) -> start=1 ('b'). len=3-1+1= 3.
+6. i=4('b'): start jumps to 2 ('c'). len= 3.
+7. i=5('c'): start jumps to 3. len= 3.
+8. Max length observed = 3 (substring "abc").
+
 
 ### Complexity
 
@@ -3996,6 +4214,33 @@ return 0;
 |---|---|
 | Time | `O(N)` |
 | Space | `O(1) - fixed 256 size character map` |
+
+---
+
+## Workbook Summary
+
+- **Sections:** 8
+- **Problems:** 69
+- **Solutions:** 69
+- **Format:** GitHub Flavored Markdown
+
+---
+
+## Workbook Summary
+
+- **Sections:** 8
+- **Problems:** 69
+- **Solutions:** 69
+- **Format:** GitHub Flavored Markdown
+
+---
+
+## Workbook Summary
+
+- **Sections:** 8
+- **Problems:** 69
+- **Solutions:** 69
+- **Format:** GitHub Flavored Markdown
 
 ---
 

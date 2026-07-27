@@ -1,1 +1,19 @@
+# Executables and Binaries
+*.out
+*.o
+*.obj
+*.exe
+01_if_else_grade_classifier
+04_do_while_digit_analysis
+
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# IDE settings
 .vscode/
+.idea/
+*.swp
+*.swo
