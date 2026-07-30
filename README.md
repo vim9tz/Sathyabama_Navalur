@@ -52,7 +52,8 @@ Sathyabama_Navalur/
 └── C/                                  # Topic modules & C source code
     ├── Day_1 - C Fundamentals/         # Basic syntax, variables, data types
     ├── Day_2 - Control Flow.../        # Conditionals, loops, control structures
-    └── Day_3 - Functions.../           # Functions, recursion, arrays
+    ├── Day_3 - Functions.../           # Functions, recursion, arrays
+    └── Day_4 - Struct, Union and Pointers/ # Structs, unions, pointers, dynamic memory
 ```
 
 ---

@@ -1,0 +1,48 @@
+# Array of Structures and Nested Structures in C
+
+## Problem Description
+
+Demonstrate nested structures (`Payslip` inside `Employee`), alias creation using `typedef`, initializing an array of structures, iterating through the array to display details, and printing the size of the structure in memory using `sizeof`.
+
+## Requirements
+
+- Define a `Payslip` structure with `month` and `salary`.
+- Define an `Employee` structure containing `emp_id`, `name`, `salary`, and a nested `Payslip` structure.
+- Initialize an array of 3 employees and a standalone employee.
+- Print individual payslips and iterate through all employee records.
+- Output `sizeof(emp)`.
+
+## Sample Input
+
+No input required.
+
+## Sample Output
+
+```text
+January salary for Alice: 50000.00
+January salary for Bob: 60000.00
+January salary for Charlie: 55000.00
+January salary for Special Employee (John Doe): 70000.00
+
+Employee Details:
+
+--- Employee 1 ---
+Employee ID: 101
+Name: Alice
+Salary: 50000.00
+Payslip - Month: January, Salary: 50000.00
+
+--- Employee 2 ---
+Employee ID: 102
+Name: Bob
+Salary: 60000.00
+Payslip - Month: January, Salary: 60000.00
+
+--- Employee 3 ---
+Employee ID: 103
+Name: Charlie
+Salary: 55000.00
+Payslip - Month: January, Salary: 55000.00
+
+Total memory allocated for Employee structure: 68 bytes
+```

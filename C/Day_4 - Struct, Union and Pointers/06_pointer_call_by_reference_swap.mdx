@@ -1,0 +1,23 @@
+# Call-by-Value vs Call-by-Reference in C
+
+## Problem Description
+
+Compare pass-by-value and pass-by-reference mechanisms in C by writing function routines to swap two integer variables and observing memory mutation behavior in `main`.
+
+## Requirements
+
+- Implement `swap_by_value(int a, int b)` and demonstrate why it fails to alter caller arguments.
+- Implement `swap_by_reference(int *a, int *b)` using pointers to swap values directly in caller memory.
+- Display `x` and `y` before and after both function invocations.
+
+## Sample Input
+
+No input required.
+
+## Sample Output
+
+```text
+Original Values: x = 10, y = 20
+After swap_by_value: x = 10, y = 20 (No change)
+After swap_by_reference: x = 20, y = 10 (Successfully swapped)
+```

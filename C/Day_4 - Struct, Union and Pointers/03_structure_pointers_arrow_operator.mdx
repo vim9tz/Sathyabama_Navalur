@@ -1,0 +1,25 @@
+# Structure Pointers and the Arrow Operator in C
+
+## Problem Description
+
+Demonstrate pointers to structures, member access via the arrow (`->`) operator, and passing structure pointers to functions to modify structure fields by reference.
+
+## Requirements
+
+- Define a `struct Student` with `roll_no`, `name`, and `gpa`.
+- Write `update_gpa` taking `struct Student *` and a new GPA value.
+- Write `print_student` taking `const struct Student *` to display fields using `->`.
+- Pass structure address to functions and verify modifications in `main`.
+
+## Sample Input
+
+No input required.
+
+## Sample Output
+
+```text
+Original Details:
+Roll No: 101, Name: Ananya, GPA: 3.75
+Updated Details (after pass-by-reference update):
+Roll No: 101, Name: Ananya, GPA: 3.95
+```

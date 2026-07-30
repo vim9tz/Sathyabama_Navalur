@@ -176,15 +176,14 @@ Enter a 3-digit integer: Output: 456
 
 We use the modulo operator ( % 10 ) to extract individual units from the three-digit number and integer division ( / 10 ) to shift right. Recombining them as d1*100 + d2*10 + d3 effectively reverses the digits without any looping constructs.
 
-
-
 **Mathematical Formula**
 
-$$\text{Reversed Number} = (N \pmod{10}) \times 100 + \left(\lfloor \frac{N}{10} \rfloor \pmod{10}\right) \times 10 + \lfloor \frac{N}{100} \rfloor$$
+$$
+\text{Reversed Number} = (N \pmod{10}) \times 100 + \left(\lfloor \frac{N}{10} \rfloor \pmod{10}\right) \times 10 + \lfloor \frac{N}{100} \rfloor
+$$
 
 > [!TIP]
 > **Key Insight**: Modulo operator `% 10` extracts the lowest-order digit, while integer division `/ 10` truncates the rightmost digit.
-
 
 **Solution in C**
 
@@ -250,15 +249,14 @@ Enter units: Output: 8800
 
 The bill is computed using conditional branching based on consumption slabs. Units exceeding 200 pay full rate for the first two slabs (100*3 + 100*5) plus ₹8 per remaining unit.
 
-
-
 **Mathematical Formula**
 
-$$\text{Bill Amount} = \begin{cases} U \times 3 & \text{if } U \le 100 \\ 100 \times 3 + (U - 100) \times 5 & \text{if } 100 < U \le 200 \\ 100 \times 3 + 100 \times 5 + (U - 200) \times 8 & \text{if } U > 200 \end{cases}$$
+$$
+\text{Bill Amount} = \begin{cases} U \times 3 & \text{if } U \le 100 \\ 100 \times 3 + (U - 100) \times 5 & \text{if } 100 < U \le 200 \\ 100 \times 3 + 100 \times 5 + (U - 200) \times 8 & \text{if } U > 200 \end{cases}
+$$
 
 > [!NOTE]
 > **Slab Logic**: Units are accumulated sequentially across pricing tiers to compute non-linear utility tariffs.
-
 
 **Solution in C**
 
@@ -326,15 +324,14 @@ Enter total seconds: 2 Hours 3 Minutes 4 Seconds
 
 1 Hour = 3600 seconds. Dividing total seconds by 3600 gives total hours. The remainder modulo 3600 gives total remaining seconds, which when divided by 60 gives minutes, and modulo 60 gives remaining seconds.
 
-
-
 **Mathematical Formula**
 
-$$\text{Hours} = \lfloor \frac{S}{3600} \rfloor, \quad \text{Minutes} = \lfloor \frac{S \pmod{3600}}{60} \rfloor, \quad \text{Seconds} = S \pmod{60}$$
+$$
+\text{Hours} = \lfloor \frac{S}{3600} \rfloor, \quad \text{Minutes} = \lfloor \frac{S \pmod{3600}}{60} \rfloor, \quad \text{Seconds} = S \pmod{60}
+$$
 
 > [!TIP]
 > **Time Conversion**: $1 \text{ Hour} = 3600 \text{ Seconds}$, $1 \text{ Minute} = 60 \text{ Seconds}$.
-
 
 **Solution in C**
 
@@ -397,15 +394,14 @@ Output: 40000.00
 
 Gross salary is calculated as the sum of Basic salary, House Rent Allowance (HRA), and Dearness Allowance (DA). HRA is 0.2 * Basic, and DA is 0.4 * Basic, totaling 1.6 * Basic.
 
-
-
 **Mathematical Formula**
 
-$$\text{Gross Salary} = \text{Basic} + \text{HRA} + \text{DA} = \text{Basic} + (0.20 \times \text{Basic}) + (0.40 \times \text{Basic}) = 1.60 \times \text{Basic}$$
+$$
+\text{Gross Salary} = \text{Basic} + \text{HRA} + \text{DA} = \text{Basic} + (0.20 \times \text{Basic}) + (0.40 \times \text{Basic}) = 1.60 \times \text{Basic}
+$$
 
 > [!NOTE]
 > **Percentage Scaling**: Fixed percentage allowances are directly proportional to the baseline salary.
-
 
 **Solution in C**
 
@@ -467,15 +463,14 @@ Output: 25 15
 
 Summing both variables ( a = a + b ) holds their combined value. Subtracting b from this sum yields original a (stored in b ), and subtracting new b from sum yields original b (stored in a ).
 
-
-
 **Mathematical Formula**
 
-$$\begin{aligned} a_1 &= a_0 + b_0 \\ b_1 &= a_1 - b_0 = (a_0 + b_0) - b_0 = a_0 \\ a_2 &= a_1 - b_1 = (a_0 + b_0) - a_0 = b_0 \end{aligned}$$
+$$
+\begin{aligned} a_1 &= a_0 + b_0 \\ b_1 &= a_1 - b_0 = (a_0 + b_0) - b_0 = a_0 \\ a_2 &= a_1 - b_1 = (a_0 + b_0) - a_0 = b_0 \end{aligned}
+$$
 
 > [!TIP]
 > **Arithmetic Swap**: The sum $a + b$ acts as a temporary accumulator holding both variable states simultaneously.
-
 
 **Solution in C**
 
@@ -538,15 +533,14 @@ Output: 78
 
 The mathematical formula max(a,b) = (a + b + |a - b|) / 2 utilizes the absolute difference between a and b . If a >= b , a - b is positive, giving 2a/2 = a . If a < b , |a - b| equals b - a , giving 2b/2 = b .
 
-
-
 **Mathematical Formula**
 
-$$\text{Max}(a, b) = \frac{a + b + |a - b|}{2}$$
+$$
+\text{Max}(a, b) = \frac{a + b + |a - b|}{2}
+$$
 
 > [!NOTE]
 > **Branchless Comparison**: Uses absolute difference $|a - b|$ to evaluate the maximum without branching instructions.
-
 
 **Solution in C**
 
@@ -608,15 +602,14 @@ Enter a 4-digit number: Output: 9876
 
 Each digit from thousands to units is isolated using integer division and modulo arithmetic. We add 5 and apply % 10 to wrap around, then construct the reversed number.
 
-
-
 **Mathematical Formula**
 
-$$d_k' = (d_k + 5) \pmod{10}, \quad \text{Result} = d_4' \times 1000 + d_3' \times 100 + d_2' \times 10 + d_1'$$
+$$
+d_k' = (d_k + 5) \pmod{10}, \quad \text{Result} = d_4' \times 1000 + d_3' \times 100 + d_2' \times 10 + d_1'
+$$
 
 > [!TIP]
 > **Cipher Encryption**: Cipher shift $(x + 5) \pmod{10}$ maps each digit into a rotated 0–9 numeric space.
-
 
 **Solution in C**
 
@@ -682,15 +675,14 @@ Enter amount: 500:5 200:1 100:1 50:1 20:1 10:1 5:1 2:1 1:1
 
 A greedy approach processes notes from highest to lowest denomination. Integer division determines how many notes of that denomination fit, and the modulo operator updates the remaining amount.
 
-
-
 **Mathematical Formula**
 
-$$\text{Count}(D_i) = \lfloor \frac{\text{Amount}}{\text{Denomination}_i} \rfloor, \quad \text{Remaining Amount} = \text{Amount} \pmod{\text{Denomination}_i}$$
+$$
+\text{Count}(D_i) = \lfloor \frac{\text{Amount}}{\text{Denomination}_i} \rfloor, \quad \text{Remaining Amount} = \text{Amount} \pmod{\text{Denomination}_i}
+$$
 
 > [!NOTE]
 > **Greedy Algorithm**: Always selects the largest available currency denomination first to minimize total notes.
-
 
 **Solution in C**
 
@@ -767,15 +759,14 @@ Number1 and Number2 are equal
 
 Uses the equality operator ( == ) inside an if-else statement to compare two integer inputs.
 
-
-
 **Mathematical Formula**
 
-$$\text{Result} = \begin{cases} \text{Equal} & \text{if } N_1 - N_2 = 0 \\ \text{Not Equal} & \text{if } N_1 - N_2 \neq 0 \end{cases}$$
+$$
+\text{Result} = \begin{cases} \text{Equal} & \text{if } N_1 - N_2 = 0 \\ \text{Not Equal} & \text{if } N_1 - N_2 \neq 0 \end{cases}
+$$
 
 > [!NOTE]
 > **Equality Check**: Evaluates equality using relational `==` or arithmetic difference zero-testing.
-
 
 **Solution in C**
 
@@ -836,15 +827,14 @@ Check whether a given integer is even or odd.
 
 An integer is even if its remainder when divided by 2 ( num % 2 ) is 0. Otherwise, it is odd.
 
-
-
 **Mathematical Formula**
 
-$$\text{Parity}(N) = \begin{cases} \text{Even} & \text{if } N \pmod 2 = 0 \\ \text{Odd} & \text{if } N \pmod 2 \neq 0 \end{cases}$$
+$$
+\text{Parity}(N) = \begin{cases} \text{Even} & \text{if } N \pmod 2 = 0 \\ \text{Odd} & \text{if } N \pmod 2 \neq 0 \end{cases}
+$$
 
 > [!TIP]
 > **Parity Bit**: An integer is even if its lowest binary bit is 0 ($N \pmod 2 == 0$).
-
 
 **Solution in C**
 
@@ -904,15 +894,14 @@ Check whether a given integer is positive or negative.
 
 Compares input number with 0 using >= . Non-negative numbers are printed as positive.
 
-
-
 **Mathematical Formula**
 
-$$\text{Sign}(N) = \begin{cases} \text{Positive} & \text{if } N > 0 \\ \text{Negative} & \text{if } N < 0 \\ \text{Zero} & \text{if } N = 0 \end{cases}$$
+$$
+\text{Sign}(N) = \begin{cases} \text{Positive} & \text{if } N > 0 \\ \text{Negative} & \text{if } N < 0 \\ \text{Zero} & \text{if } N = 0 \end{cases}
+$$
 
 > [!NOTE]
 > **Sign Categorization**: Zero serves as the origin boundary separating positive and negative numbers.
-
 
 **Solution in C**
 
@@ -971,15 +960,14 @@ Determine if a given year is a leap year.
 
 A year is a leap year if it is divisible by 400 OR divisible by 4 but not by 100.
 
-
-
 **Mathematical Formula**
 
-$$\text{LeapYear}(Y) = (Y \pmod{400} = 0) \lor ((Y \pmod 4 = 0) \land (Y \pmod{100} \neq 0))$$
+$$
+\text{LeapYear}(Y) = (Y \pmod{400} = 0) \lor ((Y \pmod 4 = 0) \land (Y \pmod{100} \neq 0))
+$$
 
 > [!TIP]
 > **Calendar Rule**: Century years must be divisible by 400 to qualify as leap years.
-
 
 **Solution in C**
 
@@ -1041,15 +1029,14 @@ Congratulation! You are eligible for casting your vote.
 
 Checks if the candidate's age is greater than or equal to 18.
 
-
-
 **Mathematical Formula**
 
-$$\text{Eligible}(\text{Age}) = \begin{cases} \text{True} & \text{if } \text{Age} \ge 18 \\ \text{False} & \text{if } \text{Age} < 18 \end{cases}$$
+$$
+\text{Eligible}(\text{Age}) = \begin{cases} \text{True} & \text{if } \text{Age} \ge 18 \\ \text{False} & \text{if } \text{Age} < 18 \end{cases}
+$$
 
 > [!NOTE]
 > **Threshold Test**: A boolean predicate checking if age satisfies the legal voting threshold of 18.
-
 
 **Solution in C**
 
@@ -1108,15 +1095,14 @@ The value of n = -1
 
 Executes nested if-else branches to map an integer m to sign value n (-1, 0, or 1).
 
-
-
 **Mathematical Formula**
 
-$$\text{Signum}(m) = \begin{cases} 1 & \text{if } m > 0 \\ 0 & \text{if } m = 0 \\ -1 & \text{if } m < 0 \end{cases}$$
+$$
+\text{Signum}(m) = \begin{cases} 1 & \text{if } m > 0 \\ 0 & \text{if } m = 0 \\ -1 & \text{if } m < 0 \end{cases}
+$$
 
 > [!TIP]
 > **Signum Function**: Maps any real integer input to $\{-1, 0, 1\}$.
-
 
 **Solution in C**
 
@@ -1181,15 +1167,14 @@ The person is Dwarf.
 
 Categorizes floating point height values into designated height classes.
 
-
-
 **Mathematical Formula**
 
-$$\text{Category}(H) = \begin{cases} \text{Dwarf} & \text{if } H < 150 \\ \text{Average} & \text{if } 150 \le H < 165 \\ \text{Tall} & \text{if } H \ge 165 \end{cases}$$
+$$
+\text{Category}(H) = \begin{cases} \text{Dwarf} & \text{if } H < 150 \\ \text{Average} & \text{if } 150 \le H < 165 \\ \text{Tall} & \text{if } H \ge 165 \end{cases}
+$$
 
 > [!NOTE]
 > **Multi-tier Range Classifier**: Evaluates height $H$ against discrete range intervals in centimeters.
-
 
 **Solution in C**
 
@@ -1250,15 +1235,14 @@ The 3rd Number is the greatest among three
 
 Uses logical AND ( && ) in conditional statements to compare each variable against the other two.
 
-
-
 **Mathematical Formula**
 
-$$\text{Max}(a, b, c) = \max(a, \max(b, c))$$
+$$
+\text{Max}(a, b, c) = \max(a, \max(b, c))
+$$
 
 > [!TIP]
 > **Nested Conditional**: Evaluates pairwise comparisons $a \ge b \land a \ge c$ to isolate the maximum.
-
 
 **Solution in C**
 
@@ -1322,15 +1306,14 @@ First quadrant
 
 Checks sign combinations of coordinates x and y to assign quadrant 1 (+,+), 2 (-,+), 3 (-,-), or 4 (+,-).
 
-
-
 **Mathematical Formula**
 
-$$\text{Quadrant}(x, y) = \begin{cases} Q_1 & \text{if } x > 0 \land y > 0 \\ Q_2 & \text{if } x < 0 \land y > 0 \\ Q_3 & \text{if } x < 0 \land y < 0 \\ Q_4 & \text{if } x > 0 \land y < 0 \end{cases}$$
+$$
+\text{Quadrant}(x, y) = \begin{cases} Q_1 & \text{if } x > 0 \land y > 0 \\ Q_2 & \text{if } x < 0 \land y > 0 \\ Q_3 & \text{if } x < 0 \land y < 0 \\ Q_4 & \text{if } x > 0 \land y < 0 \end{cases}
+$$
 
 > [!NOTE]
 > **Cartesian Plane**: Evaluates signs of coordinates $(x, y)$ to determine quadrant location.
-
 
 **Solution in C**
 
@@ -1396,15 +1379,14 @@ The alphabet is a consonant
 
 Normalizes char to lowercase and compares against vowel list ('a','e','i','o','u').
 
-
-
 **Mathematical Formula**
 
-$$\text{IsVowel}(c) = (c \in \{'a','e','i','o','u','A','E','I','O','U'\})$$
+$$
+\text{IsVowel}(c) = (c \in \{'a','e','i','o','u','A','E','I','O','U'\})
+$$
 
 > [!TIP]
 > **Character Normalization**: Convert character to lowercase via `tolower()` before vowel set testing.
-
 
 **Solution in C**
 
@@ -1473,15 +1455,14 @@ Elements in array are: 1 1 2 3 4 5 6 7 8 9
 
 Reads 10 integer inputs sequentially into a contiguous fixed-size integer array using a for loop, then prints them in order.
 
-
-
 **Mathematical Formula**
 
-$$\text{Array}[i] = \text{Input}_i \quad \forall \, i \in \{0, 1, \dots, N-1\}$$
+$$
+\text{Array}[i] = \text{Input}_i \quad \forall \, i \in \{0, 1, \dots, N-1\}
+$$
 
 > [!NOTE]
 > **Contiguous Allocation**: Arrays store $N$ elements in sequential contiguous memory addresses.
-
 
 **Solution in C**
 
@@ -1548,15 +1529,14 @@ Read N values in an array and display them in reverse order.
 
 Loads N elements into a Variable Length Array (VLA) and iterates backward from index n - 1 down to 0.
 
-
-
 **Mathematical Formula**
 
-$$\text{OutputSequence} = \langle A[N-1], A[N-2], \dots, A[0] \rangle$$
+$$
+\text{OutputSequence} = \langle A[N-1], A[N-2], \dots, A[0] \rangle
+$$
 
 > [!TIP]
 > **Reverse Traversal**: Set loop index starting at $i = N - 1$ and decrement down to $i = 0$.
-
 
 **Solution in C**
 
@@ -1623,15 +1603,14 @@ Sum of all elements stored in the array is : 15
 
 Maintains a running sum accumulator variable initialized to 0 and adds each array element during input traversal.
 
-
-
 **Mathematical Formula**
 
-$$\text{Total Sum} = \sum_{i=0}^{N-1} A[i]$$
+$$
+\text{Total Sum} = \sum_{i=0}^{N-1} A[i]
+$$
 
 > [!NOTE]
 > **Accumulator Pattern**: Accumulates array element values into a running sum variable initialized to zero.
-
 
 **Solution in C**
 
@@ -1696,15 +1675,14 @@ Copy the elements of one array into another array.
 
 Iterates through the source array and assigns dest[i] = source[i] element-by-element.
 
-
-
 **Mathematical Formula**
 
-$$\text{Destination}[i] = \text{Source}[i] \quad \forall \, i \in \{0, 1, \dots, N-1\}$$
+$$
+\text{Destination}[i] = \text{Source}[i] \quad \forall \, i \in \{0, 1, \dots, N-1\}
+$$
 
 > [!TIP]
 > **Deep Copy**: Copies elements individually to create an independent array duplicate in memory.
-
 
 **Solution in C**
 
@@ -1769,15 +1747,14 @@ Total number of duplicate elements found in the array is : 1
 
 Uses a boolean visited array to keep track of elements already processed. A nested loop counts occurrences of unvisited elements.
 
-
-
 **Mathematical Formula**
 
-$$\text{Duplicates} = \sum_{i=0}^{N-1} \mathbb{I}\left(\text{Count}(A[i]) > 1 \land \neg \text{Visited}[i]\right)$$
+$$
+\text{Duplicates} = \sum_{i=0}^{N-1} \mathbb{I}\left(\text{Count}(A[i]) > 1 \land \neg \text{Visited}[i]\right)
+$$
 
 > [!NOTE]
 > **Visited Boolean Array**: Uses a tracking array to avoid duplicate counting of previously processed elements.
-
 
 **Solution in C**
 
@@ -1855,15 +1832,14 @@ The unique elements found in the array are: 3 5
 
 For each element at index i , we check if it appears anywhere else ( j != i ). If no duplicate matches, isUnique stays 1 and the element is printed.
 
-
-
 **Mathematical Formula**
 
-$$\text{Unique}(A[i]) \iff \forall \, j \neq i, \, A[i] \neq A[j]$$
+$$
+\text{Unique}(A[i]) \iff \forall \, j \neq i, \, A[i] \neq A[j]
+$$
 
 > [!TIP]
 > **Nested Frequency Check**: Element $A[i]$ is unique if no other index $j \neq i$ contains matching value.
-
 
 **Solution in C**
 
@@ -1939,15 +1915,14 @@ Merge two sorted arrays of the same size into a single array sorted in descendin
 
 Two-pointer technique compares current elements from both descending input arrays and copies the larger element to the merged array.
 
-
-
 **Mathematical Formula**
 
-$$\text{Merged}[k] = \max(A[i], B[j]), \quad \text{where } A, B \text{ are sorted in descending order}$$
+$$
+\text{Merged}[k] = \max(A[i], B[j]), \quad \text{where } A, B \text{ are sorted in descending order}
+$$
 
 > [!NOTE]
 > **Two-Pointer Technique**: Compares head elements from two sorted arrays in $O(N)$ linear time.
-
 
 **Solution in C**
 
@@ -2019,15 +1994,14 @@ Count the frequency of each element of an array.
 
 Iterates through the array and marks duplicate instances as visited so each distinct value's total frequency is reported only once.
 
-
-
 **Mathematical Formula**
 
-$$\text{Freq}(V) = \sum_{i=0}^{N-1} \mathbb{I}(A[i] = V)$$
+$$
+\text{Freq}(V) = \sum_{i=0}^{N-1} \mathbb{I}(A[i] = V)
+$$
 
 > [!TIP]
 > **Frequency Count**: Computes occurrences of distinct array values using nested iteration or hash mapping.
-
 
 **Solution in C**
 
@@ -2102,15 +2076,14 @@ Maximum element is : 45 Minimum element is : 21
 
 Initializes max and min with arr[0] and performs a single linear pass through the rest of the array to update boundary values.
 
-
-
 **Mathematical Formula**
 
-$$\text{Max} = \max_{0 \le i < N} A[i], \quad \text{Min} = \min_{0 \le i < N} A[i]$$
+$$
+\text{Max} = \max_{0 \le i < N} A[i], \quad \text{Min} = \min_{0 \le i < N} A[i]
+$$
 
 > [!NOTE]
 > **Linear Scan**: Maintains running minimum and maximum variables during a single pass through the array.
-
 
 **Solution in C**
 
@@ -2180,15 +2153,14 @@ The Even elements are : 42 56 32 The Odd elements are : 25 47
 
 Evaluates arr[i] % 2 == 0 during read. Evens are placed into even[] array and odds into odd[] array.
 
-
-
 **Mathematical Formula**
 
-$$A[i] \in \begin{cases} \text{Even Array} & \text{if } A[i] \pmod 2 = 0 \\ \text{Odd Array} & \text{if } A[i] \pmod 2 \neq 0 \end{cases}$$
+$$
+A[i] \in \begin{cases} \text{Even Array} & \text{if } A[i] \pmod 2 = 0 \\ \text{Odd Array} & \text{if } A[i] \pmod 2 \neq 0 \end{cases}
+$$
 
 > [!TIP]
 > **Array Partitioning**: Filters elements into distinct dynamic or auxiliary arrays based on parity.
-
 
 **Solution in C**
 
@@ -2269,15 +2241,14 @@ The string you entered is : Welcome, w3resource\n
 
 fgets() safely reads an entire line including spaces from standard input into character array str up to buffer capacity.
 
-
-
 **Mathematical Formula**
 
-$$\text{String Buffer Length} = |S| + 1 \quad (\text{including } '\backslash 0')$$
+$$
+\text{String Buffer Length} = |S| + 1 \quad (\text{including } '\backslash 0')
+$$
 
 > [!NOTE]
 > **Safe Input Reading**: Uses `fgets()` to prevent buffer overflow vulnerabilities common with `gets()`.
-
 
 **Solution in C**
 
@@ -2334,15 +2305,14 @@ Length of the string is : 14
 
 Traverses the character array index by index until encountering the null terminator character ( '\0' ). The index count equals string length.
 
-
-
 **Mathematical Formula**
 
-$$\text{Length}(S) = \min \{ i \mid S[i] = '\backslash 0' \}$$
+$$
+\text{Length}(S) = \min \{ i \mid S[i] = '\backslash 0' \}
+$$
 
 > [!TIP]
 > **Null Terminator**: Strings in C are null-terminated character arrays ended by `'\0'` (ASCII 0).
-
 
 **Solution in C**
 
@@ -2406,15 +2376,14 @@ The characters of the string are : s t e l l a r   a c a d e m y
 
 Loops through string indices printing str[i] followed by a space until reaching the end-of-line or null character.
 
-
-
 **Mathematical Formula**
 
-$$\text{Output} = S[0] \parallel \text{" "} \parallel S[1] \parallel \text{" "} \parallel \dots \parallel S[N-1]$$
+$$
+\text{Output} = S[0] \parallel \text{" "} \parallel S[1] \parallel \text{" "} \parallel \dots \parallel S[N-1]
+$$
 
 > [!NOTE]
 > **Character Extraction**: Iterates character by character until `'\0'` or newline `'\n'` is encountered.
-
 
 **Solution in C**
 
@@ -2478,15 +2447,14 @@ The characters of the string in reverse are : r a l l e t s
 
 Calculates string length len , then iterates backwards from index len - 1 down to 0, outputting each character with a trailing space.
 
-
-
 **Mathematical Formula**
 
-$$\text{Reversed String} = \langle S[L-1], S[L-2], \dots, S[0] \rangle \quad \text{where } L = \text{strlen}(S)$$
+$$
+\text{Reversed String} = \langle S[L-1], S[L-2], \dots, S[0] \rangle \quad \text{where } L = \text{strlen}(S)
+$$
 
 > [!TIP]
 > **Index Offset**: Reversing starts from index $L - 1$ down to index $0$.
-
 
 **Solution in C**
 
@@ -2554,15 +2522,14 @@ Total number of words in the string : 3
 
 Uses a state flag in_word to detect transitions from whitespace to non-whitespace characters, incrementing the word count on each transition.
 
-
-
 **Mathematical Formula**
 
-$$\text{Word Count} = \sum_{i=0}^{L-1} \mathbb{I}(S[i] \neq \text{space} \land S[i-1] = \text{space})$$
+$$
+\text{Word Count} = \sum_{i=0}^{L-1} \mathbb{I}(S[i] \neq \text{space} \land S[i-1] = \text{space})
+$$
 
 > [!NOTE]
 > **State Machine**: Tracks transition flag `in_word` between whitespace and word characters.
-
 
 **Solution in C**
 
@@ -2639,15 +2606,14 @@ Strings are not equal.
 
 Traverses both strings simultaneously. If any mismatch is found, returns 0. If both reach null terminator together, returns 1.
 
-
-
 **Mathematical Formula**
 
-$$\text{Equal}(S_1, S_2) = \bigwedge_{i=0}^{L} (S_1[i] = S_2[i])$$
+$$
+\text{Equal}(S_1, S_2) = \bigwedge_{i=0}^{L} (S_1[i] = S_2[i])
+$$
 
 > [!TIP]
 > **Lexicographical Comparison**: Compares characters at identical offsets until a mismatch or `'\0'` is hit.
-
 
 **Solution in C**
 
@@ -2717,15 +2683,14 @@ Number of Special characters : 1
 
 Uses standard isalpha() and isdigit() character inspection functions. Characters that are neither letters, digits, nor spaces are counted as special characters.
 
-
-
 **Mathematical Formula**
 
-$$\text{Total} = \text{Alphabets} + \text{Digits} + \text{Special Characters} + \text{Spaces}$$
+$$
+\text{Total} = \text{Alphabets} + \text{Digits} + \text{Special Characters} + \text{Spaces}
+$$
 
 > [!NOTE]
 > **Character Classification**: Uses `isalpha()`, `isdigit()`, and character set testing.
-
 
 **Solution in C**
 
@@ -2802,15 +2767,14 @@ Number of characters copied : 30
 
 Iterates character-by-character from source string to destination string until null/newline is hit, appending null terminator at destination.
 
-
-
 **Mathematical Formula**
 
-$$D[i] = S[i] \quad \forall \, i < L, \quad D[L] = '\backslash 0'$$
+$$
+D[i] = S[i] \quad \forall \, i < L, \quad D[L] = '\backslash 0'
+$$
 
 > [!TIP]
 > **Manual Copy**: Must explicitly attach null terminator `dest[L] = '\0'` after the copying loop.
-
 
 **Solution in C**
 
@@ -2878,15 +2842,14 @@ Consonants : 4
 
 Converts each character to lowercase and checks if it falls in range 'a'-'z'. If it equals 'a','e','i','o','u', vowel count increments, else consonant count increments.
 
-
-
 **Mathematical Formula**
 
-$$\text{Length} = \text{Vowels} + \text{Consonants} \quad (\text{for alphabetic characters})$$
+$$
+\text{Length} = \text{Vowels} + \text{Consonants} \quad (\text{for alphabetic characters})
+$$
 
 > [!NOTE]
 > **Vowel Set**: Vowels belong to set $\{'a', 'e', 'i', 'o', 'u'\}$ (case-insensitive).
-
 
 **Solution in C**
 
@@ -2959,15 +2922,14 @@ The Highest frequency of character 'e' appears number of times : 2
 
 Uses an integer ASCII frequency array of size 256. Increments ASCII index counters during string traversal and tracks the max frequency value.
 
-
-
 **Mathematical Formula**
 
-$$\text{MaxChar} = \arg\max_{c \in [0, 255]} \text{Freq}[c]$$
+$$
+\text{MaxChar} = \arg\max_{c \in [0, 255]} \text{Freq}[c]
+$$
 
 > [!TIP]
 > **Frequency Hash Map**: Uses a 256-element integer array indexed by character ASCII codes.
-
 
 **Solution in C**
 
@@ -3052,15 +3014,14 @@ Average Total Marks = 88.75
 
 Declares a struct Student containing heterogenous member fields ( name , age , marks ). Instantiates an array of 2 structures, populates inputs, and calculates the average marks.
 
-
-
 **Mathematical Formula**
 
-$$\text{Average Marks} = \frac{\sum_{i=0}^{N-1} \text{Student}[i].\text{marks}}{N}$$
+$$
+\text{Average Marks} = \frac{\sum_{i=0}^{N-1} \text{Student}[i].\text{marks}}{N}
+$$
 
 > [!NOTE]
 > **Heterogeneous Structure**: Groups different data types (`char[]`, `int`, `float`) under a single record.
-
 
 **Solution in C**
 
@@ -3134,17 +3095,22 @@ Define a structure named Time with members hours, minutes, and seconds. Input tw
 
 Adds seconds, carrying overflow ( / 60 ) into minutes. Then adds minutes, carrying overflow into hours, resulting in normalized time formatting.
 
-
-
 **Mathematical Formula**
 
-$$\text{Seconds} = (S_1 + S_2) \pmod{60}, \quad \text{Carry}_{sec} = \lfloor \frac{S_1 + S_2}{60} \rfloor$$
-$$\text{Minutes} = (M_1 + M_2 + \text{Carry}_{sec}) \pmod{60}, \quad \text{Carry}_{min} = \lfloor \frac{M_1 + M_2 + \text{Carry}_{sec}}{60} \rfloor$$
-$$\text{Hours} = H_1 + H_2 + \text{Carry}_{min}$$
+$$
+\text{Seconds} = (S_1 + S_2) \pmod{60}, \quad \text{Carry}_{sec} = \lfloor \frac{S_1 + S_2}{60} \rfloor
+$$
+
+$$
+\text{Minutes} = (M_1 + M_2 + \text{Carry}_{sec}) \pmod{60}, \quad \text{Carry}_{min} = \lfloor \frac{M_1 + M_2 + \text{Carry}_{sec}}{60} \rfloor
+$$
+
+$$
+\text{Hours} = H_1 + H_2 + \text{Carry}_{min}
+$$
 
 > [!TIP]
 > **Sexagesimal Arithmetic**: Base-60 carry logic handles overflow in seconds and minutes.
-
 
 **Solution in C**
 
@@ -3220,15 +3186,14 @@ Lowest Priced Book : BookC by AuthC (Price: 200.00)
 
 Stores 3 book records in an array of structures. Iterates through the array comparing member float field price to locate min and max indices.
 
-
-
 **Mathematical Formula**
 
-$$\text{HighestPrice} = \max_{0 \le i < N} \text{Book}[i].\text{price}, \quad \text{LowestPrice} = \min_{0 \le i < N} \text{Book}[i].\text{price}$$
+$$
+\text{HighestPrice} = \max_{0 \le i < N} \text{Book}[i].\text{price}, \quad \text{LowestPrice} = \min_{0 \le i < N} \text{Book}[i].\text{price}
+$$
 
 > [!NOTE]
 > **Struct Array Scan**: Compares float member fields to locate maximum and minimum records.
-
 
 **Solution in C**
 
@@ -3305,15 +3270,14 @@ Circle 2 -> Area: 314.16, Perimeter: 62.83
 
 Computes circle geometry using formulas $\text{Area} = \pi r^2$ and $\text{Perimeter} = 2\pi r$ using member field radius .
 
-
-
 **Mathematical Formula**
 
-$$\text{Area} = \pi \times r^2, \quad \text{Perimeter} = 2 \times \pi \times r \quad (\text{where } \pi \approx 3.14159)$$
+$$
+\text{Area} = \pi \times r^2, \quad \text{Perimeter} = 2 \times \pi \times r \quad (\text{where } \pi \approx 3.14159)
+$$
 
 > [!TIP]
 > **Geometric Struct**: Encapsulates circle attributes and computes area and perimeter formulas.
-
 
 **Solution in C**
 
@@ -3381,15 +3345,14 @@ Highest Salary Employee: Bob (ID: 102, Salary: 75000.00)
 
 Reads 3 employee records and finds the index with maximum float value in member field salary .
 
-
-
 **Mathematical Formula**
 
-$$\text{MaxEmployee} = \text{Emp}\left[ \arg\max_{0 \le i < N} \text{Emp}[i].\text{salary} \right]$$
+$$
+\text{MaxEmployee} = \text{Emp}\left[ \arg\max_{0 \le i < N} \text{Emp}[i].\text{salary} \right]
+$$
 
 > [!NOTE]
 > **Record Selection**: Identifies employee struct containing the maximum salary value.
-
 
 **Solution in C**
 
@@ -3465,15 +3428,14 @@ Difference in days : 5
 
 Converts both dates to total days elapsed since absolute reference point year 0 (including leap year additions) and subtracts them.
 
-
-
 **Mathematical Formula**
 
-$$\text{Total Days} = |\text{JulianDay}(D_2) - \text{JulianDay}(D_1)|$$
+$$
+\text{Total Days} = |\text{JulianDay}(D_2) - \text{JulianDay}(D_1)|
+$$
 
 > [!TIP]
 > **Date Arithmetic**: Computes absolute day difference between two date structures.
-
 
 **Solution in C**
 
@@ -3554,15 +3516,14 @@ Dequeued: 10
 
 Implements FIFO (First In First Out) Queue data structure encapsulated inside struct Queue . enqueue appends to rear , dequeue retrieves from front .
 
-
-
 **Mathematical Formula**
 
-$$\text{Size} = \text{rear} - \text{front} + 1 \quad (\text{FIFO Queue})$$
+$$
+\text{Size} = \text{rear} - \text{front} + 1 \quad (\text{FIFO Queue})
+$$
 
 > [!NOTE]
 > **First-In First-Out**: Enqueue adds elements to `rear`, while Dequeue removes elements from `front`.
-
 
 **Solution in C**
 
@@ -3641,16 +3602,18 @@ Product = -11.0 + 23.0i
 
 Uses complex arithmetic formulas: - Addition: $(a+ib) + (c+id) = (a+c) + i(b+d)$ - Multiplication: $(a+ib)(c+id) = (ac-bd) + i(ad+bc)$.
 
-
-
 **Mathematical Formula**
 
-$$\text{Sum} = (a_1 + a_2) + i(b_1 + b_2)$$
-$$\text{Product} = (a_1 a_2 - b_1 b_2) + i(a_1 b_2 + a_2 b_1)$$
+$$
+\text{Sum} = (a_1 + a_2) + i(b_1 + b_2)
+$$
+
+$$
+\text{Product} = (a_1 a_2 - b_1 b_2) + i(a_1 b_2 + a_2 b_1)
+$$
 
 > [!TIP]
 > **Complex Algebra**: Uses Euler's complex number multiplication identity $i^2 = -1$.
-
 
 **Solution in C**
 
@@ -3719,15 +3682,14 @@ Car ID: 1, Model: Sedan, Total Rental for 5 days = 7500.00
 
 Multiplies rate_per_day member field of Car structure by the specified duration days to get total rental expense.
 
-
-
 **Mathematical Formula**
 
-$$\text{Total Cost} = \text{Car}.\text{rate\_per\_day} \times \text{Days}$$
+$$
+\text{Total Cost} = \text{Car}.\text{rate\_per\_day} \times \text{Days}
+$$
 
 > [!NOTE]
 > **Rental Expenses**: Multiplies daily rate field by duration multiplier.
-
 
 **Solution in C**
 
@@ -3806,15 +3768,14 @@ z stores the address of m = 0x7ffd61ad5a4c
 
 Uses address-of operator `&` and dereference operator `*` on basic primitive data types (`int`, `float`, `char`). *(Note: Hexadecimal memory addresses displayed in sample outputs are illustrative architecture-dependent stack memory addresses).*
 
-
-
 **Mathematical Formula**
 
-$$*(\&m) = m \implies \text{Dereferencing address of } m \text{ yields value of } m$$
+$$
+*(\&m) = m \implies \text{Dereferencing address of } m \text{ yields value of } m
+$$
 
 > [!TIP]
 > **Pointer Dereferencing**: `&` returns address, while `*` accesses stored data value at that address.
-
 
 **Solution in C**
 
@@ -3885,15 +3846,14 @@ Value of m : 7
 
 Since ab stores address of m , assigning m = 34 changes value via direct assignment, and assigning *ab = 7 mutates value via indirect pointer reference.
 
-
-
 **Mathematical Formula**
 
-$$ab = \&m \implies *ab = 34 \implies m = 34$$
+$$
+ab = \&m \implies *ab = 34 \implies m = 34
+$$
 
 > [!NOTE]
 > **Indirect Mutation**: Mutating `*ab` directly alters the memory value of variable `m`.
-
 
 **Solution in C**
 
@@ -3964,15 +3924,14 @@ value at address of cht = z
 
 &var obtains the memory location of var , while *(&var) cancels out to yield the underlying value stored at that location.
 
-
-
 **Mathematical Formula**
 
-$$\text{Value}(p) = *p = *(\&x) = x$$
+$$
+\text{Value}(p) = *p = *(\&x) = x
+$$
 
 > [!TIP]
 > **Type Safety**: Pointers must match the data type of the variable whose address they hold.
-
 
 **Solution in C**
 
@@ -4037,15 +3996,14 @@ The sum of the entered numbers is : 11
 
 Dereferences integer pointers p and q ( *p and *q ) to fetch values 5 and 6, adding them together into variable sum .
 
-
-
 **Mathematical Formula**
 
-$$\text{Sum} = *p_1 + *p_2 \quad \text{where } p_1 = \&a, \, p_2 = \&b$$
+$$
+\text{Sum} = *p_1 + *p_2 \quad \text{where } p_1 = \&a, \, p_2 = \&b
+$$
 
 > [!NOTE]
 > **Pointer Addition**: Fetches integer values from addresses $p_1$ and $p_2$ and adds them.
-
 
 **Solution in C**
 
@@ -4105,15 +4063,14 @@ The sum of 5 and 6 is 11
 
 Passes addresses &n1 , &n2 , and &sum to function addNumbers . The function modifies sum directly in calling stack frame via pointer dereference.
 
-
-
 **Mathematical Formula**
 
-$$\text{AddByRef}(p_1, p_2) \implies \text{Sum} = *p_1 + *p_2$$
+$$
+\text{AddByRef}(p_1, p_2) \implies \text{Sum} = *p_1 + *p_2
+$$
 
 > [!TIP]
 > **Call-by-Reference**: Passes variable addresses to functions to allow direct memory access.
-
 
 **Solution in C**
 
@@ -4172,15 +4129,14 @@ Find the maximum number between two numbers using pointers.
 
 Compares dereferenced values *pa and *pb in condition *pa > *pb to determine maximum integer.
 
-
-
 **Mathematical Formula**
 
-$$\text{Max} = \begin{cases} *p_1 & \text{if } *p_1 > *p_2 \\ *p_2 & \text{otherwise} \end{cases}$$
+$$
+\text{Max} = \begin{cases} *p_1 & \text{if } *p_1 > *p_2 \\ *p_2 & \text{otherwise} \end{cases}
+$$
 
 > [!NOTE]
 > **Pointer Comparison**: Dereferences pointer operands inside conditional branch checks.
-
 
 **Solution in C**
 
@@ -4248,15 +4204,14 @@ element - 4 : 8
 
 Pointer arithmetic *(ptr + i) calculates the address offset ptr + i (stepping by sizeof(int) bytes) and dereferences it to fetch element arr[i] .
 
-
-
 **Mathematical Formula**
 
-$$\text{Address}(A + i) = \text{BaseAddress}(A) + i \times \text{sizeof}(\text{type})$$
+$$
+\text{Address}(A + i) = \text{BaseAddress}(A) + i \times \text{sizeof}(\text{type})
+$$
 
 > [!TIP]
 > **Pointer Arithmetic**: Incrementing pointer $p + i$ shifts memory address by $i \times \text{element\_size}$ bytes.
-
 
 **Solution in C**
 
@@ -4321,15 +4276,14 @@ abcd abdc acbd acdb adcb adbc bacd badc bcad bcda bdca bdac cbad cbda cabd cadb 
 
 Recursively swaps character pointers (str + l) and (str + i) to generate $N!$ unique orderings of the $N$- character string.
 
-
-
 **Mathematical Formula**
 
-$$\text{Total Permutations} = N! \quad \text{where } N = \text{strlen}(S)$$
+$$
+\text{Total Permutations} = N! \quad \text{where } N = \text{strlen}(S)
+$$
 
 > [!NOTE]
 > **Backtracking**: Swaps characters using pointers to generate all $N!$ string permutations.
-
 
 **Solution in C**
 
@@ -4377,7 +4331,7 @@ int main() {
 | `l = 2`          | `i = 2`          | `swap(2, 2)`           | `"abcd"`           | Call`permute(str, 3, 3)`                                |
 | `l = 3 (Base)`   | N/A                | Base condition`l == r` | `"abcd"`           | **Print `"abcd "`**                               |
 | `l = 2`          | `i = 3`          | `swap(2, 3)`           | `"abdc"`           | Call`permute(str, 3, 3)` -> **Print `"abdc "`** |
-| ...                | ...                | ...                      | ...                  | Backtracks through all**`24`** permutations       |
+| ...                | ...                | ...                      | ...                  | Backtracks through all**`24`** permutations             |
 
 **Complexity**
 
@@ -4409,15 +4363,14 @@ The Largest element is : 9.00
 
 Allocates float array on heap memory using malloc() , traverses it using pointer offset *(arr + i) to locate maximum float value, and releases heap memory via free() .
 
-
-
 **Mathematical Formula**
 
-$$\text{Max} = \max_{0 \le i < N} *(p + i)$$
+$$
+\text{Max} = \max_{0 \le i < N} *(p + i)
+$$
 
 > [!TIP]
 > **Dynamic Pointer Scan**: Dereferences pointer offset `*(p + i)` to scan dynamic array elements.
-
 
 **Solution in C**
 
@@ -4493,15 +4446,14 @@ The length of the given string w3resource is : 10
 
 Increments pointer ptr and length counter len until dereferenced pointer *ptr hits null character '\0' .
 
-
-
 **Mathematical Formula**
 
-$$\text{Length} = p_{\text{end}} - p_{\text{start}} \quad \text{where } *p_{\text{end}} = '\backslash 0'$$
+$$
+\text{Length} = p_{\text{end}} - p_{\text{start}} \quad \text{where } *p_{\text{end}} = '\backslash 0'
+$$
 
 > [!NOTE]
 > **Pointer Subtraction**: Subtracting base pointer from end pointer gives element count.
-
 
 **Solution in C**
 
@@ -4573,15 +4525,14 @@ Stored Integers: 10 20 30 40 50
 
 malloc(n * sizeof(int)) requests n * 4 bytes from heap memory. Returning pointer is checked against NULL to verify successful allocation.
 
-
-
 **Mathematical Formula**
 
-$$\text{Heap Buffer Size} = N \times \text{sizeof}(\text{int}) \text{ bytes}$$
+$$
+\text{Heap Buffer Size} = N \times \text{sizeof}(\text{int}) \text{ bytes}
+$$
 
 > [!TIP]
 > **Heap Allocation**: `malloc()` allocates dynamic memory block on heap and returns base pointer.
-
 
 **Solution in C**
 
@@ -4654,15 +4605,14 @@ Sum = 15
 
 Allocates dynamic integer array, populates values, and sums them in a single pass before freeing heap memory.
 
-
-
 **Mathematical Formula**
 
-$$\text{Sum} = \sum_{i=0}^{N-1} *(p + i)$$
+$$
+\text{Sum} = \sum_{i=0}^{N-1} *(p + i)
+$$
 
 > [!NOTE]
 > **Dynamic Accumulator**: Sums values stored in dynamically allocated heap array.
-
 
 **Solution in C**
 
@@ -4731,15 +4681,14 @@ Max = 45
 
 Dynamically creates integer buffer, initializes max with arr[0] , updates max on finding larger element during iteration.
 
-
-
 **Mathematical Formula**
 
-$$\text{Max} = \max_{0 \le i < N} *(p + i)$$
+$$
+\text{Max} = \max_{0 \le i < N} *(p + i)
+$$
 
 > [!TIP]
 > **Dynamic Bounds Scan**: Searches maximum element across dynamic heap buffer.
-
 
 **Solution in C**
 
@@ -4811,15 +4760,14 @@ Reversed Array: 5 4 3 2 1
 
 Allocates array dynamically, fills with 1..N, and loops backward from n - 1 down to 0 for reverse rendering.
 
-
-
 **Mathematical Formula**
 
-$$\text{Reversed}[i] = *(p + (N - 1 - i)) \quad \forall \, i \in \{0, \dots, N-1\}$$
+$$
+\text{Reversed}[i] = *(p + (N - 1 - i)) \quad \forall \, i \in \{0, \dots, N-1\}
+$$
 
 > [!NOTE]
 > **Dynamic Reverse Pass**: Reads dynamic memory backwards from index $N - 1$ down to 0.
-
 
 **Solution in C**
 
@@ -4889,15 +4837,14 @@ Average = 25.25
 
 Allocates heap memory for floats, sums array elements, and divides total sum by count n .
 
-
-
 **Mathematical Formula**
 
-$$\text{Average} = \frac{\sum_{i=0}^{N-1} p[i]}{N}$$
+$$
+\text{Average} = \frac{\sum_{i=0}^{N-1} p[i]}{N}
+$$
 
 > [!TIP]
 > **Float Precision**: Uses floating-point accumulation for computing dynamic array averages.
-
 
 **Solution in C**
 
@@ -4968,15 +4915,14 @@ Allocate memory for N integers, increase size to M using `realloc()`, and print 
 
 realloc() re-allocates contiguous dynamic memory block preserving existing data. Expands buffer from size 3 to 5.
 
-
-
 **Mathematical Formula**
 
-$$\text{New Buffer Size} = M \times \text{sizeof}(\text{type}) \quad (M > N)$$
+$$
+\text{New Buffer Size} = M \times \text{sizeof}(\text{type}) \quad (M > N)
+$$
 
 > [!NOTE]
 > **Reallocation**: `realloc()` resizes existing heap block while preserving previously copied data.
-
 
 **Solution in C**
 
@@ -5044,15 +4990,14 @@ Dynamically allocate an array and insert an element at a given index position.
 
 Shifts elements starting from end index rightward by one step to open a slot at target position pos , then inserts val .
 
-
-
 **Mathematical Formula**
 
-$$A[i] = A[i-1] \quad \forall \, i \text{ from } N \text{ down to } \text{pos}+1, \quad A[\text{pos}] = \text{Val}$$
+$$
+A[i] = A[i-1] \quad \forall \, i \text{ from } N \text{ down to } \text{pos}+1, \quad A[\text{pos}] = \text{Val}
+$$
 
 > [!TIP]
 > **Right Shift**: Shifts elements right to insert new element at specified target position.
-
 
 **Solution in C**
 
@@ -5124,15 +5069,14 @@ Remove an element from a given position in a dynamically allocated array.
 
 Overwrites element at target index pos by shifting all remaining rightward elements left by one position.
 
-
-
 **Mathematical Formula**
 
-$$A[i] = A[i+1] \quad \forall \, i \text{ from } \text{pos} \text{ up to } N-2$$
+$$
+A[i] = A[i+1] \quad \forall \, i \text{ from } \text{pos} \text{ up to } N-2
+$$
 
 > [!NOTE]
 > **Left Shift**: Shifts elements left to fill slot of deleted array element.
-
 
 **Solution in C**
 
@@ -5203,15 +5147,14 @@ Dynamically allocate two 2D matrices, perform addition, and display the result m
 
 Allocates array of pointers ( int** ) representing rows, then allocates column memory per row pointer. Adds corresponding cell entries res[i][j] = a[i][j] + b[i][j] .
 
-
-
 **Mathematical Formula**
 
-$$\text{Res}[i][j] = A[i][j] + B[i][j] \quad \forall \, 0 \le i < R, \, 0 \le j < C$$
+$$
+\text{Res}[i][j] = A[i][j] + B[i][j] \quad \forall \, 0 \le i < R, \, 0 \le j < C
+$$
 
 > [!TIP]
 > **2D Pointer Pointer**: Allocates array of row pointers `int**` followed by column allocations per row.
-
 
 **Solution in C**
 
@@ -5303,15 +5246,14 @@ Copied String: Dynamic Memory Allocation
 
 Calculates string length, allocates len + 1 bytes on heap for string plus null character, and copies characters in loop.
 
-
-
 **Mathematical Formula**
 
-$$\text{Heap Bytes} = (L + 1) \times \text{sizeof}(\text{char}), \quad \text{Dest}[i] = \text{Src}[i] \, \forall \, i \le L$$
+$$
+\text{Heap Bytes} = (L + 1) \times \text{sizeof}(\text{char}), \quad \text{Dest}[i] = \text{Src}[i] \, \forall \, i \le L
+$$
 
 > [!NOTE]
 > **Dynamic String Copy**: Allocates $L + 1$ bytes on heap to hold copied string plus null terminator.
-
 
 **Solution in C**
 
@@ -5386,15 +5328,14 @@ Output: 25
 
 Traverses all contiguous subarrays arr[i...j] . If start element arr[i] equals end element arr[j] with i != j , checks if subarray sum is maximum. Fallback returns max element if no matching pairs exist.
 
-
-
 **Mathematical Formula**
 
-$$\text{MaxSum} = \max_{0 \le i \le j < N, A[i] = A[j]} \sum_{k=i}^{j} A[k]$$
+$$
+\text{MaxSum} = \max_{0 \le i \le j < N, A[i] = A[j]} \sum_{k=i}^{j} A[k]
+$$
 
 > [!TIP]
 > **Equal Boundary Subarray**: Searches contiguous subarrays where starting and ending elements match.
-
 
 **Solution in C**
 
@@ -5470,15 +5411,14 @@ Output: 3
 
 Sliding window technique maintaining left index start . lastPos array records last seen index of each character. When a repeat is encountered within current window ( lastPos[char] >= start ), start jumps past duplicate.
 
-
-
 **Mathematical Formula**
 
-$$\text{MaxLen} = \max_{0 \le i < N} (i - \text{start} + 1), \quad \text{start} = \max(\text{start}, \text{lastPos}[S[i]] + 1)$$
+$$
+\text{MaxLen} = \max_{0 \le i < N} (i - \text{start} + 1), \quad \text{start} = \max(\text{start}, \text{lastPos}[S[i]] + 1)
+$$
 
 > [!NOTE]
 > **Sliding Window Algorithm**: Maintains left window boundary `start` and records last seen character positions in $O(N)$ time.
-
 
 **Solution in C**
 

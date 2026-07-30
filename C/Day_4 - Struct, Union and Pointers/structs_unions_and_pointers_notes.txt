@@ -1,0 +1,178 @@
+================================================================================
+           DAY 4: STRUCTURES, UNIONS, POINTERS & DYNAMIC MEMORY
+================================================================================
+
+1. STRUCTURES (struct) IN C
+--------------------------------------------------------------------------------
+[1] KEY DEFINITION
+- A user-defined composite data type that allows grouping variables of DIFFERENT 
+  data types under a single name into contiguous memory.
+
+[2] KEYWORD & OPERATORS
+- struct : Keyword to declare structure layout and variables.
+- { }    : Encloses member field declarations.
+- ;      : Mandated terminator following structure definition.
+- .      : Dot operator (Accesses members using a direct structure variable).
+- ->     : Arrow operator (Accesses members using a structure POINTER variable).
+
+[3] SYNTAX & DECLARATION
+struct Employee {
+    int emp_id;       // 4 bytes
+    char name[30];    // 30 bytes
+    float lpa;        // 4 bytes
+};
+
+// Variable instantiation:
+struct Employee emp1;
+emp1.emp_id = 101;
+strcpy(emp1.name, "Vimal");
+emp1.lpa = 6.50;
+
+[4] MEMORY ALIGNMENT & STRUCT PADDING
+- Theoretical Size = Sum of member sizes (4 + 30 + 4 = 38 bytes).
+- Actual Allocated Size = Total byte count including alignment padding bytes.
+- Modern CPUs align data members on natural word boundaries (e.g., 4-byte or 
+  8-byte alignment) to optimize memory bus read access.
+- Use sizeof(struct Employee) to determine exact allocated memory footprint.
+
+[5] STRUCTURE VARIANTS
+1. Standard Struct  : Has a struct tag (struct Student s1;).
+2. Typedef Struct   : Creates an alias for concise type usage (Student s1;).
+3. Nested Struct    : A structure embedded as a member inside another structure.
+4. Bit-Field Struct : Explicitly allocates exact bit widths to save memory.
+   Example:
+   struct Flags {
+       unsigned int is_active : 1; // Allocates exactly 1 bit
+       unsigned int role_code : 3; // Allocates exactly 3 bits
+   };
+
+
+================================================================================
+2. UNIONS (union) IN C
+--------------------------------------------------------------------------------
+[1] KEY DEFINITION
+- A user-defined data type where ALL members share the exact same memory location.
+- Only ONE member can hold a valid active value at any given time.
+
+[2] MEMORY ALLOCATION PRINCIPLE
+- Size of Union = Size of its LARGEST member (+ any necessary padding).
+- Example:
+  union Data {
+      int i;         // 4 bytes
+      float f;       // 4 bytes
+      char str[20];  // 20 bytes
+  };
+  sizeof(union Data) == 20 bytes (determined by char str[20]).
+
+[3] STRUCT VS UNION COMPARISON MATRIX
+--------------------------------------------------------------------------------
+Feature               | Structure (struct)          | Union (union)
+----------------------+-----------------------------+---------------------------
+Memory Allocation     | Separate memory for EACH    | SHARED single memory space
+                      | member                      | for ALL members
+Total Byte Size       | Sum of all member sizes     | Equal to LARGEST member
+                      | (+ padding)                 | size (+ padding)
+Member Access         | All members accessible      | Only ONE active member at
+                      | concurrently                | a time
+Value Overwriting     | Mutating one member does    | Mutating one member
+                      | NOT alter other members     | OVERWRITES all members
+Use Case              | Grouping related distinct   | Storing alternative values
+                      | attributes (e.g. Student)   | or variant types (saves RAM)
+
+[4] TAGGED UNIONS (VARIANT RECORDS)
+- Combining an enum tag with a struct and union to safely manage dynamically 
+  typed variables without data corruption.
+
+
+================================================================================
+3. POINTERS IN C
+--------------------------------------------------------------------------------
+[1] KEY DEFINITION
+- A variable that stores the MEMORY ADDRESS of another variable.
+
+[2] KEY OPERATORS
+- & : Address-of operator (Fetches memory address of a variable).
+- * : Dereference / Indirection operator (Accesses value stored at target address).
+
+[3] SYNTAX & INITIALIZATION
+int num = 42;
+int *ptr = &num; // ptr stores memory address of num
+
+[4] POINTER ARCHITECTURE & MEMORY FOOTPRINT
+- Pointer size is FIXED based on system architecture, regardless of data type:
+  - 32-bit Architecture : 4 Bytes (32-bit memory address space)
+  - 64-bit Architecture : 8 Bytes (64-bit memory address space)
+- sizeof(int*) == sizeof(char*) == sizeof(double*) == sizeof(struct Employee*)
+
+[5] POINTER TAXONOMY & TYPES
+1. Null Pointer     : Points to nothing (int *ptr = NULL;). Safe default state.
+2. Wild Pointer     : Uninitialized pointer containing random garbage address.
+3. Void Pointer     : Generic pointer (void *ptr) holding address of ANY type.
+                      MUST be explicitly typecast before dereferencing!
+4. Dangling Pointer : Points to a memory location that has been freed or out of scope.
+
+
+================================================================================
+4. POINTER ARITHMETIC & ARRAYS
+--------------------------------------------------------------------------------
+[1] POINTER ARITHMETIC SCALING
+- Adding or subtracting integers from a pointer scales by sizeof(DataType):
+  ptr + i  == Address + (i * sizeof(*ptr))
+  ptr++    == Advances pointer to next data element (+4 bytes for int*)
+
+[2] ARRAY-POINTER EQUIVALENCE
+- An array name decays to a pointer to its first element:
+  arr == &arr[0]
+  arr[i] == *(arr + i)
+  &arr[i] == (arr + i)
+
+[3] POINTER SUBTRACTION
+- Subtracting two pointers of the same type yields the number of elements between them:
+  ptrdiff_t count = end_ptr - start_ptr;
+
+
+================================================================================
+5. CALL BY REFERENCE & STRUCTURE POINTERS
+--------------------------------------------------------------------------------
+[1] CALL BY VALUE VS CALL BY REFERENCE
+- Call by Value     : Function receives a copy of arguments. Changes stay local.
+- Call by Reference : Function receives memory addresses via pointers. Modifies 
+                      caller variables directly.
+
+[2] SWAP FUNCTION IMPLEMENTATION
+void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+[3] STRUCTURE POINTERS & ARROW OPERATOR
+- When a pointer points to a structure, use arrow (->) operator for member access:
+  struct Student s = {101, "Alice", 3.8};
+  struct Student *ptr = &s;
+  ptr->gpa = 3.95; // Equivalent to (*ptr).gpa = 3.95;
+
+
+================================================================================
+6. DYNAMIC MEMORY ALLOCATION (DMA)
+--------------------------------------------------------------------------------
+[1] STACK VS HEAP MEMORY
+- Stack : Fast, automatic allocation/deallocation for local function variables.
+- Heap  : Persistent, dynamic memory allocated manually at runtime.
+
+[2] C ALLOCATION FUNCTIONS (<stdlib.h>)
+1. malloc(size_t size)
+   - Allocates specified bytes of uninitialized (garbage) memory on the heap.
+   - Example: int *arr = (int *)malloc(5 * sizeof(int));
+
+2. calloc(size_t num, size_t size)
+   - Allocates memory for 'num' elements and initializes ALL bytes to ZERO.
+   - Example: int *arr = (int *)calloc(5, sizeof(int));
+
+3. realloc(void *ptr, size_t new_size)
+   - Resizes existing heap memory allocation while preserving existing data.
+   - Example: arr = (int *)realloc(arr, 10 * sizeof(int));
+
+4. free(void *ptr)
+   - Releases allocated heap memory back to the operating system.
+   - Set ptr = NULL after free() to eliminate dangling pointers!

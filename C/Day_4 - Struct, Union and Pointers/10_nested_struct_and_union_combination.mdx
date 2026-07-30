@@ -1,0 +1,27 @@
+# Tagged Unions (Variant Records) in C
+
+## Problem Description
+
+Demonstrate combining structures, unions, and enumerations to build memory-efficient dynamic variant variables (Tagged Unions) capable of safely holding integers, floats, or strings based on a type tag.
+
+## Requirements
+
+- Define `enum DataType { TYPE_INT, TYPE_FLOAT, TYPE_STRING }`.
+- Define `union DataValue` holding integer, float, and string representations.
+- Define `struct TaggedVariable` wrapping `name`, `type` tag, and `value` union.
+- Implement `print_tagged_variable` to safely read union values matching the tag.
+
+## Sample Input
+
+No input required.
+
+## Sample Output
+
+```text
+--- Tagged Union (Variant Record) Demonstration ---
+Variable 'age' [Type: Integer] = 25
+Variable 'gpa' [Type: Float] = 3.85
+Variable 'username' [Type: String] = "coder_pro"
+
+Memory layout of TaggedVariable: 56 bytes (struct size optimized via union)
+```

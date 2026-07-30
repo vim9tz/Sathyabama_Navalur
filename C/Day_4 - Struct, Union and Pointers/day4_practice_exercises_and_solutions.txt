@@ -1,0 +1,701 @@
+================================================================================
+                 DAY 4 PRACTICE EXERCISES & SOLUTIONS
+================================================================================
+
+Each problem is followed immediately by its reference solution.
+
+--------------------------------------------------------------------------------
+PROBLEM 1: Basic Structure Definition and Member Access
+--------------------------------------------------------------------------------
+[Problem Description]
+
+Define a structure named Employee containing an integer employee ID (emp_id),
+a string (name), and a floating-point salary in LPA (lpa). Initialize an 
+instance of this structure, set its fields, and print the employee details.
+
+[Requirements]
+
+- Use struct Employee with members emp_id, name[30], and lpa.
+- Use strcpy to populate the character array field.
+- Print employee details using standard format specifiers.
+
+Sample Input:
+
+No input required.
+
+Sample Output:
+
+ID: 101, Name: Vimal, LPA: 6.50
+
+[Solution Code]
+#include <stdio.h>
+#include <string.h>
+
+struct Employee {
+    int emp_id;
+    char name[30];
+    float lpa;
+};
+
+int main(void) {
+    struct Employee emp;
+
+    emp.emp_id = 101;
+    strcpy(emp.name, "Vimal");
+    emp.lpa = 6.50;
+
+    printf("ID: %d, Name: %s, LPA: %.2f\n", emp.emp_id, emp.name, emp.lpa);
+    return 0;
+}
+
+
+--------------------------------------------------------------------------------
+PROBLEM 2: Array of Structures and Nested Structure Processing
+--------------------------------------------------------------------------------
+[Problem Description]
+
+Demonstrate nested structures (Payslip inside Employee), alias creation using 
+typedef, initializing an array of structures, iterating through the array to 
+display details, and printing the size of the structure in memory using sizeof.
+
+[Requirements]
+
+- Define a Payslip structure with month and salary.
+- Define an Employee structure containing emp_id, name, salary, and a nested Payslip.
+- Initialize an array of 3 employees and a standalone employee.
+- Print individual payslips and iterate through all employee records.
+- Output sizeof(emp).
+
+Sample Input:
+
+No input required.
+
+Sample Output:
+
+January salary for Alice: 50000.00
+January salary for Bob: 60000.00
+January salary for Charlie: 55000.00
+January salary for Special Employee (John Doe): 70000.00
+
+Employee Details:
+
+--- Employee 1 ---
+Employee ID: 101
+Name: Alice
+Salary: 50000.00
+Payslip - Month: January, Salary: 50000.00
+
+--- Employee 2 ---
+Employee ID: 102
+Name: Bob
+Salary: 60000.00
+Payslip - Month: January, Salary: 60000.00
+
+--- Employee 3 ---
+Employee ID: 103
+Name: Charlie
+Salary: 55000.00
+Payslip - Month: January, Salary: 55000.00
+
+Total memory allocated for Employee structure: 68 bytes
+
+[Solution Code]
+#include <stdio.h>
+
+typedef struct Payslip {
+    char month[30];
+    float salary;
+} pay;
+
+typedef struct Employee {
+    int emp_id;
+    char name[30];
+    float salary;
+    pay payslip;
+} emp;
+
+int main(void) {
+    emp specialEmployee = {100, "John Doe", 70000.0f, {"January", 70000.0f}};
+    emp employees[3] = {
+        {101, "Alice", 50000.0f, {"January", 50000.0f}},
+        {102, "Bob", 60000.0f, {"January", 60000.0f}},
+        {103, "Charlie", 55000.0f, {"January", 55000.0f}}
+    };
+
+    printf("January salary for Alice: %.2f\n", employees[0].payslip.salary);
+    printf("January salary for Bob: %.2f\n", employees[1].payslip.salary);
+    printf("January salary for Charlie: %.2f\n", employees[2].payslip.salary);
+    printf("January salary for Special Employee (John Doe): %.2f\n", specialEmployee.payslip.salary);
+
+    printf("\nEmployee Details:\n");
+    for (int i = 0; i < 3; i++) {
+        printf("\n--- Employee %d ---\n", i + 1);
+        printf("Employee ID: %d\n", employees[i].emp_id);
+        printf("Name: %s\n", employees[i].name);
+        printf("Salary: %.2f\n", employees[i].salary);
+        printf("Payslip - Month: %s, Salary: %.2f\n", employees[i].payslip.month, employees[i].payslip.salary);
+    }
+    printf("\nTotal memory allocated for Employee structure: %zu bytes\n", sizeof(emp));
+    return 0;
+}
+
+
+--------------------------------------------------------------------------------
+PROBLEM 3: Structure Pointers and Arrow Operator Access
+--------------------------------------------------------------------------------
+[Problem Description]
+
+Demonstrate pointers to structures, member access via the arrow (->) operator, 
+and passing structure pointers to functions to modify structure fields by reference.
+
+[Requirements]
+
+- Define a struct Student with roll_no, name, and gpa.
+- Write update_gpa taking struct Student * and a new GPA value.
+- Write print_student taking const struct Student * to display fields using ->.
+- Pass structure address to functions and verify modifications in main.
+
+Sample Input:
+
+No input required.
+
+Sample Output:
+
+Original Details:
+Roll No: 101, Name: Ananya, GPA: 3.75
+Updated Details (after pass-by-reference update):
+Roll No: 101, Name: Ananya, GPA: 3.95
+
+[Solution Code]
+#include <stdio.h>
+#include <string.h>
+
+struct Student {
+    int roll_no;
+    char name[50];
+    float gpa;
+};
+
+void update_gpa(struct Student *s, float new_gpa) {
+    s->gpa = new_gpa;
+}
+
+void print_student(const struct Student *s) {
+    printf("Roll No: %d, Name: %s, GPA: %.2f\n", s->roll_no, s->name, s->gpa);
+}
+
+int main(void) {
+    struct Student s1 = {101, "Ananya", 3.75f};
+    struct Student *ptr = &s1;
+
+    printf("Original Details:\n");
+    print_student(ptr);
+
+    update_gpa(ptr, 3.95f);
+
+    printf("Updated Details (after pass-by-reference update):\n");
+    print_student(&s1);
+
+    return 0;
+}
+
+
+--------------------------------------------------------------------------------
+PROBLEM 4: Union Memory Sharing and Overwrite Behavior
+--------------------------------------------------------------------------------
+[Problem Description]
+
+Demonstrate union declaration, memory allocation behavior (sharing the same 
+memory location across all members), member overwrite effects, and compare 
+sizeof(union) with sizeof(struct).
+
+[Requirements]
+
+- Define a union Data and a struct DataStruct with identical member types.
+- Print sizes of both types to prove unions allocate memory equal to largest member.
+- Assign values sequentially and print after each assignment.
+- Access previously written fields after writing to a new field to demonstrate corruption.
+
+Sample Input:
+
+No input required.
+
+Sample Output:
+
+Size of union Data: 20 bytes
+Size of struct DataStruct: 28 bytes
+
+--- Setting Union Fields One by One ---
+u.i = 10
+u.f = 220.50
+u.str = C Programming
+
+--- Accessing Overwritten Union Members ---
+u.i (corrupted value) = 1919899459
+u.f (corrupted value) = 13823528776469440.00
+u.str (valid value)   = C Programming
+
+[Solution Code]
+#include <stdio.h>
+#include <string.h>
+
+union Data {
+    int i;
+    float f;
+    char str[20];
+};
+
+struct DataStruct {
+    int i;
+    float f;
+    char str[20];
+};
+
+int main(void) {
+    union Data u;
+    struct DataStruct s;
+
+    printf("Size of union Data: %zu bytes\n", sizeof(u));
+    printf("Size of struct DataStruct: %zu bytes\n", sizeof(s));
+
+    printf("\n--- Setting Union Fields One by One ---\n");
+    u.i = 10;
+    printf("u.i = %d\n", u.i);
+
+    u.f = 220.5f;
+    printf("u.f = %.2f\n", u.f);
+
+    strcpy(u.str, "C Programming");
+    printf("u.str = %s\n", u.str);
+
+    printf("\n--- Accessing Overwritten Union Members ---\n");
+    printf("u.i (corrupted value) = %d\n", u.i);
+    printf("u.f (corrupted value) = %.2f\n", u.f);
+    printf("u.str (valid value)   = %s\n", u.str);
+
+    return 0;
+}
+
+
+--------------------------------------------------------------------------------
+PROBLEM 5: Pointer Declaration, Address-Of, and Dereferencing
+--------------------------------------------------------------------------------
+[Problem Description]
+
+Demonstrate pointer variable declaration, storing memory addresses using the 
+address-of (&) operator, retrieving values using the dereference (*) operator, 
+and mutating original variable values indirectly through pointers.
+
+[Requirements]
+
+- Declare an integer variable num initialized to 42.
+- Declare a pointer ptr pointing to num.
+- Display memory addresses and dereferenced values.
+- Modify num via *ptr = 100 and verify the updated value.
+
+Sample Input:
+
+No input required.
+
+Sample Output:
+
+Value of num: 42
+Address of num (&num): 0x7fff5fbff8ac
+Value stored in ptr (ptr): 0x7fff5fbff8ac
+Value pointed to by ptr (*ptr): 42
+Address of pointer variable (&ptr): 0x7fff5fbff8a0
+
+After modifying *ptr = 100:
+New value of num: 100
+New value of *ptr: 100
+
+[Solution Code]
+#include <stdio.h>
+
+int main(void) {
+    int num = 42;
+    int *ptr = &num;
+
+    printf("Value of num: %d\n", num);
+    printf("Address of num (&num): %p\n", (void *)&num);
+    printf("Value stored in ptr (ptr): %p\n", (void *)ptr);
+    printf("Value pointed to by ptr (*ptr): %d\n", *ptr);
+    printf("Address of pointer variable (&ptr): %p\n", (void *)&ptr);
+
+    *ptr = 100;
+    printf("\nAfter modifying *ptr = 100:\n");
+    printf("New value of num: %d\n", num);
+    printf("New value of *ptr: %d\n", *ptr);
+
+    return 0;
+}
+
+
+--------------------------------------------------------------------------------
+PROBLEM 6: Swapping Variables via Call-by-Reference Pointers
+--------------------------------------------------------------------------------
+[Problem Description]
+
+Compare pass-by-value and pass-by-reference mechanisms in C by writing function 
+routines to swap two integer variables and observing memory mutation behavior in main.
+
+[Requirements]
+
+- Implement swap_by_value(int a, int b) and demonstrate why it fails to alter caller arguments.
+- Implement swap_by_reference(int *a, int *b) using pointers to swap values directly in caller memory.
+- Display x and y before and after both function invocations.
+
+Sample Input:
+
+No input required.
+
+Sample Output:
+
+Original Values: x = 10, y = 20
+After swap_by_value: x = 10, y = 20 (No change)
+After swap_by_reference: x = 20, y = 10 (Successfully swapped)
+
+[Solution Code]
+#include <stdio.h>
+
+void swap_by_value(int a, int b) {
+    int temp = a;
+    a = b;
+    b = temp;
+}
+
+void swap_by_reference(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+int main(void) {
+    int x = 10, y = 20;
+
+    printf("Original Values: x = %d, y = %d\n", x, y);
+
+    swap_by_value(x, y);
+    printf("After swap_by_value: x = %d, y = %d (No change)\n", x, y);
+
+    swap_by_reference(&x, &y);
+    printf("After swap_by_reference: x = %d, y = %d (Successfully swapped)\n", x, y);
+
+    return 0;
+}
+
+
+--------------------------------------------------------------------------------
+PROBLEM 7: Pointer Arithmetic and Array Traversal
+--------------------------------------------------------------------------------
+[Problem Description]
+
+Demonstrate pointer arithmetic (ptr + i, *(ptr + i), ptr++), array traversal 
+through pointers, accumulator sum using pointers, and pointer subtraction.
+
+[Requirements]
+
+- Declare an array of 5 integers {10, 20, 30, 40, 50}.
+- Traverse the array using offset pointer notation *(ptr + i).
+- Traverse the array using pointer incrementing ptr++.
+- Compute pointer distance end - start.
+
+Sample Input:
+
+No input required.
+
+Sample Output:
+
+Traversing array using *(ptr + i) pointer arithmetic:
+Address of arr[0]: 0x7fff5fbff880 | Value: 10
+Address of arr[1]: 0x7fff5fbff884 | Value: 20
+Address of arr[2]: 0x7fff5fbff888 | Value: 30
+Address of arr[3]: 0x7fff5fbff88c | Value: 40
+Address of arr[4]: 0x7fff5fbff890 | Value: 50
+Sum of array elements using pointer arithmetic: 150
+
+Traversing array using pointer increment (ptr++):
+Current p: 0x7fff5fbff880 | Value: 10
+Current p: 0x7fff5fbff884 | Value: 20
+Current p: 0x7fff5fbff888 | Value: 30
+Current p: 0x7fff5fbff88c | Value: 40
+Current p: 0x7fff5fbff890 | Value: 50
+
+Pointer subtraction / distance calculation:
+Elements between end and start: 4 elements
+
+[Solution Code]
+#include <stdio.h>
+
+int main(void) {
+    int arr[5] = {10, 20, 30, 40, 50};
+    int *ptr = arr;
+    int sum = 0;
+
+    printf("Traversing array using *(ptr + i) pointer arithmetic:\n");
+    for (int i = 0; i < 5; i++) {
+        printf("Address of arr[%d]: %p | Value: %d\n", i, (void *)(ptr + i), *(ptr + i));
+        sum += *(ptr + i);
+    }
+    printf("Sum of array elements using pointer arithmetic: %d\n", sum);
+
+    printf("\nTraversing array using pointer increment (ptr++):\n");
+    int *p = arr;
+    for (int i = 0; i < 5; i++) {
+        printf("Current p: %p | Value: %d\n", (void *)p, *p);
+        p++;
+    }
+
+    printf("\nPointer subtraction / distance calculation:\n");
+    int *start = &arr[0];
+    int *end = &arr[4];
+    printf("Elements between end and start: %ld elements\n", end - start);
+
+    return 0;
+}
+
+
+--------------------------------------------------------------------------------
+PROBLEM 8: Dynamic Memory Allocation using malloc, realloc, and free
+--------------------------------------------------------------------------------
+[Problem Description]
+
+Demonstrate heap memory allocation using malloc, safety checking against NULL, 
+expanding array size dynamically using realloc, and freeing heap memory using free.
+
+[Requirements]
+
+- Allocate memory for 3 integers using malloc.
+- Verify memory allocation success (arr != NULL).
+- Populate initial array elements {100, 200, 300}.
+- Expand allocation to 5 integers using realloc.
+- Add new elements {400, 500} and print the expanded array.
+- Free heap memory with free(arr) and set pointer to NULL.
+
+Sample Input:
+
+No input required.
+
+Sample Output:
+
+Dynamically allocated array of size 3:
+arr[0] = 100
+arr[1] = 200
+arr[2] = 300
+
+Resized array dynamically to size 5:
+arr[0] = 100
+arr[1] = 200
+arr[2] = 300
+arr[3] = 400
+arr[4] = 500
+
+Memory successfully freed.
+
+[Solution Code]
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+    int initial_capacity = 3;
+    int *arr = (int *)malloc(initial_capacity * sizeof(int));
+
+    if (arr == NULL) {
+        printf("Memory allocation failed!\n");
+        return 1;
+    }
+
+    printf("Dynamically allocated array of size %d:\n", initial_capacity);
+    for (int i = 0; i < initial_capacity; i++) {
+        arr[i] = (i + 1) * 100;
+        printf("arr[%d] = %d\n", i, arr[i]);
+    }
+
+    int new_capacity = 5;
+    int *temp = (int *)realloc(arr, new_capacity * sizeof(int));
+
+    if (temp == NULL) {
+        printf("Memory reallocation failed!\n");
+        free(arr);
+        return 1;
+    }
+    arr = temp;
+
+    printf("\nResized array dynamically to size %d:\n", new_capacity);
+    arr[3] = 400;
+    arr[4] = 500;
+
+    for (int i = 0; i < new_capacity; i++) {
+        printf("arr[%d] = %d\n", i, arr[i]);
+    }
+
+    free(arr);
+    arr = NULL;
+    printf("\nMemory successfully freed.\n");
+
+    return 0;
+}
+
+
+--------------------------------------------------------------------------------
+PROBLEM 9: Generic Void Pointers and NULL Pointer Safety Guards
+--------------------------------------------------------------------------------
+[Problem Description]
+
+Demonstrate generic void * pointers in C, explicit typecasting to specific pointer 
+types before dereferencing, and NULL pointer safety guards to avoid segmentation faults.
+
+[Requirements]
+
+- Write a generic function print_generic_value(void *ptr, char type) supporting 'i', 'f', and 'c'.
+- Pass pointers to integer, float, and char variables to the generic function.
+- Test NULL pointer input to ensure the guard condition blocks dereferencing.
+
+Sample Input:
+
+No input required.
+
+Sample Output:
+
+--- Demonstrating Generic void* Pointers ---
+Integer Value: 123
+Float Value: 3.14
+Character Value: A
+
+--- Demonstrating NULL Pointer Guard ---
+Error: NULL pointer passed!
+
+[Solution Code]
+#include <stdio.h>
+
+void print_generic_value(void *ptr, char type) {
+    if (ptr == NULL) {
+        printf("Error: NULL pointer passed!\n");
+        return;
+    }
+
+    switch (type) {
+        case 'i':
+            printf("Integer Value: %d\n", *(int *)ptr);
+            break;
+        case 'f':
+            printf("Float Value: %.2f\n", *(float *)ptr);
+            break;
+        case 'c':
+            printf("Character Value: %c\n", *(char *)ptr);
+            break;
+        default:
+            printf("Unknown type specifier!\n");
+            break;
+    }
+}
+
+int main(void) {
+    int num = 123;
+    float pi = 3.14159f;
+    char letter = 'A';
+    int *null_ptr = NULL;
+
+    printf("--- Demonstrating Generic void* Pointers ---\n");
+    print_generic_value(&num, 'i');
+    print_generic_value(&pi, 'f');
+    print_generic_value(&letter, 'c');
+
+    printf("\n--- Demonstrating NULL Pointer Guard ---\n");
+    print_generic_value(null_ptr, 'i');
+
+    return 0;
+}
+
+
+--------------------------------------------------------------------------------
+PROBLEM 10: Tagged Unions (Variant Records) with Struct and Enum
+--------------------------------------------------------------------------------
+[Problem Description]
+
+Demonstrate combining structures, unions, and enumerations to build memory-efficient 
+dynamic variant variables (Tagged Unions) capable of safely holding integers, 
+floats, or strings based on a type tag.
+
+[Requirements]
+
+- Define enum DataType { TYPE_INT, TYPE_FLOAT, TYPE_STRING }.
+- Define union DataValue holding integer, float, and string representations.
+- Define struct TaggedVariable wrapping name, type tag, and value union.
+- Implement print_tagged_variable to safely read union values matching the tag.
+
+Sample Input:
+
+No input required.
+
+Sample Output:
+
+--- Tagged Union (Variant Record) Demonstration ---
+Variable 'age' [Type: Integer] = 25
+Variable 'gpa' [Type: Float] = 3.85
+Variable 'username' [Type: String] = "coder_pro"
+
+Memory layout of TaggedVariable: 56 bytes (struct size optimized via union)
+
+[Solution Code]
+#include <stdio.h>
+#include <string.h>
+
+typedef enum DataType {
+    TYPE_INT,
+    TYPE_FLOAT,
+    TYPE_STRING
+} DataType;
+
+typedef union DataValue {
+    int i_val;
+    float f_val;
+    char s_val[30];
+} DataValue;
+
+typedef struct TaggedVariable {
+    char name[20];
+    DataType type;
+    DataValue value;
+} TaggedVariable;
+
+void print_tagged_variable(const TaggedVariable *var) {
+    printf("Variable '%s' [Type: ", var->name);
+    switch (var->type) {
+        case TYPE_INT:
+            printf("Integer] = %d\n", var->value.i_val);
+            break;
+        case TYPE_FLOAT:
+            printf("Float] = %.2f\n", var->value.f_val);
+            break;
+        case TYPE_STRING:
+            printf("String] = \"%s\"\n", var->value.s_val);
+            break;
+    }
+}
+
+int main(void) {
+    TaggedVariable v1;
+    strcpy(v1.name, "age");
+    v1.type = TYPE_INT;
+    v1.value.i_val = 25;
+
+    TaggedVariable v2;
+    strcpy(v2.name, "gpa");
+    v2.type = TYPE_FLOAT;
+    v2.value.f_val = 3.85f;
+
+    TaggedVariable v3;
+    strcpy(v3.name, "username");
+    v3.type = TYPE_STRING;
+    strcpy(v3.value.s_val, "coder_pro");
+
+    printf("--- Tagged Union (Variant Record) Demonstration ---\n");
+    print_tagged_variable(&v1);
+    print_tagged_variable(&v2);
+    print_tagged_variable(&v3);
+
+    printf("\nMemory layout of TaggedVariable: %zu bytes (struct size optimized via union)\n", sizeof(TaggedVariable));
+
+    return 0;
+}

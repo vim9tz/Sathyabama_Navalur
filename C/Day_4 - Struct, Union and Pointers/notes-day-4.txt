@@ -1,0 +1,89 @@
+STRUCTS, UNIONS, POINTERS & DYNAMIC MEMORY
+
+======================================================================
+                     1. STRUCT (STRUCTURE)
+======================================================================
+
+[1] KEY DEFINITION
+- A user-defined data type used to group variables of DIFFERENT data types.
+
+[2] KEYWORD & OPERATORS
+- struct : Structure keyword
+- { }    : Encloses structure members
+- ;      : Terminates structure definition
+- .      : Dot operator (Accesses member using normal variable)
+- ->     : Arrow operator (Accesses member using pointer variable)
+
+[3] SYNTAX
+struct Student {
+    int roll_no;
+    char name[20];
+    float marks;
+}; // size 28 bytes (+ padding if any)
+
+[4] MEMORY SIZE
+- Total Size = Sum of memory of ALL members (+ padding bytes if any).
+- Function: sizeof(struct Student)
+
+[5] TYPES / VARIANTS
+1. Standard Struct  : Has a struct name (e.g., struct Student s1;)
+2. Typedef Struct   : Creates a shorthand name (e.g., Student s1;)
+3. Nested Struct    : A struct inside another struct
+4. Bit-Field Struct : Defines exact bits for members to save memory
+
+[6] REAL-WORLD APPLICATION
+- Storing Student Records (Roll No, Name, Marks)
+- Storing Bank Account Details (Account No, Holder Name, Balance)
+
+======================================================================
+                     2. UNION (UNIONS)
+======================================================================
+
+[1] KEY DEFINITION
+- A user-defined data type where all members share the SAME memory location.
+
+[2] MEMORY SIZE
+- Total Size = Size of the LARGEST member in the union (+ padding).
+
+[3] KEY DIFFERENCE FROM STRUCT
+- Struct allocates separate memory for every member.
+- Union allocates a single shared memory block; writing one member overwrites others.
+
+======================================================================
+                     3. POINTERS
+======================================================================
+
+[1] KEY DEFINITION
+- A variable that stores the MEMORY ADDRESS of another variable.
+
+[2] KEYWORD / TOKENS
+- *  : Dereference operator (Value at address operator)
+- &  : Address-of operator (Fetches memory address of a variable)
+
+[3] SYMBOLS & SYNTAX
+datatype *pointer_name;
+
+Example:
+int num = 10;
+int *ptr = &num;    // ptr holds the memory address of num
+
+[4] MEMORY SIZE
+- FIXED size regardless of data type (Depends on system architecture only):
+  - 32-bit Architecture : 4 bytes
+  - 64-bit Architecture : 8 bytes
+- sizeof(int*) == sizeof(char*) == sizeof(double*)
+
+[5] TYPES / VARIANTS OF POINTERS
+1. Null Pointer     : Points to nothing (int *ptr = NULL;)
+2. Wild Pointer     : Uninitialized pointer containing garbage address
+3. Void Pointer     : Generic pointer holding address of any data type (void *ptr)
+4. Dangling Pointer : Points to a memory location that has been deleted/freed
+
+[6] POINTER ARITHMETIC & ARRAYS
+- ptr + i advances pointer by (i * sizeof(type)) bytes.
+- arr[i] is equivalent to *(arr + i).
+
+[7] REAL-WORLD APPLICATION
+- Pass-by-reference in functions (Modifying original variables directly)
+- Array manipulation and efficient string handling
+- Dynamic Memory Allocation (malloc, calloc, realloc, free)
