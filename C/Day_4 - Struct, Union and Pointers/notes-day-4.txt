@@ -1,4 +1,4 @@
-STRUCTS, UNIONS, POINTERS & DYNAMIC MEMORY
+STRUCTS, UNIONS & POINTERS
 
 ======================================================================
                      1. STRUCT (STRUCTURE)
@@ -86,4 +86,3 @@ int *ptr = &num;    // ptr holds the memory address of num
 [7] REAL-WORLD APPLICATION
 - Pass-by-reference in functions (Modifying original variables directly)
 - Array manipulation and efficient string handling
-- Dynamic Memory Allocation (malloc, calloc, realloc, free)

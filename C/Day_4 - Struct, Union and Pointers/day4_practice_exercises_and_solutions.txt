@@ -141,7 +141,111 @@ int main(void) {
 
 
 --------------------------------------------------------------------------------
-PROBLEM 3: Structure Pointers and Arrow Operator Access
+PROBLEM 3: Interactive Array of Employee Structures with Dynamic Payslip Entry
+--------------------------------------------------------------------------------
+[Problem Description]
+
+Implement an interactive C program that stores details for 3 employees. Each 
+employee contains an ID, name, LPA, and an array of up to 12 monthly payslips. 
+Prompt the user dynamically to enter payslip records per month until the user 
+chooses to stop ('n'/'N').
+
+[Requirements]
+
+- Define a Payslip structure with month (10 chars) and salary (float).
+- Define an Employee structure with emp_id, name, lpa, and an array Payslip[12].
+- Use memset to zero-initialize structure memory to prevent garbage strings.
+- Prompt for employee input and allow early loop exit per employee when choice == 'n' or 'N'.
+- Iterate through records and print formatted monthly payslips for non-empty records.
+
+Sample Input:
+
+101
+Vimal Kumar
+6.5
+y
+January
+54000.00
+n
+102
+Anita Sharma
+8.0
+n
+103
+Rohan Gupta
+7.2
+n
+
+Sample Output:
+
+=== EMPLOYEE PAYSLIP RECORDS ===
+--- Employee: Vimal Kumar ID: 101 ---
+ Month: January    | Salary: 54000.00
+
+--- Employee: Anita Sharma ID: 102 ---
+
+--- Employee: Rohan Gupta ID: 103 ---
+
+[Solution Code]
+#include <stdio.h>
+#include <string.h>
+
+typedef struct Payslip {
+    char month[10];
+    float salary;
+} pay;
+
+typedef struct Employee {
+    int emp_id;
+    char name[30];
+    float lpa;
+    pay Payslip[12];
+} emp;
+
+int main(void) {
+    emp employees[3];
+    memset(employees, 0, sizeof(employees));
+
+    for (int i = 0; i < 3; i++) {
+        printf("\n === Enter Details for Employee %d ===\n", i + 1);
+        printf("Enter Employee ID: ");
+        scanf("%d", &employees[i].emp_id);
+        printf("Enter name: ");
+        scanf(" %[^\n]s", employees[i].name);
+        printf("Enter LPA (Lakhs per annum): ");
+        scanf("%f", &employees[i].lpa);
+
+        char choice;
+        for (int j = 0; j < 12; j++) {
+            printf("Do you want to enter a payslip for month %d? (y/n): ", j + 1);
+            scanf(" %c", &choice);
+            if (choice == 'n' || choice == 'N') {
+                break;
+            }
+            printf("  Enter Month Name (e.g., January): ");
+            scanf("%s", employees[i].Payslip[j].month);
+            printf("  Enter Salary for %s: ", employees[i].Payslip[j].month);
+            scanf("%f", &employees[i].Payslip[j].salary);
+        }
+    }
+
+    printf("\n=== EMPLOYEE PAYSLIP RECORDS ===\n");
+    for (int i = 0; i < 3; i++) {
+        printf("--- Employee: %s ID: %d ---\n", employees[i].name, employees[i].emp_id);
+        for (int j = 0; j < 12; j++) {
+            if (employees[i].Payslip[j].month[0] != '\0') {
+                printf(" Month: %-10s | Salary: %.2f\n", employees[i].Payslip[j].month, employees[i].Payslip[j].salary);
+            }
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+
+
+--------------------------------------------------------------------------------
+PROBLEM 4: Structure Pointers and Arrow Operator Access
 --------------------------------------------------------------------------------
 [Problem Description]
 
@@ -201,7 +305,7 @@ int main(void) {
 
 
 --------------------------------------------------------------------------------
-PROBLEM 4: Union Memory Sharing and Overwrite Behavior
+PROBLEM 5: Union Memory Sharing and Overwrite Behavior
 --------------------------------------------------------------------------------
 [Problem Description]
 
@@ -278,7 +382,7 @@ int main(void) {
 
 
 --------------------------------------------------------------------------------
-PROBLEM 5: Pointer Declaration, Address-Of, and Dereferencing
+PROBLEM 6: Pointer Declaration, Address-Of, and Dereferencing
 --------------------------------------------------------------------------------
 [Problem Description]
 
@@ -332,7 +436,7 @@ int main(void) {
 
 
 --------------------------------------------------------------------------------
-PROBLEM 6: Swapping Variables via Call-by-Reference Pointers
+PROBLEM 7: Swapping Variables via Call-by-Reference Pointers
 --------------------------------------------------------------------------------
 [Problem Description]
 
@@ -386,7 +490,7 @@ int main(void) {
 
 
 --------------------------------------------------------------------------------
-PROBLEM 7: Pointer Arithmetic and Array Traversal
+PROBLEM 8: Pointer Arithmetic and Array Traversal
 --------------------------------------------------------------------------------
 [Problem Description]
 
@@ -450,88 +554,6 @@ int main(void) {
     int *start = &arr[0];
     int *end = &arr[4];
     printf("Elements between end and start: %ld elements\n", end - start);
-
-    return 0;
-}
-
-
---------------------------------------------------------------------------------
-PROBLEM 8: Dynamic Memory Allocation using malloc, realloc, and free
---------------------------------------------------------------------------------
-[Problem Description]
-
-Demonstrate heap memory allocation using malloc, safety checking against NULL, 
-expanding array size dynamically using realloc, and freeing heap memory using free.
-
-[Requirements]
-
-- Allocate memory for 3 integers using malloc.
-- Verify memory allocation success (arr != NULL).
-- Populate initial array elements {100, 200, 300}.
-- Expand allocation to 5 integers using realloc.
-- Add new elements {400, 500} and print the expanded array.
-- Free heap memory with free(arr) and set pointer to NULL.
-
-Sample Input:
-
-No input required.
-
-Sample Output:
-
-Dynamically allocated array of size 3:
-arr[0] = 100
-arr[1] = 200
-arr[2] = 300
-
-Resized array dynamically to size 5:
-arr[0] = 100
-arr[1] = 200
-arr[2] = 300
-arr[3] = 400
-arr[4] = 500
-
-Memory successfully freed.
-
-[Solution Code]
-#include <stdio.h>
-#include <stdlib.h>
-
-int main(void) {
-    int initial_capacity = 3;
-    int *arr = (int *)malloc(initial_capacity * sizeof(int));
-
-    if (arr == NULL) {
-        printf("Memory allocation failed!\n");
-        return 1;
-    }
-
-    printf("Dynamically allocated array of size %d:\n", initial_capacity);
-    for (int i = 0; i < initial_capacity; i++) {
-        arr[i] = (i + 1) * 100;
-        printf("arr[%d] = %d\n", i, arr[i]);
-    }
-
-    int new_capacity = 5;
-    int *temp = (int *)realloc(arr, new_capacity * sizeof(int));
-
-    if (temp == NULL) {
-        printf("Memory reallocation failed!\n");
-        free(arr);
-        return 1;
-    }
-    arr = temp;
-
-    printf("\nResized array dynamically to size %d:\n", new_capacity);
-    arr[3] = 400;
-    arr[4] = 500;
-
-    for (int i = 0; i < new_capacity; i++) {
-        printf("arr[%d] = %d\n", i, arr[i]);
-    }
-
-    free(arr);
-    arr = NULL;
-    printf("\nMemory successfully freed.\n");
 
     return 0;
 }

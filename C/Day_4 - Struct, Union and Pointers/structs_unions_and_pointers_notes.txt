@@ -1,5 +1,5 @@
 ================================================================================
-           DAY 4: STRUCTURES, UNIONS, POINTERS & DYNAMIC MEMORY
+           DAY 4: STRUCTURES, UNIONS & POINTERS MASTER REFERENCE
 ================================================================================
 
 1. STRUCTURES (struct) IN C
@@ -40,11 +40,6 @@ emp1.lpa = 6.50;
 2. Typedef Struct   : Creates an alias for concise type usage (Student s1;).
 3. Nested Struct    : A structure embedded as a member inside another structure.
 4. Bit-Field Struct : Explicitly allocates exact bit widths to save memory.
-   Example:
-   struct Flags {
-       unsigned int is_active : 1; // Allocates exactly 1 bit
-       unsigned int role_code : 3; // Allocates exactly 3 bits
-   };
 
 
 ================================================================================
@@ -151,28 +146,3 @@ void swap(int *a, int *b) {
   struct Student s = {101, "Alice", 3.8};
   struct Student *ptr = &s;
   ptr->gpa = 3.95; // Equivalent to (*ptr).gpa = 3.95;
-
-
-================================================================================
-6. DYNAMIC MEMORY ALLOCATION (DMA)
---------------------------------------------------------------------------------
-[1] STACK VS HEAP MEMORY
-- Stack : Fast, automatic allocation/deallocation for local function variables.
-- Heap  : Persistent, dynamic memory allocated manually at runtime.
-
-[2] C ALLOCATION FUNCTIONS (<stdlib.h>)
-1. malloc(size_t size)
-   - Allocates specified bytes of uninitialized (garbage) memory on the heap.
-   - Example: int *arr = (int *)malloc(5 * sizeof(int));
-
-2. calloc(size_t num, size_t size)
-   - Allocates memory for 'num' elements and initializes ALL bytes to ZERO.
-   - Example: int *arr = (int *)calloc(5, sizeof(int));
-
-3. realloc(void *ptr, size_t new_size)
-   - Resizes existing heap memory allocation while preserving existing data.
-   - Example: arr = (int *)realloc(arr, 10 * sizeof(int));
-
-4. free(void *ptr)
-   - Releases allocated heap memory back to the operating system.
-   - Set ptr = NULL after free() to eliminate dangling pointers!
