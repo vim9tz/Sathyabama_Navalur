@@ -1,0 +1,45 @@
+# Interactive Array of Employee Structures with Dynamic Payslip Entry in C
+
+## Problem Description
+
+Implement an interactive C program that stores details for 3 employees. Each employee contains an ID, name, LPA, and an array of up to 12 monthly payslips. Prompt the user dynamically to enter payslip records per month until the user chooses to stop (`'n'`/`'N'`).
+
+## Requirements
+
+- Define a `Payslip` structure with `month` (10 chars) and `salary` (float).
+- Define an `Employee` structure with `emp_id`, `name`, `lpa`, and an array `Payslip[12]`.
+- Use `memset` to zero-initialize structure memory to prevent garbage strings.
+- Prompt for employee input and allow early loop exit per employee when `choice == 'n'` or `'N'`.
+- Iterate through records and print formatted monthly payslips for non-empty records (`month[0] != '\0'`).
+
+## Sample Input
+
+```text
+101
+Vimal Kumar
+6.5
+y
+January
+54000.00
+n
+102
+Anita Sharma
+8.0
+n
+103
+Rohan Gupta
+7.2
+n
+```
+
+## Sample Output
+
+```text
+=== EMPLOYEE PAYSLIP RECORDS ===
+--- Employee: Vimal Kumar ID: 101 ---
+ Month: January    | Salary: 54000.00
+
+--- Employee: Anita Sharma ID: 102 ---
+
+--- Employee: Rohan Gupta ID: 103 ---
+```

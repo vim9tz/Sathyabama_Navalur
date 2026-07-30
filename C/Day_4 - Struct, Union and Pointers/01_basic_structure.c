@@ -12,7 +12,7 @@ int main(void) {
 
     emp.emp_id = 101;
     strcpy(emp.name, "Vimal");
-    emp.lpa = 6.50;
+    emp.lpa = 6.50f;
 
     printf("ID: %d, Name: %s, LPA: %.2f\n", emp.emp_id, emp.name, emp.lpa);
     return 0;

@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <string.h>
 
 struct Student {
     int roll_no;
@@ -22,7 +21,6 @@ int main(void) {
     printf("Original Details:\n");
     print_student(ptr);
 
-    // Modify GPA using structure pointer arrow operator
     update_gpa(ptr, 3.95f);
 
     printf("Updated Details (after pass-by-reference update):\n");
