@@ -1,0 +1,45 @@
+---
+title: "Console Library Management System"
+day: 6
+project: 6
+language: "C11"
+deliverable: "Modular CLI application"
+---
+
+# Project 6: Console Library Management System
+
+## Overview
+
+An automated bookshelf manager for a public or university library to track book availability and member borrowings.
+
+## Technical Requirements
+
+- **Data Entities (`struct`):**
+  - `Book` (ISBN, Title, Author, IsIssued [`0` or `1`], MemberID)
+  - `Member` (Member ID, Name, Books Borrowed Count)
+- **Core Capabilities:**
+  - **Catalog Search:** Search books by ISBN, Title, or Author.
+  - **Checkout / Return Logic:** Issue a book to a member (`IsIssued = 1`) and return a book (`IsIssued = 0`).
+  - **Persistent Storage:** Preserve the entire catalog state so changes remain available across sessions.
+- **Implementation Focus:**
+  - **Struct Serialization:** Plan how complex struct arrays will be serialized to disk and deserialized back into active memory.
+  - **Pointer Passing:** Pass pointers to `Book` structs into functions to modify records directly in memory.
+
+## Required Deliverables
+
+- A short requirements and data-model document.
+- Header files for shared structures and function declarations.
+- Separate source files for menus, operations, and persistence.
+- A documented text or binary storage format.
+- A README containing build commands and test cases.
+- Evidence that saved records survive an application restart.
+
+## Completion Checklist
+
+- [ ] Compiles with `-std=c11 -Wall -Wextra -pedantic`.
+- [ ] Handles invalid menu and record input without crashing.
+- [ ] Checks every allocation and file-opening operation.
+- [ ] Preserves records across program restarts.
+- [ ] Frees owned heap memory and closes every open file.
+- [ ] Keeps generated data and executables outside source files.
+

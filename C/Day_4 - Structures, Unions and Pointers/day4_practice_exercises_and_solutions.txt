@@ -5,13 +5,11 @@
 Each problem is followed immediately by its reference solution.
 
 --------------------------------------------------------------------------------
-PROBLEM 1: Basic Structure Definition and Member Access
+PROBLEM 1: Basic Structure in C
 --------------------------------------------------------------------------------
 [Problem Description]
 
-Define a structure named Employee containing an integer employee ID (emp_id),
-a string (name), and a floating-point salary in LPA (lpa). Initialize an 
-instance of this structure, set its fields, and print the employee details.
+Define a structure named Employee containing an integer employee ID (emp_id), a string (name), and a floating-point salary in LPA (lpa). Initialize an instance of this structure, set its fields, and print the employee details.
 
 [Requirements]
 
@@ -42,26 +40,23 @@ int main(void) {
 
     emp.emp_id = 101;
     strcpy(emp.name, "Vimal");
-    emp.lpa = 6.50;
+    emp.lpa = 6.50f;
 
     printf("ID: %d, Name: %s, LPA: %.2f\n", emp.emp_id, emp.name, emp.lpa);
     return 0;
 }
 
-
 --------------------------------------------------------------------------------
-PROBLEM 2: Array of Structures and Nested Structure Processing
+PROBLEM 2: Array of Structures and Nested Structures in C
 --------------------------------------------------------------------------------
 [Problem Description]
 
-Demonstrate nested structures (Payslip inside Employee), alias creation using 
-typedef, initializing an array of structures, iterating through the array to 
-display details, and printing the size of the structure in memory using sizeof.
+Demonstrate nested structures (Payslip inside Employee), alias creation using typedef, initializing an array of structures, iterating through the array to display details, and printing the size of the structure in memory using sizeof.
 
 [Requirements]
 
 - Define a Payslip structure with month and salary.
-- Define an Employee structure containing emp_id, name, salary, and a nested Payslip.
+- Define an Employee structure containing emp_id, name, salary, and a nested Payslip structure.
 - Initialize an array of 3 employees and a standalone employee.
 - Print individual payslips and iterate through all employee records.
 - Output sizeof(emp).
@@ -97,7 +92,9 @@ Name: Charlie
 Salary: 55000.00
 Payslip - Month: January, Salary: 55000.00
 
-Total memory allocated for Employee structure: 68 bytes
+Total memory allocated for Employee structure: 76 bytes
+
+> Structure size can vary because of platform-specific alignment and padding.
 
 [Solution Code]
 #include <stdio.h>
@@ -139,24 +136,24 @@ int main(void) {
     return 0;
 }
 
-
 --------------------------------------------------------------------------------
-PROBLEM 3: Interactive Array of Employee Structures with Dynamic Payslip Entry
+PROBLEM 3: Interactive Nested Payslip Array in C
 --------------------------------------------------------------------------------
 [Problem Description]
 
-Implement an interactive C program that stores details for 3 employees. Each 
-employee contains an ID, name, LPA, and an array of up to 12 monthly payslips. 
-Prompt the user dynamically to enter payslip records per month until the user 
-chooses to stop ('n'/'N').
+Implement an interactive C program that stores details for three employees. Each
+employee contains an ID, name, LPA, and a fixed array of up to 12 monthly
+payslips. Allow early termination of payslip entry with n or N.
 
 [Requirements]
 
 - Define a Payslip structure with month (10 chars) and salary (float).
-- Define an Employee structure with emp_id, name, lpa, and an array Payslip[12].
+- Define an Employee structure with emp_id, name, lpa, and an array
+  named payslips[12].
 - Use memset to zero-initialize structure memory to prevent garbage strings.
-- Prompt for employee input and allow early loop exit per employee when choice == 'n' or 'N'.
-- Iterate through records and print formatted monthly payslips for non-empty records.
+- Use bounded input for employee names and month names.
+- Allow early loop exit per employee when choice == 'n' or 'N'.
+- Iterate through records and print formatted monthly payslips for non-empty records (month[0] != '\0').
 
 Sample Input:
 
@@ -187,6 +184,7 @@ Sample Output:
 --- Employee: Rohan Gupta ID: 103 ---
 
 [Solution Code]
+
 #include <stdio.h>
 #include <string.h>
 
@@ -199,42 +197,53 @@ typedef struct Employee {
     int emp_id;
     char name[30];
     float lpa;
-    pay Payslip[12];
+    pay payslips[12];
 } emp;
 
 int main(void) {
     emp employees[3];
+    // Clear memory to avoid garbage characters during display
     memset(employees, 0, sizeof(employees));
 
+    // Collect the details
     for (int i = 0; i < 3; i++) {
         printf("\n === Enter Details for Employee %d ===\n", i + 1);
         printf("Enter Employee ID: ");
-        scanf("%d", &employees[i].emp_id);
+        if (scanf("%d", &employees[i].emp_id) != 1)
+            return 1;
         printf("Enter name: ");
-        scanf(" %[^\n]s", employees[i].name);
+        if (scanf(" %29[^\n]", employees[i].name) != 1)
+            return 1;
         printf("Enter LPA (Lakhs per annum): ");
-        scanf("%f", &employees[i].lpa);
+        if (scanf("%f", &employees[i].lpa) != 1)
+            return 1;
 
         char choice;
         for (int j = 0; j < 12; j++) {
             printf("Do you want to enter a payslip for month %d? (y/n): ", j + 1);
-            scanf(" %c", &choice);
+            if (scanf(" %c", &choice) != 1)
+                return 1;
             if (choice == 'n' || choice == 'N') {
-                break;
+                break; // Stop collecting months for this employee
             }
             printf("  Enter Month Name (e.g., January): ");
-            scanf("%s", employees[i].Payslip[j].month);
-            printf("  Enter Salary for %s: ", employees[i].Payslip[j].month);
-            scanf("%f", &employees[i].Payslip[j].salary);
+            if (scanf(" %9s", employees[i].payslips[j].month) != 1)
+                return 1;
+            printf("  Enter Salary for %s: ", employees[i].payslips[j].month);
+            if (scanf("%f", &employees[i].payslips[j].salary) != 1)
+                return 1;
         }
     }
 
+    // Display the details
     printf("\n=== EMPLOYEE PAYSLIP RECORDS ===\n");
     for (int i = 0; i < 3; i++) {
         printf("--- Employee: %s ID: %d ---\n", employees[i].name, employees[i].emp_id);
         for (int j = 0; j < 12; j++) {
-            if (employees[i].Payslip[j].month[0] != '\0') {
-                printf(" Month: %-10s | Salary: %.2f\n", employees[i].Payslip[j].month, employees[i].Payslip[j].salary);
+            if (employees[i].payslips[j].month[0] != '\0') {
+                printf(" Month: %-10s | Salary: %.2f\n",
+                       employees[i].payslips[j].month,
+                       employees[i].payslips[j].salary);
             }
         }
         printf("\n");
@@ -243,14 +252,12 @@ int main(void) {
     return 0;
 }
 
-
 --------------------------------------------------------------------------------
-PROBLEM 4: Structure Pointers and Arrow Operator Access
+PROBLEM 4: Structure Pointers and the Arrow Operator in C
 --------------------------------------------------------------------------------
 [Problem Description]
 
-Demonstrate pointers to structures, member access via the arrow (->) operator, 
-and passing structure pointers to functions to modify structure fields by reference.
+Demonstrate pointers to structures, member access via the arrow (->) operator, and passing structure pointers to functions to modify structure fields by reference.
 
 [Requirements]
 
@@ -272,7 +279,6 @@ Roll No: 101, Name: Ananya, GPA: 3.95
 
 [Solution Code]
 #include <stdio.h>
-#include <string.h>
 
 struct Student {
     int roll_no;
@@ -303,22 +309,21 @@ int main(void) {
     return 0;
 }
 
-
 --------------------------------------------------------------------------------
-PROBLEM 5: Union Memory Sharing and Overwrite Behavior
+PROBLEM 5: Union Memory Sharing in C
 --------------------------------------------------------------------------------
 [Problem Description]
 
-Demonstrate union declaration, memory allocation behavior (sharing the same 
-memory location across all members), member overwrite effects, and compare 
-sizeof(union) with sizeof(struct).
+Demonstrate union declaration, shared-memory behavior, and the difference between
+the size of a union and an equivalent structure.
 
 [Requirements]
 
-- Define a union Data and a struct DataStruct with identical member types.
-- Print sizes of both types to prove unions allocate memory equal to largest member.
+- Define a union Data and a struct DataStruct with identical member types (int, float, char[20]).
+- Print the sizes of both types. Exact sizes may vary because of alignment.
 - Assign values sequentially and print after each assignment.
-- Access previously written fields after writing to a new field to demonstrate corruption.
+- Read only the active member. Do not inspect inactive members after overwriting
+  the shared storage.
 
 Sample Input:
 
@@ -334,10 +339,10 @@ u.i = 10
 u.f = 220.50
 u.str = C Programming
 
---- Accessing Overwritten Union Members ---
-u.i (corrupted value) = 1919899459
-u.f (corrupted value) = 13823528776469440.00
-u.str (valid value)   = C Programming
+Only the most recently written union member is active.
+Active member u.str = C Programming
+
+> Structure and union sizes may differ across systems.
 
 [Solution Code]
 #include <stdio.h>
@@ -372,23 +377,18 @@ int main(void) {
     strcpy(u.str, "C Programming");
     printf("u.str = %s\n", u.str);
 
-    printf("\n--- Accessing Overwritten Union Members ---\n");
-    printf("u.i (corrupted value) = %d\n", u.i);
-    printf("u.f (corrupted value) = %.2f\n", u.f);
-    printf("u.str (valid value)   = %s\n", u.str);
+    printf("\nOnly the most recently written union member is active.\n");
+    printf("Active member u.str = %s\n", u.str);
 
     return 0;
 }
 
-
 --------------------------------------------------------------------------------
-PROBLEM 6: Pointer Declaration, Address-Of, and Dereferencing
+PROBLEM 6: Pointer Basics and Dereferencing in C
 --------------------------------------------------------------------------------
 [Problem Description]
 
-Demonstrate pointer variable declaration, storing memory addresses using the 
-address-of (&) operator, retrieving values using the dereference (*) operator, 
-and mutating original variable values indirectly through pointers.
+Demonstrate pointer variable declaration, storing memory addresses using the address-of (&) operator, retrieving values using the dereference (*) operator, and mutating original variable values indirectly through pointers.
 
 [Requirements]
 
@@ -404,14 +404,16 @@ No input required.
 Sample Output:
 
 Value of num: 42
-Address of num (&num): 0x7fff5fbff8ac
-Value stored in ptr (ptr): 0x7fff5fbff8ac
+Address of num (&num): 0x...
+Value stored in ptr (ptr): 0x...
 Value pointed to by ptr (*ptr): 42
-Address of pointer variable (&ptr): 0x7fff5fbff8a0
+Address of pointer variable (&ptr): 0x...
 
 After modifying *ptr = 100:
 New value of num: 100
 New value of *ptr: 100
+
+> Memory addresses change between executions.
 
 [Solution Code]
 #include <stdio.h>
@@ -426,6 +428,7 @@ int main(void) {
     printf("Value pointed to by ptr (*ptr): %d\n", *ptr);
     printf("Address of pointer variable (&ptr): %p\n", (void *)&ptr);
 
+    // Modify num using dereference operator
     *ptr = 100;
     printf("\nAfter modifying *ptr = 100:\n");
     printf("New value of num: %d\n", num);
@@ -434,14 +437,12 @@ int main(void) {
     return 0;
 }
 
-
 --------------------------------------------------------------------------------
-PROBLEM 7: Swapping Variables via Call-by-Reference Pointers
+PROBLEM 7: Call-by-Value vs Call-by-Reference in C
 --------------------------------------------------------------------------------
 [Problem Description]
 
-Compare pass-by-value and pass-by-reference mechanisms in C by writing function 
-routines to swap two integer variables and observing memory mutation behavior in main.
+Compare pass-by-value and pass-by-reference mechanisms in C by writing function routines to swap two integer variables and observing memory mutation behavior in main.
 
 [Requirements]
 
@@ -488,14 +489,12 @@ int main(void) {
     return 0;
 }
 
-
 --------------------------------------------------------------------------------
-PROBLEM 8: Pointer Arithmetic and Array Traversal
+PROBLEM 8: Pointer Arithmetic and Arrays in C
 --------------------------------------------------------------------------------
 [Problem Description]
 
-Demonstrate pointer arithmetic (ptr + i, *(ptr + i), ptr++), array traversal 
-through pointers, accumulator sum using pointers, and pointer subtraction.
+Demonstrate pointer arithmetic (ptr + i, *(ptr + i), ptr++), array traversal through pointers, accumulator sum using pointers, and pointer subtraction to compute element distances.
 
 [Requirements]
 
@@ -511,22 +510,24 @@ No input required.
 Sample Output:
 
 Traversing array using *(ptr + i) pointer arithmetic:
-Address of arr[0]: 0x7fff5fbff880 | Value: 10
-Address of arr[1]: 0x7fff5fbff884 | Value: 20
-Address of arr[2]: 0x7fff5fbff888 | Value: 30
-Address of arr[3]: 0x7fff5fbff88c | Value: 40
-Address of arr[4]: 0x7fff5fbff890 | Value: 50
+Address of arr[0]: 0x... | Value: 10
+Address of arr[1]: 0x... | Value: 20
+Address of arr[2]: 0x... | Value: 30
+Address of arr[3]: 0x... | Value: 40
+Address of arr[4]: 0x... | Value: 50
 Sum of array elements using pointer arithmetic: 150
 
 Traversing array using pointer increment (ptr++):
-Current p: 0x7fff5fbff880 | Value: 10
-Current p: 0x7fff5fbff884 | Value: 20
-Current p: 0x7fff5fbff888 | Value: 30
-Current p: 0x7fff5fbff88c | Value: 40
-Current p: 0x7fff5fbff890 | Value: 50
+Current p: 0x... | Value: 10
+Current p: 0x... | Value: 20
+Current p: 0x... | Value: 30
+Current p: 0x... | Value: 40
+Current p: 0x... | Value: 50
 
 Pointer subtraction / distance calculation:
 Elements between end and start: 4 elements
+
+> Memory addresses change between executions.
 
 [Solution Code]
 #include <stdio.h>
@@ -553,19 +554,17 @@ int main(void) {
     printf("\nPointer subtraction / distance calculation:\n");
     int *start = &arr[0];
     int *end = &arr[4];
-    printf("Elements between end and start: %ld elements\n", end - start);
+    printf("Elements between end and start: %td elements\n", end - start);
 
     return 0;
 }
 
-
 --------------------------------------------------------------------------------
-PROBLEM 9: Generic Void Pointers and NULL Pointer Safety Guards
+PROBLEM 9: Generic Void Pointers and NULL Pointer Safety in C
 --------------------------------------------------------------------------------
 [Problem Description]
 
-Demonstrate generic void * pointers in C, explicit typecasting to specific pointer 
-types before dereferencing, and NULL pointer safety guards to avoid segmentation faults.
+Demonstrate generic void * pointers in C, explicit typecasting to specific pointer types before dereferencing, and NULL pointer safety guards to avoid segmentation faults.
 
 [Requirements]
 
@@ -629,15 +628,12 @@ int main(void) {
     return 0;
 }
 
-
 --------------------------------------------------------------------------------
-PROBLEM 10: Tagged Unions (Variant Records) with Struct and Enum
+PROBLEM 10: Tagged Unions (Variant Records) in C
 --------------------------------------------------------------------------------
 [Problem Description]
 
-Demonstrate combining structures, unions, and enumerations to build memory-efficient 
-dynamic variant variables (Tagged Unions) capable of safely holding integers, 
-floats, or strings based on a type tag.
+Demonstrate combining structures, unions, and enumerations to build memory-efficient dynamic variant variables (Tagged Unions) capable of safely holding integers, floats, or strings based on a type tag.
 
 [Requirements]
 
@@ -658,6 +654,8 @@ Variable 'gpa' [Type: Float] = 3.85
 Variable 'username' [Type: String] = "coder_pro"
 
 Memory layout of TaggedVariable: 56 bytes (struct size optimized via union)
+
+> The final structure size may vary because of alignment and padding.
 
 [Solution Code]
 #include <stdio.h>
@@ -721,3 +719,5 @@ int main(void) {
 
     return 0;
 }
+
+================================================================================

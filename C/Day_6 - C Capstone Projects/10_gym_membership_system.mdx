@@ -1,0 +1,45 @@
+---
+title: "CLI Fitness & Gym Membership Management System"
+day: 6
+project: 10
+language: "C11"
+deliverable: "Modular CLI application"
+---
+
+# Project 10: CLI Fitness & Gym Membership Management System
+
+## Overview
+
+A gym management tool that handles member subscriptions, tracks daily check-ins, and identifies expiring memberships.
+
+## Technical Requirements
+
+- **Data Entities (`struct`):**
+  - `Member` (Member ID, Name, Plan Type [`Monthly`, `Annual`], Join Date, Expiry Date)
+  - `CheckIn` (CheckIn ID, Member ID, Date, Time String)
+- **Core Capabilities:**
+  - **Membership Registration:** Register members with automatic expiry date calculation based on plan duration.
+  - **Daily Attendance Tracker:** Log member entry by ID and flag expired memberships at check-in.
+  - **Renewal System:** Extend membership expiry dates upon receiving payment.
+- **Implementation Focus:**
+  - **Persistence Strategy:** Plan an efficient logging scheme for frequent daily check-ins vs. static member records.
+  - **Memory Allocation & Cleanup:** Manage active member profiles in dynamic memory and release memory with `free()` on exit.
+
+## Required Deliverables
+
+- A short requirements and data-model document.
+- Header files for shared structures and function declarations.
+- Separate source files for menus, operations, and persistence.
+- A documented text or binary storage format.
+- A README containing build commands and test cases.
+- Evidence that saved records survive an application restart.
+
+## Completion Checklist
+
+- [ ] Compiles with `-std=c11 -Wall -Wextra -pedantic`.
+- [ ] Handles invalid menu and record input without crashing.
+- [ ] Checks every allocation and file-opening operation.
+- [ ] Preserves records across program restarts.
+- [ ] Frees owned heap memory and closes every open file.
+- [ ] Keeps generated data and executables outside source files.
+

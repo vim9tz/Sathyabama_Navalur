@@ -1,0 +1,46 @@
+---
+title: "Employee Payroll & Attendance System"
+day: 6
+project: 7
+language: "C11"
+deliverable: "Modular CLI application"
+---
+
+# Project 7: Employee Payroll & Attendance System
+
+## Overview
+
+An administrative tool for small businesses to track employee working days, calculate tax deductions, and generate monthly pay stubs.
+
+## Technical Requirements
+
+- **Data Entities (`struct`):**
+  - `Employee` (ID, Name, Designation, Base Hourly Rate)
+  - `Attendance` (Employee ID, Days Worked, Overtime Hours)
+  - `PayStub` (Employee ID, Month, Gross Pay, Tax Deductions, Net Pay)
+- **Core Capabilities:**
+  - **Employee Management:** Add, update, or remove employee records.
+  - **Payroll Calculator:** Calculate `Gross Pay = (Days Worked * 8 * Rate) + (Overtime * Rate * 1.5)` and apply standard tax deductions.
+  - **Paystub Generator:** Export individual formatted paystubs for employees.
+- **Implementation Focus:**
+  - **Struct Arrays & Pointers:** Pass `Employee*` arrays to calculation functions to update metrics in memory.
+  - **Persistence Strategy:** Design storage for both permanent master employee data and recurring monthly payroll records.
+
+## Required Deliverables
+
+- A short requirements and data-model document.
+- Header files for shared structures and function declarations.
+- Separate source files for menus, operations, and persistence.
+- A documented text or binary storage format.
+- A README containing build commands and test cases.
+- Evidence that saved records survive an application restart.
+
+## Completion Checklist
+
+- [ ] Compiles with `-std=c11 -Wall -Wextra -pedantic`.
+- [ ] Handles invalid menu and record input without crashing.
+- [ ] Checks every allocation and file-opening operation.
+- [ ] Preserves records across program restarts.
+- [ ] Frees owned heap memory and closes every open file.
+- [ ] Keeps generated data and executables outside source files.
+

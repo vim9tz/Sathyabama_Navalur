@@ -1,0 +1,47 @@
+---
+title: "Point of Sale (POS) & Billing System"
+day: 6
+project: 4
+language: "C11"
+deliverable: "Modular CLI application"
+---
+
+# Project 4: Point of Sale (POS) & Billing System
+
+## Overview
+
+A retail checkout counter application that generates customer invoices, updates inventory stock, and tracks daily sales.
+
+## Technical Requirements
+
+- **Data Entities (`struct`):**
+  - `Product` (ID, Name, Price, Tax Rate %)
+  - `InvoiceItem` (Product ID, Name, Quantity, Line Total)
+  - `Invoice` (Invoice Number, Date, Total Amount, Items Array)
+- **Core Capabilities:**
+  - **Interactive Cart:** Add items to a billing cart by Product ID and quantity.
+  - **Receipt Generation:** Print a formatted ASCII receipt to the screen and write it to persistent storage for customer records.
+  - **Daily Sales Summary:** Maintain a ledger of sales transactions for daily bookkeeping.
+- **Implementation Focus:**
+  - **Nested Structs & Arrays:** Manage arrays of `InvoiceItem` inside an `Invoice` struct.
+  - **Formatting Output:** Precise string and number formatting using print controls (`%-20s`, `%.2f`).
+  - **Persistence Strategy:** Plan how to store individual receipts vs. cumulative sales data.
+
+## Required Deliverables
+
+- A short requirements and data-model document.
+- Header files for shared structures and function declarations.
+- Separate source files for menus, operations, and persistence.
+- A documented text or binary storage format.
+- A README containing build commands and test cases.
+- Evidence that saved records survive an application restart.
+
+## Completion Checklist
+
+- [ ] Compiles with `-std=c11 -Wall -Wextra -pedantic`.
+- [ ] Handles invalid menu and record input without crashing.
+- [ ] Checks every allocation and file-opening operation.
+- [ ] Preserves records across program restarts.
+- [ ] Frees owned heap memory and closes every open file.
+- [ ] Keeps generated data and executables outside source files.
+

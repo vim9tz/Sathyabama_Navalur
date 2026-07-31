@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <string.h>
 
@@ -10,7 +11,7 @@ typedef struct Employee {
     int emp_id;
     char name[30];
     float lpa;
-    pay Payslip[12];
+    pay payslips[12];
 } emp;
 
 int main(void) {
@@ -22,23 +23,29 @@ int main(void) {
     for (int i = 0; i < 3; i++) {
         printf("\n === Enter Details for Employee %d ===\n", i + 1);
         printf("Enter Employee ID: ");
-        scanf("%d", &employees[i].emp_id);
+        if (scanf("%d", &employees[i].emp_id) != 1)
+            return 1;
         printf("Enter name: ");
-        scanf(" %[^\n]s", employees[i].name);
+        if (scanf(" %29[^\n]", employees[i].name) != 1)
+            return 1;
         printf("Enter LPA (Lakhs per annum): ");
-        scanf("%f", &employees[i].lpa);
+        if (scanf("%f", &employees[i].lpa) != 1)
+            return 1;
 
         char choice;
         for (int j = 0; j < 12; j++) {
             printf("Do you want to enter a payslip for month %d? (y/n): ", j + 1);
-            scanf(" %c", &choice);
+            if (scanf(" %c", &choice) != 1)
+                return 1;
             if (choice == 'n' || choice == 'N') {
                 break; // Stop collecting months for this employee
             }
             printf("  Enter Month Name (e.g., January): ");
-            scanf("%s", employees[i].Payslip[j].month);
-            printf("  Enter Salary for %s: ", employees[i].Payslip[j].month);
-            scanf("%f", &employees[i].Payslip[j].salary);
+            if (scanf(" %9s", employees[i].payslips[j].month) != 1)
+                return 1;
+            printf("  Enter Salary for %s: ", employees[i].payslips[j].month);
+            if (scanf("%f", &employees[i].payslips[j].salary) != 1)
+                return 1;
         }
     }
 
@@ -47,8 +54,10 @@ int main(void) {
     for (int i = 0; i < 3; i++) {
         printf("--- Employee: %s ID: %d ---\n", employees[i].name, employees[i].emp_id);
         for (int j = 0; j < 12; j++) {
-            if (employees[i].Payslip[j].month[0] != '\0') {
-                printf(" Month: %-10s | Salary: %.2f\n", employees[i].Payslip[j].month, employees[i].Payslip[j].salary);
+            if (employees[i].payslips[j].month[0] != '\0') {
+                printf(" Month: %-10s | Salary: %.2f\n",
+                       employees[i].payslips[j].month,
+                       employees[i].payslips[j].salary);
             }
         }
         printf("\n");

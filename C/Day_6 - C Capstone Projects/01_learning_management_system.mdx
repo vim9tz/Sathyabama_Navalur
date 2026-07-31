@@ -1,0 +1,46 @@
+---
+title: "Command-Line Learning Management System (LMS)"
+day: 6
+project: 1
+language: "C11"
+deliverable: "Modular CLI application"
+---
+
+# Project 1: Command-Line Learning Management System (LMS)
+
+## Overview
+
+A lightweight educational management system for tracking courses, student enrollments, and assignment grades.
+
+## Technical Requirements
+
+- **Data Entities (`struct`):**
+  - `Course` (ID, Name, Instructor, Credits)
+  - `Student` (ID, Name, Enrolled Course IDs)
+  - `Submission` (Student ID, Course ID, Assignment Name, Grade)
+- **Core Capabilities:**
+  - **Admin Panel:** Create new courses, view enrolled students, and assign grades.
+  - **Student Panel:** View available courses, enroll in a course, and check current grades.
+- **Implementation Focus:**
+  - **Dynamic Memory (`malloc`/`realloc`):** Dynamically grow student and course lists as new items are added.
+  - **Persistence Strategy:** Plan how multi-entity relationships (students, courses, submissions) will be saved to disk and reloaded into memory at startup.
+  - **CLI Menu:** Multi-level menu driven by `switch-case` loops.
+
+## Required Deliverables
+
+- A short requirements and data-model document.
+- Header files for shared structures and function declarations.
+- Separate source files for menus, operations, and persistence.
+- A documented text or binary storage format.
+- A README containing build commands and test cases.
+- Evidence that saved records survive an application restart.
+
+## Completion Checklist
+
+- [ ] Compiles with `-std=c11 -Wall -Wextra -pedantic`.
+- [ ] Handles invalid menu and record input without crashing.
+- [ ] Checks every allocation and file-opening operation.
+- [ ] Preserves records across program restarts.
+- [ ] Frees owned heap memory and closes every open file.
+- [ ] Keeps generated data and executables outside source files.
+

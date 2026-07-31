@@ -1,0 +1,565 @@
+================================================================================
+                 DAY 5 PRACTICE EXERCISES & SOLUTIONS
+================================================================================
+
+Each problem is followed immediately by its reference solution.
+
+--------------------------------------------------------------------------------
+PROBLEM 1: Program Memory Segments and Heap Allocation
+--------------------------------------------------------------------------------
+[Problem Description]
+
+Demonstrate initialized global data, uninitialized global data, a stack variable,
+and a dynamically allocated heap value. Store 42 on the heap, print it, release
+the allocation, and set the pointer to NULL.
+
+Sample Input:
+
+No input required.
+
+Sample Output:
+
+Value on heap: 42
+
+[Solution Code]
+#include <stdio.h>
+#include <stdlib.h>
+
+// 1. DATA SEGMENT: Initialized global variable
+int global_init = 100;
+
+// 2. BSS SEGMENT: Uninitialized global variable
+int global_uninit;
+
+int main(void)
+{
+    // 3. STACK: Local variable & Local pointer
+    int a = 10;
+    int *p = NULL;
+
+    // 4. HEAP: Requesting memory dynamically
+    p = malloc(sizeof(int));
+
+    if (p == NULL)
+    {
+        printf("Memory allocation failed!\n");
+        return 1;
+    }
+
+    // Using the heap memory
+    *p = 42;
+    printf("Value on heap: %d\n", *p);
+
+    // 5. HEAP CLEANUP: Returning the key
+    free(p);
+    p = NULL; // Good practice: avoid dangling pointers
+
+    return 0;
+}
+
+--------------------------------------------------------------------------------
+PROBLEM 2: Allocate an Integer Array with malloc
+--------------------------------------------------------------------------------
+[Problem Description]
+
+Use malloc to reserve heap memory for five integers. Display the size of one
+integer and the allocated address, then release the memory.
+
+Sample Input:
+
+No input required.
+
+Sample Output:
+
+Size of int is 4.
+Allocated memory address: 0x...
+
+> The integer size and address can vary between systems.
+
+[Solution Code]
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+    int n = 5;
+    int *arr;
+
+    printf("Size of int is %zu.\n", sizeof(int));
+    arr = malloc(n * sizeof(int));
+
+    if(arr == NULL) return 1;
+
+    printf("Allocated memory address: %p\n", (void *)arr);
+
+    free(arr);
+    arr = NULL;
+
+    return 0;
+}
+
+--------------------------------------------------------------------------------
+PROBLEM 3: Zero-Initialized Allocation with calloc
+--------------------------------------------------------------------------------
+[Problem Description]
+
+Use calloc to allocate five integers. Display every element to demonstrate that
+the allocated bytes begin at zero, then release the memory.
+
+Sample Input:
+
+No input required.
+
+Sample Output:
+
+arr[0] = 0
+arr[1] = 0
+arr[2] = 0
+arr[3] = 0
+arr[4] = 0
+
+[Solution Code]
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+    int n = 5;
+    int *arr;
+
+    arr = calloc(n, sizeof(int));
+
+    if(arr == NULL) return 1;
+
+    for(int i = 0; i < n; i++){
+        printf("arr[%d] = %d\n", i, arr[i]);
+    }
+
+    free(arr);
+    arr = NULL;
+    return 0;
+}
+
+--------------------------------------------------------------------------------
+PROBLEM 4: Expand a Dynamic Array with realloc
+--------------------------------------------------------------------------------
+[Problem Description]
+
+Allocate an array for three integers, store 10, 20, and 30, then safely
+expand it to six integers with a temporary pointer. Add three more values and
+display the complete array.
+
+Sample Input:
+
+No input required.
+
+Sample Output:
+
+arr[0] = 10
+arr[1] = 20
+arr[2] = 30
+arr[3] = 40
+arr[4] = 50
+arr[5] = 60
+
+[Solution Code]
+#include <stdio.h>
+#include <stdlib.h>
+int main(void)
+{
+    int n = 3;
+    int new_size = 6;
+    int *arr = malloc(n * sizeof(int));
+    if (arr == NULL)
+        return 1;
+    arr[0] = 10;
+    arr[1] = 20;
+    arr[2] = 30;
+    int *temp = realloc(arr, new_size * sizeof(int));
+    if (temp == NULL)
+    {
+        free(arr);
+        return 1;
+    }
+    arr = temp;
+    arr[3] = 40;
+    arr[4] = 50;
+    arr[5] = 60;
+    // Print using for loop
+    for (int i = 0; i < new_size; i++)
+    {
+        printf("arr[%d] = %d\n", i, arr[i]);
+    }
+    free(arr);
+    arr = NULL;
+    return 0;
+}
+
+--------------------------------------------------------------------------------
+PROBLEM 5: Release Heap Memory Safely
+--------------------------------------------------------------------------------
+[Problem Description]
+
+Allocate one integer, store 999, and display its value and address. Release the
+memory with free and immediately set the pointer to NULL.
+
+Sample Input:
+
+No input required.
+
+Sample Output:
+
+Value before free: 999 (Address: 0x...)
+Memory Cleared
+Pointer safely set to NULL. No accidental memory corruption possible!
+
+> The address varies for every execution.
+
+[Solution Code]
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+    int *ptr = malloc(sizeof(int));
+
+    if(ptr == NULL) return 1;
+
+    *ptr = 999;
+    printf("Value before free: %d (Address: %p)\n", *ptr, (void *)ptr);
+
+    free(ptr);
+    ptr = NULL;
+    printf("Memory Cleared\n");
+
+    if(ptr == NULL){
+        printf("Pointer safely set to NULL. No accidental memory corruption possible!\n");
+    }
+
+    return 0;
+}
+
+--------------------------------------------------------------------------------
+PROBLEM 6: Clear a Dynamic Buffer with memset
+--------------------------------------------------------------------------------
+[Problem Description]
+
+Allocate memory for five integers with malloc. Use memset to set every byte
+in the allocation to zero and display the resulting elements.
+
+Sample Input:
+
+No input required.
+
+Sample Output:
+
+arr[0] = 0
+arr[1] = 0
+arr[2] = 0
+arr[3] = 0
+arr[4] = 0
+
+[Solution Code]
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(void) {
+    int n = 5;
+    int *arr = malloc(n * sizeof(int));
+    if(arr == NULL) return 1;
+    memset(arr, 0, n * sizeof(int));
+    for (int i = 0; i < n; i++) {
+        printf("arr[%d] = %d\n", i, arr[i]);
+    }
+    free(arr);
+    arr = NULL;
+    return 0;
+}
+
+--------------------------------------------------------------------------------
+PROBLEM 7: Copy Non-Overlapping Memory with memcpy
+--------------------------------------------------------------------------------
+[Problem Description]
+
+Allocate separate source and destination arrays. Fill the source with five
+multiples of ten and copy its complete memory block into the destination using
+memcpy.
+
+Sample Input:
+
+No input required.
+
+Sample Output:
+
+dest[0] = 10
+dest[1] = 20
+dest[2] = 30
+dest[3] = 40
+dest[4] = 50
+
+[Solution Code]
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(void) {
+    int n = 5;
+    int *src = (int *) malloc(n * sizeof(int));
+    int *dest = (int *) malloc(n * sizeof(int));
+    if (src == NULL || dest == NULL) {
+        free(src);
+        free(dest);
+        return 1;
+    }
+    // Populate source array
+    for (int i = 0; i < n; i++) {
+        src[i] = (i + 1) * 10; // 10, 20, 30, 40, 50
+    }
+    // Copy entire 'src' array memory block into 'dest'
+    memcpy(dest, src, n * sizeof(int));
+    for (int i = 0; i < n; i++) {
+        printf("dest[%d] = %d\n", i, dest[i]);
+    }
+    free(src);
+    free(dest);
+    src = NULL;
+    dest = NULL;
+    return 0;
+}
+
+--------------------------------------------------------------------------------
+PROBLEM 8: Move Overlapping Memory with memmove
+--------------------------------------------------------------------------------
+[Problem Description]
+
+Create the array {10, 20, 30, 40, 50, 60} and use memmove to move its first
+three elements two positions to the right. The source and destination overlap.
+
+Sample Input:
+
+No input required.
+
+Sample Output:
+
+Original Array:
+10 20 30 40 50 60
+
+Array after shifting 3 elements right by 2 positions:
+10 20 10 20 30 60
+
+[Solution Code]
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+int main(void) {
+    int n = 6;
+    int *arr = (int *) malloc(n * sizeof(int));
+    if (arr == NULL) return 1;
+    // Initialize array: {10, 20, 30, 40, 50, 60}
+    for (int i = 0; i < n; i++) {
+        arr[i] = (i + 1) * 10;
+    }
+    printf("Original Array:\n");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n\n");
+    // Scenario: Shift the sub-array {10, 20, 30} two slots to the right
+    // Source: arr[0] (address of 10, size 3 elements)
+    // Destination: arr[2] (address of 30)
+    // Here, destination and source overlap!
+    memmove(arr + 2, arr, 3 * sizeof(int));
+    // 1. Copy 3rd element: Moves arr[0 + 2] (30) to arr[2 + 2] (arr[4]).
+    //      ⚬ Array state: {10, 20, 30, 40, 30, 60}
+    // 2. Copy 2nd element: Moves arr[0 + 1] (20) to arr[2 + 1] (arr[3]).
+    //      ⚬ Array state: {10, 20, 30, 20, 30, 60}
+    // 3. Copy 1st element: Moves arr[0 + 0] (10) to arr[2 + 0] (arr[2]).
+    //      ⚬ Array state: {10, 20, 10, 20, 30, 60}
+    printf("Array after shifting 3 elements right by 2 positions:\n");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]); // Output: 10 20 10 20 30 60
+    }
+    printf("\n");
+    free(arr);
+    arr = NULL;
+    return 0;
+}
+
+--------------------------------------------------------------------------------
+PROBLEM 9: Write a Text File
+--------------------------------------------------------------------------------
+[Problem Description]
+
+Open student_report.txt in write mode, store a student name and mark using
+fprintf, close the file, and confirm that the report was written.
+
+Sample Input:
+
+No input required.
+
+Sample Output:
+
+Report written to student_report.txt
+
+[Solution Code]
+#include <stdio.h>
+
+int main(void)
+{
+    FILE *file = fopen("student_report.txt", "w");
+    if (file == NULL)
+    {
+        printf("Unable to open student_report.txt\n");
+        return 1;
+    }
+
+    fprintf(file, "Student: Anu\n");
+    fprintf(file, "C Programming Mark: %d\n", 92);
+
+    if (fclose(file) != 0)
+    {
+        printf("Unable to close student_report.txt\n");
+        return 1;
+    }
+
+    printf("Report written to student_report.txt\n");
+    return 0;
+}
+
+--------------------------------------------------------------------------------
+PROBLEM 10: Read a Text File Line by Line
+--------------------------------------------------------------------------------
+[Problem Description]
+
+Open student_report.txt in read mode and display every line using fgets and
+fputs. Run lesson 09 first to create the input file.
+
+Sample Input:
+
+Existing student_report.txt:
+
+Student: Anu
+C Programming Mark: 92
+
+Sample Output:
+
+--- Student Report ---
+Student: Anu
+C Programming Mark: 92
+
+[Solution Code]
+#include <stdio.h>
+
+int main(void)
+{
+    char line[128];
+    FILE *file = fopen("student_report.txt", "r");
+
+    if (file == NULL)
+    {
+        printf("student_report.txt not found. Run lesson 09 first.\n");
+        return 1;
+    }
+
+    printf("--- Student Report ---\n");
+    while (fgets(line, sizeof(line), file) != NULL)
+    {
+        fputs(line, stdout);
+    }
+
+    fclose(file);
+    return 0;
+}
+
+--------------------------------------------------------------------------------
+PROBLEM 11: Append to a Text File
+--------------------------------------------------------------------------------
+[Problem Description]
+
+Open student_report.txt in append mode and add Status: Passed without
+overwriting its existing content.
+
+Sample Input:
+
+No keyboard input required.
+
+Sample Output:
+
+Status appended to student_report.txt
+
+[Solution Code]
+#include <stdio.h>
+
+int main(void)
+{
+    FILE *file = fopen("student_report.txt", "a");
+    if (file == NULL)
+    {
+        printf("Unable to open student_report.txt\n");
+        return 1;
+    }
+
+    fputs("Status: Passed\n", file);
+    fclose(file);
+
+    printf("Status appended to student_report.txt\n");
+    return 0;
+}
+
+--------------------------------------------------------------------------------
+PROBLEM 12: Write and Read a Binary Structure
+--------------------------------------------------------------------------------
+[Problem Description]
+
+Define a student record containing a roll number and mark. Write one record to a
+binary file with fwrite, read it back with fread, and display the values.
+
+Sample Input:
+
+No input required.
+
+Sample Output:
+
+Roll Number: 101
+Mark: 88.5
+
+[Solution Code]
+#include <stdio.h>
+
+typedef struct
+{
+    int rollNumber;
+    float mark;
+} StudentRecord;
+
+int main(void)
+{
+    const StudentRecord output = {101, 88.5f};
+    StudentRecord input;
+
+    FILE *file = fopen("student_record.bin", "wb");
+    if (file == NULL)
+        return 1;
+
+    if (fwrite(&output, sizeof(output), 1, file) != 1)
+    {
+        fclose(file);
+        return 1;
+    }
+    fclose(file);
+
+    file = fopen("student_record.bin", "rb");
+    if (file == NULL)
+        return 1;
+
+    if (fread(&input, sizeof(input), 1, file) != 1)
+    {
+        fclose(file);
+        return 1;
+    }
+    fclose(file);
+
+    printf("Roll Number: %d\n", input.rollNumber);
+    printf("Mark: %.1f\n", input.mark);
+    return 0;
+}
+
+================================================================================

@@ -1,0 +1,81 @@
+================================================================================
+                    DAY 6: C CAPSTONE PROJECT GUIDELINES
+================================================================================
+
+PURPOSE
+--------------------------------------------------------------------------------
+Day 6 combines the concepts taught during Days 1-5 into one modular CLI
+application. Students should select ONE project brief and complete it.
+
+ALLOWED TOPICS
+--------------------------------------------------------------------------------
+- C fundamentals, conditions, switch, and loops
+- Functions, recursion where appropriate, and variable scope
+- Linear and multidimensional arrays
+- Structures, unions, enums, and pointers
+- malloc, calloc, realloc, and free
+- Text or binary file persistence
+- Standard C11 library functions
+
+OUT OF SCOPE
+--------------------------------------------------------------------------------
+Linked lists, trees, graphs, databases, web frameworks, GUI frameworks, and
+third-party libraries are not required.
+
+RECOMMENDED PROJECT LAYOUT
+--------------------------------------------------------------------------------
+project_name/
+  include/
+    models.h
+    storage.h
+    operations.h
+  src/
+    main.c
+    storage.c
+    operations.c
+  data/
+  README.md
+
+IMPLEMENTATION PHASES
+--------------------------------------------------------------------------------
+1. Requirements: Choose the project and list its required operations.
+2. Data Model: Define structures, enums, IDs, and relationships.
+3. Module Design: Separate menu, business logic, validation, and persistence.
+4. Memory Plan: Choose fixed arrays or dynamic arrays and document ownership.
+5. Persistence: Load records at startup and save every successful mutation.
+6. Validation: Handle invalid menu choices, malformed input, and missing files.
+7. Testing: Verify create, search, update, restart, and failure scenarios.
+8. Cleanup: Close every file and free every successful heap allocation.
+
+MANDATORY QUALITY RULES
+--------------------------------------------------------------------------------
+- Compile with: gcc -std=c11 -Wall -Wextra -pedantic
+- Do not use unsafe gets().
+- Bound every string read.
+- Check fopen, malloc, calloc, and realloc results.
+- Use a temporary pointer for realloc.
+- Never dereference NULL or freed memory.
+- Never lose existing records during a failed update.
+- Keep generated data and compiled binaries outside the source folder.
+
+MINIMUM ACCEPTANCE TESTS
+--------------------------------------------------------------------------------
+1. First launch with no existing data file.
+2. Add at least three valid records.
+3. Reject invalid numeric and menu input.
+4. Search for an existing and missing record.
+5. Update one existing record.
+6. Exit and restart; confirm persistence.
+7. Exercise a capacity expansion if dynamic memory is used.
+8. Exit without leaks, unclosed files, or corrupted data.
+
+EVALUATION RUBRIC (100 MARKS)
+--------------------------------------------------------------------------------
+Requirements and data model       : 15
+Modular functions and readability : 15
+Correct core operations           : 20
+Input validation and error paths  : 15
+Persistence and restart behavior  : 15
+Memory and resource hygiene       : 10
+Testing evidence and README       : 10
+

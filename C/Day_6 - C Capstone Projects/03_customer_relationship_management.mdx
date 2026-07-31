@@ -1,0 +1,46 @@
+---
+title: "Customer Relationship Management (CRM) Tool"
+day: 6
+project: 3
+language: "C11"
+deliverable: "Modular CLI application"
+---
+
+# Project 3: Customer Relationship Management (CRM) Tool
+
+## Overview
+
+A CLI sales pipeline tracker that helps business representatives manage customer leads, contact details, and deal statuses.
+
+## Technical Requirements
+
+- **Data Entities (`struct`):**
+  - `Customer` (ID, Full Name, Email, Phone Number, Company)
+  - `Deal` (Deal ID, Customer ID, Value in USD, Status [`LEAD`, `CONTACTED`, `CLOSED_WON`, `CLOSED_LOST`])
+- **Core Capabilities:**
+  - **Lead Management:** Create, search (by name or company), and update customer profiles.
+  - **Pipeline Analytics:** Calculate total value of closed deals ($) and view success rates.
+  - **Export Reports:** Generate plain-text summary reports for management.
+- **Implementation Focus:**
+  - **String Manipulation (`<string.h>`):** Use `strstr()` or `strcmp()` for searching leads by name or email.
+  - **Persistence Strategy:** Decide how search results and pipeline reports are formatted and stored on disk.
+  - **Memory Management:** Clean up allocated dynamic buffers using `free()` before program termination.
+
+## Required Deliverables
+
+- A short requirements and data-model document.
+- Header files for shared structures and function declarations.
+- Separate source files for menus, operations, and persistence.
+- A documented text or binary storage format.
+- A README containing build commands and test cases.
+- Evidence that saved records survive an application restart.
+
+## Completion Checklist
+
+- [ ] Compiles with `-std=c11 -Wall -Wextra -pedantic`.
+- [ ] Handles invalid menu and record input without crashing.
+- [ ] Checks every allocation and file-opening operation.
+- [ ] Preserves records across program restarts.
+- [ ] Frees owned heap memory and closes every open file.
+- [ ] Keeps generated data and executables outside source files.
+

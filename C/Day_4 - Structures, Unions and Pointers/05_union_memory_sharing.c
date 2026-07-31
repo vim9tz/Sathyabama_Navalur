@@ -30,10 +30,8 @@ int main(void) {
     strcpy(u.str, "C Programming");
     printf("u.str = %s\n", u.str);
 
-    printf("\n--- Accessing Overwritten Union Members ---\n");
-    printf("u.i (corrupted value) = %d\n", u.i);
-    printf("u.f (corrupted value) = %.2f\n", u.f);
-    printf("u.str (valid value)   = %s\n", u.str);
+    printf("\nOnly the most recently written union member is active.\n");
+    printf("Active member u.str = %s\n", u.str);
 
     return 0;
 }

@@ -22,7 +22,7 @@ int main(void) {
     printf("\nPointer subtraction / distance calculation:\n");
     int *start = &arr[0];
     int *end = &arr[4];
-    printf("Elements between end and start: %ld elements\n", end - start);
+    printf("Elements between end and start: %td elements\n", end - start);
 
     return 0;
 }

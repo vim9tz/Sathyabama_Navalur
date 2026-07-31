@@ -1,0 +1,44 @@
+---
+title: "Personal Finance & Expense Tracker"
+day: 6
+project: 5
+language: "C11"
+deliverable: "Modular CLI application"
+---
+
+# Project 5: Personal Finance & Expense Tracker
+
+## Overview
+
+A tool designed for users to log daily income and expenses, organize spending by category, and track monthly budgets.
+
+## Technical Requirements
+
+- **Data Entities (`struct`):**
+  - `Record` (ID, Type [`INCOME`/`EXPENSE`], Category [`Food`, `Rent`, `Salary`], Amount, Date string)
+- **Core Capabilities:**
+  - **Record Entry:** Add income/expense entries.
+  - **Budget Checks:** Set a monthly threshold and trigger warnings if expenses exceed the budget limit.
+  - **Category Breakdown:** Calculate total spent per category using basic array loops.
+- **Implementation Focus:**
+  - **Dynamic Array Growth:** Automatically double the size of the record array using `realloc()` when new transactions exceed capacity.
+  - **Persistence Strategy:** Implement a custom record parsing and saving format to reload transactions cleanly when the app launches.
+
+## Required Deliverables
+
+- A short requirements and data-model document.
+- Header files for shared structures and function declarations.
+- Separate source files for menus, operations, and persistence.
+- A documented text or binary storage format.
+- A README containing build commands and test cases.
+- Evidence that saved records survive an application restart.
+
+## Completion Checklist
+
+- [ ] Compiles with `-std=c11 -Wall -Wextra -pedantic`.
+- [ ] Handles invalid menu and record input without crashing.
+- [ ] Checks every allocation and file-opening operation.
+- [ ] Preserves records across program restarts.
+- [ ] Frees owned heap memory and closes every open file.
+- [ ] Keeps generated data and executables outside source files.
+

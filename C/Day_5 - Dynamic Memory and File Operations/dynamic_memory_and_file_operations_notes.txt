@@ -1,0 +1,138 @@
+================================================================================
+                       C MEMORY MANAGEMENT & FILE I/O NOTES
+================================================================================
+
+1. HOW VARIABLES OCCUPY MEMORY
+--------------------------------------------------------------------------------
+Every variable in C consists of three fundamental properties:
+  • Address          : A unique memory location in RAM (e.g., 0x7ffd50).
+  • Storage Capacity : The size reserved in bytes (e.g., sizeof(int) = 4 bytes).
+  • Value            : The actual data stored inside those bytes.
+
+
+2. MEMORY LAYOUT OF A C PROGRAM
+--------------------------------------------------------------------------------
+High Memory Addresses (0xFFFF...)
++------------------------------------------------------------------------------+
+| Command-line Arguments & Environment Variables                               |
++------------------------------------------------------------------------------+
+| STACK SEGMENT                                                                |
+|   • Stores local variables, function calls, parameters                       |
+|   • Grows DOWNWARD toward lower memory addresses                             |
++------------------------------------------------------------------------------+
+|                                                                              |
+|                                FREE MEMORY                                   |
+|                                                                              |
++------------------------------------------------------------------------------+
+| HEAP SEGMENT                                                                 |
+|   • Stores dynamically allocated memory                                      |
+|   • Grows UPWARD toward higher memory addresses                              |
++------------------------------------------------------------------------------+
+| BSS SEGMENT                                                                  |
+|   • Stores uninitialized global and static variables (set to 0 by default)   |
++------------------------------------------------------------------------------+
+| DATA SEGMENT                                                                 |
+|   • Stores initialized global and static variables                           |
++------------------------------------------------------------------------------+
+| TEXT / CODE SEGMENT                                                          |
+|   • Contains the compiled machine instructions (Read-only)                   |
++------------------------------------------------------------------------------+
+Low Memory Addresses (0x0000...)
+
+
+3. STATIC VS. DYNAMIC MEMORY ALLOCATION
+--------------------------------------------------------------------------------
+Static Memory Allocation (Stack/Data Segment):
+  • Allocated at compile time / automatic function entry.
+  • Fixed size; cannot expand or shrink at runtime.
+  • Automatically managed and freed when scope ends.
+
+Dynamic Memory Allocation (Heap Segment):
+  • Reserved at runtime based on application needs.
+  • Flexible size; can expand or shrink as needed.
+  • Must be manually requested and released by the programmer.
+
+
+4. DYNAMIC MEMORY ALLOCATION FUNCTIONS (<stdlib.h>)
+--------------------------------------------------------------------------------
+malloc() - Memory Allocation
+  • Purpose  : Allocates a single block of specified bytes on the heap.
+  • Notes    : Does NOT clear memory (contains garbage values initially).
+  • Syntax   : ptr = (cast_type *) malloc(size_in_bytes);
+  • Example  : int *arr = (int *) malloc(5 * sizeof(int));
+
+calloc() - Contiguous Allocation
+  • Purpose  : Allocates multiple contiguous blocks and clears all bits to 0.
+  • Notes    : Slightly slower than malloc, but safe from garbage values.
+  • Syntax   : ptr = (cast_type *) calloc(num_elements, element_size);
+  • Example  : int *arr = (int *) calloc(5, sizeof(int));
+
+realloc() - Resize Allocated Memory
+  • Purpose  : Resizes a previously allocated memory block without losing data.
+  • Notes    : Always assign to a temporary pointer first to avoid memory leaks!
+  • Syntax   : ptr = (cast_type *) realloc(old_ptr, new_size_in_bytes);
+  • Example  : int *temp = (int *) realloc(arr, 10 * sizeof(int));
+
+free() - Deallocate Memory
+  • Purpose  : Releases allocated heap memory back to the operating system.
+  • Notes    : Always set the pointer to NULL afterwards to prevent dangling pointers.
+  • Syntax   : free(ptr);
+  • Example  : free(arr); arr = NULL;
+
+
+5. MEMORY MANIPULATION FUNCTIONS (<string.h>)
+--------------------------------------------------------------------------------
+memset()
+  • Purpose  : Fills a block of memory with a specific byte value.
+  • Best For : Fast zero-filling buffers or structures.
+  • Syntax   : memset(ptr, value, num_bytes);
+  • Example  : memset(arr, 0, 5 * sizeof(int));
+
+memcpy()
+  • Purpose  : Fast block copy from source memory to destination memory.
+  • Constraint: Destination and source regions MUST NOT OVERLAP.
+  • Syntax   : memcpy(dest, src, num_bytes);
+  • Example  : memcpy(dest_arr, src_arr, 5 * sizeof(int));
+
+memmove()
+  • Purpose  : Safe block copy that handles OVERLAPPING memory blocks cleanly.
+  • Best For : Shifting, inserting, or removing elements within the same array.
+  • Syntax   : memmove(dest, src, num_bytes);
+  • Example  : memmove(arr + 2, arr, 3 * sizeof(int));
+
+
+6. FILE OPERATIONS (<stdio.h>)
+--------------------------------------------------------------------------------
+File Pointer:
+  • FILE *fp : Handle/bookmark keeping track of file location and cursor position.
+
+The 3-Step Lifecycle:
+  1. Open  : FILE *fp = fopen("filename.txt", "mode");
+  2. Check : if (fp == NULL) { /* Handle error */ }
+  3. Close : fclose(fp); fp = NULL;
+
+File Opening Modes:
+  • "r"  : Read mode. File MUST exist (returns NULL if missing).
+  • "w"  : Write mode. Creates file or OVERWRITES/TRUNCATES existing file.
+  • "a"  : Append mode. Writes data at the end without erasing content.
+  • "r+" : Read + Write mode (from start).
+  • "w+" : Write + Read mode (erases existing data).
+  • "a+" : Append + Read mode.
+
+Text File Functions:
+  • Writing : fprintf(fp, "Format %d", val);
+              fputs("String line\n", fp);
+              fputc('A', fp);
+  • Reading : fscanf(fp, "%d", &val);
+              fgets(buffer, sizeof(buffer), fp); // Safer line-by-line reading
+              fgetc(fp); // Reads character by character until EOF
+
+Binary File Functions:
+  • Writing : fwrite(ptr, element_size, num_elements, fp);
+  • Reading : fread(ptr, element_size, num_elements, fp);
+
+Golden Rules:
+  • ALWAYS check if (fp == NULL) before performing any file operations.
+  • ALWAYS call fclose(fp) to flush output buffers and save data to disk.
+
+================================================================================

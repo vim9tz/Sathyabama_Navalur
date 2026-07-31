@@ -1,0 +1,46 @@
+---
+title: "Automated Bus / Train Ticket Reservation System"
+day: 6
+project: 8
+language: "C11"
+deliverable: "Modular CLI application"
+---
+
+# Project 8: Automated Bus / Train Ticket Reservation System
+
+## Overview
+
+A ticketing system for a transport agency to manage trip routes, seat bookings, passenger manifests, and cancellation refunds.
+
+## Technical Requirements
+
+- **Data Entities (`struct`):**
+  - `Route` (Route ID, Origin, Destination, Departure Time, Ticket Price)
+  - `Bus` (Bus ID, Route ID, Total Seats, Seat Matrix Array)
+  - `Ticket` (Ticket ID, Bus ID, Seat Number, Passenger Name, Status [`BOOKED`, `CANCELLED`])
+- **Core Capabilities:**
+  - **Interactive Seat Map:** Display an ASCII grid showing available vs. booked seats (e.g., `[X]` for booked, `[12]` for available).
+  - **Booking & Refund Logic:** Assign available seats, collect passenger details, and calculate an 80% refund upon cancellation.
+  - **Passenger Manifest:** Export a passenger manifest list for any given Bus ID.
+- **Implementation Focus:**
+  - **Multi-dimensional Arrays / Fixed Bitmaps:** Map seat availability using integer or character arrays inside structs.
+  - **Persistence Strategy:** Plan how seat reservation states and ticket numbers will be saved and accessed directly.
+
+## Required Deliverables
+
+- A short requirements and data-model document.
+- Header files for shared structures and function declarations.
+- Separate source files for menus, operations, and persistence.
+- A documented text or binary storage format.
+- A README containing build commands and test cases.
+- Evidence that saved records survive an application restart.
+
+## Completion Checklist
+
+- [ ] Compiles with `-std=c11 -Wall -Wextra -pedantic`.
+- [ ] Handles invalid menu and record input without crashing.
+- [ ] Checks every allocation and file-opening operation.
+- [ ] Preserves records across program restarts.
+- [ ] Frees owned heap memory and closes every open file.
+- [ ] Keeps generated data and executables outside source files.
+

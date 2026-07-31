@@ -1,0 +1,20 @@
+# Release Heap Memory Safely
+
+## Problem Description
+
+Allocate one integer, store `999`, and display its value and address. Release the
+memory with `free` and immediately set the pointer to `NULL`.
+
+## Sample Input
+
+No input required.
+
+## Sample Output
+
+```text
+Value before free: 999 (Address: 0x...)
+Memory Cleared
+Pointer safely set to NULL. No accidental memory corruption possible!
+```
+
+> The address varies for every execution.

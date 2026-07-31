@@ -1,0 +1,45 @@
+---
+title: "Mini Enterprise Resource Planning (ERP) & Inventory System"
+day: 6
+project: 2
+language: "C11"
+deliverable: "Modular CLI application"
+---
+
+# Project 2: Mini Enterprise Resource Planning (ERP) & Inventory System
+
+## Overview
+
+A retail store or warehouse inventory tool to manage stock levels, track suppliers, and process stock movements.
+
+## Technical Requirements
+
+- **Data Entities (`struct`):**
+  - `Item` (SKU Code, Item Name, Quantity in Stock, Unit Price, Reorder Level)
+  - `Transaction` (Transaction ID, SKU Code, Type [`IN`/`OUT`], Quantity, Timestamp/Date)
+- **Core Capabilities:**
+  - **Stock Management:** Add new inventory items, update quantities (stock-in / stock-out).
+  - **Low Stock Alerts:** Filter and display items where `quantity < reorder_level`.
+  - **Audit Log:** Log every stock change chronologically for record-keeping.
+- **Implementation Focus:**
+  - **Pointers & Memory:** Pass array pointers into functions to search items by SKU or update stock in-memory.
+  - **Persistence Strategy:** Design a dual-storage plan—one structure to save the full master inventory, and an append-only log strategy for historical stock movements.
+
+## Required Deliverables
+
+- A short requirements and data-model document.
+- Header files for shared structures and function declarations.
+- Separate source files for menus, operations, and persistence.
+- A documented text or binary storage format.
+- A README containing build commands and test cases.
+- Evidence that saved records survive an application restart.
+
+## Completion Checklist
+
+- [ ] Compiles with `-std=c11 -Wall -Wextra -pedantic`.
+- [ ] Handles invalid menu and record input without crashing.
+- [ ] Checks every allocation and file-opening operation.
+- [ ] Preserves records across program restarts.
+- [ ] Frees owned heap memory and closes every open file.
+- [ ] Keeps generated data and executables outside source files.
+

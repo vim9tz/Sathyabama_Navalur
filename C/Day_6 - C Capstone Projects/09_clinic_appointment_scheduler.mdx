@@ -1,0 +1,47 @@
+---
+title: "Console Medical Clinic & Appointment Scheduler"
+day: 6
+project: 9
+language: "C11"
+deliverable: "Modular CLI application"
+---
+
+# Project 9: Console Medical Clinic & Appointment Scheduler
+
+## Overview
+
+A healthcare receptionist system designed to register patients, book doctor appointment slots, and generate medical billing history.
+
+## Technical Requirements
+
+- **Data Entities (`struct`):**
+  - `Doctor` (ID, Name, Specialization, Consultation Fee)
+  - `Patient` (ID, Name, Age, Phone)
+  - `Appointment` (Appointment ID, Patient ID, Doctor ID, Date, Time Slot, Status [`SCHEDULED`, `COMPLETED`])
+- **Core Capabilities:**
+  - **Doctor Directory:** View doctors filtered by specialization.
+  - **Slot Booking:** Check doctor availability for a given date/time slot before confirming an appointment.
+  - **Patient History Search:** Look up past appointments and total fees paid by Patient ID.
+- **Implementation Focus:**
+  - **String Search (`<string.h>`):** Match specializations or search patient names using `strcmp()` or `strstr()`.
+  - **Dynamic Resizing (`realloc`):** Dynamically grow appointment records as new consultations are scheduled.
+  - **Persistence Strategy:** Design a safe update mechanism to ensure existing patient records are never overwritten accidentally.
+
+## Required Deliverables
+
+- A short requirements and data-model document.
+- Header files for shared structures and function declarations.
+- Separate source files for menus, operations, and persistence.
+- A documented text or binary storage format.
+- A README containing build commands and test cases.
+- Evidence that saved records survive an application restart.
+
+## Completion Checklist
+
+- [ ] Compiles with `-std=c11 -Wall -Wextra -pedantic`.
+- [ ] Handles invalid menu and record input without crashing.
+- [ ] Checks every allocation and file-opening operation.
+- [ ] Preserves records across program restarts.
+- [ ] Frees owned heap memory and closes every open file.
+- [ ] Keeps generated data and executables outside source files.
+

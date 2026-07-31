@@ -1,0 +1,35 @@
+# Union Memory Sharing in C
+
+## Problem Description
+
+Demonstrate union declaration, shared-memory behavior, and the difference between
+the size of a union and an equivalent structure.
+
+## Requirements
+
+- Define a `union Data` and a `struct DataStruct` with identical member types (`int`, `float`, `char[20]`).
+- Print the sizes of both types. Exact sizes may vary because of alignment.
+- Assign values sequentially and print after each assignment.
+- Read only the active member. Do not inspect inactive members after overwriting
+  the shared storage.
+
+## Sample Input
+
+No input required.
+
+## Sample Output
+
+```text
+Size of union Data: 20 bytes
+Size of struct DataStruct: 28 bytes
+
+--- Setting Union Fields One by One ---
+u.i = 10
+u.f = 220.50
+u.str = C Programming
+
+Only the most recently written union member is active.
+Active member u.str = C Programming
+```
+
+> Structure and union sizes may differ across systems.
