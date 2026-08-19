@@ -1,0 +1,131 @@
+================================================================================
+           JAVA FULLSTACK DAY 1: PRACTICE EXERCISES & SOLUTIONS
+================================================================================
+
+1. HELLO WORLD IN JAVA
+--------------------------------------------------------------------------------
+Problem Statement:
+Write your first Java program. Output "Hello, World!" to the console.
+
+Source Code: 01_hello_world.java
+Doc File:    01_hello_world.mdx
+
+
+--------------------------------------------------------------------------------
+2. INTERACTIVE USER INPUT
+--------------------------------------------------------------------------------
+Problem Statement:
+Read user's name from standard input using Scanner and greet them dynamically.
+
+Source Code: 02_user_input.java
+Doc File:    02_user_input.mdx
+
+
+--------------------------------------------------------------------------------
+3. SUM CALCULATOR
+--------------------------------------------------------------------------------
+Problem Statement:
+Get two numbers from the user and calculate their sum.
+
+Source Code: 03_sum_calculator.java
+Doc File:    03_sum_calculator.mdx
+
+
+--------------------------------------------------------------------------------
+4. ALL ARITHMETIC OPERATIONS
+--------------------------------------------------------------------------------
+Problem Statement:
+Get two numbers and display addition, subtraction, multiplication, division, and remainder.
+
+Source Code: 04_arithmetic_operations.java
+Doc File:    04_arithmetic_operations.mdx
+
+
+--------------------------------------------------------------------------------
+5. MINUTES TO HOURS AND MINUTES CONVERTER
+--------------------------------------------------------------------------------
+Problem Statement:
+Convert a given total duration in minutes to hours and remaining minutes.
+
+Source Code: 05_minutes_to_hours.java
+Doc File:    05_minutes_to_hours.mdx
+
+
+--------------------------------------------------------------------------------
+6. EXTRACT LAST DIGIT
+--------------------------------------------------------------------------------
+Problem Statement:
+Get a number from user input and print its last digit using modulo 10.
+
+Source Code: 06_last_digit.java
+Doc File:    06_last_digit.mdx
+
+
+--------------------------------------------------------------------------------
+7. SWAPPING TWO NUMBERS (USING TEMP VARIABLE)
+--------------------------------------------------------------------------------
+Problem Statement:
+Read two numbers a and b, then swap their values using an auxiliary variable temp.
+
+Source Code: 07_swap_using_temporary_variable.java
+Doc File:    07_swap_using_temporary_variable.mdx
+
+
+--------------------------------------------------------------------------------
+8. SWAPPING TWO NUMBERS (WITHOUT TEMP VARIABLE)
+--------------------------------------------------------------------------------
+Problem Statement:
+Swap two numbers a and b using arithmetic addition and subtraction without extra memory.
+
+Source Code: 08_swap_without_temporary_variable.java
+Doc File:    08_swap_without_temporary_variable.mdx
+
+
+--------------------------------------------------------------------------------
+9. VOTING ELIGIBILITY
+--------------------------------------------------------------------------------
+Problem Statement:
+Read the age of a person. If age >= 18, print eligibility for voting.
+
+Source Code: 09_voting_eligibility.java
+Doc File:    09_voting_eligibility.mdx
+
+
+--------------------------------------------------------------------------------
+10. PASS OR FAIL EVALUATION
+--------------------------------------------------------------------------------
+Problem Statement:
+Read student marks. If marks >= 50 print "Pass", otherwise print "Fail".
+
+Source Code: 10_pass_or_fail.java
+Doc File:    10_pass_or_fail.mdx
+
+
+--------------------------------------------------------------------------------
+11. POSITIVE, NEGATIVE, OR ZERO
+--------------------------------------------------------------------------------
+Problem Statement:
+Read a number and print whether it is Positive, Negative, or Zero using an if-else ladder.
+
+Source Code: 11_number_type.java
+Doc File:    11_number_type.mdx
+
+
+--------------------------------------------------------------------------------
+12. PLACEMENT ELIGIBILITY USING NESTED IF
+--------------------------------------------------------------------------------
+Problem Statement:
+Validate CGPA >= 7.0 and Arrears == 0 for placement eligibility.
+
+Source Code: 12_placement_eligibility.java
+Doc File:    12_placement_eligibility.mdx
+
+
+--------------------------------------------------------------------------------
+13. MULTI-LEVEL LOGIN VALIDATION SYSTEM
+--------------------------------------------------------------------------------
+Problem Statement:
+Implement a login validation system with menu options (retry/reset password) using nested if.
+
+Source Code: 13_login_validation.java
+Doc File:    13_login_validation.mdx

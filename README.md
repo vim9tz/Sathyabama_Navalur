@@ -49,11 +49,14 @@ Each problem in the master workbook ([`C_Programming_Workbook_GitHub.md`](./C_Pr
 Sathyabama_Navalur/
 ├── README.md                           # Repository homepage & guide
 ├── C_Programming_Workbook_GitHub.md    # Master workbook with all 69 solved problems
-└── C/                                  # Topic modules & C source code
-    ├── Day_1 - C Fundamentals/         # Basic syntax, variables, data types
-    ├── Day_2 - Control Flow.../        # Conditionals, loops, control structures
-    ├── Day_3 - Functions.../           # Functions, recursion, arrays
-    └── Day_4 - Struct, Union and Pointers/ # Structs, unions, pointers, dynamic memory
+├── C/                                  # Topic modules & C source code
+│   ├── Day_1 - C Fundamentals/         # Basic syntax, variables, data types
+│   ├── Day_2 - Control Flow.../        # Conditionals, loops, control structures
+│   ├── Day_3 - Functions.../           # Functions, recursion, arrays
+│   └── Day_4 - Struct, Union and Pointers/ # Structs, unions, pointers, dynamic memory
+└── Fullstack/                          # Fullstack Java course modules & guide
+    ├── README.md                       # Fullstack course homepage & navigation
+    └── Day_1 - Java Fundamentals/      # Java compilation pipeline, syntax, Scanner input, operators & nested conditionals
 ```
 
 ---

@@ -1,0 +1,35 @@
+# Interactive Login Validation System
+
+## Problem Description
+Build a multi-level login flow using nested `if` statements:
+1. Validate username.
+2. Validate password.
+3. If password incorrect, offer option 1 (Retry) or option 2 (Reset Password).
+
+## Requirements
+- Source file name: `13_login_validation.java`.
+- Handle string comparison via `.equals()`.
+- Handle buffer flush after numeric input (`sc.nextLine()`).
+
+## Sample Input
+```text
+admin
+9999
+2
+newsecret
+newsecret
+```
+
+## Sample Output
+```text
+Enter username: admin
+Enter password: 9999
+Invalid password.
+1. Retry Password
+2. Reset Password
+Enter your choice: 2
+Enter new password: newsecret
+Password reset successful. Please login again.
+Enter new password to login: newsecret
+Login successful!
+```

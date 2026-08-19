@@ -1,16 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(void) {
+int main()
+{
     int n = 5;
     int *arr;
 
     printf("Size of int is %zu.\n", sizeof(int));
     arr = malloc(n * sizeof(int));
 
-    if(arr == NULL) return 1;
+    if (arr == NULL)
+        return 1;
 
-    printf("Allocated memory address: %p\n", (void *)arr);
+    printf("Allocated memory address: %p\n", arr);
 
     free(arr);
     arr = NULL;

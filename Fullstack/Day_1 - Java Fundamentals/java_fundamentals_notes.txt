@@ -1,0 +1,197 @@
+================================================================================
+                      JAVA PROGRAMMING MASTER REFERENCE
+================================================================================
+
+1. THE JAVA COMPILATION & EXECUTION PIPELINE
+--------------------------------------------------------------------------------
+Source Code (.java)
+     │
+Compiler (javac)   ← Part of JDK
+     │ [Generates: Bytecode (.class file)]
+JVM / Runtime (java) ← Platform Dependent Virtual Machine
+     │ [Translates Bytecode to Native Machine Instructions via JIT/Interpreter]
+Execution on OS / CPU (Windows, macOS, Linux)
+
+WORA Principle: "Write Once, Run Anywhere"
+Bytecode is platform-independent; JVM is platform-specific.
+
+[JDK CLI COMMANDS]
+Stage 1: Compile Java Source  ->  javac 01_hello_world.java  (Produces _01_hello_world.class)
+Stage 2: Run Bytecode via JVM ->  java _01_hello_world       (Executes main method)
+
+[ANATOMY OF THE MAIN METHOD]
+public static void main(String[] args)
+
+- public    : Accessible from anywhere (required so JVM can invoke it).
+- static    : Invoked by JVM without creating an instance/object of the class.
+- void      : Returns no value to the caller.
+- main      : Predefined method signature recognized as entry point by JVM.
+- String[] args : Command-line arguments array passed to program upon launch.
+
+
+================================================================================
+2. JDK vs JRE vs JVM ARCHITECTURE
+--------------------------------------------------------------------------------
+- JDK (Java Development Kit): Complete software development environment.
+  Includes compiler (javac), launcher (java), archiver (jar), debugger (jdb).
+- JRE (Java Runtime Environment): Package that provides libraries and JVM.
+- JVM (Java Virtual Machine): Abstract computing machine that executes bytecode.
+
+  ┌─────────────────────────────────────────────────────────────┐
+  │ JDK (Development Environment)                               │
+  │  ┌───────────────────────────────────────────────────────┐  │
+  │  │ JRE (Runtime Environment)                             │  │
+  │  │  ┌─────────────────────────────────────────────────┐  │  │
+  │  │  │ JVM (Execution Engine: JIT + Interpreter)   │  │  │
+  │  │  └─────────────────────────────────────────────────┘  │  │
+  │  │  + Core Class Libraries (rt.jar / java.base)       │  │
+  │  └───────────────────────────────────────────────────────┘  │
+  │  + Development Tools (javac, java, jar, javadoc, jdb)    │
+  └─────────────────────────────────────────────────────────────┘
+
+
+================================================================================
+3. JAVA PRIMITIVE DATA TYPES TAXONOMY
+--------------------------------------------------------------------------------
+Type       Size            Default   Range / Usage
+---------  -------------   -------   -------------------------------------------
+byte       1 Byte (8-bit)  0         -128 to 127 (Small integers)
+short      2 Bytes         0         -32,768 to 32,767
+int        4 Bytes         0         -2,147,483,648 to 2,147,483,647 (Standard)
+long       8 Bytes         0L        -9,223,372,036,854,775,808 to 2^63 - 1 (Suffix 'L')
+float      4 Bytes         0.0f      Single-precision floating pt (Suffix 'f')
+double     8 Bytes         0.0d      Double-precision floating pt (Default decimal)
+char       2 Bytes         '\u0000'  16-bit Unicode character ('A', 'z', '9')
+boolean    JVM-dependent   false     true / false
+
+
+================================================================================
+4. VARIABLE NAMING RULES & CONSTANTS
+--------------------------------------------------------------------------------
+Naming Rules:
+1. Identifiers can contain letters, digits, underscores (_), and dollar signs ($).
+2. Identifiers MUST start with a letter, _, or $. (Cannot start with a digit).
+3. Java is strictly case-sensitive (`age` vs `Age` vs `AGE`).
+4. Java reserved keywords cannot be used as identifiers (`class`, `int`, `public`).
+5. Follow CamelCase naming conventions:
+   - Classes & Interfaces : UpperCamelCase (e.g. `PlacementEligibility`)
+   - Variables & Methods  : lowerCamelCase (e.g. `totalMinutes`, `nextInt()`)
+   - Constants            : ALL_UPPERCASE (e.g. `MAX_BUFFER_SIZE`)
+
+Constants:
+- Declared using the `final` keyword. Value cannot be modified after assignment.
+  Example:
+    final double PI = 3.14159;
+    final int DAYS_IN_WEEK = 7;
+
+
+================================================================================
+5. TYPE CASTING & CONVERSION MECHANICS
+--------------------------------------------------------------------------------
+A. Implicit Casting (Widening Conversion - Automatic)
+   Occurs automatically when converting a smaller type to a larger type.
+   byte -> short -> char -> int -> long -> float -> double
+
+   Example:
+     int num = 100;
+     double val = num; // Automatic widening (val = 100.0)
+
+B. Explicit Casting (Narrowing Conversion - Manual)
+   Requires explicit cast operator `(type)` when converting a larger type to smaller.
+   May result in loss of precision or overflow.
+   double -> float -> long -> int -> char -> short -> byte
+
+   Example:
+     double d = 9.78;
+     int count = (int) d; // Truncates decimal to 9
+
+
+================================================================================
+6. OPERATOR TAXONOMY & SHORT-CIRCUIT EVALUATION
+--------------------------------------------------------------------------------
+A. Arithmetic Operators: +, -, *, /, %
+   - Integer Division: `10 / 3` evaluates to `3` (truncates decimal).
+   - Floating-point Division: `10.0 / 3` evaluates to `3.3333333333333335`.
+   - Modulus Operator (%): Extracts remainder. `10 % 3` evaluates to `1`.
+
+B. Relational Operators: ==, !=, >, <, >=, <=
+   Evaluate to boolean values (`true` or `false`).
+
+C. Logical Operators: && (AND), || (OR), ! (NOT)
+   - Short-Circuit AND (`&&`): If first condition is `false`, second condition
+     is NOT evaluated.
+   - Short-Circuit OR (`||`): If first condition is `true`, second condition
+     is NOT evaluated.
+
+D. Increment / Decrement Operators: ++, --
+   - Pre-increment (`++a`): Increments `a` first, then returns new value.
+   - Post-increment (`a++`): Returns current value of `a` first, then increments.
+
+E. Assignment Operators: =, +=, -=, *=, /=, %=
+   - `a += 5` is equivalent to `a = a + 5`.
+
+
+================================================================================
+7. JAVA SCANNER INPUT API & BUFFER GOTCHAS
+--------------------------------------------------------------------------------
+Import: `import java.util.Scanner;`
+
+Method           Reads                   Buffer Note
+--------------   ---------------------   ---------------------------------------
+nextByte()       byte                    Leaves trailing newline in buffer
+nextShort()      short                   Leaves trailing newline in buffer
+nextInt()        int                     Leaves trailing newline in buffer
+nextLong()       long                    Leaves trailing newline in buffer
+nextFloat()      float                   Leaves trailing newline in buffer
+nextDouble()     double                  Leaves trailing newline in buffer
+nextBoolean()    boolean                 Leaves trailing newline in buffer
+next()           Single token (Word)     Delimited by whitespace
+nextLine()       Entire Line             Consumes remaining line & newline
+
+*CRITICAL SCANNER BUFFER GOTCHA*:
+When using `nextInt()` or `nextDouble()` followed by `nextLine()`, the numeric
+method reads the digits but leaves the newline character (`\n`) in the buffer.
+The subsequent `nextLine()` immediately reads that newline and returns an empty string!
+
+Solution:
+  int choice = sc.nextInt();
+  sc.nextLine(); // Clear leftover newline buffer!
+  String name = sc.nextLine();
+
+
+================================================================================
+8. STRING HANDLING & COMPARISON IN JAVA
+--------------------------------------------------------------------------------
+- `String` is a reference object type, NOT a primitive data type.
+- Strings in Java are IMMUTABLE (cannot be modified once created).
+
+Comparing Strings (CRITICAL DIFFERENCE):
+- `str1 == str2`        : Compares MEMORY REFERENCES (checks if both point to same object).
+- `str1.equals(str2)`   : Compares CONTENT (checks if characters are identical).
+
+Always use `.equals()` or `.equalsIgnoreCase()` for string content validation!
+
+Common String Methods:
+- `.length()`           : Returns character count.
+- `.charAt(index)`      : Returns character at specified index.
+- `.equals(other)`      : Case-sensitive content equality.
+- `.equalsIgnoreCase()` : Case-insensitive content equality.
+- `.isEmpty()`          : Returns `true` if length is 0.
+- `.toLowerCase()`      : Converts string to lowercase.
+- `.toUpperCase()`      : Converts string to uppercase.
+
+
+================================================================================
+9. CONDITIONAL CONTROL FLOW STRUCTURES
+--------------------------------------------------------------------------------
+A. if Statement
+   Evaluates single boolean condition.
+
+B. if-else Statement
+   Binary branching path.
+
+C. if-else if-else Ladder
+   Multi-way decision pipeline.
+
+D. Nested if Statement
+   Encloses an `if` statement inside another `if` block for hierarchical checks.

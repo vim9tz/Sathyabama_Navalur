@@ -1,4 +1,4 @@
-# Executables and Binaries
+# C Executables and Binaries
 *.out
 *.o
 *.obj
@@ -6,14 +6,39 @@
 01_if_else_grade_classifier
 04_do_while_digit_analysis
 
-# macOS system files
+# Java Bytecode and Packages
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+
+# Java Build Directories & Tooling
+bin/
+target/
+build/
+.gradle/
+out/
+
+# Eclipse & IDE Artifacts
+.classpath
+.project
+.settings/
+.factorypath
+.springBeans
+*.iml
+*.iws
+*.ipr
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# VSCode Code Runner Temporary Files
+tempCodeRunnerFile*
+
+# macOS System Files
 .DS_Store
 .AppleDouble
 .LSOverride
 ._*
-
-# IDE settings
-.vscode/
-.idea/
-*.swp
-*.swo
