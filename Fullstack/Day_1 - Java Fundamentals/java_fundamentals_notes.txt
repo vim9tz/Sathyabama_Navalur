@@ -158,6 +158,41 @@ Solution:
   sc.nextLine(); // Clear leftover newline buffer!
   String name = sc.nextLine();
 
+================================================================================
+JAVA SCANNER - IMPORTANT METHODS & COMBINATIONS
+--------------------------------------------------------------------------------
+
+Requirement                    Code                                      Note
+-----------------------------  ----------------------------------------  -----------------------------
+Read byte                      sc.nextByte()                             Reads byte
+Read short                     sc.nextShort()                            Reads short
+Read integer                   sc.nextInt()                              Reads int
+Read long                      sc.nextLong()                             Reads long
+Read float                     sc.nextFloat()                            Reads float
+Read double                    sc.nextDouble()                           Reads double
+Read boolean                   sc.nextBoolean()                          Reads true/false
+Read one word                  sc.next()                                 Stops at whitespace
+Read full line                 sc.nextLine()                             Reads entire line
+Read character                 sc.next().charAt(0)                       Reads first character
+Read 2nd character             sc.next().charAt(1)                       Reads second character
+Read uppercase character       sc.next().toUpperCase().charAt(0)         a -> A
+Read lowercase character       sc.next().toLowerCase().charAt(0)         A -> a
+Read lowercase word            sc.next().toLowerCase()                   ADMIN -> admin
+Read uppercase word            sc.next().toUpperCase()                   admin -> ADMIN
+Read trimmed full line         sc.nextLine().trim()                      Removes outer spaces
+Read lowercase full line       sc.nextLine().toLowerCase()               Converts line to lowercase
+Read uppercase full line       sc.nextLine().toUpperCase()               Converts line to uppercase
+Read int after nextLine        Integer.parseInt(sc.nextLine())           String -> int
+Read double after nextLine     Double.parseDouble(sc.nextLine())         String -> double
+Read float after nextLine      Float.parseFloat(sc.nextLine())           String -> float
+Read long after nextLine       Long.parseLong(sc.nextLine())             String -> long
+Check integer input            sc.hasNextInt()                           Returns true/false
+Check double input             sc.hasNextDouble()                        Returns true/false
+Check next token               sc.hasNext()                              Checks token availability
+Check next line                sc.hasNextLine()                          Checks line availability
+Clear newline after number     sc.nextLine()                             Before reading full line
+Close Scanner                  sc.close()                                Closes Scanner
+================================================================================
 
 ================================================================================
 8. STRING HANDLING & COMPARISON IN JAVA

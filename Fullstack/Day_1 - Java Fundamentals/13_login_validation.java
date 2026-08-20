@@ -29,7 +29,7 @@ class _13_login_validation {
                 int choice = sc.nextInt();
                 sc.nextLine(); // Clear leftover newline
 
-                if (choice == 1) {
+                       if (choice == 1) {
                     System.out.print("Enter password again: ");
                     String retryPassword = sc.nextLine();
                     if (retryPassword.equals(validPassword)) {
