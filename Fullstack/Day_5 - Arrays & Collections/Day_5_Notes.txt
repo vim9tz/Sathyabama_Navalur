@@ -1,0 +1,16 @@
+Arrays & Collections
+
+Array and ArrayList
+
+Syntax (Array)
+dataType[] arrayName;  // Declaration
+dataType[] arrayName = new dataType[size];  // Declaration and Creation
+int[] numbers = {10, 20, 30, 40, 50};   // Declaration, Creation, and Initialization
+
+Syntax (ArrayList)
+ArrayList<String> list = new ArrayList<>();
+
+Array vs ArrayList (Difference)
+1. Array fixed in size. ArrayList dynamic and grow or shrink as needed.
+2. Array [] operator to access elements. ArrayList uses methods add(), remove() and get().
+3. Array supports data types and objects. Array list supports only objects.

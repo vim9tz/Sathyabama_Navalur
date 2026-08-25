@@ -1,0 +1,19 @@
+# Encapsulated User Profile
+
+## Problem Description
+Construct an encapsulated `UserProfile` class with validation checks inside mutators (`setEmail` verifying `@` and `.` characters, `setAge` enforcing $18 \le \text{age} \le 100$).
+
+## Requirements
+- Source file name: `07_encapsulated_user_profile.java`
+- Class name: `_07_encapsulated_user_profile`
+- Guard fields against invalid state mutations via setter validations.
+
+## Sample Output
+```text
+User: dev_prakash | Email: prakash@domain.com | Age: 25
+
+--- Testing Mutator Validation ---
+Validation Error: Age must be between 18 and 100 [15]. Value rejected.
+Validation Error: Invalid email format [invalid-email-str]. Value rejected.
+User: dev_prakash | Email: prakash@domain.com | Age: 30
+```

@@ -1,0 +1,144 @@
+================================================================================
+JAVA CONTROL FLOW & LOOPS - MASTER REFERENCE NOTES
+================================================================================
+
+1. CONDITIONAL CONTROL FLOW: IF-ELSE VS SWITCH
+--------------------------------------------------------------------------------
+In Java, decision making is handled using conditional branches (`if-else`) or fixed-value matching (`switch`).
+
+IF-ELSE STATEMENT:
+- Evaluates boolean expressions (relational operators, logical operators, complex ranges).
+- Used when checking numeric ranges (`mark >= 50`), multiple dynamic variables, or boolean conditions.
+
+SWITCH STATEMENT:
+- Evaluates a single expression against constant case labels.
+- Used when matching discrete, fixed values (e.g., menu selections, status codes, days of the week, arithmetic operators).
+
+SUPPORTED TYPES IN SWITCH:
++----------------------+------------------+----------------------------------+
+| DATA TYPE            | SWITCH SUPPORT   | NOTES                            |
++----------------------+------------------+----------------------------------+
+| byte                 | YES              | Primitive integer type (8-bit)   |
+| short                | YES              | Primitive integer type (16-bit)  |
+| int                  | YES              | Primitive integer type (32-bit)  |
+| char                 | YES              | Character representation         |
+| String               | YES              | Case-sensitive matching (Java 7+)|
+| enum                 | YES              | Type-safe enumeration constant   |
+| long                 | NO               | 64-bit integer not allowed       |
+| float                | NO               | Floating-point imprecise comparison |
+| double               | NO               | Floating-point imprecise comparison |
+| boolean              | NO               | Use simple `if-else` instead     |
++----------------------+------------------+----------------------------------+
+
+TRADITIONAL VS MODERN SWITCH SYNTAX (Java 14+):
+
+Traditional Switch (colon syntax):
+```java
+switch (day) {
+    case 1:
+        System.out.println("Monday");
+        break;
+    case 2:
+        System.out.println("Tuesday");
+        break;
+    default:
+        System.out.println("Invalid day");
+        break;
+}
+```
+
+Modern Switch (arrow syntax & switch expressions):
+```java
+String dayName = switch (day) {
+    case 1 -> "Monday";
+    case 2 -> "Tuesday";
+    case 6, 7 -> "Weekend"; // Multi-label matching
+    default -> {
+        System.out.println("Unknown day code");
+        yield "Invalid"; // yield returns value from block
+    }
+};
+```
+
+KEY SWITCH RULES:
+1. Case values must be compile-time constants (literals or `final` variables).
+2. Duplicate case values are strictly prohibited.
+3. Fall-through occurs in traditional switch when `break` is omitted.
+4. Arrow syntax (`->`) eliminates accidental fall-through.
+
+================================================================================
+2. JAVA LOOPS (ITERATION STATEMENTS)
+--------------------------------------------------------------------------------
+A loop repeatedly executes a block of code while a specified condition remains true.
+
+TYPES OF LOOPS:
++--------------+------------------+--------------------+----------------------+
+| LOOP TYPE    | CONDITION CHECK  | MINIMUM EXECUTION | TYPICAL USE CASE     |
++--------------+------------------+--------------------+----------------------+
+| for          | Entry (Before)   | 0 times            | Fixed number of steps|
+| while        | Entry (Before)   | 0 times            | Indeterminate count  |
+| do-while     | Exit (After)     | 1 time             | Menus, user retries  |
+| enhanced for | Implicit         | 0 times            | Arrays & Collections |
++--------------+------------------+--------------------+----------------------+
+
+1. FOR LOOP SYNTAX:
+for (initialization; condition; update) {
+    // Body statements
+}
+- Initialization runs once at loop entry.
+- Condition evaluated before each iteration.
+- Update executes after each iteration body.
+
+2. WHILE LOOP SYNTAX:
+initialization;
+while (condition) {
+    // Body statements
+    update;
+}
+- Used when repetition depends purely on a condition (e.g., `num > 0`).
+
+3. DO-WHILE LOOP SYNTAX:
+initialization;
+do {
+    // Body statements
+    update;
+} while (condition); // Note mandatory trailing semicolon!
+- Guarantees execution at least once regardless of initial condition.
+
+================================================================================
+3. LOOP CONTROL STATEMENTS: BREAK AND CONTINUE
+--------------------------------------------------------------------------------
+- `break`: Immediately terminates the innermost loop or switch statement, transferring execution to the statement following the loop body.
+- `continue`: Skips the remainder of the current loop body and immediately advances control to the loop's update step / condition evaluation.
+
+================================================================================
+4. PATTERNS & NUMBER THEORY ALGORITHMS WITH LOOPS
+--------------------------------------------------------------------------------
+COUNTER PATTERN:
+int count = 0;
+for (int i = start; i <= end; i++) {
+    if (i % 2 == 0) count++;
+}
+
+ACCUMULATOR PATTERN:
+int sum = 0;
+for (int i = start; i <= end; i++) {
+    sum += i;
+}
+
+DIGIT EXTRACTION AND REVERSAL:
+while (num > 0) {
+    int digit = num % 10;   // Extract rightmost digit
+    rev = rev * 10 + digit;  // Append digit to reversed number
+    num /= 10;              // Truncate rightmost digit
+}
+
+PRIME NUMBER CHECK:
+boolean isPrime = true;
+if (num <= 1) isPrime = false;
+else {
+    for (int i = 2; i * i <= num; i++) {
+        if (num % i == 0) { isPrime = false; break; }
+    }
+}
+================================================================================

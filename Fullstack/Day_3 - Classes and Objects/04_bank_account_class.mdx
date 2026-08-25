@@ -1,0 +1,20 @@
+# Bank Account State Management
+
+## Problem Description
+Create a `SimpleAccount` class with fields `accountNumber`, `accountHolder`, and `balance`. Add instance methods `deposit(double amount)`, `withdraw(double amount)`, and `displaySummary()` to manage balance states securely.
+
+## Requirements
+- Source file name: `04_bank_account_class.java`
+- Class name: `_04_bank_account_class`
+- Prevent withdrawal if `amount > balance`.
+
+## Sample Output
+```text
+--- Initial State ---
+Account: ACC99812 | Holder: Rohan Verma | Balance: ₹5000.0
+
+--- Performing Transactions ---
+Deposited ₹2500.0. New Balance: ₹7500.0
+Withdrew ₹1200.0. Remaining Balance: ₹6300.0
+Withdrawal failed! Insufficient funds or invalid amount.
+```

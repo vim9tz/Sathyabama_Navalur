@@ -1,0 +1,22 @@
+# Abstract Home Appliance System
+
+## Problem Description
+Design an abstract superclass `HomeAppliance` featuring constructors, concrete specification methods, and abstract operational lifecycle controls (`turnOn()`, `turnOff()`). Implement concrete subclasses `WashingMachine` and `Refrigerator`.
+
+## Requirements
+- Source file name: `09_abstract_appliance_system.java`
+- Class name: `_09_abstract_appliance_system`
+- Verify abstract class constructor invocation via `super(...)` inside child constructors.
+
+## Sample Output
+```text
+Abstract Constructor: Initialized Bosch Appliance (2000.0W)
+Brand: Bosch | Power Rating: 2000.0 Watts
+WashingMachine: Motor starting wash cycle (7.5 kg load).
+WashingMachine: Drain pump finished. Power off.
+
+Abstract Constructor: Initialized Samsung Appliance (350.0W)
+Brand: Samsung | Power Rating: 350.0 Watts
+Refrigerator: Compressor running. Cooling 345L compartment.
+Refrigerator: Defrost mode active. Compressor paused.
+```

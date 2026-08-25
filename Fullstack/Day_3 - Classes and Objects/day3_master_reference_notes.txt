@@ -1,0 +1,70 @@
+================================================================================
+JAVA METHODS, CLASSES, OBJECTS & INHERITANCE - MASTER REFERENCE NOTES
+================================================================================
+
+1. JAVA METHODS (FUNCTIONS)
+--------------------------------------------------------------------------------
+A method is a named block of code that performs a specific task. Methods enable modularity, code reusability, and clean code separation.
+
+METHOD SYNTAX:
+<access_modifier> <static/instance> <return_type> <method_name>(<parameters>) {
+    // Method body
+    return <value>; // Required if return_type is not void
+}
+
+PARTS OF A METHOD:
+1. Access Modifier: Controls visibility (`public`, `private`, `protected`, package-private).
+2. `static`: Belongs to class level (can be called without creating an object instance).
+3. Return Type: Data type of value returned (`int`, `double`, `String`, or `void` for no return).
+4. Parameters: Inputs passed into method. Java uses strictly PASS-BY-VALUE.
+
+================================================================================
+2. CLASSES AND OBJECTS
+--------------------------------------------------------------------------------
+- CLASS: A blueprint, template, or custom data type definition. Does not occupy heap memory.
+- OBJECT: A concrete physical instance of a class created in heap memory using `new`.
+
+MEMORY ALLOCATION IN JAVA:
+- STACK MEMORY: Stores local variables and reference variables pointing to heap objects.
+- HEAP MEMORY: Stores actual object instances, instance fields, and arrays.
+
+INSTANCE VARIABLES VS LOCAL VARIABLES:
++---------------------+-------------------------------+--------------------------------+
+| FEATURE             | INSTANCE VARIABLES            | LOCAL VARIABLES                |
++---------------------+-------------------------------+--------------------------------+
+| Declaration location| Inside Class, outside methods | Inside Method or Block         |
+| Scope               | Entire Class                  | Block/Method where declared    |
+| Default Values      | Assigned (0, false, null)     | NOT assigned (Must initialize) |
+| Lifetime            | Exists as long as object lives| Exists during method execution |
++---------------------+-------------------------------+--------------------------------+
+
+================================================================================
+3. CONSTRUCTORS AND THE 'THIS' KEYWORD
+--------------------------------------------------------------------------------
+WHAT IS A CONSTRUCTOR?
+A special method used to initialize objects. Has NO return type and matches class name exactly.
+
+TYPES OF CONSTRUCTORS:
+1. Default Constructor: Provided automatically by Java if NO explicit constructors are declared. Initializes fields to default values.
+2. Parameterized Constructor: Accepts custom arguments to set initial object state.
+
+THIS KEYWORD:
+- `this.fieldName`: References the current object's instance variable (resolves shadowing when parameter name equals field name).
+- `this(...)`: Explicitly calls another constructor within the same class (Constructor Chaining). MUST be the first statement in constructor body!
+
+================================================================================
+4. INHERITANCE AND THE 'SUPER' KEYWORD
+--------------------------------------------------------------------------------
+INHERITANCE: Mechanism where a child/subclass inherits attributes and behaviors from a parent/superclass using `extends`.
+
+TYPES OF INHERITANCE IN JAVA:
+1. Single Inheritance: Child extends Parent.
+2. Multilevel Inheritance: Grandchild extends Child extends Parent.
+3. Hierarchical Inheritance: Multiple Child classes extend single Parent.
+(Note: Multiple Inheritance of classes is NOT supported in Java to prevent ambiguity/diamond problem; supported only via Interfaces).
+
+SUPER KEYWORD:
+- `super(...)`: Calls the parameterized constructor of the parent class. MUST be the first line in child constructor body!
+- `super.methodName()`: Invokes an overridden method defined in parent class.
+- `super.fieldName`: Accesses a parent class field shadowed by child class field.
+================================================================================

@@ -1,0 +1,28 @@
+# ATM PIN Verification (Do-While Loop)
+
+## Problem Description
+Write a security authentication program using a `do-while` loop that allows a maximum of 3 PIN attempts. If the user enters the correct PIN (e.g., `9876`), access is granted immediately (`break`). If 3 failed attempts occur, the card is locked.
+
+## Requirements
+- Source file name: `13_pin_validation_do_while.java`
+- Class name: `_13_pin_validation_do_while`
+- Use a `do-while` loop to guarantee at least one PIN input prompt.
+
+## Sample Input
+```text
+1111
+2222
+9876
+```
+
+## Sample Output
+```text
+Enter 4-digit PIN (Attempt 1/3): 1111
+Incorrect PIN.
+Enter 4-digit PIN (Attempt 2/3): 2222
+Incorrect PIN.
+Enter 4-digit PIN (Attempt 3/3): 9876
+
+--- SECURITY STATUS ---
+Access Granted! Welcome to your Account.
+```

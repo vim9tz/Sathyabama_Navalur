@@ -1,0 +1,66 @@
+================================================================================
+JAVA OOP CONCEPTS & ABSTRACTION - MASTER REFERENCE NOTES
+================================================================================
+
+1. POLYMORPHISM (MANY FORMS)
+--------------------------------------------------------------------------------
+Polymorphism allows objects of different classes to respond to the same method invocation in their own unique way.
+
+TYPES OF POLYMORPHISM:
+1. COMPILE-TIME POLYMORPHISM (Static Binding / Early Binding):
+   - Achieved via METHOD OVERLOADING.
+   - Multiple methods in the same class share the exact same name but have different parameter lists.
+   - Compiler decides which method to call based on argument count, data types, or parameter order.
+   - NOTE: Changing ONLY the return type is NOT valid overloading and results in a compilation error!
+
+2. RUNTIME POLYMORPHISM (Dynamic Binding / Late Binding):
+   - Achieved via METHOD OVERRIDING.
+   - Subclass provides a specific implementation of a method already declared in its superclass.
+   - Method signature (name, parameter count & types, return type) MUST be identical.
+   - `@Override` annotation is highly recommended to enforce compiler checks.
+   - DYNAMIC METHOD DISPATCH: Parent class reference variable holding Child object instance:
+     `Parent P = new Child();` -> Calls `Child`'s overridden method at runtime!
+
+RULES FOR METHOD OVERRIDING:
+- `private` methods CANNOT be overridden.
+- `final` methods CANNOT be overridden.
+- `static` methods CANNOT be overridden (they are hidden, not overridden dynamically).
+
+================================================================================
+2. ENCAPSULATION (DATA HIDING & CONTROLLED ACCESS)
+--------------------------------------------------------------------------------
+Encapsulation is the practice of wrapping data (variables) and code acting on data (methods) into a single unit and restricting direct external access to object internals.
+
+IMPLEMENTATION:
+1. Declare instance variables as `private`.
+2. Provide public Getter (`get...()`) and Setter (`set...()`) methods for controlled read/write access.
+3. Incorporate data validation inside setters (e.g., balance cannot be negative, age must be > 0).
+
+ADVANTAGES OF ENCAPSULATION:
+- Protection against unauthorized external corruption (e.g., `account.balance = -50000;`).
+- Flexibility to change internal class implementation without breaking external callers.
+- Support for Immutable Objects (providing getters only, no setters).
+
+================================================================================
+3. ABSTRACTION (HIDING IMPLEMENTATION DETAILS)
+--------------------------------------------------------------------------------
+Abstraction exposes WHAT an object does while hiding HOW it works internally.
+
+JAVA SUPPORTS ABSTRACTION VIA:
+1. ABSTRACT CLASSES (`abstract class`):
+   - Cannot be directly instantiated using `new`.
+   - May contain `abstract` methods (methods without body ending in semicolon) AND concrete methods (with body).
+   - May contain constructors, fields, and static methods.
+   - Subclass MUST override all abstract methods unless the subclass is also abstract.
+
+2. INTERFACES (`interface`):
+   - Fully abstract contract (prior to Java 8).
+   - Fields are implicitly `public static final` (constants).
+   - Methods are implicitly `public abstract` (no body).
+   - Java 8+ supports `default` methods (with body) and `static` methods in interfaces.
+   - Implemented by classes using the `implements` keyword.
+
+MULTIPLE INHERITANCE VIA INTERFACES:
+- Java does NOT support multiple class inheritance (`class C extends A, B` is INVALID).
+- Java DOES support multiple interface implementation (`class C implements InterfaceA, InterfaceB` is VALID), enabling flexible component compositions without diamond ambiguity.
+================================================================================

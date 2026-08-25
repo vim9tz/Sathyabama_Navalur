@@ -1,0 +1,25 @@
+================================================================================
+DAY 3: CLASSES & OBJECTS - PRACTICE EXERCISES & SOLUTIONS
+================================================================================
+
+EXERCISE 1: STUDENT MARK ANALYSIS (CLASS & METHOD DESIGN)
+--------------------------------------------------------------------------------
+Problem: Create a `Student` class with attributes `rollNo`, `name`, `mark1`, `mark2`, `mark3`. Implement methods `calculateTotal()`, `calculateAverage()`, and `displayGrade()`.
+Grade Rules:
+Average >= 90: Grade A
+Average >= 75: Grade B
+Average >= 50: Grade C
+Else: Fail
+
+EXERCISE 2: E-COMMERCE CONSTRUCTOR CHAINING & SUPER
+--------------------------------------------------------------------------------
+Problem: Design `EcommerceProduct` parent class with `productId`, `name`, `basePrice`. Create subclass `PhysicalProduct` with `shippingCost` and subclass `DigitalProduct` with `downloadLink`.
+Use `super(productId, name, basePrice)` to initialize superclass fields.
+
+EXERCISE 3: CONSTRUCTOR OVERLOADING IN BANKING
+--------------------------------------------------------------------------------
+Problem: Define a `BankAccount` class with fields `accNumber`, `holderName`, `balance`.
+Constructor 1: Default constructor setting initial balance = 500.
+Constructor 2: Parameterized constructor accepting `accNumber`, `holderName`, `balance`.
+Constructor 3: Copy constructor initializing new account from an existing `BankAccount` object.
+================================================================================

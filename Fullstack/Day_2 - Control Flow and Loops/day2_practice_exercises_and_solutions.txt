@@ -1,0 +1,44 @@
+================================================================================
+DAY 2: CONTROL FLOW & LOOPS - PRACTICE EXERCISES & SOLUTIONS
+================================================================================
+
+EXERCISE 1: MONTH DAYS CALCULATOR (SWITCH RULE)
+--------------------------------------------------------------------------------
+Problem: Given a month number (1-12) and year, print the number of days in that month using switch statement. Account for leap year in February (Month 2).
+Trace Table:
+Input: Month 2, Year 2024
+Calculation: 2024 % 4 == 0 && (2024 % 100 != 0 || 2024 % 400 == 0) -> Leap Year
+Output: Days: 29
+
+EXERCISE 2: REVERSE NUMBER AND PALINDROME CHECK
+--------------------------------------------------------------------------------
+Problem: Read an integer `N`, reverse its digits, and determine if `N` is a palindrome.
+Trace Table:
+Input: 12321
+Step 1: digit = 1, rev = 1, num = 1232
+Step 2: digit = 2, rev = 12, num = 123
+Step 3: digit = 3, rev = 123, num = 12
+Step 4: digit = 2, rev = 1232, num = 1
+Step 5: digit = 1, rev = 12321, num = 0
+Output: Reversed = 12321, Is Palindrome = true
+
+EXERCISE 3: FIBONACCI SERIES GENERATOR
+--------------------------------------------------------------------------------
+Problem: Generate the first N terms of the Fibonacci sequence starting from 0 and 1.
+Formula: F(0) = 0, F(1) = 1, F(n) = F(n-1) + F(n-2)
+Input: N = 7
+Output: 0 1 1 2 3 5 8
+
+EXERCISE 4: STAR PATTERN (PYRAMID)
+--------------------------------------------------------------------------------
+Problem: Print an isosceles pyramid of height H using nested loops.
+Input: H = 4
+Output:
+   *
+  ***
+ *****
+*******
+Outer loop: row from 1 to H
+Inner loop 1: print (H - row) spaces
+Inner loop 2: print (2 * row - 1) asterisks
+================================================================================

@@ -1,0 +1,19 @@
+# Payment Gateway Interface Contract
+
+## Problem Description
+Define a Java interface contract `PaymentGatewayContract` with constant fields (`CURRENCY = "INR"`) and abstract operations (`initiatePayment`, `verifyStatus`). Create implementing classes `UpiPaymentGateway` and `CardPaymentGateway`.
+
+## Requirements
+- Source file name: `10_payment_gateway_interface.java`
+- Class name: `_10_payment_gateway_interface`
+- Utilize the `implements` keyword to realize interface contracts.
+
+## Sample Output
+```text
+--- Payment Gateway Interfaces ---
+UPI Gateway: Initiating transfer of INR 1500.0 via merchant@paytm
+UPI Gateway: Verifying transaction status for Txn ID [UPI-88912] -> SUCCESS
+
+Card Gateway: Authorizing INR 4999.0 on Card [*9988]
+Card Gateway: Verifying clearance for Txn ID [CARD-44102] -> SETTLED
+```

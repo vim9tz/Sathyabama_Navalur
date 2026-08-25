@@ -1,0 +1,3 @@
+Problem 1 — Store and Print 5 Marks
+
+Create an integer array with 5 marks and display all values.

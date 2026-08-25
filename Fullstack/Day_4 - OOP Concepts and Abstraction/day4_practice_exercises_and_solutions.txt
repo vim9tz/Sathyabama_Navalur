@@ -1,0 +1,24 @@
+================================================================================
+DAY 4: OOP CONCEPTS & ABSTRACTION - PRACTICE EXERCISES & SOLUTIONS
+================================================================================
+
+EXERCISE 1: METHOD OVERLOADING IN AUTHENTICATION
+--------------------------------------------------------------------------------
+Problem: Create a `Login` class with overloaded `login()` methods:
+1. `login(String email, String password)`
+2. `login(long mobileNumber, String password)`
+3. `login(String username, int pinCode)`
+
+EXERCISE 2: RUNTIME POLYMORPHISM & DYNAMIC METHOD DISPATCH
+--------------------------------------------------------------------------------
+Problem: Define a superclass `Bank` with method `getInterestRate()`.
+Subclasses: `SBI` (returns 7.2%), `HDFC` (returns 8.1%), `ICICI` (returns 7.9%).
+Demonstrate runtime polymorphism using superclass reference variables array:
+`Bank[] banks = { new SBI(), new HDFC(), new ICICI() };`
+
+EXERCISE 3: INTERFACE FOR PAYMENT PROCESSING
+--------------------------------------------------------------------------------
+Problem: Create an interface `PaymentGateway` with method `processPayment(double amount)`.
+Implementations: `CreditCardPayment`, `UpiPayment`, `NetBankingPayment`.
+Write a payment dispatcher method that accepts any `PaymentGateway` interface reference.
+================================================================================

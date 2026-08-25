@@ -3,9 +3,11 @@
 > A comprehensive, learner-focused workbook featuring **hands-on Java programming exercises**, textbook breakdowns, sample inputs/outputs, master reference notes, and step-by-step problem specifications.
 
 [![Java Standard](https://img.shields.io/badge/Language-Java_17%2B-orange.svg)](https://dev.java/)
-[![Problems Solved](https://img.shields.io/badge/Day_1_Problems-13-success.svg)](#-day-1---java-fundamentals)
+[![Day 1 Problems](https://img.shields.io/badge/Day_1_Problems-13-success.svg)](#-day-1---java-fundamentals)
+[![Day 2 Problems](https://img.shields.io/badge/Day_2_Problems-13-success.svg)](#-day-2---control-flow-and-loops)
+[![Day 3 Problems](https://img.shields.io/badge/Day_3_Problems-12-success.svg)](#-day-3---classes-and-objects)
+[![Day 4 Problems](https://img.shields.io/badge/Day_4_Problems-12-success.svg)](#-day-4---oop-concepts-and-abstraction)
 [![Accuracy](https://img.shields.io/badge/Accuracy-100%25_Verified-brightgreen.svg)](#)
-[![Format](https://img.shields.io/badge/Format-GitHub_Flavored_Markdown-blue.svg)](#)
 
 ---
 
@@ -14,7 +16,10 @@
 - [Overview](#-overview)
 - [Course Structure](#-course-structure)
 - [How to Build and Run](#-how-to-build-and-run)
-- [Day 1 - Java Fundamentals Navigation](#-day-1---java-fundamentals)
+- [Day 1 - Java Fundamentals](#-day-1---java-fundamentals)
+- [Day 2 - Control Flow and Loops](#-day-2---control-flow-and-loops)
+- [Day 3 - Classes and Objects](#-day-3---classes-and-objects)
+- [Day 4 - OOP Concepts and Abstraction](#-day-4---oop-concepts-and-abstraction)
 
 ---
 
@@ -26,7 +31,7 @@ Each problem features:
 1. **Clear Problem Statement** with sanitized raw sample inputs and expected outputs.
 2. **Java Solution File (`.java`)** following standard Java naming conventions and clean resource management.
 3. **Problem Specification File (`.mdx`)** detailing problem requirements and sample input/output traces.
-4. **Master Reference Notes** detailing JVM architecture, compilation pipeline, data type taxonomy, Scanner API gotchas, and string memory models.
+4. **Master Reference Notes** detailing JVM architecture, decision trees, iteration mechanics, memory layouts (heap/stack), object contracts, and OOP design patterns.
 
 ---
 
@@ -34,15 +39,31 @@ Each problem features:
 
 ```text
 Fullstack/
-├── README.md                           # Fullstack Java course homepage & navigation
-└── Day_1 - Java Fundamentals/          # Java execution pipeline, syntax, Scanner input, & nested conditionals
-    ├── java_fundamentals_notes.txt     # Master reference notes for Java basics
-    ├── day1_practice_exercises...txt   # Exercises and solutions mapping reference
-    ├── 01_hello_world.java             # Source code for Hello World
-    ├── 01_hello_world.mdx              # Problem specification for Hello World
-    ├── ...
-    ├── 13_login_validation.java        # Source code for Login Validation System
-    └── 13_login_validation.mdx         # Problem specification for Login Validation System
+├── README.md                                   # Course homepage & complete navigation
+├── Day_1 - Java Fundamentals/                  # Java execution pipeline, Scanner, primitives & nested conditions
+│   ├── day1_master_reference_notes.txt         # Master reference notes for Day 1
+│   ├── day1_practice_exercises_and_solutions.txt
+│   ├── 01_hello_world.java                     # Source code
+│   ├── 01_hello_world.mdx                      # Problem specification
+│   └── ... (13 problems)
+├── Day_2 - Control Flow and Loops/             # Switch statements, for/while/do-while loops & number theory
+│   ├── day2_master_reference_notes.txt         # Master reference notes for Day 2
+│   ├── day2_practice_exercises_and_solutions.txt
+│   ├── 01_number_sign_check.java               # Source code
+│   ├── 01_number_sign_check.mdx                # Problem specification
+│   └── ... (13 problems)
+├── Day_3 - Classes and Objects/                # Methods, Class/Object instantiation, Constructors & Inheritance
+│   ├── day3_master_reference_notes.txt         # Master reference notes for Day 3
+│   ├── day3_practice_exercises_and_solutions.txt
+│   ├── 01_modular_utility_methods.java         # Source code
+│   ├── 01_modular_utility_methods.mdx          # Problem specification
+│   └── ... (12 problems)
+└── Day_4 - OOP Concepts and Abstraction/       # Overloading, Overriding, Encapsulation, Abstract Classes & Interfaces
+    ├── day4_master_reference_notes.txt         # Master reference notes for Day 4
+    ├── day4_practice_exercises_and_solutions.txt
+    ├── 01_area_calculator_overloading.java     # Source code
+    ├── 01_area_calculator_overloading.mdx      # Problem specification
+    └── ... (12 problems)
 ```
 
 ---
@@ -59,18 +80,18 @@ javac -version
 java -version
 ```
 
-### Compilation & Execution
-Navigate to the module directory and run `javac` followed by `java`:
+### Compilation & Execution Example
+Navigate to any day's module directory and run `javac` followed by `java`:
 
 ```bash
-# Navigate to Day 1 module
-cd "Fullstack/Day_1 - Java Fundamentals"
+# Navigate to Day 2 module
+cd "Fullstack/Day_2 - Control Flow and Loops"
 
 # Compile all Java files in the module
 javac *.java
 
-# Run a specific program (e.g. 01_hello_world)
-java _01_hello_world
+# Run a specific program (e.g. 01_number_sign_check)
+java _01_number_sign_check
 
 # Clean up generated bytecode (.class files)
 rm -f *.class
@@ -87,7 +108,7 @@ Detailed exercises and problem breakdowns covered in [`Day_1 - Java Fundamentals
 | 01 | **Hello World** | [`01_hello_world.java`](./Day_1%20-%20Java%20Fundamentals/01_hello_world.java) | [`01_hello_world.mdx`](./Day_1%20-%20Java%20Fundamentals/01_hello_world.mdx) | Entry point (`main`), `System.out.println` |
 | 02 | **Interactive User Input** | [`02_user_input.java`](./Day_1%20-%20Java%20Fundamentals/02_user_input.java) | [`02_user_input.mdx`](./Day_1%20-%20Java%20Fundamentals/02_user_input.mdx) | `java.util.Scanner`, `nextLine()` |
 | 03 | **Sum Calculator** | [`03_sum_calculator.java`](./Day_1%20-%20Java%20Fundamentals/03_sum_calculator.java) | [`03_sum_calculator.mdx`](./Day_1%20-%20Java%20Fundamentals/03_sum_calculator.mdx) | `nextInt()`, addition operator |
-| 04 | **Arithmetic Operations** | [`04_arithmetic_operations.java`](./Day_1%20-%20Java%20Fundamentals/04_arithmetic_operations.java) | [`04_arithmetic_operations.mdx`](./Day_1%20-%20Java%20Fundamentals/04_arithmetic_operations.mdx) | `+`, `-`, `*`, `/`, `%` arithmetic |
+| 04 | **Arithmetic Operations** | [`04_arithmetic_operations.java`](./Day_1%20-%20Java%20Fundamentals/04_arithmetic_operations.java) | [`04_arithmetic_operations.mdx`](./Day_1%20-%20Java%20Fundamentals/04_arithmetic_operations.mdx) | Arithmetic operators (`+`, `-`, `*`, `/`, `%`) |
 | 05 | **Minutes to Hours Converter** | [`05_minutes_to_hours.java`](./Day_1%20-%20Java%20Fundamentals/05_minutes_to_hours.java) | [`05_minutes_to_hours.mdx`](./Day_1%20-%20Java%20Fundamentals/05_minutes_to_hours.mdx) | Integer division & modulo conversion |
 | 06 | **Extract Last Digit** | [`06_last_digit.java`](./Day_1%20-%20Java%20Fundamentals/06_last_digit.java) | [`06_last_digit.mdx`](./Day_1%20-%20Java%20Fundamentals/06_last_digit.mdx) | Modulo 10 arithmetic (`num % 10`) |
 | 07 | **Swap Numbers (Temp Var)** | [`07_swap_using_temporary_variable.java`](./Day_1%20-%20Java%20Fundamentals/07_swap_using_temporary_variable.java) | [`07_swap_using_temporary_variable.mdx`](./Day_1%20-%20Java%20Fundamentals/07_swap_using_temporary_variable.mdx) | Auxiliary variable swapping logic |
@@ -96,11 +117,80 @@ Detailed exercises and problem breakdowns covered in [`Day_1 - Java Fundamentals
 | 10 | **Pass or Fail Check** | [`10_pass_or_fail.java`](./Day_1%20-%20Java%20Fundamentals/10_pass_or_fail.java) | [`10_pass_or_fail.mdx`](./Day_1%20-%20Java%20Fundamentals/10_pass_or_fail.mdx) | Mark boundary evaluation |
 | 11 | **Positive/Negative/Zero** | [`11_number_type.java`](./Day_1%20-%20Java%20Fundamentals/11_number_type.java) | [`11_number_type.mdx`](./Day_1%20-%20Java%20Fundamentals/11_number_type.mdx) | `if-else if-else` decision ladder |
 | 12 | **Placement Eligibility** | [`12_placement_eligibility.java`](./Day_1%20-%20Java%20Fundamentals/12_placement_eligibility.java) | [`12_placement_eligibility.mdx`](./Day_1%20-%20Java%20Fundamentals/12_placement_eligibility.mdx) | Nested `if` (CGPA & Arrears validation) |
-| 13 | **Login Validation System** | [`13_login_validation.java`](./Day_1%20-%20Java%20Fundamentals/13_login_validation.java) | [`13_login_validation.mdx`](./Day_1%20-%20Java%20Fundamentals/13_login_validation.mdx) | Multi-level nested `if`, String equality (`.equals()`), Retry/Reset menu |
+| 13 | **Login Validation System** | [`13_login_validation.java`](./Day_1%20-%20Java%20Fundamentals/13_login_validation.java) | [`13_login_validation.mdx`](./Day_1%20-%20Java%20Fundamentals/13_login_validation.mdx) | Multi-level nested `if`, String equality |
+
+- Master Notes: [`java_fundamentals_notes.txt`](./Day_1%20-%20Java%20Fundamentals/java_fundamentals_notes.txt)
+- Practice Guide: [`day1_practice_exercises_and_solutions.txt`](./Day_1%20-%20Java%20Fundamentals/day1_practice_exercises_and_solutions.txt)
 
 ---
 
-## 📜 Master Reference Documentation
+## ⚡ Day 2 - Control Flow and Loops
 
-- [`java_fundamentals_notes.txt`](./Day_1%20-%20Java%20Fundamentals/java_fundamentals_notes.txt): In-depth guide covering JDK/JRE/JVM, WORA, primitive data types, type casting, Scanner buffer gotchas, String immutability, and operators.
-- [`day1_practice_exercises_and_solutions.txt`](./Day_1%20-%20Java%20Fundamentals/day1_practice_exercises_and_solutions.txt): Problem statements and trace table walkthroughs for all Day 1 practice exercises.
+Detailed exercises covered in [`Day_2 - Control Flow and Loops`](./Day_2%20-%20Control%20Flow%20and%20Loops/):
+
+| # | Problem Title | Java Source (`.java`) | Documentation (`.mdx`) | Key Concepts Covered |
+|---|---|---|---|---|
+| 01 | **Number Sign Check** | [`01_number_sign_check.java`](./Day_2%20-%20Control%20Flow%20and%20Loops/01_number_sign_check.java) | [`01_number_sign_check.mdx`](./Day_2%20-%20Control%20Flow%20and%20Loops/01_number_sign_check.mdx) | `if-else if-else` sign evaluation |
+| 02 | **Month Days Calculator** | [`02_month_days_calculator.java`](./Day_2%20-%20Control%20Flow%20and%20Loops/02_month_days_calculator.java) | [`02_month_days_calculator.mdx`](./Day_2%20-%20Control%20Flow%20and%20Loops/02_month_days_calculator.mdx) | Modern switch expressions (`->`), leap year |
+| 03 | **Weekday/Weekend Classifier** | [`03_weekday_weekend_classifier.java`](./Day_2%20-%20Control%20Flow%20and%20Loops/03_weekday_weekend_classifier.java) | [`03_weekday_weekend_classifier.mdx`](./Day_2%20-%20Control%20Flow%20and%20Loops/03_weekday_weekend_classifier.mdx) | Traditional switch case grouping (`case 1: case 2:`) |
+| 04 | **Simple Menu Calculator** | [`04_simple_menu_calculator.java`](./Day_2%20-%20Control%20Flow%20and%20Loops/04_simple_menu_calculator.java) | [`04_simple_menu_calculator.mdx`](./Day_2%20-%20Control%20Flow%20and%20Loops/04_simple_menu_calculator.mdx) | Interactive menu switch & division safety |
+| 05 | **Restaurant Order System** | [`05_restaurant_order_system.java`](./Day_2%20-%20Control%20Flow%20and%20Loops/05_restaurant_order_system.java) | [`05_restaurant_order_system.mdx`](./Day_2%20-%20Control%20Flow%20and%20Loops/05_restaurant_order_system.mdx) | Nested `switch` statements & sub-menu billing |
+| 06 | **Multiplication Table** | [`06_multiplication_table.java`](./Day_2%20-%20Control%20Flow%20and%20Loops/06_multiplication_table.java) | [`06_multiplication_table.mdx`](./Day_2%20-%20Control%20Flow%20and%20Loops/06_multiplication_table.mdx) | Formatted iteration using `for` loop |
+| 07 | **Sum & Count Even Numbers** | [`07_sum_and_count_even_numbers.java`](./Day_2%20-%20Control%20Flow%20and%20Loops/07_sum_and_count_even_numbers.java) | [`07_sum_and_count_even_numbers.mdx`](./Day_2%20-%20Control%20Flow%20and%20Loops/07_sum_and_count_even_numbers.mdx) | Counter (`count++`) & Accumulator (`sum += i`) |
+| 08 | **Sum of Digits** | [`08_sum_of_digits.java`](./Day_2%20-%20Control%20Flow%20and%20Loops/08_sum_of_digits.java) | [`08_sum_of_digits.mdx`](./Day_2%20-%20Control%20Flow%20and%20Loops/08_sum_of_digits.mdx) | Digit extraction (`% 10` & `/ 10`) via `while` |
+| 09 | **Reverse Number & Palindrome** | [`09_reverse_number_and_palindrome.java`](./Day_2%20-%20Control%20Flow%20and%20Loops/09_reverse_number_and_palindrome.java) | [`09_reverse_number_and_palindrome.mdx`](./Day_2%20-%20Control%20Flow%20and%20Loops/09_reverse_number_and_palindrome.mdx) | Number reversal arithmetic & comparison |
+| 10 | **Prime Number Check** | [`10_prime_number_check.java`](./Day_2%20-%20Control%20Flow%20and%20Loops/10_prime_number_check.java) | [`10_prime_number_check.mdx`](./Day_2%20-%20Control%20Flow%20and%20Loops/10_prime_number_check.mdx) | Loop optimization (`i*i <= n`) & `break` |
+| 11 | **Factorial & Fibonacci** | [`11_factorial_and_fibonacci.java`](./Day_2%20-%20Control%20Flow%20and%20Loops/11_factorial_and_fibonacci.java) | [`11_factorial_and_fibonacci.mdx`](./Day_2%20-%20Control%20Flow%20and%20Loops/11_factorial_and_fibonacci.mdx) | Product accumulator & sequence generation |
+| 12 | **Star Pattern Generator** | [`12_star_pattern_generator.java`](./Day_2%20-%20Control%20Flow%20and%20Loops/12_star_pattern_generator.java) | [`12_star_pattern_generator.mdx`](./Day_2%20-%20Control%20Flow%20and%20Loops/12_star_pattern_generator.mdx) | Nested loops (row/space/column loops) |
+| 13 | **ATM PIN Verification** | [`13_pin_validation_do_while.java`](./Day_2%20-%20Control%20Flow%20and%20Loops/13_pin_validation_do_while.java) | [`13_pin_validation_do_while.mdx`](./Day_2%20-%20Control%20Flow%20and%20Loops/13_pin_validation_do_while.mdx) | Post-condition `do-while` loop retry system |
+
+- Master Notes: [`day2_master_reference_notes.txt`](./Day_2%20-%20Control%20Flow%20and%20Loops/day2_master_reference_notes.txt)
+- Practice Guide: [`day2_practice_exercises_and_solutions.txt`](./Day_2%20-%20Control%20Flow%20and%20Loops/day2_practice_exercises_and_solutions.txt)
+
+---
+
+## 📦 Day 3 - Classes and Objects
+
+Detailed exercises covered in [`Day_3 - Classes and Objects`](./Day_3%20-%20Classes%20and%20Objects/):
+
+| # | Problem Title | Java Source (`.java`) | Documentation (`.mdx`) | Key Concepts Covered |
+|---|---|---|---|---|
+| 01 | **Modular Utility Methods** | [`01_modular_utility_methods.java`](./Day_3%20-%20Classes%20and%20Objects/01_modular_utility_methods.java) | [`01_modular_utility_methods.mdx`](./Day_3%20-%20Classes%20and%20Objects/01_modular_utility_methods.mdx) | Static methods, pass-by-value, modular design |
+| 02 | **Interactive Modular Calculator** | [`02_interactive_modular_calculator.java`](./Day_3%20-%20Classes%20and%20Objects/02_interactive_modular_calculator.java) | [`02_interactive_modular_calculator.mdx`](./Day_3%20-%20Classes%20and%20Objects/02_interactive_modular_calculator.mdx) | Single-responsibility functional methods |
+| 03 | **Student Class & Objects** | [`03_student_class_and_objects.java`](./Day_3%20-%20Classes%20and%20Objects/03_student_class_and_objects.java) | [`03_student_class_and_objects.mdx`](./Day_3%20-%20Classes%20and%20Objects/03_student_class_and_objects.mdx) | Class definition, `new` heap instantiation |
+| 04 | **Bank Account Class** | [`04_bank_account_class.java`](./Day_3%20-%20Classes%20and%20Objects/04_bank_account_class.java) | [`04_bank_account_class.mdx`](./Day_3%20-%20Classes%20and%20Objects/04_bank_account_class.mdx) | Instance methods (`deposit`, `withdraw`), state |
+| 05 | **Book Constructor Overloading** | [`05_book_constructor_overloading.java`](./Day_3%20-%20Classes%20and%20Objects/05_book_constructor_overloading.java) | [`05_book_constructor_overloading.mdx`](./Day_3%20-%20Classes%20and%20Objects/05_book_constructor_overloading.mdx) | Default/parameterized constructors, `this` |
+| 06 | **Employee Constructor Chaining** | [`06_employee_constructor_chaining.java`](./Day_3%20-%20Classes%20and%20Objects/06_employee_constructor_chaining.java) | [`06_employee_constructor_chaining.mdx`](./Day_3%20-%20Classes%20and%20Objects/06_employee_constructor_chaining.mdx) | Constructor delegation via `this(...)` |
+| 07 | **Single-Level Inheritance** | [`07_single_level_inheritance.java`](./Day_3%20-%20Classes%20and%20Objects/07_single_level_inheritance.java) | [`07_single_level_inheritance.mdx`](./Day_3%20-%20Classes%20and%20Objects/07_single_level_inheritance.mdx) | Superclass & Subclass using `extends` |
+| 08 | **Multilevel Inheritance System** | [`08_multilevel_inheritance_system.java`](./Day_3%20-%20Classes%20and%20Objects/08_multilevel_inheritance_system.java) | [`08_multilevel_inheritance_system.mdx`](./Day_3%20-%20Classes%20and%20Objects/08_multilevel_inheritance_system.mdx) | 3-tier hierarchy (`Person` $\rightarrow$ `Staff` $\rightarrow$ `Manager`) |
+| 09 | **Super Keyword Constructor** | [`09_super_keyword_constructor.java`](./Day_3%20-%20Classes%20and%20Objects/09_super_keyword_constructor.java) | [`09_super_keyword_constructor.mdx`](./Day_3%20-%20Classes%20and%20Objects/09_super_keyword_constructor.mdx) | Parent constructor forwarding via `super(...)` |
+| 10 | **Super Keyword Field/Method** | [`10_super_keyword_field_method.java`](./Day_3%20-%20Classes%20and%20Objects/10_super_keyword_field_method.java) | [`10_super_keyword_field_method.mdx`](./Day_3%20-%20Classes%20and%20Objects/10_super_keyword_field_method.mdx) | Accessing parent methods & shadowed fields |
+| 11 | **Hierarchical Inheritance** | [`11_hierarchical_inheritance.java`](./Day_3%20-%20Classes%20and%20Objects/11_hierarchical_inheritance.java) | [`11_hierarchical_inheritance.mdx`](./Day_3%20-%20Classes%20and%20Objects/11_hierarchical_inheritance.mdx) | Multiple subclasses extending single superclass |
+| 12 | **Inventory Management System** | [`12_inventory_management_system.java`](./Day_3%20-%20Classes%20and%20Objects/12_inventory_management_system.java) | [`12_inventory_management_system.mdx`](./Day_3%20-%20Classes%20and%20Objects/12_inventory_management_system.mdx) | Comprehensive object-oriented capstone |
+
+- Master Notes: [`day3_master_reference_notes.txt`](./Day_3%20-%20Classes%20and%20Objects/day3_master_reference_notes.txt)
+- Practice Guide: [`day3_practice_exercises_and_solutions.txt`](./Day_3%20-%20Classes%20and%20Objects/day3_practice_exercises_and_solutions.txt)
+
+---
+
+## 🏛️ Day 4 - OOP Concepts and Abstraction
+
+Detailed exercises covered in [`Day_4 - OOP Concepts and Abstraction`](./Day_4%20-%20OOP%20Concepts%20and%20Abstraction/):
+
+| # | Problem Title | Java Source (`.java`) | Documentation (`.mdx`) | Key Concepts Covered |
+|---|---|---|---|---|
+| 01 | **Area Calculator Overloading** | [`01_area_calculator_overloading.java`](./Day_4%20-%20OOP%20Concepts%20and%20Abstraction/01_area_calculator_overloading.java) | [`01_area_calculator_overloading.mdx`](./Day_4%20-%20OOP%20Concepts%20and%20Abstraction/01_area_calculator_overloading.mdx) | Compile-time polymorphism (Overloading) |
+| 02 | **Payment Processor Overloading** | [`02_payment_processor_overloading.java`](./Day_4%20-%20OOP%20Concepts%20and%20Abstraction/02_payment_processor_overloading.java) | [`02_payment_processor_overloading.mdx`](./Day_4%20-%20OOP%20Concepts%20and%20Abstraction/02_payment_processor_overloading.mdx) | Signature differentiation for payment modes |
+| 03 | **Login Authentication Overloading** | [`03_login_authentication_overloading.java`](./Day_4%20-%20OOP%20Concepts%20and%20Abstraction/03_login_authentication_overloading.java) | [`03_login_authentication_overloading.mdx`](./Day_4%20-%20OOP%20Concepts%20and%20Abstraction/03_login_authentication_overloading.mdx) | Overloaded authentication channels |
+| 04 | **Employee Salary Overriding** | [`04_employee_salary_overriding.java`](./Day_4%20-%20OOP%20Concepts%20and%20Abstraction/04_employee_salary_overriding.java) | [`04_employee_salary_overriding.mdx`](./Day_4%20-%20OOP%20Concepts%20and%20Abstraction/04_employee_salary_overriding.mdx) | Runtime polymorphism (`@Override`) |
+| 05 | **Bank Interest Polymorphism** | [`05_bank_interest_polymorphism.java`](./Day_4%20-%20OOP%20Concepts%20and%20Abstraction/05_bank_interest_polymorphism.java) | [`05_bank_interest_polymorphism.mdx`](./Day_4%20-%20OOP%20Concepts%20and%20Abstraction/05_bank_interest_polymorphism.mdx) | Dynamic method dispatch via superclass array |
+| 06 | **Encapsulated Bank Account** | [`06_encapsulated_bank_account.java`](./Day_4%20-%20OOP%20Concepts%20and%20Abstraction/06_encapsulated_bank_account.java) | [`06_encapsulated_bank_account.mdx`](./Day_4%20-%20OOP%20Concepts%20and%20Abstraction/06_encapsulated_bank_account.mdx) | Private fields, getters, setters, state protection |
+| 07 | **Encapsulated User Profile** | [`07_encapsulated_user_profile.java`](./Day_4%20-%20OOP%20Concepts%20and%20Abstraction/07_encapsulated_user_profile.java) | [`07_encapsulated_user_profile.mdx`](./Day_4%20-%20OOP%20Concepts%20and%20Abstraction/07_encapsulated_user_profile.mdx) | Mutator validation rules (email, age range) |
+| 08 | **Abstract Shape Hierarchy** | [`08_abstract_shape_hierarchy.java`](./Day_4%20-%20OOP%20Concepts%20and%20Abstraction/08_abstract_shape_hierarchy.java) | [`08_abstract_shape_hierarchy.mdx`](./Day_4%20-%20OOP%20Concepts%20and%20Abstraction/08_abstract_shape_hierarchy.mdx) | `abstract class`, abstract/concrete methods |
+| 09 | **Abstract Appliance System** | [`09_abstract_appliance_system.java`](./Day_4%20-%20OOP%20Concepts%20and%20Abstraction/09_abstract_appliance_system.java) | [`09_abstract_appliance_system.mdx`](./Day_4%20-%20OOP%20Concepts%20and%20Abstraction/09_abstract_appliance_system.mdx) | Abstract constructors & lifecycle methods |
+| 10 | **Payment Gateway Interface** | [`10_payment_gateway_interface.java`](./Day_4%20-%20OOP%20Concepts%20and%20Abstraction/10_payment_gateway_interface.java) | [`10_payment_gateway_interface.mdx`](./Day_4%20-%20OOP%20Concepts%20and%20Abstraction/10_payment_gateway_interface.mdx) | Interface contracts (`implements`), constants |
+| 11 | **Multiple Interface Implementation** | [`11_multiple_interface_implementation.java`](./Day_4%20-%20OOP%20Concepts%20and%20Abstraction/11_multiple_interface_implementation.java) | [`11_multiple_interface_implementation.mdx`](./Day_4%20-%20OOP%20Concepts%20and%20Abstraction/11_multiple_interface_implementation.mdx) | Multi-interface composition (`implements A, B, C`) |
+| 12 | **Fleet Management Capstone** | [`12_vehicle_management_capstone.java`](./Day_4%20-%20OOP%20Concepts%20and%20Abstraction/12_vehicle_management_capstone.java) | [`12_vehicle_management_capstone.mdx`](./Day_4%20-%20OOP%20Concepts%20and%20Abstraction/12_vehicle_management_capstone.mdx) | Integrated 4 Pillars of OOP capstone |
+
+- Master Notes: [`day4_master_reference_notes.txt`](./Day_4%20-%20OOP%20Concepts%20and%20Abstraction/day4_master_reference_notes.txt)
+- Practice Guide: [`day4_practice_exercises_and_solutions.txt`](./Day_4%20-%20OOP%20Concepts%20and%20Abstraction/day4_practice_exercises_and_solutions.txt)

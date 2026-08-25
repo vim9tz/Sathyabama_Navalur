@@ -1,0 +1,17 @@
+# Payment Processing Overloading
+
+## Problem Description
+Design a `PaymentProcessor` class with overloaded `pay(...)` methods handling Cash (`pay(amount)`), UPI (`pay(amount, upiId)`), and Credit Card (`pay(amount, cardNumber, cvv)`) transactions.
+
+## Requirements
+- Source file name: `02_payment_processor_overloading.java`
+- Class name: `_02_payment_processor_overloading`
+- Demonstrate overload resolution based on parameter signature differences.
+
+## Sample Output
+```text
+--- Payment Gateway Channels ---
+Paid ₹450.0 via CASH. Receipt generated.
+Paid ₹1299.0 via UPI (ID: user@okaxis). Transaction successful.
+Paid ₹3499.0 via CARD (Ending in *5566). Transaction approved.
+```
