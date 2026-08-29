@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Display and Position Demo</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+        }
+
+        .section {
+            width: 90%;
+            max-width: 1000px;
+
+            margin: 30px auto;
+            padding: 25px;
+
+            background-color: white;
+
+            border: 2px solid #ddd;
+            border-radius: 12px;
+        }
+
+        .demo-box {
+            background-color: lightblue;
+
+            border: 2px solid blue;
+
+            padding: 15px;
+            margin: 10px;
+        }
+
+
+        /* =========================
+           1. DISPLAY BLOCK
+        ========================= */
+
+        .block-box {
+            display: block;
+
+            width: 200px;
+            height: 70px;
+        }
+
+
+        /* =========================
+           2. DISPLAY INLINE
+        ========================= */
+
+        .inline-box {
+            display: inline;
+
+            background-color: lightgreen;
+
+            border: 2px solid green;
+
+            padding: 10px;
+        }
+
+
+        /* =========================
+           3. DISPLAY INLINE-BLOCK
+        ========================= */
+
+        .inline-block-box {
+            display: inline-block;
+
+            width: 150px;
+            height: 80px;
+
+            background-color: lightcoral;
+
+            border: 2px solid red;
+
+            padding: 15px;
+            margin: 10px;
+        }
+
+
+        /* =========================
+           4. DISPLAY NONE
+        ========================= */
+
+        .none-box {
+            display: none;
+        }
+
+
+        /* =========================
+           5. FLEXBOX
+        ========================= */
+
+        .flex-container {
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            gap: 20px;
+
+            min-height: 200px;
+
+            border: 3px solid black;
+
+            padding: 20px;
+
+            flex-wrap: wrap;
+        }
+
+        .flex-item {
+            width: 100px;
+            height: 100px;
+
+            background-color: orange;
+
+            border: 2px solid darkorange;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           6. GRID
+        ========================= */
+
+        .grid-container {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .grid-item {
+            padding: 30px;
+
+            background-color: lavender;
+
+            border: 2px solid purple;
+
+            text-align: center;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           7. POSITION STATIC
+        ========================= */
+
+        .static-box {
+            position: static;
+
+            width: 200px;
+            height: 80px;
+
+            background-color: lightgray;
+
+            border: 2px solid black;
+
+            padding: 20px;
+
+            margin: 10px;
+        }
+
+
+        /* =========================
+           8. POSITION RELATIVE
+        ========================= */
+
+        .relative-box {
+            position: relative;
+
+            top: 20px;
+            left: 40px;
+
+            width: 220px;
+            height: 100px;
+
+            background-color: lightyellow;
+
+            border: 2px solid goldenrod;
+
+            padding: 20px;
+
+            margin-bottom: 50px;
+        }
+
+
+        /* =========================
+           9. RELATIVE + ABSOLUTE
+        ========================= */
+
+        .product-card {
+            width: 320px;
+            height: 220px;
+
+            background-color: #eeeeee;
+
+            border: 2px solid black;
+
+            padding: 25px;
+
+            position: relative;
+
+            margin: auto;
+        }
+
+        .badge {
+            position: absolute;
+
+            top: 10px;
+            right: 10px;
+
+            background-color: red;
+            color: white;
+
+            padding: 6px 12px;
+
+            border-radius: 6px;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           10. STICKY
+        ========================= */
+
+        .sticky-header {
+            position: sticky;
+
+            top: 0;
+
+            background-color: black;
+            color: white;
+
+            padding: 18px;
+
+            text-align: center;
+
+            font-size: 20px;
+
+            z-index: 100;
+        }
+
+
+        /* =========================
+           11. FIXED
+        ========================= */
+
+        .fixed-button {
+            position: fixed;
+
+            right: 20px;
+            bottom: 20px;
+
+            padding: 15px 25px;
+
+            background-color: blue;
+            color: white;
+
+            border: none;
+
+            border-radius: 30px;
+
+            cursor: pointer;
+
+            font-size: 16px;
+        }
+
+        .fixed-button:hover {
+            background-color: darkblue;
+        }
+
+
+        /* =========================
+           EXTRA SPACE FOR SCROLLING
+        ========================= */
+
+        .scroll-space {
+            height: 700px;
+
+            padding: 20px;
+
+            background-color: #fafafa;
+        }
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         STICKY HEADER
+    ========================== -->
+
+    <header class="sticky-header">
+        CSS Display & Position Demo
+    </header>
+
+
+    <h1>
+        CSS Display Property
+    </h1>
+
+
+    <!-- =========================
+         1. BLOCK
+    ========================== -->
+
+    <section class="section">
+
+        <h2>
+            1. display: block
+        </h2>
+
+        <div class="demo-box block-box">
+            Block 1
+        </div>
+
+        <div class="demo-box block-box">
+            Block 2
+        </div>
+
+        <div class="demo-box block-box">
+            Block 3
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         2. INLINE
+    ========================== -->
+
+    <section class="section">
+
+        <h2>
+            2. display: inline
+        </h2>
+
+        <span class="inline-box">
+            Inline 1
+        </span>
+
+        <span class="inline-box">
+            Inline 2
+        </span>
+
+        <span class="inline-box">
+            Inline 3
+        </span>
+
+    </section>
+
+
+    <!-- =========================
+         3. INLINE BLOCK
+    ========================== -->
+
+    <section class="section">
+
+        <h2>
+            3. display: inline-block
+        </h2>
+
+        <div class="inline-block-box">
+            Box 1
+        </div>
+
+        <div class="inline-block-box">
+            Box 2
+        </div>
+
+        <div class="inline-block-box">
+            Box 3
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         4. DISPLAY NONE
+    ========================== -->
+
+    <section class="section">
+
+        <h2>
+            4. display: none
+        </h2>
+
+        <div class="demo-box">
+            Visible Box 1
+        </div>
+
+        <div class="demo-box none-box">
+            Hidden Box
+        </div>
+
+        <div class="demo-box">
+            Visible Box 2
+        </div>
+
+        <p>
+            The hidden box exists in HTML,
+            but it is removed from the layout.
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         5. FLEX
+    ========================== -->
+
+    <section class="section">
+
+        <h2>
+            5. display: flex
+        </h2>
+
+        <div class="flex-container">
+
+            <div class="flex-item">
+                1
+            </div>
+
+            <div class="flex-item">
+                2
+            </div>
+
+            <div class="flex-item">
+                3
+            </div>
+
+            <div class="flex-item">
+                4
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         6. GRID
+    ========================== -->
+
+    <section class="section">
+
+        <h2>
+            6. display: grid
+        </h2>
+
+        <div class="grid-container">
+
+            <div class="grid-item">
+                1
+            </div>
+
+            <div class="grid-item">
+                2
+            </div>
+
+            <div class="grid-item">
+                3
+            </div>
+
+            <div class="grid-item">
+                4
+            </div>
+
+            <div class="grid-item">
+                5
+            </div>
+
+            <div class="grid-item">
+                6
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <h1>
+        CSS Position Property
+    </h1>
+
+
+    <!-- =========================
+         7. STATIC
+    ========================== -->
+
+    <section class="section">
+
+        <h2>
+            7. position: static
+        </h2>
+
+        <div class="static-box">
+            Static Box 1
+        </div>
+
+        <div class="static-box">
+            Static Box 2
+        </div>
+
+        <p>
+            Static is the default position.
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         8. RELATIVE
+    ========================== -->
+
+    <section class="section">
+
+        <h2>
+            8. position: relative
+        </h2>
+
+        <div class="relative-box">
+            I moved 20px down
+            and 40px right.
+        </div>
+
+        <p>
+            Relative keeps its original
+            place in normal document flow,
+            but can be visually moved.
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         9. ABSOLUTE
+    ========================== -->
+
+    <section class="section">
+
+        <h2>
+            9. relative + absolute
+        </h2>
+
+        <div class="product-card">
+
+            <span class="badge">
+                NEW
+            </span>
+
+            <h2>
+                Laptop
+            </h2>
+
+            <p>
+                Intel Core i7
+            </p>
+
+            <p>
+                ₹70,000
+            </p>
+
+        </div>
+
+        <p>
+            The card is relative.
+            The NEW badge is absolute.
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         10. STICKY
+    ========================== -->
+
+    <section class="section">
+
+        <h2>
+            10. position: sticky
+        </h2>
+
+        <p>
+            The black header at the top of
+            this page uses:
+        </p>
+
+        <pre>
+position: sticky;
+top: 0;
+        </pre>
+
+        <p>
+            Scroll the page and observe it.
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         SCROLL AREA
+    ========================== -->
+
+    <section class="section scroll-space">
+
+        <h2>
+            Scroll Down
+        </h2>
+
+        <p>
+            Keep scrolling to observe both
+            sticky and fixed positioning.
+        </p>
+
+        <p>
+            The blue Help button stays
+            at the bottom-right corner.
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         11. FIXED
+    ========================== -->
+
+    <button class="fixed-button">
+        Help
+    </button>
+
+
+</body>
+
+</html>
