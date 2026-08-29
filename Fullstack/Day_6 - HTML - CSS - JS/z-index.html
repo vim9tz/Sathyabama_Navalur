@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z-Index Demo</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .container {
+            width: 600px;
+            height: 400px;
+            margin: 40px auto;
+            background-color: white;
+            border: 3px solid black;
+            position: relative;
+        }
+
+        /* ==============================
+           BOX 1
+        ============================== */
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            color: white;
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            z-index: 3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+
+        /* ==============================
+           BOX 2
+        ============================== */
+        .box2 {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            color: white;
+            position: absolute;
+            top: 100px;
+            left: 120px;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        /* ==============================
+           BOX 3
+        ============================== */
+
+        .box3 {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            color: white;
+            position: absolute;
+            top: 160px;
+            left: 200px;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 25px;
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <h1>
+        CSS z-index Demo
+    </h1>
+
+
+    <div class="container">
+
+
+        <div class="box1">
+            Red
+            <br>
+            z-index: 1
+        </div>
+
+
+        <div class="box2">
+            Blue
+            <br>
+            z-index: 2
+        </div>
+
+
+        <div class="box3">
+            Green
+            <br>
+            z-index: 3
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>

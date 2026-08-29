@@ -27,12 +27,9 @@
         .section {
             width: 90%;
             max-width: 1000px;
-
             margin: 30px auto;
             padding: 25px;
-
             background-color: white;
-
             border: 2px solid #ddd;
             border-radius: 12px;
         }
@@ -53,26 +50,19 @@
 
         .block-box {
             display: block;
-
             width: 200px;
             height: 70px;
         }
 
-
         /* =========================
            2. DISPLAY INLINE
         ========================= */
-
         .inline-box {
             display: inline;
-
             background-color: lightgreen;
-
             border: 2px solid green;
-
             padding: 10px;
         }
-
 
         /* =========================
            3. DISPLAY INLINE-BLOCK
@@ -80,14 +70,10 @@
 
         .inline-block-box {
             display: inline-block;
-
             width: 150px;
             height: 80px;
-
             background-color: lightcoral;
-
             border: 2px solid red;
-
             padding: 15px;
             margin: 10px;
         }
@@ -104,41 +90,32 @@
 
         /* =========================
            5. FLEXBOX
+           justify-content → main axis
+            align-items     → cross axis
         ========================= */
-
         .flex-container {
+            height: 500px;
             display: flex;
-
-            justify-content: center;
-            align-items: center;
-
+            justify-content: start;
+            align-items: end;
             gap: 20px;
-
             min-height: 200px;
-
             border: 3px solid black;
-
             padding: 20px;
-
             flex-wrap: wrap;
         }
 
         .flex-item {
             width: 100px;
             height: 100px;
-
             background-color: orange;
-
             border: 2px solid darkorange;
-
             display: flex;
-
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-
             font-weight: bold;
         }
-
 
         /* =========================
            6. GRID
@@ -146,25 +123,23 @@
 
         .grid-container {
             display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: 1fr 1fr;
             gap: 20px;
         }
 
         .grid-item {
             padding: 30px;
-
             background-color: lavender;
-
             border: 2px solid purple;
-
             text-align: center;
-
             font-weight: bold;
         }
 
+        .grid-item1 {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
 
         /* =========================
            7. POSITION STATIC
@@ -172,16 +147,11 @@
 
         .static-box {
             position: static;
-
             width: 200px;
             height: 80px;
-
             background-color: lightgray;
-
             border: 2px solid black;
-
             padding: 20px;
-
             margin: 10px;
         }
 
@@ -192,19 +162,13 @@
 
         .relative-box {
             position: relative;
-
             top: 20px;
             left: 40px;
-
             width: 220px;
             height: 100px;
-
             background-color: lightyellow;
-
             border: 2px solid goldenrod;
-
             padding: 20px;
-
             margin-bottom: 50px;
         }
 
@@ -216,31 +180,21 @@
         .product-card {
             width: 320px;
             height: 220px;
-
             background-color: #eeeeee;
-
             border: 2px solid black;
-
             padding: 25px;
-
             position: relative;
-
             margin: auto;
         }
 
         .badge {
             position: absolute;
-
-            top: 10px;
-            right: 10px;
-
+            top: 15px;
+            right: 15px;
             background-color: red;
             color: white;
-
             padding: 6px 12px;
-
             border-radius: 6px;
-
             font-weight: bold;
         }
 
@@ -251,21 +205,14 @@
 
         .sticky-header {
             position: sticky;
-
             top: 0;
-
             background-color: black;
             color: white;
-
             padding: 18px;
-
             text-align: center;
-
             font-size: 20px;
-
             z-index: 100;
         }
-
 
         /* =========================
            11. FIXED
@@ -273,21 +220,14 @@
 
         .fixed-button {
             position: fixed;
-
             right: 20px;
             bottom: 20px;
-
             padding: 15px 25px;
-
             background-color: blue;
             color: white;
-
             border: none;
-
             border-radius: 30px;
-
             cursor: pointer;
-
             font-size: 16px;
         }
 
@@ -295,16 +235,12 @@
             background-color: darkblue;
         }
 
-
         /* =========================
            EXTRA SPACE FOR SCROLLING
         ========================= */
-
         .scroll-space {
             height: 700px;
-
             padding: 20px;
-
             background-color: #fafafa;
         }
     </style>
@@ -312,8 +248,6 @@
 
 
 <body>
-
-
     <!-- =========================
          STICKY HEADER
     ========================== -->
@@ -333,23 +267,18 @@
     ========================== -->
 
     <section class="section">
-
         <h2>
             1. display: block
         </h2>
-
         <div class="demo-box block-box">
             Block 1
         </div>
-
         <div class="demo-box block-box">
             Block 2
         </div>
-
         <div class="demo-box block-box">
             Block 3
         </div>
-
     </section>
 
 
@@ -442,25 +371,15 @@
         <h2>
             5. display: flex
         </h2>
-
         <div class="flex-container">
-
-            <div class="flex-item">
-                1
-            </div>
-
-            <div class="flex-item">
-                2
-            </div>
-
-            <div class="flex-item">
-                3
-            </div>
-
-            <div class="flex-item">
-                4
-            </div>
-
+            <div class="flex-item">1</div>
+            <div class="flex-item">2</div>
+            <div class="flex-item">3</div>
+            <div class="flex-item">4</div>
+            <div class="flex-item">5</div>
+            <div class="flex-item">6</div>
+            <div class="flex-item">7</div>
+            <div class="flex-item">8</div>
         </div>
 
     </section>
@@ -471,39 +390,17 @@
     ========================== -->
 
     <section class="section">
-
         <h2>
             6. display: grid
         </h2>
-
         <div class="grid-container">
-
-            <div class="grid-item">
-                1
-            </div>
-
-            <div class="grid-item">
-                2
-            </div>
-
-            <div class="grid-item">
-                3
-            </div>
-
-            <div class="grid-item">
-                4
-            </div>
-
-            <div class="grid-item">
-                5
-            </div>
-
-            <div class="grid-item">
-                6
-            </div>
-
+            <div class="grid-item grid-item1">1</div>
+            <div class="grid-item">2</div>
+            <div class="grid-item">3</div>
+            <div class="grid-item">4</div>
+            <div class="grid-item">5</div>
+            <div class="grid-item">6</div>
         </div>
-
     </section>
 
 
@@ -572,30 +469,23 @@
         </h2>
 
         <div class="product-card">
-
             <span class="badge">
                 NEW
             </span>
-
             <h2>
                 Laptop
             </h2>
-
             <p>
                 Intel Core i7
             </p>
-
             <p>
                 ₹70,000
             </p>
-
         </div>
-
         <p>
             The card is relative.
             The NEW badge is absolute.
         </p>
-
     </section>
 
 
