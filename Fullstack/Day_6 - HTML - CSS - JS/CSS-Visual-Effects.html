@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CSS Gradients and Animations</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+
+            font-family: Arial, sans-serif;
+
+            background-color: #f4f4f4;
+
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        .section {
+            max-width: 1000px;
+
+            margin: 30px auto;
+
+            padding: 25px;
+
+            background-color: white;
+
+            border-radius: 12px;
+
+            border: 1px solid #ddd;
+        }
+
+        .demo-area {
+            display: flex;
+
+            gap: 20px;
+
+            flex-wrap: wrap;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+        .box {
+            width: 180px;
+            height: 120px;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            border-radius: 12px;
+
+            font-weight: bold;
+
+            text-align: center;
+        }
+
+
+        /* ======================================
+           1. LINEAR GRADIENT
+        ====================================== */
+
+        .linear-gradient {
+            background:
+                linear-gradient(to right,
+                    red,
+                    yellow,
+                    blue);
+
+            color: white;
+        }
+
+
+        /* ======================================
+           2. LINEAR GRADIENT WITH ANGLE
+        ====================================== */
+
+        .angle-gradient {
+            background:
+                linear-gradient(45deg,
+                    red,
+                    purple,
+                    blue);
+
+            color: white;
+        }
+
+
+        /* ======================================
+           3. RADIAL GRADIENT
+        ====================================== */
+
+        .radial-gradient {
+            background:
+                radial-gradient(circle,
+                    yellow,
+                    orange,
+                    red);
+        }
+
+
+        /* ======================================
+           4. CONIC GRADIENT
+        ====================================== */
+
+        .conic-gradient {
+            background:
+                conic-gradient(red,
+                    yellow,
+                    green,
+                    blue,
+                    purple,
+                    red);
+
+            border-radius: 50%;
+        }
+
+
+        /* ======================================
+           5. GRADIENT TEXT
+        ====================================== */
+
+        .gradient-text {
+            font-size: 50px;
+
+            font-weight: bold;
+
+            text-align: center;
+
+            background:
+                linear-gradient(to right,
+                    red,
+                    purple,
+                    blue);
+
+            background-clip: text;
+
+            -webkit-background-clip: text;
+
+            color: transparent;
+
+            -webkit-text-fill-color: transparent;
+        }
+
+
+        /* ======================================
+           6. GRADIENT BORDER
+        ====================================== */
+
+        .gradient-border {
+            width: 300px;
+
+            padding: 30px;
+
+            text-align: center;
+
+            border: 5px solid transparent;
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(white,
+                    white) padding-box,
+
+                linear-gradient(to right,
+                    red,
+                    purple,
+                    blue) border-box;
+        }
+
+
+        /* ======================================
+           7. BASIC TRANSITION
+        ====================================== */
+
+        .transition-box {
+            width: 150px;
+            height: 100px;
+
+            background-color: blue;
+
+            color: white;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            cursor: pointer;
+
+            transition:
+                background-color 0.5s ease,
+                transform 0.5s ease;
+        }
+
+        .transition-box:hover {
+            background-color: green;
+
+            transform: scale(1.2);
+        }
+
+
+        /* ======================================
+           8. TRANSFORM
+        ====================================== */
+
+        .transform-box {
+            width: 150px;
+            height: 100px;
+
+            background-color: orange;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            transition: transform 0.5s ease;
+        }
+
+        .transform-box:hover {
+            transform:
+                translateX(20px) rotate(10deg) scale(1.1);
+        }
+
+
+        /* ======================================
+           9. BASIC KEYFRAME ANIMATION
+        ====================================== */
+
+        @keyframes colorChange {
+
+            from {
+                background-color: red;
+            }
+
+            to {
+                background-color: blue;
+            }
+
+        }
+
+        .animation-box {
+            width: 150px;
+            height: 100px;
+
+            color: white;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            animation-name: colorChange;
+
+            animation-duration: 2s;
+
+            animation-iteration-count: infinite;
+
+            animation-direction: alternate;
+        }
+
+
+        /* ======================================
+           10. MOVING BOX
+        ====================================== */
+
+        @keyframes moveBox {
+
+            0% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(200px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+
+        }
+
+        .move-area {
+            width: 100%;
+
+            min-height: 100px;
+
+            overflow: hidden;
+        }
+
+        .moving-box {
+            width: 80px;
+            height: 80px;
+
+            background-color: purple;
+
+            color: white;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            animation:
+                moveBox 3s ease-in-out infinite;
+        }
+
+
+        /* ======================================
+           11. BOUNCING BALL
+        ====================================== */
+
+        @keyframes bounce {
+
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-100px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+
+        }
+
+        .ball-area {
+            height: 180px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: flex-end;
+        }
+
+        .ball {
+            width: 60px;
+            height: 60px;
+
+            background-color: red;
+
+            border-radius: 50%;
+
+            animation:
+                bounce 1s ease-in-out infinite;
+        }
+
+
+        /* ======================================
+           12. ROTATING LOADER
+        ====================================== */
+
+        @keyframes rotateLoader {
+
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+
+        }
+
+        .loader {
+            width: 70px;
+            height: 70px;
+
+            border: 8px solid lightgray;
+
+            border-top-color: blue;
+
+            border-radius: 50%;
+
+            animation:
+                rotateLoader 1s linear infinite;
+        }
+
+
+        /* ======================================
+           13. PULSE ANIMATION
+        ====================================== */
+
+        @keyframes pulse {
+
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+
+        }
+
+        .pulse-button {
+            padding: 15px 30px;
+
+            border: none;
+
+            border-radius: 30px;
+
+            background-color: green;
+
+            color: white;
+
+            font-size: 18px;
+
+            cursor: pointer;
+
+            animation:
+                pulse 1.5s ease-in-out infinite;
+        }
+
+
+        /* ======================================
+           14. FADE IN
+        ====================================== */
+
+        @keyframes fadeIn {
+
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+
+        }
+
+        .fade-box {
+            width: 180px;
+            height: 100px;
+
+            background-color: black;
+
+            color: white;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            animation:
+                fadeIn 3s ease;
+        }
+
+
+        /* ======================================
+           15. MULTIPLE KEYFRAME STAGES
+        ====================================== */
+
+        @keyframes multiStage {
+
+            0% {
+                background-color: red;
+
+                transform: translateX(0);
+            }
+
+            25% {
+                background-color: orange;
+
+                transform: translateX(80px);
+            }
+
+            50% {
+                background-color: green;
+
+                transform: translateX(160px);
+            }
+
+            75% {
+                background-color: blue;
+
+                transform: translateX(80px);
+            }
+
+            100% {
+                background-color: purple;
+
+                transform: translateX(0);
+            }
+
+        }
+
+        .multi-box {
+            width: 100px;
+            height: 100px;
+
+            color: white;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            animation:
+                multiStage 4s ease-in-out infinite;
+        }
+
+
+        /* ======================================
+           REDUCED MOTION
+        ====================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+
+                animation-iteration-count: 1 !important;
+
+                transition-duration: 0.01ms !important;
+            }
+
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+    <h1>
+        CSS Gradients, Transitions & Animations
+    </h1>
+
+
+    <!-- ======================================
+         LINEAR GRADIENT
+    ======================================= -->
+
+    <section class="section">
+
+        <h2>
+            1. Linear Gradient
+        </h2>
+
+        <div class="demo-area">
+
+            <div class="box linear-gradient">
+                Linear Gradient
+            </div>
+
+            <div class="box angle-gradient">
+                45 Degree Gradient
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================
+         RADIAL / CONIC
+    ======================================= -->
+
+    <section class="section">
+
+        <h2>
+            2. Radial & Conic Gradient
+        </h2>
+
+        <div class="demo-area">
+
+            <div class="box radial-gradient">
+                Radial
+            </div>
+
+            <div class="box conic-gradient">
+                Conic
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================
+         GRADIENT TEXT
+    ======================================= -->
+
+    <section class="section">
+
+        <h2>
+            3. Gradient Text
+        </h2>
+
+        <div class="gradient-text">
+            CSS GRADIENT
+        </div>
+
+    </section>
+
+
+    <!-- ======================================
+         GRADIENT BORDER
+    ======================================= -->
+
+    <section class="section">
+
+        <h2>
+            4. Gradient Border
+        </h2>
+
+        <div class="demo-area">
+
+            <div class="gradient-border">
+
+                <h3>
+                    Premium Card
+                </h3>
+
+                <p>
+                    Gradient Border
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================
+         TRANSITION
+    ======================================= -->
+
+    <section class="section">
+
+        <h2>
+            5. Transition
+        </h2>
+
+        <div class="demo-area">
+
+            <div class="transition-box">
+                Hover Me
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================
+         TRANSFORM
+    ======================================= -->
+
+    <section class="section">
+
+        <h2>
+            6. Transform
+        </h2>
+
+        <div class="demo-area">
+
+            <div class="transform-box">
+                Hover Me
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================
+         BASIC KEYFRAME
+    ======================================= -->
+
+    <section class="section">
+
+        <h2>
+            7. Basic @keyframes
+        </h2>
+
+        <div class="demo-area">
+
+            <div class="animation-box">
+                Color Change
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================
+         MOVEMENT
+    ======================================= -->
+
+    <section class="section">
+
+        <h2>
+            8. Moving Animation
+        </h2>
+
+        <div class="move-area">
+
+            <div class="moving-box">
+                MOVE
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================
+         BOUNCE
+    ======================================= -->
+
+    <section class="section">
+
+        <h2>
+            9. Bouncing Ball
+        </h2>
+
+        <div class="ball-area">
+
+            <div class="ball"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================
+         LOADER
+    ======================================= -->
+
+    <section class="section">
+
+        <h2>
+            10. Rotating Loader
+        </h2>
+
+        <div class="demo-area">
+
+            <div class="loader"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================
+         PULSE
+    ======================================= -->
+
+    <section class="section">
+
+        <h2>
+            11. Pulse Animation
+        </h2>
+
+        <div class="demo-area">
+
+            <button class="pulse-button">
+                Book Now
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================
+         FADE IN
+    ======================================= -->
+
+    <section class="section">
+
+        <h2>
+            12. Fade In
+        </h2>
+
+        <div class="demo-area">
+
+            <div class="fade-box">
+                Fade In
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================
+         MULTI STAGE
+    ======================================= -->
+
+    <section class="section">
+
+        <h2>
+            13. Multiple Keyframe Stages
+        </h2>
+
+        <div class="move-area">
+
+            <div class="multi-box">
+                CSS
+            </div>
+
+        </div>
+
+    </section>
+
+
+</body>
+
+</html>
