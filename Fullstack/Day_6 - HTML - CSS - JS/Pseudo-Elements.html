@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-left: 40px;
+        }
+
+        .section {
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+        }
+
+        /* =========================
+            1. SIMPLE BEFORE / AFTER
+        ========================= */
+        .title::before {
+            content: "🔥 ";
+        }
+
+        .title::after {
+            content: " ✓";
+            color: green;
+        }
+
+        /* =========================
+            2. REQUIRED STAR
+        ========================= */
+        input {
+            padding: 10px;
+            margin-bottom: 15px;
+            width: 250px;
+        }
+
+        .required::after {
+            content: " *";
+            color: red;
+        }
+
+        /* =========================
+            3. DECORATIVE LINE
+        ========================= */
+        .heading-line::after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 2px;
+            background-color: blue;
+            margin-top: 8px;
+        }
+
+        /* =========================
+            4. BUTTON ARROW
+        ========================= */
+        .btn {
+            padding: 15px 35px;
+            background-color: blue;
+            color: white;
+            font-weight: bolder;
+            box-shadow: 0 10px 20px 0 black;
+            border-radius: 20px;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+
+        /* Arrow already exists but is hidden */
+        .btn::after {
+            content: " →";
+            opacity: 0;
+            display: inline-block;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+        }
+
+        /* Button hover */
+        .btn:hover {
+            background-color: darkblue;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px 0 black;
+        }
+
+        /* Arrow animation */
+        .btn:hover::after {
+            opacity: 1;
+            transform: translateX(5px);
+        }
+
+        /* =========================
+            5. NOTIFICATION BADGE
+        ========================= */
+        .notification {
+            width: 60px;
+            font-size: 45px;
+            position: relative;
+        }
+
+        .notification::after {
+            content: "5";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            font-size: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* =========================
+            6. HEART USING BEFORE AND AFTER
+        ========================= */
+        .heart-container {
+            height: 420px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .heart {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+            transform: rotate(45deg);
+        }
+
+        .heart::before,
+        .heart::after {
+            content: "";
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .heart::before {
+            left: -50px;
+        }
+
+        .heart::after {
+            top: -50px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Pseudo Elements</h1>
+    <!-- =========================
+        EXAMPLE 1
+    ========================== -->
+    <div class="section">
+        <h2>1. Simple ::before and ::after</h2>
+        <h3 class="title">CSS Course</h3>
+    </div>
+    <!-- =========================
+        EXAMPLE 2
+    ========================== -->
+    <div class="section">
+        <h2 class="required">2. Required Star</h2>
+        <label class="required">Name</label>
+        <br>
+        <input type="text" placeholder="Enter your name">
+        <br>
+        <label class="required">Email</label>
+        <br>
+        <input type="email" placeholder="Enter your email">
+        <br>
+        <label>Phone</label>
+        <br>
+        <input type="tel" placeholder="Enter phone number">
+    </div>
+    <!-- =========================
+        EXAMPLE 3
+    ========================== -->
+    <div class="section">
+        <h2>3. Decorative Line</h2>
+        <h3 class="heading-line">Our Courses</h3>
+    </div>
+    <!-- =========================
+        EXAMPLE 4
+    ========================== -->
+    <div class="section">
+        <h2>4. Button Arrow</h2>
+        <button class="btn">Explore</button>
+    </div>
+    <!-- =========================
+        EXAMPLE 5
+    ========================== -->
+    <div class="section">
+        <h2>5. Notification Badge</h2>
+        <div class="notification">🔔</div>
+    </div>
+    <!-- =========================
+        EXAMPLE 6
+    ========================== -->
+    <div class="section">
+        <h2>6. Heart Using ::before and ::after</h2>
+        <div class="heart-container">
+            <div class="heart"></div>
+        </div>
+    </div>
+</body>
+
+</html>
