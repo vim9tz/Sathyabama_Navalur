@@ -1,3 +1,39 @@
 Problem 1 — Store and Print 5 Marks
 
 Create an integer array with 5 marks and display all values.
+
+Problem 2 — Sum and Average
+
+Store marks of 5 subjects in an array.
+
+Problem 3 — Read Array from User
+
+Read 5 integers from the user and store them in an array.
+
+Then print all values.
+
+ArrayList
+
+Problem 4 - Add Elements in ArrayList
+
+Problem 5 - Access Element — get()
+
+Problem 6 - Update Element — set()
+
+Problem 7 - Delete Element — remove()
+
+Problem 8 - Size — size()
+
+Problem 9 - Search — contains()
+
+Problem 10 - Find Index — indexOf()
+
+Problem 11 - Check Empty — isEmpty()
+
+Problem 12 - Clear All Elements — clear()
+
+Problem 13 - Copy ArrayList
+
+Problem 14 - Add Another Collection — addAll()
+
+Problem 15 - Sort ArrayList

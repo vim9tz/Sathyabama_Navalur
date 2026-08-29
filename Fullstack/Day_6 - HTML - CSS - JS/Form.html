@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="/Fullstack/Day_6 - HTML - CSS - JS/register.html" method="post">
+        <label for="name">Name: (A-Z)</label>
+        <input type="text" name="name" required minlength="10" pattern="[A-z]+">
+        <br>
+        <br>
+        <label for="email">Email: </label>
+        <input type="email" name="email" required>
+        <br>
+        <br>
+        <label for="password">Password: </label>
+        <input type="password" name="password" required>
+        <br>
+        <br>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="15" cols="40" min="20" max="200"
+            placeholder="Enter your message"></textarea>
+        <br>
+        <br>
+        <label for="department">
+            Department
+        </label>
+        <select id="department" name="department">
+            <option value="cse">
+                CSE
+            </option>
+            <option value="ece">
+                ECE
+            </option>
+            <option value="eee">
+                EEE
+            </option>
+        </select>
+        <br>
+        <br>
+        <input type="checkbox" id="id" name="checkbox" required />
+        <label for="checkbox">Terms and Conditions</label>
+        <br>
+        <br>
+        <button type="reset">
+            Clear
+        </button>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+</html>

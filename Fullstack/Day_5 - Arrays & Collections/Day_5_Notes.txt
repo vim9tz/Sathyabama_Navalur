@@ -14,3 +14,102 @@ Array vs ArrayList (Difference)
 1. Array fixed in size. ArrayList dynamic and grow or shrink as needed.
 2. Array [] operator to access elements. ArrayList uses methods add(), remove() and get().
 3. Array supports data types and objects. Array list supports only objects.
+
+ARRAY
+================================
+Fixed size
+Same type
+Index-based
+Fast/basic structure
+        ↓
+Problem:
+"What if size changes?"
+        ↓
+ARRAYLIST
+================================
+Dynamic size
+add()
+remove()
+get()
+set()
+contains()
+size()
+        ↓
+COLLECTIONS
+================================
+List
+Set
+Map
+Iterator
+
+Feature        Array                    ArrayList
+-------------  -----------------------  ------------------------
+Size           Fixed                    Dynamic
+Syntax         int[]                    ArrayList<Integer>
+Add            Manual / fixed           add()
+Get            arr[index]               get(index)
+Update         arr[index] = value       set(index, value)
+Delete         Manual                   remove()
+Length         length                   size()
+Search         Manual loop              contains()/indexOf()
+Primitive      Supported                Wrapper class required
+Collections    No                       Yes
+
+
+Array:
+int[] numbers = new int[5];
+
+ArrayList:
+ArrayList<Integer> numbers = new ArrayList<>();
+
+Requirement                         Suitable Structure
+------------------------------------------------------
+Student registration order         List
+Unique email addresses             Set
+Employee ID → Employee Name        Map
+
+JAVA COLLECTIONS FRAMEWORK
+================================================
+
+                Iterable
+                   |
+              Collection
+                   |
+        -----------------------
+        |                     |
+       List                  Set
+        |                     |
+    ArrayList              HashSet
+    LinkedList             LinkedHashSet
+                           TreeSet
+
+
+Map
+ |
+HashMap
+LinkedHashMap
+TreeMap
+
+
+HashSet
+→ Unique elements
+→ No guaranteed iteration order
+
+
+LinkedHashSet
+→ Unique elements
+→ Maintains insertion order
+
+TreeSet
+→ Unique elements
+→ Sorted according to natural ordering
+
+Map
+
+Employee ID → Employee Name
+
+101 → Arun
+102 → Priya
+103 → Rahul
+
+Key  → Value

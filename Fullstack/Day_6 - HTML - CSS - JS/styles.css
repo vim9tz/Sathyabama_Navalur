@@ -1,0 +1,113 @@
+/* Universal Selector */
+* {
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+/* Element Selector */
+body {
+  background-color: rgb(230, 227, 255);
+}
+p {
+  font-style: italic;
+}
+/* ID Selector */
+#heading1 {
+  font-weight: 200;
+  color: rgb(255, 158, 31);
+  font-family: serif;
+}
+/* Class Selectors */
+.red {
+  color: red;
+}
+.green {
+  color: green;
+}
+.blue {
+  color: blue;
+}
+.card {
+  border: 4px dotted red;
+  width: 200px;
+  height: 200px;
+  /* T R B L = Top → Right → Bottom → Left */
+  padding: 5px 2px;
+  margin: 5px;
+  border-radius: 50%;
+  text-align: center;
+}
+/* Descendant Selector */
+.card p {
+  color: blue;
+}
+/* Group Selector - COMMA */
+.a1,
+.a2,
+.a3 {
+  padding: 5px;
+  margin: 5px;
+}
+/*
+SPACE → anywhere inside
+>     → directly inside
+*/
+/* Descendant/Child Selector - SPACE/> */
+.classroom > p {
+  background-color: lightgreen;
+}
+
+/* Adjacent/General Sibling Selector - +/~ */
+h2 ~ p {
+  background-color: yellow;
+}
+
+input {
+  padding: 10px;
+  outline: none;
+}
+input[type="text"] {
+  background-color: lightpink;
+  border: none;
+  transition: 0.3s;
+}
+input[type="text"]:hover {
+  transform: scale(1.2);
+}
+input[type="text"]:focus {
+  border: 2px solid blue;
+}
+input[type="email"] {
+  background-color: rgb(174, 255, 168);
+}
+input[type="password"] {
+  background-color: rgb(180, 190, 255);
+}
+input[type="number"] {
+  background-color: rgb(255, 226, 167);
+}
+
+button {
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+}
+
+button[type="submit"] {
+  background-color: black;
+  color: white;
+  transition: 0.3s;
+}
+
+/* Pseudo Selector Hover - : */
+button[type="submit"]:hover {
+  background-color: rgb(255, 40, 40);
+  color: white;
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+button[type="submit"]:active {
+  border: 2px solid green;
+}
+
+

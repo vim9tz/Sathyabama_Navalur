@@ -1,0 +1,379 @@
+Webpage
+
+Document
+│
+└── html
+    │
+    ├── head
+    │   │
+    │   └── title
+    │       └── "Student Portal"
+    │
+    └── body
+        │
+        ├── h1
+        │   └── "Welcome"
+        │
+        └── div
+            │
+            ├── h2
+            │   └── "Student Details"
+            │
+            ├── p
+            │   └── "Name: Arun"
+            │
+            └── p
+                └── "Department: CSE"
+
+
+1. Root Element -> Everything on the page is normally contained inside it
+<html>
+
+             html
+            /    \
+         head    body
+
+2. Parent -> An element containing another element is its parent.
+<body>
+    <h1>Welcome</h1>
+    <div>
+        <p>Hello</p>
+    </div>
+</body>
+
+3. Child -> An element directly inside another element is its child.
+<div>
+    <h2>Student</h2>
+    <p><em>Arun<em></p>
+</div>
+       div
+      /   \
+    h2     p
+
+4. Siblings -> Elements that share the same parent are siblings.
+
+<div>
+    <h2>Student Details</h2>
+    <p>Arun</p>
+    <button>View</button>
+</div>
+
+           div
+        /   |    \
+      h2    p    button
+
+5. Ancestor -> An ancestor is any element higher up in the tree.
+
+<body>
+    <div>
+        <section>
+            <p>Hello</p>
+        </section>
+    </div>
+</body>
+
+body
+ │
+ div
+ │
+ section
+ │
+ p
+
+ 6. Descendant -> Descendant is the opposite of ancestor.
+
+ body
+ │
+ div
+ │
+ section
+ │
+ p
+
+ 7. Parent vs Ancestor
+
+ <div> // ancestor
+    <section> // parent
+        <p>Hello</p>
+    </section>
+</div>
+
+section
+→ Parent
+div
+→ Ancestor
+
+8. Child vs Descendant
+
+div
+ │
+ section
+ │
+ p
+
+ section
+→ Child
+
+section + p
+→ Descendants
+
+9. Why Is the HTML Tree Important?
+
+CSS
+→ Select elements based on relationships
+
+JavaScript
+→ Find and modify elements
+
+DOM
+→ Browser representation of HTML
+
+Events
+→ Button clicks, form submissions, etc.
+
+Styling
+
+Inline CSS
+Internal CSS
+External CSS
+
+HTML TREE STRUCTURE
+=========================================
+
+HTML elements are organized in a hierarchical tree structure.
+
+ROOT
+-----------------------------------------
+<html>
+Main/root HTML element.
+
+PARENT
+-----------------------------------------
+Element directly containing another element.
+
+CHILD
+-----------------------------------------
+Element directly inside another element.
+
+SIBLING
+-----------------------------------------
+Elements having the same parent.
+
+ANCESTOR
+-----------------------------------------
+Any element above another element.
+
+DESCENDANT
+-----------------------------------------
+Any element contained somewhere below
+another element.
+
+EXAMPLE
+-----------------------------------------
+html
+│
+├── head
+│   └── title
+│
+└── body
+    │
+    ├── h1
+    │
+    └── div
+        │
+        ├── h2
+        ├── p
+        └── button
+
+For h2:
+Parent      → div
+Sibling     → p, button
+Ancestors   → div, body, html
+
+For div:
+Children    → h2, p, button
+Parent      → body
+Ancestor    → body, html
+
+WHY IMPORTANT?
+-----------------------------------------
+HTML Tree
+   ↓
+DOM
+   ↓
+CSS Selectors
+   ↓
+JavaScript DOM Manipulation
+
+Document Structure
+<!DOCTYPE html>, <html>, <head>, <body>
+
+Metadata (Browser/page information)
+<title>, <meta>, <link>, <style>
+
+Semantic/layout Structure (Meaningful Page Structure)
+<header>, <nav>, <main>, <section>,
+<article>, <aside>, <footer>
+
+Text (Text/content)
+
+<h1>–<h6>, <p>, <span>,
+<br>, <hr>, <q>, <blockquote>
+
+Text Semantics (Meaning/emphasis)
+
+<strong>, <em>, <mark>,
+<small>, <code>, <pre></pre>
+
+Links (Navigation)
+<a>
+
+Lists (Lists)
+<ul>, <ol>, <li>
+
+Media (Media)
+<img>, <audio>, <video>
+
+Containers (Grouping elements)
+<div>, <span>
+
+Tables (Tabular data)
+
+<table>, <thead>, <tbody>,
+<tr>, <th>, <td>
+
+Forms (User input)
+
+<form>, <label>, <input>, <textarea>,
+<select>, <option>, <button>
+
+Advanced Forms (Structured forms)
+
+<fieldset>, <legend>,
+<datalist>, <output>
+
+Student Details
+S.no	Name	Roll No.	Dept.
+1.	Arun	46567688	CSE
+2.	Babu	56576878
+
+├── INPUT TYPES
+│      ├── text
+│      ├── email
+│      ├── password
+│      ├── number
+│      ├── radio
+│      ├── checkbox
+│      ├── date
+│      └── file
+
+CSS
+│
+├── Syntax
+│   └── Selector → Property → Value
+│
+├── Adding CSS
+│   ├── Inline
+│   ├── Internal
+│   └── External
+│
+├── Selectors
+│   ├── Element
+│   ├── Class
+│   ├── ID
+│   ├── Universal
+│   ├── Group
+│   ├── Descendant
+│   ├── Child
+│   ├── Sibling
+│   └── Attribute
+│
+Pseudo
+│
+├── Pseudo-classes :
+│   ├── :hover
+│   ├── :focus
+│   ├── :active
+│   ├── :checked
+│   ├── :valid
+│   └── :invalid
+│
+└── Pseudo-elements ::
+    ├── ::before
+    └── ::after│
+├── Styling
+│   ├── Colors
+│   ├── Background
+│   ├── Text
+│   ├── Fonts
+│   ├── Borders
+│   └── Shadows
+│
+├── Units
+│   ├── px
+│   ├── %
+│   ├── rem
+│   ├── em
+│   ├── vw
+│   └── vh
+│
+├── Box Model
+│   ├── Content
+│   ├── Padding
+│   ├── Border
+│   └── Margin
+│
+├── Layout Basics
+│   ├── width / height
+│   ├── min / max
+│   ├── overflow
+│   ├── display
+│   ├── visibility
+│   ├── position
+│   └── z-index
+│
+├── CSS Behaviour
+│   ├── Cascade
+│   ├── Specificity
+│   └── Inheritance
+│
+└── Effects
+    ├── transition
+    ├── transform
+    ├── CSS variables
+    └── calc()
+
+.classroom
+│
+├── h2  Class A
+│
+├── .team
+│    ├── p  Student 1
+│    ├── p  Student 2
+│    │
+│    └── .sub-team
+│         └── p  Student 3
+│
+├── p  Student 4
+│
+└── p  Student 5
+
+
+p Student 6
+(OUTSIDE .classroom)
+
+           PSEUDO
+              │
+       ┌──────┴──────┐
+       │             │
+       :             ::
+ Pseudo-class   Pseudo-element
+       │             │
+     STATE        PART/GENERATED
+       │             │
+   :hover         ::before
+   :focus         ::after
+   :active
+   :checked
+   :valid
+   :invalid
