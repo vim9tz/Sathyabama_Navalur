@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>CSS Gradients and Animations</title>
-
     <style>
         * {
             box-sizing: border-box;
@@ -15,11 +13,8 @@
 
         body {
             margin: 0;
-
             font-family: Arial, sans-serif;
-
             background-color: #f4f4f4;
-
             padding: 30px;
         }
 
@@ -33,46 +28,31 @@
 
         .section {
             max-width: 1000px;
-
             margin: 30px auto;
-
             padding: 25px;
-
             background-color: white;
-
             border-radius: 12px;
-
             border: 1px solid #ddd;
         }
 
         .demo-area {
             display: flex;
-
             gap: 20px;
-
             flex-wrap: wrap;
-
             align-items: center;
-
             justify-content: center;
         }
 
         .box {
             width: 180px;
             height: 120px;
-
             display: flex;
-
             justify-content: center;
             align-items: center;
-
             border-radius: 12px;
-
             font-weight: bold;
-
             text-align: center;
         }
-
 
         /* ======================================
            1. LINEAR GRADIENT
@@ -140,26 +120,18 @@
 
         .gradient-text {
             font-size: 50px;
-
             font-weight: bold;
-
             text-align: center;
-
             background:
                 linear-gradient(to right,
                     red,
                     purple,
                     blue);
-
             background-clip: text;
-
-            -webkit-background-clip: text;
-
             color: transparent;
-
+            -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
 
         /* ======================================
            6. GRADIENT BORDER
@@ -167,19 +139,13 @@
 
         .gradient-border {
             width: 300px;
-
             padding: 30px;
-
             text-align: center;
-
             border: 5px solid transparent;
-
             border-radius: 20px;
-
             background:
                 linear-gradient(white,
                     white) padding-box,
-
                 linear-gradient(to right,
                     red,
                     purple,
@@ -194,27 +160,22 @@
         .transition-box {
             width: 150px;
             height: 100px;
-
             background-color: blue;
-
             color: white;
-
             display: flex;
-
             justify-content: center;
             align-items: center;
-
             cursor: pointer;
-
             transition:
-                background-color 0.5s ease,
-                transform 0.5s ease;
+                background-color 0.5s ease-in,
+                transform 0.5s ease-out,
+                color 0.5s ease-in-out;
         }
 
         .transition-box:hover {
             background-color: green;
-
             transform: scale(1.2);
+            color: rgb(52, 19, 149);
         }
 
 
@@ -225,14 +186,10 @@
         .transform-box {
             width: 150px;
             height: 100px;
-
             background-color: orange;
-
             display: flex;
-
             justify-content: center;
             align-items: center;
-
             transition: transform 0.5s ease;
         }
 
@@ -241,13 +198,11 @@
                 translateX(20px) rotate(10deg) scale(1.1);
         }
 
-
         /* ======================================
            9. BASIC KEYFRAME ANIMATION
         ====================================== */
 
         @keyframes colorChange {
-
             from {
                 background-color: red;
             }
@@ -255,26 +210,18 @@
             to {
                 background-color: blue;
             }
-
         }
 
         .animation-box {
             width: 150px;
             height: 100px;
-
             color: white;
-
             display: flex;
-
             justify-content: center;
             align-items: center;
-
             animation-name: colorChange;
-
-            animation-duration: 2s;
-
+            animation-duration: 1.2s;
             animation-iteration-count: infinite;
-
             animation-direction: alternate;
         }
 
@@ -301,25 +248,18 @@
 
         .move-area {
             width: 100%;
-
             min-height: 100px;
-
             overflow: hidden;
         }
 
         .moving-box {
             width: 80px;
             height: 80px;
-
             background-color: purple;
-
             color: white;
-
             display: flex;
-
             justify-content: center;
             align-items: center;
-
             animation:
                 moveBox 3s ease-in-out infinite;
         }
@@ -347,22 +287,16 @@
 
         .ball-area {
             height: 180px;
-
             display: flex;
-
             justify-content: center;
-
             align-items: flex-end;
         }
 
         .ball {
             width: 60px;
             height: 60px;
-
             background-color: red;
-
             border-radius: 50%;
-
             animation:
                 bounce 1s ease-in-out infinite;
         }
