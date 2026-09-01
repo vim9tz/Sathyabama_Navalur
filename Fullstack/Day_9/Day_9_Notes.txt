@@ -1,0 +1,17 @@
+student-crud-api
+│
+├── pom.xml
+│
+└── src
+    └── main
+        ├── java
+        │   └── com
+        │       └── example
+        │           ├── DBConnection.java
+        │           ├── Student.java
+        │           ├── StudentDAO.java
+        │           └── StudentServlet.java
+        │
+        └── webapp
+            └── WEB-INF
+                └── web.xml

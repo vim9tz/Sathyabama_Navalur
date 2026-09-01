@@ -1,0 +1,190 @@
+https://dev.mysql.com/downloads/workbench/
+https://dev.mysql.com/downloads/installer/
+
+IntelliJ
+Mysql - Server
+Mysql - Workbench
+
+CLIENT SIDE
+────────────────────────
+
+Chrome / Safari / Firefox
+Mobile App
+Postman
+Frontend Application
+
+        │
+        │ HTTP Request (GET/POST) (CRUD)
+        │ "Give me student 101"
+        ↓
+
+SERVER SIDE
+────────────────────────
+
+Tomcat Server
+(Servlet Container)
+        │
+        │ Finds the correct Servlet
+        ↓
+StudentServlet
+        │
+        │ "Let me find student 101"
+        ↓
+Service / Business Logic
+        │
+        ↓
+Database (MySQL)
+        │
+        │ Student data
+        ↑
+Service
+        │
+        ↑
+StudentServlet
+        │
+        │ Creates HTTP Response
+        ↑
+Tomcat
+        │
+        │ HTTP Response
+        ↓
+
+CLIENT SIDE
+────────────────────────
+
+Browser / App / Postman
+
+"Student 101 Found!"
+
+C:\apache-tomcat-11.1.xx\bin
+
+Environment variables
+
+JAVA_HOME C:\Program Files\Java\jdk-21
+CATALINA_HOME C:\apache-tomcat-11.1.xx
+
+https://api.example.com/students
+        └─────────────┘
+             Host
+Domain = Company / Building
+Host   = Specific department inside it
+
+example.com
+    |
+    |-- www.example.com    → Website host
+    |-- api.example.com    → API host
+
+https:// students . example . com / Dashboard
+   │        │          │       │       │
+Protocol  Subdomain  Domain   TLD     Path
+
+http://127.0.0.1:8080
+       │         │
+       │         └── Tomcat port
+       └──────────── Your own computer
+
+Browser
+   ↓
+http://localhost:8080
+   ↓
+Tomcat
+   ↓
+Your Servlet
+
+
+Backend computer -> port -> services -> (Server Instance (Tomcat), Database (Mysql), Backend (Java/Springboot))
+
+Frontend compurer -> port (Frontend (NextJS/React), Browser (Chrome/Safari))
+
+System variables
+CATALINA_HOME C:\apache-tomcat-11.0.25
+
+User variables
+Path > Edit > New %CATALINA_HOME%\bin
+
+System variables
+MAVEN_HOME C:\apache-maven-3.9.16
+
+User variables
+Path > Edit > New %MAVEN_HOME%\bin
+
+System variables
+MYSQL_HOME C:\Program Files\MySQL\MySQL Server 8.4
+
+User variables
+Path > Edit > %MYSQL_HOME%\bin
+
+https://dev.mysql.com/downloads/
+
+
+REST → Representational State Transfer
+API  → Application Programming Interface
+
+Resource: students
+
+GET    /students        → Read students
+POST   /students        → Create student
+PUT    /students/101    → Update student 101
+DELETE /students/101    → Delete student 101
+
+
+JAVA - Programming Language
+GITHUB / GIT - Version Control
+VS CODE / IntelliJ - IDE
+MYSQL / MYSQL Workbench - Database
+Postman - API Client
+
+Tomcat - Servers Client
+MAVEN - Build/Dependency Management
+
+
+Mock API - https://jsonplaceholder.typicode.com
+
+1. GET — Read data
+
+GET = Retrieve/read data
+
+https://jsonplaceholder.typicode.com/posts (All Posts)
+https://jsonplaceholder.typicode.com/posts/1 (Single Post)
+
+Client/Postman
+      |
+      | GET /posts
+      v
+Mock REST API
+      |
+      | JSON response
+      v
+Postman
+
+2. POST — Create data
+
+POST = Create a new resource
+
+Endpoint - https://jsonplaceholder.typicode.com/posts
+
+Headers -  Content Type Application/JSON
+Payload (JSON RAW):
+{
+  "userId": 1,
+  "title": "Learning REST API",
+  "body": "This post was created using Postman"
+}
+
+student-crud-api
+│
+├── pom.xml
+│
+└── src
+    └── main
+        ├── java
+        │   └── com
+        │       └── example
+        │           ├── DBConnection.java
+        │           ├── Student.java
+        │           ├── StudentDAO.java
+        │           └── StudentServlet.java
+        │
+        └── webapp
+            └── WEB-INF
+                └── web.xml
